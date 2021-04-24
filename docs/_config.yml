@@ -21,7 +21,7 @@
 title: Arthur's Site
 email: asc70@cam.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  Cambridge maths undergrad. Enjoys learning, and making machines learn too.
+  
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ArthurConmy
