@@ -4,15 +4,6 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
-
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
+Hello! I'm Arthur Conmy, a second year undergraduate at Trinity College, Cambridge studying mathematics. I have been interested in competitive programming since late in high school, and also am dabbling in machine learning and software engineering.
 
 [jekyll-organization]: https://github.com/jekyll
