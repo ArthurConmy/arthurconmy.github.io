@@ -1,0 +1,114 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{multirow}
+\usepackage{array}
+% \usepackage{program}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\title{Geometry}
+\author{Arthur Conmy\footnote{Please send any corrections and/or feedback to \url{asc70@cam.ac.uk}.}}
+\date{Part IB, Lent Term 2021}
+
+\maketitle
+\begin{abstract}
+These brief notes are based on lectures given (virtually) by Professor I. Smith in Lent term 2021. 
+Credit is also due to Evan Chen for the style file for these notes\footnote{Available here: \url{https://github.com/vEnhance/dotfiles/blob/master/texmf/tex/latex/evan/evan.sty}.}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Topology}
+
+This is (mostly!) a pure course, so we build up our object of study from definitions, and then eventually get to prove interesting things about those object. The following definition is the most important and foundational in this course.
+
+\begin{definition}
+[Surface]
+\label{surface definition}
+A \vocab{surface} is a topological space $\Sigma$ such that every $p \in \Sigma$ has a neigbourhood homeomorphic to $\RR^2$.
+
+In this course, we also impose the conditions that $\Sigma$ is Hausdorff and second countable.
+\end{definition}
+
+\begin{remark}
+Generalising the above to homeomorphism to $\RR^n$ gives rise to a \vocab{manifold}, a more general object.
+\end{remark}
+
+\begin{remark}
+Forgotten what Hausdorff means again? Never forget again: a topological space $X$ is Hausdorff iff we can `house off' every pair of points: that is to say $\forall p \neq q$, there exist \textit{disjoint} open sets $U, V \subset X$ such that $p \in U$ and $q \in V$.
+\end{remark}
+
+(\ref{surface definition}) is a \textit{local} condition on our topological space. We will want to work with more global properties of our surfaces, so we define \vocab{atlases}.
+
+\begin{definition}
+An \vocab{atlas} for a surface $\Sigma$ is a set of open sets called \vocab{charts} $\{ U_i \}$ (indexed by some index set $\mathcal{I}$, say), such that 
+
+\begin{equation}
+    \bigcup_{i \in \mathcal{I}} U_i = \Sigma.
+\end{equation}
+
+Usually, we associate with each $U_i$ a homeomorphism $\phi_i : U_i \rightarrow V_i \subset \RR^2$.
+\end{definition}
+
+What's the point of this definition? We know that all $p \in \Sigma$ have local ngbds homeomorphic to $\RR^3$, so don't we essentially already have a bunch of open sets that cover our surface? The elegance of atlases is that they allow us to describe surfaces we do not have a clean parametrisation for \textit{with a single atlas}.
+
+\begin{example}
+[Single charts do not suffice]
+
+In 1A Vector Calculus, we commonly parametrised $S^2$ by
+
+\begin{equation}
+    \sigma(u, v) = \begin{pmatrix}\cos u \sin v\\ \sin u \sin v\\ \cos v \end{pmatrix}
+\end{equation}
+
+where $u \in U := [0, 2 \pi]$ and $v \in V := [0, \pi]$. But we can't just choose $U \times V$ as our ngbd to all points on $S^2$; we don't get a homeomorphism $\phi : S^2 \rightarrow U \times V$ since $v = 0$ (or $\pi$) leads to the $u$ coordinate 
+\end{example}
+
+In the following section, we specialise to surfaces that are subspaces of $\RR^3$. Note that note this is not possible for all surfaces; the classic example is the Klein bottle, which self-intersects when we try and embed it into $\RR^3$, and hence (considering the subspace topology on $\RR^3$) at these points of intersection points do not have local neighbourhoods homeomorphic to $\RR^3$.
+
+\begin{definition}
+[Smooth Surface]
+
+A smooth surface in $\RR^3$ is 
+\end{definition}
+
+\section{Linear Algebra}
+
+The previous section shows 
+
+\begin{definition}
+The shape operator $\mathbb{S}$ is the negative derivative of the Gauss map 
+
+\begin{equation}
+    \mathbb{S} = - D N|_p.
+\end{equation}
+
+The following theorem shows that this makes sense as a linear map $T_p \Sigma \rightarrow T_p \Sigma$.
+\end{definition}
+
+\begin{theorem}
+\begin{equation}
+    \T{I}(v,w) = \T{II}(\mathbb{S}v,w)
+\end{equation}
+
+\begin{proof}
+Our bilinear forms $\T{I}$ and $\T{II}$ are only defined on 2D subspaces of $\RR^3$, but in fact $\mathbb{S}$ always lies in the tangent space $T_p \Sigma$:
+
+% But indeed since $N$ always maps to the normal 
+\end{proof}
+\end{theorem}
+
+\section{Analysis}
+
+\subsection{Geodesic normal form}
+
+\begin{thebibliography}{9}
+\bibitem{Course Notes}
+Rajen D. Shah (2021), \emph{Mathematics of Machine Learning}, \url{http://www.statslab.cam.ac.uk/~rds37/teaching/machine_learning/notes.pdf}.
+
+\bibitem{MIT Notes}
+Philippe Rigollet, \emph{18.657: Mathematics of Machine Learning}, \url{https://ocw.mit.edu/courses/mathematics/18-657-mathematics-of-machine-learning-fall-2015/lecture-notes/MIT18_657F15_LecNote.pdf}.
+
+\end{thebibliography}
+\end{document}
