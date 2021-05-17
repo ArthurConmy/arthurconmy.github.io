@@ -8,7 +8,7 @@ This page will hopefully store my notes on various maths courses, and will hopef
 
 ## Part IB
 
-# Geometry <a href="../assets/Geometry.pdf" target="_blank">[link]</a>, incomplete, last updated 16th May 2021
+# Geometry <a href="../assets/Geom.pdf" target="_blank">[link]</a>, incomplete, last updated 17th May 2021
 
 I found this course hard, and found a number of sections of the course covered at a rapid speed. My goal in these notes is to distill the important intuitions, but also fill in details in the sections I was less clear about.
 
