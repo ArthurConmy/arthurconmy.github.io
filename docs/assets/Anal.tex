@@ -1,0 +1,290 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{array}
+% \usepackage{program}
+% \usepackage{algorithm}
+% \usepackage{amsmath}
+% \usepackage{algpseudocode}
+\begin{document}
+
+\title{Some Analysis Things}
+\author{Arthur Conmy\footnote{Please send any corrections and/or feedback to \url{asc70@cam.ac.uk}.}}
+\date{Part IB, Easter Term 2021}
+
+\maketitle
+\begin{abstract}
+In these notes, I make some brief comments on the IB Analysis courses\footnote{strictly, just Analysis and Topology and Complex Analysis, but I hoep that the reader agrees that Analysis and Topology is ... more than one courses worth of material!}.
+
+Credit is due to Evan Chen for the style file for these notes\footnote{Available here: \url{https://github.com/vEnhance/dotfiles/blob/master/texmf/tex/latex/evan/evan.sty}.}.
+\end{abstract}
+
+\section{Integration}
+
+\begin{theorem}
+[Interchanging Differentiation and Integration]
+    Let $f:\RR \times [0, 1] \rightarrow \RR$  be a cts function of $\theta$ and $t$, and suppose $\frac{\partial f}{\partial \theta}$ is also cts.
+
+    Then 
+
+    \begin{equation}
+        \frac{d}{d\theta} \int_0^1 f(\theta, t) dt = \int_0^1 \frac{\partial f}{\partial \theta}(\theta, t) dt.
+    \end{equation}
+
+\begin{proof}
+    The key idea is that differentiability is a local property, so we can force the domain of $\frac{\partial f}{\partial \theta}$ to be compact.
+
+    WLOG let $\theta = 0$. Now $\forall \varepsilon > 0$, pick $\delta > 0$ so that $\left| \frac{\partial f}{\partial \theta}(\theta, t) -  \frac{\partial f}{\partial \theta} (0, t) \right| < \varepsilon$ for $(\theta, t) \in [-\delta,\delta] \times [0,1]$. Then let
+
+    \begin{equation}
+        F(\theta) = \int_0^1 f(\theta, t) dt.
+    \end{equation}
+
+    Then we can directly calculate (for $|h| < \delta$)
+
+    \begin{equation}
+        \frac1h (F(h) - F(0))) = \int_0^1 \frac{f(h, t) - f(0, t)}{h} dt = \int_0^1 \frac{\partial f}{\partial \theta}(\theta_t, t) dt.
+    \end{equation}
+
+    where the last equality follows from the mean value theorem. $\theta_t \in (-|h|, |h|)$ is a function of $t$\footnote{Extra: can we always make it a \emph{cts} function of $t$?}. %, by the continuity of $\frac{\partial f}{\partial \theta}$.
+
+    But our choice of delta means that this differs by at most $\varepsilon$ from
+
+    \begin{equation}
+        \int_0^1 \frac{\partial f}{\partial \theta}(0, t) dt,
+    \end{equation}
+
+    so we're done.
+
+    % \begin{equation}
+        % \left| \frac{\partial f}{\partial \theta}(t, \theta_t) - \frac{\partial f}{\partial \theta}(t, \theta) \right|
+    % \end{equation}
+
+    % $[\theta_0 - \delta, \theta_0 + \delta] \times [a, b]$ is compact, and hence $\frac{\partial f}{\partial \theta}$ is bounded on it, say by $M$. So $\forall \varepsilon > 0$ we can make $\delta$ sufficiently small so tha
+\end{proof}
+\label{switcheroo}
+\end{theorem}
+
+\begin{theorem}
+[CIF for Derivatives]
+
+Let $U$ be a domain and $f : U \to \CC$ holomorphic. Let $D(0, 1) \subseteq U$ and $w \in D(0, 1)$. Then
+
+\begin{equation}
+    f^{(n)}(w) = \frac{1}{n!} \oint_{\partial D(0, 1)} \frac{f(z)}{(z-w)^{n+1}} dz.
+\end{equation}
+
+\begin{proof}
+    Case $n=1$ is the ordinary integral formula, and we show how the $n=2$ arises by applying (\ref{switcheroo}). The higher order cases arise similarly.
+
+    We can write the $n=1$ case as
+
+    \begin{equation}
+        \oint_{\partial D(0, 1)} \frac{f(z)}{z-w} dz = \int_0^1 \frac{f(\gamma(t))\gamma'(t)}{\gamma(t)-w} dt.
+    \end{equation}
+
+    where $\gamma(t) = e^{2 \pi i t}$. We can now directly apply the previous result, since the integrand's partial $w$ derivative is indeed cts, provided we localise to a ball around $w$ (so that the $\frac{1}{\gamma(t)-w}$ term doesn't get very large).
+\end{proof}
+\end{theorem}
+
+% \begin{proof}
+    % Deduce the 
+% \end{proof}
+
+\section{Differentiation}
+
+I don't think this part of the course needs to be anywhere near as feared as it is currently.
+
+\begin{definition}
+[Norm]
+
+Let $V$ be a real vector space. A norm on $V$ is a function $||.|| : V \rightarrow \RR$ satisfying
+
+\begin{itemize}
+\item $||v|| \ge 0$, with equality iff $v=0$.
+\item $||v+w|| \le ||v|| + ||w||$.
+\item $||\lambda v|| = |\lambda| ||v||$.
+\end{itemize}
+\end{definition}
+
+\begin{remark}
+This naturally induces a topology on $V$ by turning it into a metric space with distance function $d(v,w) = ||v-w||$.
+\end{remark}
+
+\begin{theorem}
+[Only one norm]
+
+Let $V$ be a finite dimensional vector space. Then all norms on $V$ are Lipschitz equivalent.
+
+\begin{proof}
+
+Fix a basis $e_1, ... , e_n$ of $V$. Then let $||.||_2$ be the Euclidean norm, i.e
+
+\begin{equation}
+    ||\lambda_1 e_1 + .. + \lambda_n e_n||_2 = \sqrt{ \lambda_1^2 + ... + \lambda_n^2 }.
+\end{equation}
+
+We show that all norms are Lipschitz equivalent to the Euclidean norm, and since Lipschitz equivalence is an equivalence relation, this will suffice.
+
+\begin{itemize}
+    \item $\exists m > 0$ such that $||v|| \le m ||v||_2$ for all $v \in V$:
+    
+    Direct application of the triangle inequality. Let 
+
+    \begin{equation}
+        E = \max_{i=1}^n ||e_i|| > 0.
+    \end{equation}
+
+    Then if $v = \lambda_1 e_1 + ... + \lambda_n e_n$, and
+
+    \begin{equation}
+        \Lambda = \max_{i=1}^n |\lambda_i|,
+    \end{equation}
+
+    then 
+
+    \begin{equation}
+        ||v|| \le |\lambda_1| ||e_1|| + ... + |\lambda_n| ||e_n|| \le E (|\lambda_1| + |\lambda_2| + ... + |\lambda_n|)
+    \end{equation}
+
+    where the first inequality follows from the triangle inequality. So
+
+    \begin{equation}
+        ||v|| \le nE\Lambda.
+    \end{equation}
+
+    Now $||v||_2 \ge \Lambda$ and hence $m = nE$ works (note we need $\Lambda$ independence, but $E$ dependence is fine since the former is a property of the specific $v$, but the latter a property of the norm).
+
+    \item $\exists M > 0$ such that $||v|| \ge M ||v||_2$ for all $v \in V$:
+    
+    Less obvious.
+
+\end{itemize}
+\end{proof}
+\end{theorem}
+
+Why does this matter? Recall the definition of differentiablility
+
+\begin{definition}
+
+$f: \RR^m \to \RR^n$ is differentiable at $p$ with derivative the linear map $T(p)(h)$ if 
+
+\begin{equation}
+    \lim_{h : ||h||_2 \rightarrow 0} \frac{ || f(p + h) - f(p) - T(p)(h) ||_2 }{||h||_2}.
+\end{equation}
+
+\label{derivvers}
+% where the limit is taken over $h \in \RR^m$
+\end{definition}
+
+The important thing to notice here is that while $f$ and $T(p)$ are both maps from $\RR^m$, the former exclusively maps from points very close to $p$, and the latter exclusively maps from points very close to 0. If this isn't clear, chapter 42 of \cite{Napkin} (Napkin) provides a far better explanation than what I can give (and includes pictures!).
+
+To be concrete however, working with a multi-dimensional limit is hard. In practice, we are likely to generally use the following result (cross-posted from my Geometry notes)
+
+\begin{theorem}
+    [Computing derivatives in $n$ dimensions.]
+        Suppose that $U \subseteq^\circ \RR^m$ and $f : U \rightarrow \RR$ has continuous partial derivatives at $p \in U$. Then $f$ is differentiable at $p$, with derivative
+        
+        \begin{equation}
+            Df(p)(h) = \frac{\partial f}{\partial x_1}h_1 + \cdots + \frac{\partial f}{\partial x_m}h_m.
+            \label{Deriv1}
+        \end{equation}
+    
+        \begin{proof}
+            Actually nowhere near as bad as some analyis proofs. Decompose as a telescoping sum
+    
+            \begin{align}
+            f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1, \cdots , x_m) \\ 
+            = f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1 + h_1, \cdots , x_{m-1} + h_{m-1} , x_m) \\
+            + f(x_1 + h_1, \cdots , x_{m-1} + h_{m-1}, x_m) - f(x_1 + h_1, \cdots , x_{m-1}, x_m) \\
+            + \cdots \\
+            + f(x_1 + h_1, x_2, \cdots , x_m) - f(x_1, \cdots , x_m).
+            \end{align}
+    
+            And now by an `$m$-$\varepsilon$' proof (i.e $m$ applications of the triangle inequality), we use continuity of the $m$ partial derivatives to deduce the desired derivative expression.
+        \end{proof}
+    \label{extracting derivatives}
+\end{theorem}
+
+\begin{remark} 
+This is basically the same sort of thing we did in IA DEs when we integrated from $(x_1, y_1)$ to $(x_2, y_2)$ by first travelling from $(x_1, y_1)$ to $(x_2, y_1)$ (with fixed $y$ value) and then from $(x_2, y_1)$ to $(x_2, y_2)$ (with fixed $x$ value), like a staircase.
+\end{remark}
+
+\begin{remark}
+    Actually, the last term in the telescoping series, $f(x_1 + h_1, x_2, \cdots , x_m) - f(x_1, \cdots , x_m)$ \emph{is} the partial derivative (in $x_1$) of $f$ at $(x_1, ... , x_n)$. So we only need continuity of $n-1$ of the partial derivatives at a point, and existence of the last, in order to deduce differentiablility at a point.
+\end{remark}
+
+Look again at (\ref{derivvers}). There's nothing special about $||.||_2$! For our purposes, a more useful norm is the \vocab{operator norm}.
+
+\begin{definition}
+[Operator norm]
+
+The \vocab{operator norm} on the space of linear maps $L(\RR^m, \RR^n)$ is the value
+
+\begin{equation}
+    \sup_{x \neq 0} \frac{||L(x)||_2}{||x||_2}.
+\end{equation}
+\end{definition}
+
+This has the property that it is \emph{sub-multiplicative}, i.e $||AB|| \le ||A||||B||$ (exercise to reader).
+
+\begin{example}
+[2019 P1L]
+
+The matrix function $f(M) = M^{-1}$ is differentiable at $I$.
+
+\begin{proof}
+
+    The following proof relies on the fact that the set of $n \times n$ invertible matrices is an open subset in the set of $n \times n$ matrices (see the example sheet).
+
+    We first (e.g by checking the one-dimensional case) convince ourselves that the answer is $-I$. This leaves us to verify that
+
+    \begin{equation}
+        \frac{ || (I+H)^{-1} - I + H|| }{|| H ||} \to 0.
+    \end{equation}
+
+    Now we can check that 
+
+    \begin{equation}
+        (I+H)^{-1} - I + H = H^2 (I + H)^{-1}.
+    \end{equation}
+
+    So using the sub-multiplicative property, since 
+    
+    \begin{equation}
+        \frac{ || (I+H)^{-1} - I + H|| }{|| H ||} \le ||H (I+H)^{-1}|| \le ||H|| ||(I+H)^{-1}||
+    \end{equation}
+
+    we only need show that that $(I+H)^{-1}$ has bounded norm for sufficiently small $H$\footnote{I can't reason this part as cleanly as I hope the rest of the proof is reasoned!}. But this is true since suppose $||v||_2 = ||w||_2 = 1$ and 
+
+    \begin{equation}
+        (I+H)^{-1} v = \lambda w,
+    \end{equation}
+
+    Then
+
+    \begin{equation}
+        \frac{1}{\lambda} v = Iw + Hw.
+    \end{equation}
+
+    Now the magnitude of the RHS is going to arbitrarily close to 1 due to the bounded operator norm of $H$. So $\lambda$ can't grow large.
+\end{proof}
+\end{example}
+
+\section{Notation and Glossary}
+
+\subsection{Notation}
+
+\subsection{Glossary}
+
+\begin{itemize}
+    \item Cts: continuous.
+\end{itemize}
+
+\begin{thebibliography}{9}
+    \bibitem{Napkin}
+    Evan Chen (2021), \emph{An Infinitely Large Napkin}, \url{https://venhance.github.io/napkin/Napkin.pdf}.
+\end{thebibliography}    
+
+\end{document}
