@@ -12,9 +12,9 @@ This page will hopefully store my notes on various maths courses, and will hopef
 
 I found this course hard, and found a number of sections of the course covered at a rapid speed. My goal in these notes is to distill the important intuitions, but also fill in details in the sections I was less clear about.
 
-# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, last updated 2nd June 2021.
+# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, last updated 16th June 2021.
 
-Only review material not lectured is covered here; I hope it provides more background for some of the course.
+Some parts of the IB Analysis courses (Analysis and Topology, and COmplex Analysis) covered in greater detail or more completely descirbed (e.g differentiation).
 
 ## Part II
 
