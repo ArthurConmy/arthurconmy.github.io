@@ -14,7 +14,7 @@ I found this course hard, and found a number of sections of the course covered a
 
 # Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, last updated 16th June 2021.
 
-Some parts of the IB Analysis courses (Analysis and Topology, and COmplex Analysis) covered in greater detail or more completely descirbed (e.g differentiation).
+Some parts of the IB Analysis courses (Analysis and Topology, and Complex Analysis) covered in greater detail or more completely descirbed (e.g differentiation).
 
 ## Part II
 
