@@ -8,13 +8,19 @@ This page will hopefully store my notes on various maths courses, and will hopef
 
 ## Part IB
 
-# Geometry <a href="../assets/Geom.pdf" target="_blank">[link]</a>, incomplete, last updated 2nd June 2021.
+# Geometry <a href="../assets/Geom.pdf" target="_blank">[link]</a>, incomplete, last updated 20th June 2021.
 
 I found this course hard, and found a number of sections of the course covered at a rapid speed. My goal in these notes is to distill the important intuitions, but also fill in details in the sections I was less clear about.
 
-# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, last updated 16th June 2021.
+All sections of the course are covered in some detail, except the final section on hyperbolic geometry.
 
-Some parts of the IB Analysis courses (Analysis and Topology, and Complex Analysis) covered in greater detail or more completely descirbed (e.g differentiation).
+# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, last updated 20th June 2021.
+
+<!-- Currently only covers a useful trick to verify the general derivative form of Cauch -->
+
+Currently covers some more background on the differentiation section of Analysis and Topology, as well as a technical detail that allows the general Cauchy's Integral Formula for derivatives to be deduced.
+
+In future, I'd like to expand this when I know more analysis.
 
 ## Part II
 

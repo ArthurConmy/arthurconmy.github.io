@@ -22,6 +22,9 @@ Credit is due to Evan Chen for the style file for these notes\footnote{Available
 
 \section{Integration}
 
+% $h(x) = \inf_{m \ge n} f_m(x)$.
+% $g(x) = \liminf_{n \to \infty} f_n(x)$.
+
 \begin{theorem}
 [Interchanging Differentiation and Integration]
     Let $f:\RR \times [0, 1] \rightarrow \RR$  be a cts function of $\theta$ and $t$, and suppose $\frac{\partial f}{\partial \theta}$ is also cts.
@@ -158,8 +161,19 @@ We show that all norms are Lipschitz equivalent to the Euclidean norm, and since
 
     \item $\exists M > 0$ such that $||v|| \ge M ||v||_2$ for all $v \in V$:
     
-    Less obvious.
+    For this direction, consider the identity map 
 
+    \begin{equation}
+        \iota : (V, ||.||_2) \rightarrow (V, ||.||)
+    \end{equation}
+
+    between metric spaces. This is continuous, by the other direction of this proof. 
+    
+    Consider the image of the set of points $S = \{  v \in V : ||v||_2 = 1 \}$. This is a compact set, since we can check that sequences have convergent subsequences since all $e_i$ components will have values that vary in some bounded range.
+
+    Now the cts image of a compact set is compact, There is a minimum value of $||\iota(v)||$ \textit{that is achieevd} for some $v \in V$, and cannot be 0 because of the definition of norm.
+
+    Then this is exactly the $M$ value needed for the proof.
 \end{itemize}
 \end{proof}
 \end{theorem}
@@ -180,7 +194,7 @@ $f: \RR^m \to \RR^n$ is differentiable at $p$ with derivative the linear map $T(
 
 The important thing to notice here is that while $f$ and $T(p)$ are both maps from $\RR^m$, the former exclusively maps from points very close to $p$, and the latter exclusively maps from points very close to 0. If this isn't clear, chapter 42 of \cite{Napkin} (Napkin) provides a far better explanation than what I can give (and includes pictures!).
 
-To be concrete however, working with a multi-dimensional limit is hard. In practice, we are likely to generally use the following result (cross-posted from my Geometry notes)
+To be concrete however, working with a multi-dimensional limit is hard. In practice, we are likely to generally use the following result (cross-posted from my Geometry notes).
 
 \begin{theorem}
     [Computing derivatives in $n$ dimensions.]
@@ -192,7 +206,7 @@ To be concrete however, working with a multi-dimensional limit is hard. In pract
         \end{equation}
     
         \begin{proof}
-            Actually nowhere near as bad as some analyis proofs. Decompose as a telescoping sum
+            Decompose as a telescoping sum
     
             \begin{align}
             f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1, \cdots , x_m) \\ 
@@ -203,6 +217,42 @@ To be concrete however, working with a multi-dimensional limit is hard. In pract
             \end{align}
     
             And now by an `$m$-$\varepsilon$' proof (i.e $m$ applications of the triangle inequality), we use continuity of the $m$ partial derivatives to deduce the desired derivative expression.
+
+            However, actually doing this is somewhat more subtle than it may seem at first (for example, to me!), since the limit $||h||_2 \to 0$ need be independent of the relative `speeds' that each $h$ component approach 0.
+
+            We illustrate how we do this in the case $m=2$; the argument is easily generalised to the higher order cases.
+
+            \begin{example}
+                WLOG show differentiability at 0.
+
+                The quantity $Q$ that we need show approaches 0 as $h_1 \to 0$ and $h_2 \to 0$ is
+
+                \begin{equation}
+                    Q = \frac{f(h_1, h_2) - f(0, 0) - h_1 \frac{\partial f}{\partial x}|_0 - h_2 \frac{\partial f}{\partial y}|_0}{\sqrt{h_1^2 + h_2^2}}
+                    \label{Q equation}
+                \end{equation}
+
+                Now by the triangle inequality, and that $\sqrt{h_1^2 + h_2^2} \ge |h_1|, |h_2|$,
+
+                \begin{equation}
+                    |Q| \le \left| \frac{f(h_1,h_2) - f(0, h_2) - h_1 \frac{\partial f}{\partial x}|_0}{h_1} \right| + \left| \frac{f(0,h_2) - f(0, 0) - h_2 \frac{\partial f}{\partial y}|_0}{h_2} \right|
+                \end{equation}
+
+                as $h_2 \to 0$, clearly the latter term approaches 0 (this is easy due to the remark (\ref{minus one remark}) made below). However, for the first term the `different speeds' issue immediately arises. To remedy this, what we can do is localise to an open set $U \oset \RR^2$ around 0 so that when $(x,y) \in U$,
+
+                \begin{equation}
+                    \left| \frac{\partial f}{\partial x}|_{(x,y)} - \frac{\partial f}{\partial x}|_0 \right| < \eps.
+                \end{equation}
+
+                Then this means that if $(h_1, h_2) \in U$,
+
+                \begin{equation}
+                    \frac{f(h_1, h_2) - f(0, h_2)}{h_1}
+                \end{equation}
+
+                differs from $\frac{\partial f}{\partial x}|_0$ by at most $\eps$, since otherwise by the \emph{mean value theorem}, somwhere in $U$ we would have $\frac{\partial f}{\partial x}$ differing by more than $\eps$ from $\frac{\partial f}{\partial x}|_0$.
+
+            \end{example}
         \end{proof}
     \label{extracting derivatives}
 \end{theorem}
@@ -213,9 +263,46 @@ This is basically the same sort of thing we did in IA DEs when we integrated fro
 
 \begin{remark}
     Actually, the last term in the telescoping series, $f(x_1 + h_1, x_2, \cdots , x_m) - f(x_1, \cdots , x_m)$ \emph{is} the partial derivative (in $x_1$) of $f$ at $(x_1, ... , x_n)$. So we only need continuity of $n-1$ of the partial derivatives at a point, and existence of the last, in order to deduce differentiablility at a point.
+    \label{minus one remark}
 \end{remark}
 
-Look again at (\ref{derivvers}). There's nothing special about $||.||_2$! For our purposes, a more useful norm is the \vocab{operator norm}.
+An important application of this is the following \textit{sufficient} condition for a function to be complex differentiable:
+
+\begin{theorem}
+[Holomorphic sufficiency]
+
+Suppose that the real and imaginary parts of $f = u + vi$ satisfy the Cauchy-Riemann equations, i.e $u_x = v_y$ and $u_y =  - v_x$. Then if $u$ and $v$ are $C^1$, then $f$ is holomorphic.
+
+\begin{proof}
+
+We want to follow the proof methodology of (\ref{extracting derivatives}) as close as possible. In particular, let's just show differentiability at 0.
+
+This means that since $f : \CC \to \CC$ is essentially a map $\RR^2 \to \RR^2$, we want to consider its components, so we only need deal with functions $\RR^2 \to \RR$. This is of course is exactly the same thing as considering real and imaginary parts.
+
+We `know' that $f' = u_x + i v_x$ from computing the limit only in the real direction. In addition, because all of our limits will be over a denominator of $h_1 + ih_2$ we therefore write
+
+\begin{equation}
+    u_x + i v_x = \frac{ (u_x + i v_x)(h_1 + i h_2) }{h_1 + i h_2} = \frac{(u_x h_1 - v_x h_2) + i (v_x h_1 + u_x h_2)}{h_1 + i h_2}.
+\end{equation}
+
+Now it suffices to show that 
+
+\begin{equation}
+    \lim_{h_1, h_2 \to 0} \frac{ u(h_1, h_2) - u(0, 0) - u_x h_1 + v_x h_2}{\sqrt{h_1^2 + h_2^2}} = 0
+\end{equation}
+
+for the real part, and similarly for the imaginary part. Because the C-R equations are satisfied, the same staircase argument works.
+
+% To verify this, it's easiest to directly compute the derivative, namely $f' = u_x + iv_x$ and then verify that $Q \to 0$ as $h_1. h_2 \to 0$, in the same spirit as we did at the step (\ref{Q equation}), where
+% \begin{equation}
+    % Q = \frac{u(h_1, h_2) + iv(h_1, h_2) - u(0, 0) - i v(0, 0) - u_x(0, 0) - iv_x(0,0) }{\sqrt{h_1^2 + h_2^2}}
+% \end{equation}
+% (once more, we WLOG consider only differentiability at 0).
+% Now decompose $|u(h_1, h_2) - u(0,0)| \le |u(h_1, h_2) - u(h_1, 0)| + |u(h_1, 0) - u(0,0)|$ and $|iv(h_1, h_2) - iv(0,0)| \le |iv(h_1, h_2) - iv(h_1, 0)| + |iv(h_1, 0) - iv(0,0)|$. We 
+\end{proof}
+\end{theorem}
+
+Now back to less computational things. Look again at (\ref{derivvers}). There's nothing special about $||.||_2$! For our purposes, a more useful norm is the \vocab{operator norm}.
 
 \begin{definition}
 [Operator norm]
@@ -236,9 +323,22 @@ The matrix function $f(M) = M^{-1}$ is differentiable at $I$.
 
 \begin{proof}
 
-    The following proof relies on the fact that the set of $n \times n$ invertible matrices is an open subset in the set of $n \times n$ matrices (see the example sheet).
+    The following proof relies on the fact that the set of $n \times n$ invertible matrices is an open subset in the set of $n \times n$ matrices.
 
-    We first (e.g by checking the one-dimensional case) convince ourselves that the answer is $-I$. This leaves us to verify that
+    This is quite a nice result in its own right, and follows from the following lemma
+
+    \begin{lemma}
+        The determinant map $\det : M_{n \times n}(\mathbb{R}) \to \RR$ is cts.
+
+        \begin{proof}
+            The map is simply a polynomial in the $n^2$ variables, which (check if unsure) are cts.
+            % If we consider all matrix entries fixed except one, then $\det$ is a linear polynomial in that variable, and hence differentiable with respect to that variable. 
+        \end{proof}
+    \end{lemma}
+
+    Due to this, since $\RR \setminus \{ 0 \}$ is open, so the set of invertible matrices is open since it is $\det^{-1}(\RR \setminus \{ 0 \})$.
+
+    Back to the long question: we first (e.g by checking the one-dimensional case) convince ourselves that the answer is $-I$. This leaves us to verify that
 
     \begin{equation}
         \frac{ || (I+H)^{-1} - I + H|| }{|| H ||} \to 0.
@@ -271,6 +371,18 @@ The matrix function $f(M) = M^{-1}$ is differentiable at $I$.
     Now the magnitude of the RHS is going to arbitrarily close to 1 due to the bounded operator norm of $H$. So $\lambda$ can't grow large.
 \end{proof}
 \end{example}
+
+% \begin{example}
+% [2016 P2L]
+% Letting $M_n$ be the set of $n \times n$ real matrices (in this setting, identified both with $L(\RR^n, \RR^n)$ and $\RR^{n^2}$) and $ V = \{ X \in M_n | ||X|| < 1 \} $ (where the norm $||.||$ is the operator norm), we have that the function $f : V \to M_n$ defined by % $U = \{ X \in M_n | (I-X) \text{invertible} \}$, we have that the function $f : U \to M_n$ defined by 
+% \begin{equation}
+    % X \mapsto (I-X)^{-1}
+% \end{equation}
+% is equal to $\sum_{k \ge 0} X^k$ and moreover is twice differentiable at 0.
+% \begin{proof}
+% As an initial sanity check, let's verify that $ V \oset M_n $. Suppose that $|v| = R < 1$. Then we have that 
+% \end{proof}
+% \end{example}
 
 \section{Notation and Glossary}
 
