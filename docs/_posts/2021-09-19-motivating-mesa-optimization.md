@@ -1,6 +1,6 @@
 ---
 layout: post
-Motivating mesa-optimization
+title: Motivating mesa-optimization
 date:   2021-09-19
 ---
 

@@ -19,11 +19,10 @@ These brief notes are based on lectures given (virtually) by Professor I. Smith 
 Many thanks to Artem, Kene, Daniel and David (and more) for many helpful discussions and clarifications.
 Credit is also due to Evan Chen for the style file for these notes\footnote{Available here: \url{https://github.com/vEnhance/dotfiles/blob/master/texmf/tex/latex/evan/evan.sty}.}.
 
-
 I am trying to continually reorder sections, add in more discussions and cover all the course. I hope by the end of the exams this will seem more complete.
 \end{abstract}
 
-% \tableofcontents %todo where are the contents
+\tableofcontents %todo where are the contents
 
 \section{Notation}
 
@@ -107,39 +106,72 @@ Define
 
 Then 
 
-\begin{itemize}
+\begin{enumerate}
     \item There is a topology on $\Sigma$ with $U \subseteq \Sigma$ open iff $\forall \alpha$, 
     
     \begin{equation}
         \phi_\alpha(U \cap U_\beta) \subseteq^\circ V_\alpha.
     \end{equation}
-\end{itemize}
+    
+    \item If we suppose that in addition to the above, $\forall \alpha, \beta$, the transition map 
 
-Suppose that in addition to the above, $\forall \alpha, \beta$, the transition map 
+    \begin{equation}
+        \phi_\beta \phi_\alpha^{-1}
+    \end{equation}
 
-\begin{equation}
-    \phi_\beta \phi_\alpha^{-1}
-\end{equation}
+    is a homeomorphism, and that, as a technical condition to enforce the Hausdorff property,
 
-is a homeomorphism, and that, as a technical condition to enforce the Hausdorff property,
+    \begin{equation}
+        \{ (x,x) : x \in U_\alpha \cap U_\beta \} \subseteq U_\alpha \times U_\beta 
+    \end{equation}
 
-\begin{equation}
-    \{ (x,x) : x \in U_\alpha \cap U_\beta \} \subseteq U_\alpha \times U_\beta 
-\end{equation}
-
-is closed in $U_\alpha \times U_\beta$, then with this topology, $\Sigma$ is a topological surface.
-
-\begin{proof}
-    This is actually a fair amount trickier than it may look at first. The key idea is to use the bijective nature of $\phi_\alpha$.
-
-    For now omitted, left to \ref{daniels notes}.
-\end{proof}
-
+    is closed in $U_\alpha \times U_\beta$, then with this topology $\Sigma$ is a topological surface.
+\end{enumerate}
 % \begin{equation}
 % \end{equation}
 
 \label{daniel topology}
 \end{proposition}
+
+This is a long result, so first some discussion.
+
+The first part is clear, since we need to check the three topology axioms and they are all immediate.
+
+The much tricker part is checking that we get a surface given the transition map condition.
+
+What we want to do is prove that the very suggestive-looking $(U_\alpha, \phi_\alpha)$ are actually charts for the topological surface. Then this will be enough to deduce that $\Sigma$ is a topological surface (provided that it's Hausdorff and second countable), since $\forall p \in \Sigma$ we can find some chart $\phi : U \to V$ that $p \in U$ and then localise to a small open disk around $f(p) \in V$ which will be homeomorphic to some open set in $U$ (by the continuity of $\phi$) and this will exactly be our local neighbourhood of $p$ that's homeomorphic to $\RR^2$. 
+
+To do this, we need verify the following:
+
+\begin{lemma}
+    Let $V \oset V_\alpha$. Then $\phi_\alpha^{-1}(V)$ is open in $\Sigma$.
+
+    \begin{proof}
+        To check this we need verify that $\phi_\beta ( U_\beta \cap  \phi_\alpha^{-1}(V)) \oset V_\beta$ (by definition of this topology).
+
+        But this is
+
+        \begin{equation}
+            \phi_\beta (U_\beta) \cap \phi_\beta(\phi_\alpha^{-1}(V))
+        \end{equation}
+
+        which is the intersection of two open sets, since that transition map is a homeomorphism.
+    \end{proof}
+\end{lemma}
+
+From here, that diagonal condition should remind you of the following Analysis and Topology example sheet question.
+
+\begin{example}
+[Analysis and Topology Example Sheet 2, Question 8]
+
+The diagonal of a set $Y$ is the set $\Delta_Y = \{(x, y) \in Y \times Y : x = y \}$. Show that a topological space $Y$ is Hausdorff if and only if $\Delta_Y$ is closed in $Y \times Y$.
+\end{example}
+
+In this case, our condition is subtley different, and in fact we can directly exhibit disjoint, open $U \ni p$, $V \ni q$ by splitting into the two cases of $p$ and $q$ lying in a common $U_\alpha$ (easy) and lying in $U_\alpha$ and $U_\beta$ and using the closed condition; details skipped\footnote{hint: take the complement of that diagonal set that's defined in the condition.}.
+
+% This is actually a fair amount trickier than it may look at first. The key idea is to use the bijective nature of $\phi_\alpha$.
+% For now omitted, left to \ref{daniels notes}.
+\end{proof}
 
 \subsection{Surfaces in \RR^3}
 
@@ -308,7 +340,7 @@ We've seen similar uses of differentials forms (i.e isolated $\dd x$ etc. terms)
 \subsection{Differential Forms}
 %\footnote{Non-examinable}
 
-This section is largely pulled from \cite{napkin}, however hopefully synthesised for an audience who has finished IB Analysis and Topology.
+This section is largely pulled from \cite{Napkin}, however hopefully synthesised for an audience who has finished IB Analysis and Topology.
 
 Recall from that course the following results:
 
@@ -330,28 +362,64 @@ Recall from that course the following results:
 This is important since it basically means that to study differentiability of functions $f : \RR^m \rightarrow \RR^n$, we can essentially WLOG let $n=1$.
 
 \begin{theorem}
-[Computing derivatives in $n$ dimensions.]
-    Suppose that $U \subseteq^\circ \RR^m$ and $f : U \rightarrow \RR$ has continuous partial derivatives at $p \in U$. Then $f$ is differentiable at $p$, with derivative
+    [Computing derivatives in $n$ dimensions.]
+        Suppose that $U \subseteq^\circ \RR^m$ and $f : U \rightarrow \RR$ has continuous partial derivatives at $p \in U$. Then $f$ is differentiable at $p$, with derivative
+        
+        \begin{equation}
+            Df(p)(h) = \frac{\partial f}{\partial x_1}h_1 + \cdots + \frac{\partial f}{\partial x_m}h_m.
+            \label{Deriv1}
+        \end{equation}
     
-    \begin{equation}
-        Df(p)(h) = \frac{\partial f}{\partial x_1}h_1 + \cdots + \frac{\partial f}{\partial x_m}h_m.
-        \label{Deriv1}
-    \end{equation}
+        \begin{proof}
+            Decompose as a telescoping sum
+    
+            \begin{align}
+            f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1, \cdots , x_m) \\ 
+            = f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1 + h_1, \cdots , x_{m-1} + h_{m-1} , x_m) \\
+            + f(x_1 + h_1, \cdots , x_{m-1} + h_{m-1}, x_m) - f(x_1 + h_1, \cdots , x_{m-1}, x_m) \\
+            + \cdots \\
+            + f(x_1 + h_1, x_2, \cdots , x_m) - f(x_1, \cdots , x_m).
+            \end{align}
+    
+            And now by an `$m$-$\varepsilon$' proof (i.e $m$ applications of the triangle inequality), we use continuity of the $m$ partial derivatives to deduce the desired derivative expression.
 
-    \begin{proof}
-        Actually nowhere near as bad as some analyis proofs. Decompose as a telescoping sum
+            However, actually doing this is somewhat more subtle than it may seem at first (for example, to me!), since the limit $||h||_2 \to 0$ need be independent of the relative `speeds' that each $h$ component approach 0.
 
-        \begin{align}
-        f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1, \cdots , x_m) \\ 
-        = f(x_1 + h_1, \cdots , x_m + h_m) - f(x_1 + h_1, \cdots , x_{m-1} + h_{m-1} , x_m) \\
-        + f(x_1 + h_1, \cdots , x_{m-1} + h_{m-1}, x_m) - f(x_1 + h_1, \cdots , x_{m-1}, x_m) \\
-        + \cdots \\
-        + f(x_1 + h_1, x_2, \cdots , x_m) - f(x_1, \cdots , x_m).
-        \end{align}
+            We illustrate how we do this in the case $m=2$; the argument is easily generalised to the higher order cases.
 
-        And now by an `$m$-$\varepsilon$' proof (i.e $m$ applications of the triangle inequality), we use continuity of the first $m-1$ partial derivatives and existence of the $m$th partial derivative to deduce the desired derivative expression.
-    \end{proof}
-\label{extracting derivatives}
+            \begin{example}
+                WLOG show differentiability at 0.
+
+                The quantity $Q$ that we need show approaches 0 as $h_1 \to 0$ and $h_2 \to 0$ is
+
+                \begin{equation}
+                    Q = \frac{f(h_1, h_2) - f(0, 0) - h_1 \frac{\partial f}{\partial x}|_0 - h_2 \frac{\partial f}{\partial y}|_0}{\sqrt{h_1^2 + h_2^2}}
+                    \label{Q equation}
+                \end{equation}
+
+                Now by the triangle inequality, and that $\sqrt{h_1^2 + h_2^2} \ge |h_1|, |h_2|$,
+
+                \begin{equation}
+                    |Q| \le \left| \frac{f(h_1,h_2) - f(0, h_2) - h_1 \frac{\partial f}{\partial x}|_0}{h_1} \right| + \left| \frac{f(0,h_2) - f(0, 0) - h_2 \frac{\partial f}{\partial y}|_0}{h_2} \right|
+                \end{equation}
+
+                as $h_2 \to 0$, clearly the latter term approaches 0 (this is easy due to the remark (\ref{minus one remark}) made below). However, for the first term the `different speeds' issue immediately arises. To remedy this, what we can do is localise to an open set $U \oset \RR^2$ around 0 so that when $(x,y) \in U$,
+
+                \begin{equation}
+                    \left| \frac{\partial f}{\partial x}|_{(x,y)} - \frac{\partial f}{\partial x}|_0 \right| < \eps.
+                \end{equation}
+
+                Then this means that if $(h_1, h_2) \in U$,
+
+                \begin{equation}
+                    \frac{f(h_1, h_2) - f(0, h_2)}{h_1}
+                \end{equation}
+
+                differs from $\frac{\partial f}{\partial x}|_0$ by at most $\eps$, since otherwise by the \emph{mean value theorem}, somwhere in $U$ we would have $\frac{\partial f}{\partial x}$ differing by more than $\eps$ from $\frac{\partial f}{\partial x}|_0$.
+
+            \end{example}
+        \end{proof}
+    \label{extracting derivatives}
 \end{theorem}
 
 We're doing geometry here, so everything is smooth and has nice derivative expressions like above (see (\ref{Ivan Wisdom})).
@@ -399,6 +467,11 @@ to second order. Hence the divergence from the tangent plane $T_p \Sigma$ locall
     \end{equation}
 \end{definition}
 
+\begin{remark}
+    This definition of the second fundamental form is only well motivated for $II(v, v)$. What's the interpretation for $II(v,w)$?
+\end{remark}
+
+
 % So we define the second fundamental form as the bilinear form
 % \begin{equation}
 % \end{equation}
@@ -422,42 +495,72 @@ Since we have an allowable parametrisation everywhere on $\Sigma$, we can define
     \frac{ \sigma_u \times \sigma_v }{|| \sigma_u \times \sigma_v ||}
 \end{equation}
 
-everywhere\footnote{Subscripts generally denote partial differentiation.} on $\Sigma$. We define the \vocab{Gauss map} as exactly this map, $N : \Sigma \rightarrow S^2$. It is an intuitive result that this is independent of paramterisation.
+everywhere on $\Sigma$.
+
+%\footnote{Subscripts generally denote partial differentiation.} 
+
+We define the \vocab{Gauss map} as exactly this map, $N : \Sigma \rightarrow S^2$. It is an intuitive result that this is independent of paramterisation.
+
+We will now need to differentiate the Gauss map. Doing this directly leads to a linear map from $\RR^3$ to $\RR^3$. However, since the Gauss map has both domain and range restricted to smooth surfaces which `feel' like 2D objects, we might hope that we can make sense of such a `derivative', with restricted domain and range, in terms of linear maps between copies of $\RR^2$.
+
+In what follows I use the notation $D_N$ rather than $DN$, to emphasise the subtlety of the switching between the $\RR^2$ and $\RR^3$ viewpoints.
+
+Define $D_N$ by 
+
+\begin{equation}
+    D_N : T_p \Sigma \to T_{N(p)} S^2
+\end{equation}
+
+such that $D\sigma (v) \mapsto D(N \circ \sigma) (v)$.
+
+This is a linear map since $D(N \circ \sigma) = DN \circ D\sigma $. 
 
 \begin{remark}
-Important: keep track of dimensions. The Gauss map is a map from (a subset of) $\RR^3$ to (a subset of) $\RR^3$. In what follows however, we will specialise to two dimensional bilinear forms on the tangent space.
+This is essentially restricting the \textit{domain} of the Gauss map to a 2D surface.
+% Important: keep track of dimensions. The Gauss map is a map from (a subset of) $\RR^3$ to (a subset of) $\RR^3$. In what follows however, we will specialise to two dimensional bilinear forms on the tangent space.
 \end{remark}
 
-Now also consider $n$ as the map $U \rightarrow S^2$ (defined locally on charts) such that 
+Also consider $n$ as the map $U \rightarrow S^2$ (defined locally on charts) such that 
 
 \begin{equation}
     n = N \circ \sigma.
 \end{equation}
 
-Now since $n . n = 1$ always, in fact $n_u$ and $n_v$ are perpendicular to $n$, so $Dn|_p$ (as a map) always sends things to the tangent plane at $n(p)$ on $S^2$, which of course coincides with the tangent plane at $p$ on $\Sigma$ (denoted $T_p \Sigma$).
+Now since $n . n = 1$ always, in fact $n_u$ and $n_v$ are perpendicular to $n$, so $Dn|_p$ (as a map) always sends things to the tangent plane at $n(p)$ on $S^2$, which of course coincides with the tangent plane at $p$ on $\Sigma$.
 
-So, having begun with the Gauss map between (subsets of) $\RR^3$, we now have a map between (subsets of) $\RR^2$. In fact, since 
+So, having begun with the Gauss map between (subsets of) $\RR^3$, we now have a map between (subsets of) $\RR^2$. Also note that
 
 \begin{equation}
     Dn|_p = DN|_{\sigma(p)} \circ D\sigma|_p
 \end{equation}
 
-by the chain rule, defining
+by the chain rule.
 
 \begin{definition}
 
 \label{shape definition}
 
-The shape operator $\mathbb{S}$ is the negative derivative of the Gauss map 
+The shape operator $\mathbb{S}$ is the linear map % negative derivative of the Gauss map 
 
 \begin{equation}
-    \mathbb{S} = - D N|_{\sigma (p)}.
+    \mathbb{S} : T_p \Sigma \rightarrow T_p \Sigma
 \end{equation}
 
+defined by
+
+\begin{equation}
+    D\sigma(v) \mapsto - D_N D\sigma(v).
+\end{equation}
+
+This is linear since it inherits linearity from $D_N$.
+
+% \begin{equation}
+    % v \mapsto - D N{\sigma (p)}.
+% \end{equation}
 % The following theorem shows that this makes sense as a linear map $T_p \Sigma \rightarrow T_p \Sigma$.
 \end{definition}
 
-Considered as a map from the tangent space (in the $\sigma$ parametrization) at $p$ to itself, we have, in the evaluation of the first fundamental form below $\mathbb{S}v = -DN|_{\sigma (p)} D \sigma|_p v = - Dn|_p v$ so\footnote{I am not entirely happy with my symbol pushing here. To elaborate, I am interpreting $\text{I}(v,w)$ as $(D \sigma v)^T D \sigma w$, i.e $v$ and $w$ contain coordinates (two numbers in $\RR$) that $D\sigma$ turn into the familiar first fundamental form expression.}
+Considered as a map from the tangent space (in the $\sigma$ parametrization) at $p$ to itself, we have, in the evaluation of the first fundamental form below $\mathbb{S}v = -DN|_{\sigma (p)} D \sigma|_p v = - Dn|_p v$ so\footnote{I am not entirely happy with my symbol pushing here. To elaborate, while interpreting $\text{I}(v,w)$ as $(D \sigma v)^T D \sigma w$, i.e $v$ and $w$ contain coordinates (two numbers in $\RR$) that $D\sigma$ turn into the familiar first fundamental form expression seems to work, but I feel the careful work we did to ensure get a 2D endomorphism is sort of lost when we do derivations like this.}
 
 \begin{theorem}
 
@@ -475,14 +578,13 @@ Follows immediately from the chain rule and characterisations of $\text{I}$ and 
     \text{I} (\mathbb{S}v, w) = - v^T (D \sigma)^T (DN)^T (D \sigma) w = - v^T (Dn)^T D \sigma w = \text{II}(v,w).
 \end{equation}
 
-We can now use these tools to build further upon the abstract surface formalisms began earlier.
-
 % Our bilinear forms $\text{I}$ and $\text{II}$ are only defined on 2D subspaces of $\RR^3$, but in fact $\mathbb{S}$ always lies in the tangent space $T_p \Sigma$:
 
 % But indeed since $N$ always maps to the normal 
 \end{proof}
 \end{theorem}
 
+We can now use these tools to build further upon the abstract surface formalisms began earlier. 
 
 \begin{definition}
 [Riemannian metrics on $\RR^2$ subsets.]
@@ -497,7 +599,7 @@ where the map is to positive definite bilinear forms (since a map to matrices wo
 \label{rm1}
 \end{definition}
 
-The next definition is nothing surprising
+The next definition is nothing surprising:
 
 \begin{definition}
 [Riemmanian metrics on abstract smooth surfaces]
@@ -546,10 +648,17 @@ So how do we show this? Sketch: the key idea is that whenever we're computing le
 \end{proof}
 \end{proposition}
 
+\begin{remark}
+We've consistently `dropped down' to $\RR^2$ in order to work with tangent spaces in this section, which we've always had tied to an $\RR^3$ picture of an embedded smooth surface in this course.
+
+To understand tangent spaces for abstract surfaces, chapter 45 of \cite{Napkin} develops intuition for how this is done (and I imagine this is covered in higher math as ever).
+\end{remark}
+
+% Throughout this section, results have been subtley jumping between the $\RR^3$ perspective (e.g the surfaces themselves) and also the $\RR^2$ perspective. While this is toally fine with regard to defining our surfaces,
+
 \subsection{Gaussian Curvature}
 
 With the linear algebraic tools setup, we can now move onto to begin to appreciate that random interlude about pizza from IA Vector Calculus (but still no full proofs).
-
 
 \begin{definition}
 [Gaussian Curvature]
@@ -628,6 +737,125 @@ Let $(A_n)_{n \ge 1}$ be a sequence of nested open neighbourhoods of $p$ that sh
     We can get the sign of kappa, too, by figuring out whether $A_i$ and $N(A_i)$ are similarly orientated.
 \end{remark}
 
+\subsection{Flavours of surfaces} % \footnote{Hmm, we need Gaussian curvature to do this section, but ideally this would have been covered as soon as FFF had been covered. Harrumph.}
+
+\begin{definition}
+[Global Isometry]
+$f : \Sigma_1 \to \Sigma_2$ is an \vocab{isometry} if it preserves the lengths of all curves.
+\end{definition}
+
+We won't, however use this definition much.
+
+\begin{definition}
+[Local Isometry]
+Surfaces $\Sigma_1$ and $\Sigma_2$ are locally isometric at $p \in \Sigma_1$ and $q \in \Sigma_2$ if there exists open neighbourhoods $U_1$ and $U_2$ around the two points such that there exists an isometry between $U_1$ and $U_2$.
+\end{definition}
+
+This is more useful, because of the following result.
+
+\begin{proposition}
+[Isometries determined by FFF]    
+
+Regions $\Sigma_1$ and $\Sigma_2$ are locally isometric at $p \in \Sigma_1$ and $q \in \Sigma_2$ iff we can parametrise them such that the parametrisations have the same FFF.
+
+\begin{proof}
+    The if direction is obvious since we compute the lengths of curves from the FFF.
+
+    For the only if direction, it suffices to show that \textbf{given the lengths of curves only, we can extract the FFF from this}.
+
+    Indeed, given $\sigma$ a parametrisation around $p$ with $\sigma(0,0)=p$, then let $\gamma_\eps(t) = \sigma(t,0)$ for $0 \le t \le \eps$. Then
+
+    \begin{equation}
+        \frac{d}{d \eps} L(\gamma_\eps) = \frac{d}{d\eps} \int_0^\eps E(\sigma(t,0))^{1/2} dt \to E(p)
+    \end{equation}
+
+    in the limit $\eps \to 0$. We can use the curves $\gamma = \sigma(0,t)$ and $\gamma = \sigma(t,t)$ in a similar manner in order to extract $F$ and $G$. So the isometry between the two open neighbourhoods will simply 'carry over' the FFF since it preserves the lengths of curves, and we can use the above computation (on the image surface!) in order to extract the same $E$, $F$ and $G$ on this surface.
+\end{proof}
+
+\end{proposition}
+
+\begin{definition}
+    An \emph{ruled} surface is a surface of the form
+    
+    \begin{equation}
+        \sigma(u,v) = \gamma(u) + v \delta(u)
+    \end{equation}
+
+    where $\sigma$ is a smooth curve in the plane and $\delta$ is always orthogonal to $\gamma$.
+\end{definition}
+
+\begin{definition}
+    A \emph{developable} surface is a surface of the form
+
+    \begin{equation}
+        \sigma(u,v) = \gamma(u) + v \gamma'(v).
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+Developable surfaces are locally isometric to the plane.
+
+\begin{proof}
+    This is equivalent to having the same FFFs, and we can compute for a developable surface parametrised by arc length its first fundamental form % these FFFs have a special form for which we can cookup a plane curve which should then be able to be built up into a developable surface with, indeed, the same FFF.
+
+    \begin{equation}
+        (1 + v^2 \kappa^2) dx^2 + 2 dx dy + dy^2.
+    \end{equation}
+
+    This is ugly, but actually it shows that all we need to do is cookup some \textit{plane} curve $\hat{\gamma}(t) = (x(t), y(t), 0)$ that has curvature agreeing with $\gamma$'s curvature.
+
+    To satisfy this requirement, we need to find a solution to the system
+
+    \begin{equation}
+        \begin{cases}
+            x''(t) = \kappa(t) y'(t) \\
+            y''(t) = - \kappa(t) x'(t)
+        \end{cases}
+    \end{equation}
+
+    that is also parametrised by arc length\footnote[I am a bit uncertain as to what to do when locally the curvature's sign is at an inflection point, and whether the solution generated will really agree with both the positive and negative parts of the curvature.].
+
+    To do this, setup the differential equation for $\begin{bmatrix}
+        x' \\
+        y'
+    \end{bmatrix}$
+
+    \begin{equation}
+        \begin{bmatrix}
+            x' \\
+            y'
+        \end{bmatrix}'
+        =
+        \begin{bmatrix}
+            0 && -\kappa \\
+            \kappa && 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            x' \\
+            y'
+        \end{bmatrix}.
+    \end{equation}
+
+    Now since locally $\kappa$ will be differentiable, we can localise so that this system is in the form $y' = f(t, y)$ where $f$ is Lipschitz in the second variable, i.e a solution exists via Picard-Lindelof.
+
+    Then we can choose arbitrary $x(0)$ and $y(0)$, rescale so that $x'(0)^2 + y'(0)^2 = 1$ and note that this curve will indeed be parametrised by arc length, since
+
+    \begin{equation}
+        \frac{d}{dt}(x'(t)^2 + y'(t)^2) = 2x'(t)x''(t) + 2y'(t)y''(t) = 0
+    \end{equation}
+
+    from the original system of equations.
+
+% Note that developable surfaces PARAMETRISED BY ARC LENGTH are
+% 
+% [$$] \sigma(u,v) = \gamma(u) + v \gamma'(u) [/$$]
+
+% With [$]||\gamma'||^2=1[/$] and [$]||\gamma''||=\kappa[/$]. From this, we get that the FFF is
+
+% [$$] (1 + v^2 \kappa^2) dx^2 + 2 dx dy + dy^2.[/$$]
+\end{proof}
+\end{theorem}
+
 \subsection{A first peek at M{\"o}bius transformations} %and the Riemann sphere}
 
 You probably remember the following from IA Groups:
@@ -687,6 +915,10 @@ where $a\bar{a} + b\bar{b} = 1$.
 
 \begin{proposition}
 Rotations of $S^2$ (namely, the action of $\text{SO}(3)$ on it) correspond 1-to-1 with M{\"o}bius transformations (of the plane) in the group $\text{PSU}(2)$ of unitary matrices in $\text{PSL}(2, \CC)$.
+
+\begin{proof}
+    I think that this has now been removed from the course. See Dexter's if interested!
+\end{proof}
 \end{proposition}
 
 % \section{Analysis and VP}
@@ -1008,7 +1240,7 @@ Then $\Sigma$ is hyperbolic (i.e has constant curvature -1 throughout
 
 Important intuition: if we're given a point to work with in a hyperbolic question, use the disk model with this point as the origin. Alternatively, if we're given a line, use the half-plane model with the line as the (positive) imaginary axis.
 
-\subsection{M{\"o}bius transformations}
+\subsection{M{\"o}bius transformations (very incomplete)}
 
 At this point in the course, we return to working with inversions and M{\"o}bius transformations, this time in the hyperbolic models. It's easy to get lost in wondering why we're doing all this. To set the record straight
 
@@ -1099,19 +1331,16 @@ and changing variables to $w = -\frac1z$ preserves this\footnote{Note that again
 \end{proof}
 \end{proposition}
 
-\begin{example}
-[The hyperbolic plane is \textit{weird}]
+% \begin{example}
+% [The hyperbolic plane is \textit{weird}]
+% Discuss the example sheet question I think.
+% This can definitely be skipped for exams.
+% \end{example}
 
-Discuss the example sheet question I think.
-
-This can definitely be skipped for exams.
-\end{example}
-
-\begin{proposition}
-[Pairs of pants (!)]
-
-Important: the right angles lead to smooth gluing of geodesics.
-\end{proposition}
+% \begin{proposition}
+% [Pairs of pants (!)]
+% Important: the right angles lead to smooth gluing of geodesics.
+% \end{proposition}
 
 \section{That crazy hard section at the end of the course.}
 

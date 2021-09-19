@@ -189,12 +189,14 @@
 \newcommand{\normt}[1]{\left\lVert#1\right\rVert_2}
 \newcommand{\normi}[1]{\left\lVert#1\right\rVert_\infty}
 \renewcommand{\b}{\beta}
-\renewcommand{\T}{\text}
+% \renewcommand{\T}{\text}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\oset}{\subseteq^\circ}
 % \newcommand{\rn1}{\text{I}}
 % \newcommand{\rn1}{\text{I}}
 
-\usepackage{bbm}
-\newcommand{\one}[1]{\mathbbm{1} \left[ #1 \right]}
+% \usepackage{bbm}
+% \newcommand{\one}[1]{\mathbbm{1} \left[ #1 \right]}
 
 \newcommand{\charin}{\text{ char }}
 \DeclareMathOperator{\sign}{sign}
@@ -434,17 +436,18 @@
 			\declaretheorem[name=Corollary,numbered=no]{corollary*}
 		\fi
 			
-		\ifevanmdthm
-			\declaretheorem[style=thmgreenbox,name=Algorithm,sibling=theorem]{algorithm}
-			\declaretheorem[style=thmgreenbox,name=Algorithm,numbered=no]{algorithm*}
-			\declaretheorem[style=thmgreenbox,name=Claim,sibling=theorem]{claim}
-			\declaretheorem[style=thmgreenbox,name=Claim,numbered=no]{claim*}
-		\else
-			\declaretheorem[name=Algorithm,sibling=theorem]{algorithm}
-			\declaretheorem[name=Algorithm,numbered=no]{algorithm*}
-			\declaretheorem[name=Claim,sibling=theorem]{claim}
-			\declaretheorem[name=Claim,numbered=no]{claim*}
-		\fi
+		% \ifevanmdthm
+			% \declaretheorem[style=thmgreenbox,name=Algorithm,sibling=theorem]{algorithm}
+			% \declaretheorem[style=thmgreenbox,name=Algorithm,numbered=no]{algorithm*}
+			% \declaretheorem[style=thmgreenbox,name=Claim,sibling=theorem]{claim}
+			% \declaretheorem[style=thmgreenbox,name=Claim,numbered=no]{claim*}
+		% \else
+			% \declaretheorem[name=Algorithm,sibling=theorem]{algorithm}
+			% \declaretheorem[name=Algorithm,numbered=no]{algorithm*}
+			% \declaretheorem[name=Claim,sibling=theorem]{claim}
+			% \declaretheorem[name=Claim,numbered=no]{claim*}
+
+		% \fi
 		\ifevanmdthm
 			\declaretheorem[style=thmredbox,name=Example,sibling=theorem]{example}
 			\declaretheorem[style=thmredbox,name=Example,numbered=no]{example*}

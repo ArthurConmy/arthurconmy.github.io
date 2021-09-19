@@ -1,0 +1,131 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{multirow}
+% \usepackage{amsmath}
+\usepackage{array}
+% \usepackage{program}
+% \usepackage{algorithm}
+\usepackage{amsmath}
+% \usepackage{algpseudocode}
+\begin{document}
+
+\title{Random Things}
+\author{Arthur Conmy\footnote{Please send any corrections and/or feedback to \url{asc70@cam.ac.uk}.}}
+\date{Part IB, Lent Term 2021}
+
+\maketitle
+\begin{abstract}
+These are some random things.
+\end{abstract}
+
+\tableofcontents %todo where are the contents
+
+\section{Gauss' Lemma}
+
+\begin{lemma}
+    Let $R$ be a UFD.
+
+    Let $f, g \in R[X]$ be primitive. Then $fg$ is primitive.
+
+    \begin{proof}
+        Idea: If we have some $p \in R$ irreducible that divides $fg$ then writing out $f$ and $g$ leads to $p$ dividing the constant coefficient of $f$. Then by induction on the coefficients of $X^m$ in $f$, actually $p|f$.
+    \end{proof}
+\end{lemma}
+
+\begin{theorem}
+    [Gauss' Lemma]
+
+    Let $R$ be a UFD with field of fractions $F$. Then $f$ irreducible in $R[X]$ is equivalent to $f$ irreducible in $F[X]$. 
+
+    \begin{proof}
+        Contrapositive. Suppose $f = gh$ in $F[X]$ where $g$ and $h$ are of degree at least one. Then take $k, j \in R$ so that $kf, jg \in R[X]$ are primitive. So 
+
+        \begin{equation}
+            kjf = kf \times jg.
+        \end{equation}
+
+        (in $R[X]$).
+
+        Now using the lemma, $kjf$ is primtive. So $kj$ is a unit, so $k$ and $j$ are units and therefore $g, h \in ... $.
+        
+        Ah, I see what is going pretty wrong now.
+    \end{proof}
+\end{theorem}
+
+\section{OI Problem}
+
+When the lighting system in the warehouse was working as intended, you would press one of the $M$ buttons, and each of the $N$ of the lights would turn on (if before pressing the button, the light was off), or off (if before pressing the button, the light was on).
+
+However, the years passing have not treated the lights well. Each of the buttons now has a broken connection to some number of lights (possibly no broken connections, or all broken connections).
+
+At $M$ consecutive times today, I observed some of the lights being on (and the rest being off).
+
+What is the smallest possible number of buttons that could exist, such that there would have been a consistent way to observe the lights being in the various states in which I observed them?
+
+Input format:
+
+
+$N$ $M$
+
+
+$k_1$ 
+
+
+$L_{1, 1} ... L_{1, k_1}$
+
+
+$k_2$ 
+
+
+$L_{2, 1} ... L_{2, k_2}$
+
+
+$...$ 
+
+
+$k_M$ 
+
+
+$L_{M, 1} ... L_{M, k_M}$
+
+The first line of input contains integers 1 <= N <= 100 and 1 <= M <= 100 indicating the number of lights in the warehouse, and the number of times I observed the lights in the warehouse today. The ith of the next M pairs of lines consist of an integer 0 <= k_i <= 100, indicating the number of lights that I observed to be on on the first of the pair of lines, and then k_i space separated integers 0 < L_{i, 1} < L_{i, 2} < ... < L_{i, k_i} <= N$ that were the lights I observed to be on.
+
+Output format:
+
+A single integer, indicating the minimum number of buttons that could exist that are consistent with the observations.
+
+Sample input 1:
+4 3
+0
+
+2
+2 3
+3
+2 3 4
+
+Sample output 1:
+2
+
+Sample explanation 1:
+If there are two buttons, the first with connections to the second and third lights, and the second button with connections to the fourth light. Then it is possible that initially there are no lights on in the warehouse, then the first button is pressed before I make my second observation, and the second button is then pressed before I make the final observation. It is not possible for these observations to be made with one or zero buttons.
+
+
+
+\begin{thebibliography}{9}
+% \bibitem{Napkin}
+% Evan Chen (2021), \emph{An Infinitely Large Napkin}, \url{https://venhance.github.io/napkin/Napkin.pdf}.
+
+% \bibitem{dansnotes}
+% Daniel Bassett (2021), \emph{IB Geometry}, \url{http://db808.user.srcf.net/Geometry.pdf}.
+
+% \bibitem{davidsnotes}
+% David Bai (2021), \emph{Geometry}, \url{http://zb260.user.srcf.net/notes/IB/geom.pdf}.
+
+% \bibitem{Course Notes}
+% Rajen D. Shah (2021), \emph{Mathematics of Machine Learning}, \url{http://www.statslab.cam.ac.uk/~rds37/teaching/machine_learning/notes.pdf}.
+
+% \bibitem{MIT Notes}
+% Philippe Rigollet, \emph{18.657: Mathematics of Machine Learning}, \url{https://ocw.mit.edu/courses/mathematics/18-657-mathematics-of-machine-learning-fall-2015/lecture-notes/MIT18_657F15_LecNote.pdf}.
+
+\end{thebibliography}
+\end{document}
