@@ -1,6 +1,6 @@
 ---
 layout: post
-CIA Seminar slides"
+CIA Seminar slides
 date:   2021-05-07
 ---
 
