@@ -10,10 +10,15 @@ One of the first technical concepts the AGI Safety Fundamentals course covers is
 
 In this post, I do not explain mesa-optimization. Instead, I write a background that I wish I had had before being introduced to the concept.
 
+In the alignment newsletter that covers the original mesa-optimization paper[^fn1] a good definition of optimization, along with a lack of existing example of mesa-optimization are two big sources of confusion regarding optimization. These will therefore be the two topics covered.
+
 # Optimization
 
-To understand mesa-optimization, optimization must first be understood. Rohin Shah mentions.
+To understand mesa-optimization, optimization must first be understood. In fact,  
 
-Here is some text.[^fn]
+# Examples
 
-[^fn]: And the footnote!
+Here is some text.[^fn2]
+
+[^fn1]: https://www.lesswrong.com/posts/XWPJfgBymBbL3jdFd/an-58-mesa-optimization-what-it-is-and-why-we-should-care
+[^fn2]: And the footnote!
