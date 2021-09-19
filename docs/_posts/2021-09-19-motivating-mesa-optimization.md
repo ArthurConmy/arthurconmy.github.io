@@ -44,8 +44,8 @@ The data compression motivation suggests that it is plausible that in a game sce
 # Footnotes
 
 [^fn1]: [Alignment Newsletter #58.](https://www.lesswrong.com/posts/XWPJfgBymBbL3jdFd/an-58-mesa-optimization-what-it-is-and-why-we-should-care)
-[^fn3]: [LessWrong.](https://www.lesswrong.com/tag/optimization.)
-[^fn5]: [CFAR has an online exercise on applying Bayesian reasoning to (human!) decision making.](https://programs.clearerthinking.org/question_of_evidence.html#.YUejt3WYVNg.)
+[^fn3]: [LessWrong.](https://www.lesswrong.com/tag/optimization)
+[^fn5]: [CFAR has an online exercise on applying Bayesian reasoning to (human!) decision making.](https://programs.clearerthinking.org/question_of_evidence.html#.YUejt3WYVNg)
 [^fn2]: [Wikipedia.](https://en.wikipedia.org/wiki/Mere_addition_paradox)
 [^fn6]: [Linked is the 'experience machine' thought experiment. With regard to AGI, I heard about this through 'perverse instantiation', in Bostrom's 'Superintelligence'.](https://en.wikipedia.org/wiki/Experience_machine)
 [^fn4]: [Daniel Filan.](https://danielfilan.com/2018/08/31/bottle_caps_arent_optimisers.html)
