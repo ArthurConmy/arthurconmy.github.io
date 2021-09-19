@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CIA Seminar slides
+title: CIA seminar slides
 date:   2021-05-07
 permalink: /cia_slides/
 ---
