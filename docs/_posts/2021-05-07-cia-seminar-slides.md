@@ -2,6 +2,7 @@
 layout: post
 title: CIA Seminar slides
 date:   2021-05-07
+permalink: /cia_slides/
 ---
 
 On 7th May 2021, I gave a presentation at the Cambridge Image Analyis (CIA, that work within DAMTP) group seminar.
