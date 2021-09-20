@@ -5,7 +5,7 @@ date:   2021-09-19
 permalink: "/mesa_opt/"
 ---
 
-This post is written as part of the [AGI Safety Fundamentals Course](https://www.eacambridge.org/agi-safety-fundamentals), organised by [Effective Altruism Cambridge](https://www.eacambridge.org).
+This post is written as part of the [AGI Safety Fundamentals Course](https://www.eacambridge.org/agi-safety-fundamentals), organised by [Effective Altruism Cambridge](https://www.eacambridge.org). EDIT: since writing the article and presenting to my cohort, I was introduced to an alignment forum post on a better definition for optimization[^fn8]. This covers more than I cover in the 'defining optimization' section - thanks for pointing this my way [Rory](https://twitter.com/rorygreig1?lang=en)!
 
 One of the first technical concepts the AGI Safety Fundamentals course covers is *mesa-optimization*. At first, I struggled to find motivation for the concept: not only could I not see why it was likely to occur in an optimization process (I call this the 'likelihood uncertainty'), but also I could not see why it would be more problematic than an optimization procedure not itself producing an optimizer (I call this the 'importance uncertainty').
 
@@ -50,4 +50,5 @@ The data compression motivation suggests that it is plausible that in a game sce
 [^fn6]: [Linked is the 'experience machine' thought experiment. With regard to AGI, I heard about this through 'perverse instantiation', in Bostrom's 'Superintelligence'.](https://en.wikipedia.org/wiki/Experience_machine)
 [^fn4]: [Daniel Filan.](https://danielfilan.com/2018/08/31/bottle_caps_arent_optimisers.html)
 [^fn7]: [Risks from Learned Optimization.](https://www.alignmentforum.org/s/r9tYkB2a8Fp4DN8yB/p/q2rCMHNXazALgQpGH)
+[^fn8]: [Alignment Forum.](https://www.alignmentforum.org/posts/znfkdCoHMANwqc2WE/the-ground-of-optimization-1)
 [^fn9]: [Incomplete Ideas.](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
