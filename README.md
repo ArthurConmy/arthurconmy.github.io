@@ -4,4 +4,4 @@ This repository is for my personal website, available at https://www.arthurconmy
 
 # Developing (mostly for my own reference doing this again later)
 
-* See [here](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll), I think
+* See [here](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
