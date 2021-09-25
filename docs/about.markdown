@@ -24,7 +24,7 @@ See some  <a href="/notes/">notes</a>.
 
 ## Other things
 
-Everything else is a <a href = "/index/">post</a>.
+Everything else is a <a href = "/home/">post</a>.
 
 <img src="../assets/tower.jpeg">
 
