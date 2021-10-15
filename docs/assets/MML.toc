@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Conditional Expectation}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Terminology}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Statistical Learning Theory}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Sub-Gaussianity and Hoeffding's Inequality}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Finite Hypotheses Classes}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Infinite Hypotheses Classes}{13}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Bounded Differences Inequality}{14}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Rademacher Complexity}{18}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}VC Dimension}{21}{subsection.2.6}%
+\contentsline {section}{\numberline {3}Computation for ERM}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Convex sets}{25}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Convex functions}{26}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Convex surrogates}{27}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Rademacher Complexity, Again}{29}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}$\ell _2$ constraints}{31}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Kernel machines (\textit {non-examinable})}{32}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}$\ell _1$ constraints}{33}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Projection onto convex sets}{36}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Subgradients}{37}{subsection.3.9}%
+\contentsline {subsection}{\numberline {3.10}Gradient Descent}{39}{subsection.3.10}%
+\contentsline {subsection}{\numberline {3.11}Stochastic Gradient Descent}{43}{subsection.3.11}%
+\contentsline {section}{\numberline {4}Popular Machine Learning Methods}{45}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Adaboost}{46}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Gradient Boosting}{48}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Decision Trees}{49}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Random Forests}{51}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Neural Networks}{52}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Back-Propagation}{53}{subsubsection.4.5.1}%
