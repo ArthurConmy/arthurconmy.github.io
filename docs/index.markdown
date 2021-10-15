@@ -6,4 +6,4 @@ layout: home
 permalink: /
 ---
 
-Hello, hopefully-not-empty-site!
+Welcome to my blog. See the <a href = "/about/">about</a> section for more details.
