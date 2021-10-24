@@ -1,0 +1,90 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+\usepackage{multirow}
+\usepackage{array}
+% \usepackage{program}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\title{Principles of Statistics}
+\author{Arthur Conmy\footnote{Please send any corrections and/or feedback to \url{asc70@cam.ac.uk}}}
+\date{Part II, Michaelmas Term 2021}
+
+\maketitle
+\begin{abstract}
+These notes are based on lectures given (virtually) by Dr P-L Loh in Michaelmas term 2021. 
+Credit is also due to Evan Chen for the style file for these notes\footnote{Available here: \url{https://github.com/vEnhance/dotfiles/blob/master/texmf/tex/latex/evan/evan.sty}.}.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+(skip if not interested in meta notes)
+
+This course follows naturally on from IB Statistics. It also borrows some technology from II Probability and Measure. I haven't currently decided what emphasis to add to these notes: a focus on intuitions or rigour or something else entirely. 
+
+\section{Convergence}
+
+Since we're in a non-deterministic setting, we need new defintions of convergence. Let $X, X_1, X_2, ... : \mathcal{X} \to \RR$ be random variables, where $\mathcal{X} \subseteq \RR^p$. The first and weakest notion of convergence is \textit{convergence in distribution}. This is \ref{disteq}.
+
+\begin{definition}
+[Convergence in distribution]
+$X_n \stackrel{d}{\to} X$ if 
+
+\begin{equation}
+    \P{X_n \le t} \to \P{X \le t}
+\label{disteq}
+\end{equation}
+
+for all $t \in \RR^p$ for which $t \to \P{X \le t}$ is continuous.
+\end{definition}    
+
+Here, $\le$ means $x_i \le y_i$ in all components.
+
+A stronger notion is convergence is convergence in probability.
+
+\begin{definition}
+[Convergence in probability]
+$X_n \stackrel{P}{\to} X$ if
+\begin{equation}
+    \lim_{n \to \infty} \P{|| X_n - X || > \eps} = 0.
+\end{equation}
+\end{definition}
+
+The proof that convergence in probability implies convergence in distribution is omitted. Hint: only needing to check around points of continuity allows for a standard analysis argument to be applied. See \cite{Chuck Norris} for the gory details.
+
+\begin{example}
+[Convergence in distribution $\not \Rightarrow$ convergence in probability]
+Consider $X, X_1, X_2, ...$ independent and identically distributed $\mathcal{N}(0,1)$ random variables. Then all these have identical distribution function, but certainly $X_n \not \stackrel{P}{\to} X$. 
+\end{example}
+
+The strongest notion of convergence is convergence \textit{almost surely}. This is closely related to null sets from measure theory, i.e not necessarily empty $A \in \mathfrak{B}$ with $\mu (A) = 0$.
+
+\begin{definition}
+[Convergence almost surely]
+$X_n \stackrel{a.s}{\to} X$ if  
+
+\begin{equation}
+\P{ ||X_n - X|| \to 0} = 1.
+\end{equation}
+\end{definition}
+
+\begin{example}
+[Convergence in probability $\not \Rightarrow$ convergence in distribution]
+Consider independent $X_1, X_2, ... $ with $X_n \sim \text{Ber}(\frac{n-1}{n})$\footnote{These random variables can be interpreted as the boolean outcomes of whether an ever-improving skeleton archer hits a bullseye on the $n$th shot at a target.}, and $X$ the constant random variable 1 (equivalently $X_n \sim \text{Ber}(1)$). Then (check!) $X_n \top X$ but $X_n \not \toas X$.
+\end{example}
+
+\begin{thebibliography}{9}
+\bibitem{Chuck Norris}
+Norris, James, \emph{Probability and Measure}, \url{https://web.archive.org/web/20210507005332/http://www.statslab.cam.ac.uk/~james/Lectures/pm.pdf}.
+
+% \bibitem{Course Notes}
+% Rajen D. Shah (2021), \emph{Mathematics of Machine Learning}, \url{http://www.statslab.cam.ac.uk/~rds37/teaching/machine_learning/notes.pdf}.
+% 
+% \bibitem{MIT Notes}
+% Philippe Rigollet, \emph{18.657: Mathematics of Machine Learning}, \url{https://ocw.mit.edu/courses/mathematics/18-657-mathematics-of-machine-learning-fall-2015/lecture-notes/MIT18_657F15_LecNote.pdf}.
+
+\end{thebibliography}
+\end{document}
