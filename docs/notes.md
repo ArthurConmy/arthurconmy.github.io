@@ -28,6 +28,6 @@ In future, I'd like to expand this when I know more analysis.
 
 This is a new course, and I am not aware of any complete sets of notes available other than these at present. Currently, the references throughout the document are broken (is there an easy fix for this?!).
 
-# Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021.
+<!-- # Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021. -->
 
-I have just started writing up notes for the Principles of Statistics course.
+<!-- I have just started writing up notes for the Principles of Statistics course. -->
