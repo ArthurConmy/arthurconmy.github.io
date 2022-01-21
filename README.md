@@ -6,6 +6,15 @@ This repository is for my personal website, available at https://www.arthurconmy
 
 * See [here](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll).
 
+## From scratch:
+
+```
+git clone <REPO>
+cd docs
+bundler install # this requires Ruby and can be a pain
+bundle exec jekyll serve
+```
+
 # TODO
 
 - [ ] Tidy up `assets`.
