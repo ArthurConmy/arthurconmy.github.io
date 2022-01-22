@@ -31,4 +31,16 @@ Everything else is a <a href = "/home/">post</a>.
 
 Outside the Tower of London, July 2021.
 
+<details><summary>Click to expand!</summary> Here is some more text</details>
+
 [jekyll-organization]: https://github.com/jekyll
+<html>
+<body>
+
+[expand]
+Expanded.
+[/expand]
+
+{% include text-expand.html %}
+</body>
+</html>
