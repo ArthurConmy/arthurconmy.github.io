@@ -14,7 +14,7 @@ This is a new course, and I am not aware of any complete sets of notes available
 
 ## Part IB
 
-# Geometry <a href="../assets/Geom/Geom.pdf" target="_blank">[link]</a>, near complete.
+# Geometry <a href="../assets/Geometry/Geom.pdf" target="_blank">[link]</a>, near complete.
 
 I found this course hard, and found a number of sections of the course covered at a rapid speed. My goal in these notes is to distill the important intuitions, but also fill in details in the sections I was less clear about.
 
