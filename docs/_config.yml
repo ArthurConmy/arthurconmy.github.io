@@ -50,3 +50,4 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+#   - _posts/2022-01-20-technical-ai-alignment.md
