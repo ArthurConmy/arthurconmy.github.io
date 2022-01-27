@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Technical AI Alignment
+title: Technical AI Alignment (incomplete)
 date: 2022-01-20
 permalink: /technical_ai_alignment/
 ---
