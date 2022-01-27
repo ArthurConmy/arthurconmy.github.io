@@ -1,16 +1,10 @@
 ---
 layout: post
 title: Technical AI Alignment (incomplete)
-date: 2022-01-20
+date: 2022-01-27
 permalink: /technical_ai_alignment/
 ---
-
-<!-- ---
-<details>
-<summary> Sum </summary>
-<img src="../assets/mlab.png">
-</details>
---- -->
+<br>
 
 *This post was written based on my favourite parts of the [MLAB](https://www.redwoodresearch.org/community-and-team-growth) bootcamp.*
 
@@ -18,11 +12,35 @@ permalink: /technical_ai_alignment/
 
 <img src="../assets/mlab.png">
 
-If you believe AI (through machine learning, or otherwise) might transform society, you might also be concerned whether such transformation is very good or [very bad](https://en.wikipedia.org/wiki/Existential_risk_from_artificial_general_intelligence). One approach to working on this problem is *technical AI alignment*, which in this post I define to be working with existing ML systems in order to find and solve analogous problems to those that may arise within more powerful systems. The article has examples from each of element of {Computer vision, Natural langauge processing, Reinforcement learning} to give wide scope on where alignment problems can arise and be worked on.
+<!-- <h1>Contents</h1> -->
+
+<div id="toc_container">
+<p class="toc_title"><b>Contents</b></p>
+<ul class="toc_list">
+  <li><a href="#Interpretability">Interpretability</a>
+  <ul>
+    <li><a href="#Computer Vision">Computer Vision</a></li>
+    <li><a href="#Natural Language Processing">Natural Language Processing</a></li>
+    <ul>
+        <li><a href="#Induction Heads">Induction Heads</a></li>
+    </ul>
+  </ul>
+</li>
+<li><a href="#Alignment">Alignment</a></li>
+  <ul>
+    <li><a href="#Reinforcement learning">Reinforcement learning</a></li>
+  </ul>
+ <li><a href="#Footnotes">Footnotes</a></li>
+</ul>
+</div>
+---
+<br>
+
+If you believe AI (through machine learning, or otherwise) might transform society, you might also be concerned with whether such a transformation will be very good or [very bad](https://en.wikipedia.org/wiki/Existential_risk_from_artificial_general_intelligence). One approach to working on this problem is *technical AI alignment*, which in this post I define to be working with existing ML systems in order to find and solve analogous problems to those that may arise within more powerful systems. The article has examples from each of element of {Computer vision, Natural langauge processing, Reinforcement learning} to give wide scope on where alignment problems can arise and be worked on.
 
 This post is accompanied with a colab notebook [here](https://colab.research.google.com/drive/10DkmAwc7FXokD1_scwvvWEav0F9egtK5?usp=sharing).
 
-## Interpretability 
+<h1 id="Interpretability">Interpretability</h1>
 
 ---
 <details>
@@ -35,7 +53,7 @@ One problem with existing ML systems is that they are often used as a <i>black-b
 
 *Interpretability* work aims to understand what and how ML systems are learning from data. I look at both interpretability in computer vision and NLP. 
 
-# Computer Vision 
+<h2 id="Computer Vision">Computer Vision</h2>
 
 *Just read [this distill article](https://distill.pub/2017/feature-visualization/), it's fantastic*
 
@@ -89,11 +107,15 @@ the intuition being that this will cause the norms of the gradients of these 2D 
 </details>
 ---
 
-Randomly initialised image, Fourier basis            |  Optimised, 1000 steps.
+Randomly initialised image, Fourier basis            |  Class ID 488, optimised for 2000 steps.
 :-------------------------:|:-------------------------:
-![](../assets/MLAB/FourierInit.png)    |  <!-- ![](../assets/MLAB/NaiveOptim.png)
+![](../assets/MLAB/FourierInit.png)    |  ![](../assets/MLAB/FourierChain.png)
 
-# Natural Language Processing
+Okay, nothing like the original circuits work, and it's a stretch of the imagination to suggest that that's a chain (ImageNet class ID 488), but I see this as much closer to a natural image than the noise. Additionally, this technique can lead to further impressive images resembling natural images:
+
+![](../assets/MLAB/SmolBetterFourier.png)
+
+<h2 id="Natural Language Processing">Natural Language Processing</h2>
 
 *Just read [the Anthropic](https://transformer-circuits.pub/2021/framework/index.html), it's also fantastic*
 
@@ -104,23 +126,22 @@ I use natural language processing to refer to machine learning systems trained o
 </details>
 ---
 
-Interpretability is also important for <i>language models</a>, which aim to predict the next words in incomplete sentences, or produce further sentences complete sentences. There are very wide-ranging, often hilarious <a href="https://www.gwern.net/GPT-3-nonfiction">results</a> of such models, but they can be underwhelming and fragile as subtle changes to prompts change responses from nonsense to very impressive: for example, they are able to produce working solutions to unseen competitive programming problems of the form used for hiring programmers at any large tech company:
+Interpretability is also important for <i>language models</i>, which aim to predict the next words in incomplete sentences, or produce further sentences complete sentences. There are very wide-ranging, often hilarious <a href="https://www.gwern.net/GPT-3-nonfiction">results</a> of such models, but they can be underwhelming and fragile as subtle changes to prompts change responses from nonsense to very impressive: for example, they are able to produce working solutions to unseen competitive programming problems of the form used for hiring programmers at any large tech company:
 
-TODO EXAMPLE, FAILURE AND SUCCESS.
+![](../assets/MLAB/Leetcode.png)
+<i>A large language model produces a solution to a <a href="https://leetcode.com/problems/smallest-index-with-equal-value/">Problem</a> given access to merely the problem statement and solution signature. Note this problem was released after the language model's training data was collected!</i>
 
-The workhorse behind the success of these models is the <i>transformer</i> architecture[^fn3], for which all my intuitions come from the linked Anthropic article, so I give no details on this. 
+The workhorse behind the success of these models is the <i>transformer</i> architecture[^fn3], for which all my intuitions come from the linked Anthropic article.
 
-TODO MAYBE ADD DETAIL OF `ALGORITHMS` THAT MODELS CAN IMPLEMENT
+<!-- <h3 id="Induction Heads">Induction Heads</h3> -->
+<!-- The framework of <i>transformer circuits</i> using simplified, toy transformers in order to interpret what these models can learn is very fruitful for finding empirical curiosities from these models. -->
+<!-- TODO ADD LUKAS' GRAPH -->
 
-However, the framework of that article, using simplified, toy transformers in order to interpret what these models can learn is very fruitful for finding empirical curiosities from these models.
-
-TODO ADD LUKAS' GRAPH
-
-## Alignment
+<h1 id="Alignment">Alignment</h1>
 
 I use <i>alignment</i> to refer to the property that system's behaviours can be very different from their human-specified, intended behaviour.
 
-# Reinforcement learning
+<h2 id="Reinforcement learning">Reinforcement learning</h2>
 
 ---
 <details>
@@ -144,14 +165,23 @@ We can in fact consider stochastic language models as stochastic reinforcment le
 </details>
 ---
  
-Curiously, optimising a pretrained large language model with a reward function for the number of full stops it produces leads to totally unexpected behaviour; the completions for the incomplete sentence "The most important event of the 20th century was..." before and after this optimisation are shown:
+Curiously, optimising a pretrained large language model with a reward function for the number of full stops[^fn4] it produces leads to totally unexpected behaviour; the completions for the incomplete sentence "Good morning ..." before and after this optimisation are shown:
 
-TODO ADD THE COMPLETIONS THAT GET POLITICAL
+![](../assets/MLAB/NonPolitical.png)
+<i>Some varied completions from a pre-trained large language model</i>
 
-# Footnotes
+However, after finetuning, the behaviour changes significantly:
+
+![](../assets/MLAB/Political.png)
+
+Why is this happening? We can guess that news headlines have lots of full stops (?!) but whatever the behaviour, it seems difficult to imagine that this could have been predicted prior to the training of the model.
+
+<h1 id="Footnotes">Footnotes</h1>
 
 [^fn1]: as addressed in the next footnote, neurons in InceptionV1 are neurons by name only; these can just be thought of as intermediate high-dimensional vectors in the mapping from an image to the one-dimensional category of image that that image belongs to in ImageNet.
 
 [^fn2]: it's worth emphasis that despite the fact that almost all state-of-the-art approaches to problems on which machine learning succeed use neural networks, the extent to which these are biologically inspired (and by extension, 'human-like') is [pretty weak](https://shlegeris.com/2019/08/20/cnn.html). Additionally, progress on such problems seems to be driven by [compute](http://www.incompleteideas.net/IncIdeas/BitterLesson.html), rather than the either encoding (human) intuitions or studying how humans learn things.
 
 [^fn3]: though as in the previous footnote, it's worth noting that a lot of the power of the transformer can be put down to the ability to parallelize computations through them, leading to transformer models being far more capable of productively using more compute.
+
+[^fn4]: specifically, the final layer of the model was finetuned with policy gradient. Details can be found in the notebook.
