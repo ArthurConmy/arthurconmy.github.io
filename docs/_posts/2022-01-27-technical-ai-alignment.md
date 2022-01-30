@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Technical AI Alignment (incomplete)
-date: 2022-01-27
+title: Technical AI Alignment
+date: 2022-01-30
 permalink: /technical_ai_alignment/
 ---
 <br>
+
+<!-- <span style="font-family:monospace">LOVE!</span> -->
 
 *This post was written based on my favourite parts of the [MLAB](https://www.redwoodresearch.org/community-and-team-growth) bootcamp.*
 
@@ -117,7 +119,7 @@ Okay, nothing like the original circuits work, and it's a stretch of the imagina
 
 <h2 id="Natural Language Processing">Natural Language Processing</h2>
 
-*Just read [the Anthropic](https://transformer-circuits.pub/2021/framework/index.html), it's also fantastic*
+*Just read [the anthropic paper](https://transformer-circuits.pub/2021/framework/index.html), it's also fantastic*
 
 ---
 <details>
@@ -126,10 +128,49 @@ I use natural language processing to refer to machine learning systems trained o
 </details>
 ---
 
-Interpretability is also important for <i>language models</i>, which aim to predict the next words in incomplete sentences, or produce further sentences complete sentences. There are very wide-ranging, often hilarious <a href="https://www.gwern.net/GPT-3-nonfiction">results</a> of such models, but they can be underwhelming and fragile as subtle changes to prompts change responses from nonsense to very impressive: for example, they are able to produce working solutions to unseen competitive programming problems of the form used for hiring programmers at any large tech company:
+Interpretability is also important for <i>language models</i>. A language model predicts the next word in an incomplete sentence (or produce further sentences given complete sentences). There are very wide-ranging, often hilarious <a href="https://www.gwern.net/GPT-3-nonfiction">results</a> of such models, though they can be underwhelming and fragile as subtle changes to prompts change responses from nonsense to very impressive. As an impressive use case, they are able to produce working solutions to unseen competitive programming problems of the form used for hiring programmers at any large tech company; take the following <a href="https://leetcode.com/problems/smallest-index-with-equal-value/">LeetCode problem:</a>[^fn5]
 
-![](../assets/MLAB/Leetcode.png)
-<i>A large language model produces a solution to a <a href="https://leetcode.com/problems/smallest-index-with-equal-value/">Problem</a> given access to merely the problem statement and solution signature. Note this problem was released after the language model's training data was collected!</i>
+---
+![](../assets/MLAB/LeetcodeStatement.png)
+<i>Problem statement, and initial code prompt</i>
+
+---
+
+We create a prompt for the language model by adding the problem statement as a docstring, and add the first two lines of the solution signature (removing types):
+
+```python
+prompt = """\"\"\"
+Given a 0-indexed integer array nums, return the smallest index i of nums such that i mod 10 == nums[i], or -1 if such index does not exist.
+\"\"\"
+
+class Solution:
+    def smallestEqual(self, nums):
+"""
+```
+
+and after feeding this through a large language models (OpenAI's `da-vinci-codex` model), the language model produces a working solution:
+
+```python
+"""
+Given a 0-indexed integer array nums, return the smallest index i of nums such that i mod 10 == nums[i], or -1 if such index does not exist.
+"""
+
+class Solution:
+    def smallestEqual(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        nums.sort()
+        for i in range(len(nums)):
+            if i % 10 == nums[i]:
+                return i
+        return -1
+```
+
+(and even decides to tell us what the input and return types are supposed to be!)
+
+<!-- <i>A large language model produces a solution to a <a href="https://leetcode.com/problems/smallest-index-with-equal-value/">problem</a> given access to merely the problem statement and solution signature. Note this problem was released after the language model's training data was collected!</i> -->
 
 The workhorse behind the success of these models is the <i>transformer</i> architecture[^fn3], for which all my intuitions come from the linked Anthropic article.
 
@@ -156,7 +197,7 @@ Reinforcement learning conceptualises this more complex situation by allowing an
 </details>
 ---
 
-Reinforcement learning is one of the best motivating fields for doing work on alignment, since its explicit simplification of performance to a sum of rewards both intuitively and empirically leads to unaligned performance; empirically optimizing for TODO ADD THE SPINNING BOAT EXAMPLE
+Reinforcement learning is one of the best motivating fields for doing work on alignment, since its explicit simplification of performance to a sum of rewards both intuitively and empirically leads to unaligned performance; empirically optimizing for one goal may lead to very unexpected behaviours being found (see below).
 
 ---
 <details>
@@ -165,16 +206,50 @@ We can in fact consider stochastic language models as stochastic reinforcment le
 </details>
 ---
  
-Curiously, optimising a pretrained large language model with a reward function for the number of full stops[^fn4] it produces leads to totally unexpected behaviour; the completions for the incomplete sentence "Good morning ..." before and after this optimisation are shown:
+Curiously, optimising a pretrained large language model with a reward function for the number of full stops[^fn4] leads to totally unexpected behaviour. 
 
-![](../assets/MLAB/NonPolitical.png)
-<i>Some varied completions from a pre-trained large language model</i>
+Some completions for the incomplete (and importantly, generic) sentence "Good morning ..." on the pretrained language model are shown:
+
+```
+['Good morning, my family!"\n\nTowards the end of his stay in the United States, Bob West Georgia was arrested by Immigration and Customs',
+ 'Good morning.\n\nAnd I felt this in my gut, and it was so strange to think that I was the only one who felt this.',
+ "Good morning, the world of music and music production. Today we're going to be talking about the Stereo Edition.\n\nFeaturing the St",
+ 'Good morning everyone.\n\nRead or Share this story: http://usat.ly/1ztElFm<|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|><|endoftext|>',
+ 'Good morning. My wife and I are actually gonna walk up and down the aisle tonight, to see if we can get some kind of a list of',
+ 'Good morning man.\n\n"You\'ve got to take this seriously," he says. "People have been telling me all along that you\'re going',
+ 'Good morning" to return to square one.\n\nLaura\'s mother didn\'t want her to go along with that. That\'s why she ordered a',
+ 'Good morning!"\n\n\n"You\'re a tree monkey!"\n\n\n"I\'m a girl!"\n\n\n"I can see you\'re a tree',
+ 'Good morning, I\'m gonna make a deal with you. Can you make a deal with me?"\n\nI watched the world through a window with',
+ 'Good morning, my friends. I\'m feeling a little better. But I am going to miss you. I can\'t wait to see you."\n']
+```
+
+These language models are trained on a large amount of text, largely from the internet, leading to varied responses such as the model's hallucination of a link <a href="http://usat.ly/1ztElFm">http://usat.ly/1ztElFm</a> perhaps ending a blog post, and the start of what may be a musical education paragraph: <i>"Good morning, the world of music and music production. Today we're going to be talking about the Stereo Edition..."</i>. This varied, arbitrary behaviour however dramatically changes after finetuning. Recall that the finetuning trains the language model to be rewarded for producing many full stops in its output, something that would seem innoccuous. 
+
+```
+
+```
+
+<!-- ![](../assets/MLAB/NonPolitical.png) -->
+<!-- <i>Some varied completions from a pre-trained large language model</i> -->
 
 However, after finetuning, the behaviour changes significantly:
 
-![](../assets/MLAB/Political.png)
+```
+['Good morning everyone...........................',
+ 'Good morning, President Trump."\n\nTrump said on Friday that he would nominate a special prosecutor to investigate Russian meddling in the U.. election.',
+ 'Good morning, President Trump."\n\nTrump appeared to soften his tone on the immigration issue on Monday when he said he remains committed to the Paris climate',
+ 'Good morning to all of you."\n\nLabour said it was "deeply concerned" about the security of Britain. It condemned the attack as "',
+ 'Good morning, Mr. President.\n\nThe White House said President Trump had agreed to lift a travel ban imposed by U.S. leaders.',
+ 'Good morning, ladies and gentlemen,\n\nSincerely,\n\nThe Queen\n\nThe Office for National Statistics\n\nThe Government\n\nThe',
+ 'Good morning............................',
+ 'Good morning to you, Mr Justice McDowell.....................',
+ 'Good morning," he said.\n\nMr Cameron said he was confident Britain would remain in the European Union.\n\nThe prime minister said he hoped',
+ 'Good morning to all..........................']
+```
 
-Why is this happening? We can guess that news headlines have lots of full stops (?!) but whatever the behaviour, it seems difficult to imagine that this could have been predicted prior to the training of the model.
+what happened?! The first, seventh and tenth completions are examples of what we trained for; they rapidly stop completing with words and then spam full stops. But all seven other completions not only are not particularly dense with full stops but are <i>ALL</i> super politically charged. This isn't what we asked for at all! As far as I can tell, your guess is as good as mine for why the model is now uber-political (perhaps news stories have shorter sentences so more full stops ... ? This does not seem a great argument). This small example of the alignment problem was very eye-opening to me when my model began outputting these responses; there is a lot currently not understood about how these models are learning, and blind optimization for specific objectives not only can but <i>does</i> lead to perverse behaviour.
+
+<!-- It has been really motivating to me recently to realise that  -->
 
 <h1 id="Footnotes">Footnotes</h1>
 
@@ -185,3 +260,5 @@ Why is this happening? We can guess that news headlines have lots of full stops 
 [^fn3]: though as in the previous footnote, it's worth noting that a lot of the power of the transformer can be put down to the ability to parallelize computations through them, leading to transformer models being far more capable of productively using more compute.
 
 [^fn4]: specifically, the final layer of the model was finetuned with policy gradient. Details can be found in the notebook.
+
+[^fn5]: crucially, this problem was published <i>after</i> GPT-3 was trained, so it's not the case that the language model 'memorised' how to create this (exact) solution.
