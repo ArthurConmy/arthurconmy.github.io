@@ -4,9 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Hello! I'm Arthur Conmy, a third year undergraduate at Trinity College, Cambridge studying mathematics. I am interested in machine learning.
+Hello! I'm Arthur Conmy, a third year undergraduate at Trinity College, Cambridge studying mathematics. I am hoping to do as much good as possible, specifically by making machine learning not make the future terrible. This summer, I am interning at [Redwood Research](https://www.redwoodresearch.org/) in Berkeley, California.
 
 <!-- Here you can find some  on maths, some <a href="/cia_slides/">slides</a> on some research I have done, and a brief <a href="/mesa_opt/">note</a> on *mesa-optimization*, a concept in AGI (Artificial General Intelligence).  -->
+
+I try and [read things]() too.
 
 ## Cambridge
 
@@ -31,15 +33,11 @@ Everything else is a <a href = "/home/">post</a>.
 
 Outside the Tower of London, July 2021.
 
-<details><summary>Click to expand!</summary> Here is some more text</details>
+<!-- <details><summary>Click to expand!</summary> Here is some more text</details> -->
 
-[jekyll-organization]: https://github.com/jekyll
+<!-- [jekyll-organization]: https://github.com/jekyll -->
 <html>
 <body>
-
-[expand]
-Expanded.
-[/expand]
 
 {% include text-expand.html %}
 </body>
