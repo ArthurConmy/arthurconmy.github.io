@@ -36,9 +36,9 @@ Outside the Tower of London, July 2021.
 <!-- <details><summary>Click to expand!</summary> Here is some more text</details> -->
 
 <!-- [jekyll-organization]: https://github.com/jekyll -->
-<html>
-<body>
-
-{% include text-expand.html %}
-</body>
-</html>
+<!-- <html> -->
+<!-- <body> -->
+<!--  -->
+<!-- {% include text-expand.html %} -->
+<!-- </body> -->
+<!-- </html> -->
