@@ -6,21 +6,21 @@ permalink: /reading/
 
 All books are rated out of 5 stars (\* \* \* \* \*). 
 
-# The Structure of Scientific Revolutions ( \* \*  )
+## The Structure of Scientific Revolutions ( \* \*  )
 <i>22nd February 2021</i>
 
-## Biggest takeaway
+# Biggest takeaway
 
 There is an observable pattern in scientific progression, namely through (phases)[https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions#Phases]. Notable 'normal science', which consists of <i>puzzle solving</i>, is followed by crisis, when (perhaps) puzzles no longer have well-defined solutions, if solutions at all, within the current scientific <i>paradigm</i> (a word the book popularised).
 
-## Why you shouldn't read this book
+# Why you shouldn't read this book
 
 There are few empirical tests carried out, and no effort to gather data on scientific progress, and instead I think a couple of examples are very overfitted to (namely, Aristotle to Newton, Newton to Einstein, Ptolemy to Copernicus, as well as the discovery of oxygen). 
 
-# The Black Swan ( \* \* \*  )
+## The Black Swan ( \* \* \*  )
 <i>1st February 2021</i>
 
-## Biggest takeaway
+# Biggest takeaway
 
 The real world is generally modelled by a normal distribution. However, there are important distributions in life that are very much NOT normal. For example, heights of people in cm may be
 
@@ -32,6 +32,6 @@ which is certainly modellable as a normal distrbution. But consider <i>book sale
 
 which is very very different to the above distribution of heights. Rises and falls of the stock market are another example. The book makes a stronger claim, however, that there exist very-not-normal distributions that are also very difficult if not impossible to predict, and it is delusion to believe they can be predicted.
 
-## Why you shouldn't read this book
+# Why you shouldn't read this book
 
 The author has an axe to grind, which at best makes the read enjoyable, but at worst makes it irritating. 
