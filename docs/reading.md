@@ -7,7 +7,7 @@ permalink: /reading/
 All books are rated out of 5 stars (\* \* \* \* \*). 
 
 ## The Structure of Scientific Revolutions ( \* \*  )
-<i>22nd February 2021</i>
+<i>22nd February 2022</i>
 
 # Biggest takeaway
 
@@ -18,7 +18,7 @@ There is an observable pattern in scientific progression, namely through (phases
 There are few empirical tests carried out, and no effort to gather data on scientific progress, and instead I think a couple of examples are very overfitted to (namely, Aristotle to Newton, Newton to Einstein, Ptolemy to Copernicus, as well as the discovery of oxygen). 
 
 ## The Black Swan ( \* \* \*  )
-<i>1st February 2021</i>
+<i>1st February 2022</i>
 
 # Biggest takeaway
 
@@ -35,3 +35,25 @@ which is very very different to the above distribution of heights. Rises and fal
 # Why you shouldn't read this book
 
 The author has an axe to grind, which at best makes the read enjoyable, but at worst makes it irritating. 
+
+## How we Learn () ( \* \* \* \* \*  )
+<i>10th December 2021</i>
+
+# Biggest takeaway
+
+Too many to count. System one and system two. Planning fallacy. Narrative fallacies. Which professions do have experts, and which don't.
+
+# Why you shouldn't read this book
+
+Expect to see yourself and others in many ways more negatively after reading.
+
+## Thinking, Fast and Slow ( \* \* \* \* \*  )
+<i>1st December 2021</i>
+
+# Biggest takeaway
+
+Too many to count. System one and system two. Planning fallacy. Narrative fallacies. Which professions do have experts, and which don't.
+
+# Why you shouldn't read this book
+
+Expect to see yourself and others in many ways more negatively after reading.
