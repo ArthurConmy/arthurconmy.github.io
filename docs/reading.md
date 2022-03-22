@@ -6,12 +6,15 @@ permalink: /reading/
 
 All books are rated out of 5 stars (\* \* \* \* \*). 
 
+## Rationality: From AI to Zombies (work in progress) 
+<i>22nd March 2022</i>
+
 ## The Structure of Scientific Revolutions ( \* \*  )
 <i>22nd February 2022</i>
 
 # Biggest takeaway
 
-There is an observable pattern in scientific progression, namely through (phases)[https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions#Phases]. Notable 'normal science', which consists of <i>puzzle solving</i>, is followed by crisis, when (perhaps) puzzles no longer have well-defined solutions, if solutions at all, within the current scientific <i>paradigm</i> (a word the book popularised).
+There is an observable pattern in scientific progression, namely through <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions#Phases">phases</a>. Notable <i>normal science</i> (which consists of 'puzzle solving') is followed by <i>crisis</i> when puzzles no longer have well-defined solutions within the current scientific paradigm (a word the book popularised), at which point eventually a <i>paradigm shift</i> occurs.
 
 # Why you shouldn't read this book
 
@@ -36,7 +39,7 @@ which is very very different to the above distribution of heights. Rises and fal
 
 The author has an axe to grind, which at best makes the read enjoyable, but at worst makes it irritating. 
 
-## How we Learn () ( \* \* \* \* \*  )
+## How we Learn ( \* \* \* \* \*  )
 <i>10th December 2021</i>
 
 # Biggest takeaway
