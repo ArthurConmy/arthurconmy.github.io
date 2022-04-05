@@ -12,7 +12,7 @@ This page will hopefully store my notes on various maths courses, and will hopef
 
 # Mathematics of Machine Learning <a href="../assets/MML/MML.pdf" target="_blank">[link]</a>, complete.
 
-This is a new course, and I am not aware of any complete sets of notes available other than these at present. Currently, the references throughout the document are broken (is there an easy fix for this?!).
+This is a new course, and I am not aware of any complete sets of notes available other than these at present. Highlights are the much nicer references to previous equations than in existing notes, and also the elementary proof of the full form of Hoeffding's Lemma.
 
 ## Part IB
 

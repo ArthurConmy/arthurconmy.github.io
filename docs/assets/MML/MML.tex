@@ -194,7 +194,7 @@ Define the \vocab{regression function} $\eta$ as
     \label{L1:Regression Function}
 \end{equation}
 
-Note that in practise we don't have `access' to $\eta$, since to know $\eta$ we need to know the joint distribution to evaluate it. When minimising Bayes risk, we're essentially minimising \textit{population-wide} risk. We'll go on to study empiricial risk minimisation (ERM), where we minimise risk with respect to our training data, or data we observe empirically.
+Note that in practise we don't have `access' to $\eta$, since to know $\eta$ we need to know the joint distribution to evaluate it; Bayes risk essentially minimises \textit{population-wide} risk. We'll go on to study empiricial risk minimisation (ERM), where we minimise risk with respect to our `training data' (a finite sample of data that we observe empirically).
 
 \begin{theorem}
 \label{not deep Bayes}
@@ -311,7 +311,7 @@ Let $\hat{h} \in \H$ be the hypothesis minimising empirical risk.
 
 Let $h^* \in \H$ be the hypothesis minimising (population) risk over all $\H$.
 
-Let $h_0$ be the function minimising (population) risk over all functions $h : \mathcal{X} \mapsto \mathcal{Y}$.
+Let $h_0$ be the function minimising (population) risk over all functions $h : \mathcal{X} \to \mathcal{Y}$.
 \end{definition}
 
 Note that $h_0$, the `God hypothesis' won't be a perfect predictor, since our data comes from $P_0$, an inherently random distribution. 
@@ -337,15 +337,16 @@ Write
 \begin{align}
     R(\hat{h}) - R(h^*) = R(\hat{h}) - \hat{R}(\hat{h}) + \underbrace{\hat{R}(\hat{h}) - \hat{R}(h^*)}_{\le 0} + \hat{R}(h^*) - R(h^*) \\
     \le R(\hat{h}) - \hat{R}(\hat{h}) + \hat{R}(h^*) - R(h^*).
+\label{FineForFinite}
 \end{align}
 
 where the middle term is non-positive since we chose $\hat{h}$ to be optimal on the training data.
 
-We've interpreted all these terms already, except $\hat{R}(h^*)$. This is the risk of the optimal classifier with respect to all $\H$, but when it can only see the training data. So it is another measure of how much we are overfitting.
+We've interpreted all these terms already, except $\hat{R}(h^*)$. This is the risk of the optimal classifier with respect to all $\H$, but when it can only see the training data. So $\hat{R}(h^*) - R(h^*)$ is another measure of how much we are overfitting.
 
 \subsection{Sub-Gaussianity and Hoeffding's Inequality}
 
-Recall Markov's inequality from 1A Probability. Note that this is a simple inequality, but has a nice consequence (on an example sheet from that course).
+Recall Markov's inequality from IA Probability. Note that this is a simple inequality, but has a nice consequence (on an example sheet from that course).
 
 \begin{theorem}
 [Chernoff Bound]
@@ -446,10 +447,17 @@ How does this relate to ERM? This brings us onto the first deeper result of the 
 \begin{theorem}
 [Hoeffding's Lemma]
 If $W$ takes values in an interval $[a,b]$, then $W$ is sub-Gaussian with parameter $(b-a)/2$.
+\end{theorem}
 
-\begin{proof}
-We will prove the weaker result with $\sigma = b-a$, using a technique called \emph{symmetrisation}. The full result will be on the example sheet, using a \emph{change of measure} argument\footnote{see \cite{MIT Notes}, also.}.
+We will mention three proofs. The first is direct and elementary (from \cite{HoeffdingExercise}). The second (lectured) will prove the weaker result with $\sigma = b-a$, using a technique called \emph{symmetrisation} which will use again later. On the example sheet, a \emph{change of measure} argument\footnote{see \cite{MIT Notes}, also.} is used to prove the full result.
 
+\begin{proof}[Proof 1: elementary]
+It suffices to prove the result for $W$ with values in $[0,1]$.
+
+We can directly show that $\E{e^{\alpha(W - \E{W})}} \le e^{-\alpha \E{W}} ( \E{W}(e^\alpha -1) + 1 )$ by Taylor expansion, and then verify that that RHS expression is at most $e^{\frac18 \alpha^2}$ for all $\alpha$, which is sufficient.
+\end{proof}
+
+\begin{proof}[Proof 2: symmetrisation]
 To check whether a random variable is sub-Gaussian we normalize so the mean is zero, so WLOG assume $\E{W}=0$.
 
 We want to use the results already established for Rademacher random variables, and to do this we cook up $W'$ an independent copy of $W$ so that the random variable $W-W'$ is symmetric about 0, meaning that $\eps (W - W')$ and $W - W'$ have the same distribution (written $W - W' \deq \eps(W - W')$). We write %and then we could consider %In this case, $W \deq \eps W$ where $\eps$ is a Rademacher random variable that's independent of $W$. Moreover, conditional expectations can be thought of as `fixing' the variable conditioned on, so actually 
@@ -504,6 +512,7 @@ Finally, we can use the tower property once more to write the equality
 \end{equation}
 
 where to be specific, we choose the $f$ in the tower property statement to be some degenerate (e.g constant) function to complete the argument (in essence we omit something like `... $\mid 42]$' at the end of both of the above expectation expressions). We've recovered (\ref{L3 ideal Hoeffding}), so we're done.
+\end{proof}
 
 % Now take $\eps$ a Rademacher random variable independent of $W$ and $W'$ so $W-W' \deq \eps (W-W')$. 
 
@@ -516,8 +525,7 @@ where to be specific, we choose the $f$ in the tower property statement to be so
 % \begin{equation}
 %     \E{\exp{\alpha \eps W} \mid W} \le \E{}
 % \end{equation}
-\end{proof}
-\end{theorem}
+% \end{proof}
 
 \begin{theorem}
     Suppose $W_1$, $\dots$ , $W_n$ are independent and each $W_i$ is sub-Gaussian with parameters $\sigma_i > 0$. Then for all $\gamma \in \RR^n$, $\gamma^T W$ is sub-Gaussian with parameter
@@ -641,6 +649,15 @@ and we get the result by rearranging this for $t$.
 \label{Finite hypothesis class bound}
 \end{theorem}
 
+\begin{arthurnote*}
+Note that we have to go through the process of the union bound for the $R(\hat{h})-\hat{R}(\hat{h})$ term but not the $\hat{R
+}(h^*)-R(h^*)$ term: this is because $h^*$ is independent of the training data sample and therefore $R(h^*) = \E{ \ell ( h^*(X_i) , Y_i ) }$ which means we can apply Hoeffding.
+
+However, $R(\hat{h})$ cannot be decomposed as cleanly and therefore we need the union bound trick.
+
+This will cause us even bigger problems later on when $\mathcal{H}$ is infinite, and the union bound will not even work!
+\end{arthurnote*}
+
 Note that a similar bound could be found by applying the central limit theorem, since our setup involves a bunch of iid random variables. However, our result is not asymptotic, unlike the limit theorems we've seen before.
 
 This result is something to be positive about: in loose terms, even if $\H$ is pretty large, we don't need that much training data to ensure our ERM has low excess risk.
@@ -682,24 +699,24 @@ It can be shown that we approach the Bayes classifier in this scenario, as we in
 
 \subsection{Infinite Hypotheses Classes}
 
-To handle the case where the hypothesis class is infinite, we turn maxima into suprema: let
+What happens to our theory when $|\mathcal{H}| = \infty$? There are two terms in (\ref{FineForFinite}), one involving $\hat{h}$ and one involving $h^*$. For the former term the same techniques that worked before work again, but for the latter term we controlled it by summing over all $h \in \mathcal{H}$ (the union bound trick). This won't work now, so we need to figure out how to work with 
 
 \begin{equation}
     G(Z_1, ... , Z_n) = \sup_{h \in \H} R(h) - \hat{R}(h)
 \label{G definition}
 \end{equation}
 
-where $Z_i = (X_i, Y_i)$. This is a direct generalisation of our previous work, but what is more problematic when $|\H| = \infty$ is that our usual union bounding trick will fail miserably. % Note that trying to do things like in the finite case will be ill-fated because infinite sums are yikes.
+where $Z_i = (X_i, Y_i)$.
 
 However a key property that we used before, when $G$ was an average, is that when we have a bunch of iid random variables $Z_1, ... , Z_n \in \X \times \Y$, each of these does not contribute greatly to the the average. 
 
-Motivated by this, let $\eps > 0$ let $\tilde{h} \in \H$ be an `$\eps$-good' hypothesis in the sense that 
+Indeed, let $\eps > 0$. Then let $\tilde{h} \in \H$ be an `$\eps$-good' hypothesis in the sense that 
 
 \begin{equation}
     G(z_1, ... , z_n) < R(\tilde{h}) - \hat{R}(\tilde{h}) + \eps
 \end{equation}
 
-Consider perturbing WLOG the first argument of $G$. Then (writing out everything...)
+Consider perturbing WLOG the first argument of $G$. Then we have that
 
 \begin{equation}
     G(z_1, ... , z_n) - G(z_1', z_2, ... , z_n) < \frac1n \{ \ell(y_1', \tilde{h}(x_1')) - \ell(y_1, \tilde{h}(x_1)) \} + \eps
@@ -714,7 +731,7 @@ In fact if the loss takes values in $[0, M ]$, and $\eps > 0$ is arbitrary, % (w
 \label{G perturb bounded diff prop}
 \end{equation}
 
-for an perturbed $i$. Such an inequality is called a \vocab{bounded differences property}.
+for a perturbed $i$. Such an inequality is called a \vocab{bounded differences property}.
 
 \subsection{Bounded Differences Inequality}
 
@@ -855,7 +872,7 @@ and let $B_i$ be the corresponding supremum (recall these are supposed to be fun
     B_i - A_i = \sup_{w_i, w_i'} F_i(W_{0:i-1}, w_i) - F_i(W_{0:i-1}, w_i')
 \end{equation}
 
-and writing the $F$ expressions out and bringing the expectations together (using independence of all the $W_{0:i}$ as well as the Martingale independence of the future $W_{i+1:n}$ from the past, we get a quantity that's always at most $L_i$.
+and writing the $F$ expressions out and bringing the expectations together (using independence of all the $W_{0:i}$ as well as the Martingale independence of the future $W_{i+1:n}$ from the past), we get a quantity that's always at most $L_i$.
 
 % I am unsure how this result uses independence of the $W_i$ ... can't we just smoosh expectations together by linearity of expectation?? 
 
@@ -1351,9 +1368,11 @@ All of the following loss functions are candidates for $\phi(h)$:
 \end{center}
 
 \begin{itemize}
-    \item Hinge loss $\max (1-h, 0)$.
-    \item Exponential loss $\exp(-u)$.
-    \item Logistic loss $\log_2(1+e^{-u})$\footnote{Base 2 chosen so that all these functions, like our original indicator take the value 1 at $h=0$}
+    \item Hinge loss $\max (1-h, 0)$
+    \item Exponential loss $\exp -h  $
+    \item Logistic loss $\log_2(1+e^{-h})$ 
+    
+    (where is 2 chosen so that logistic loss, like our original indicator take the value 1 at $h=0$)
 \end{itemize}
 \label{surrogates pic}
 \end{example}
@@ -1466,7 +1485,7 @@ Consider the setup of the contraction lemma and suppose $r < \infty$. Suppose th
 
 \begin{equation}
 \label{phi risk bound apapt}
-    R_\phi(\hat(h)) - R_\phi(h^*) \le 2 L \R_n(\H) + M \sqrt{ 2 \log (2/\delta) / n }
+    R_\phi(\hat{h}) - R_\phi(h^*) \le 2 L \R_n(\H) + M \sqrt{ 2 \log (2/\delta) / n }
 \end{equation}
 \end{corollary}
 
@@ -1536,8 +1555,8 @@ In fact if $h^*$ minimises $\phi$ risk over $\H$ then
 
 and further that $R(\sgn \circ h^*)$ is in fact the Bayes risk.
 
-\begin{proof}
-@todo; hint is example sheet 2, question 11 for main result, and for the part involving Bayes risk somehow  is due to $\phi$ being classification calibrated.
+\begin{proof} % STILL TODO
+Generalise from example sheet 2, question 11. %% @todo; hint is example sheet 2, question 11 for main result, and for the part involving Bayes risk somehow  is due to $\phi$ being classification calibrated.
 \end{proof}
 \end{theorem}
 
@@ -1718,7 +1737,7 @@ If we assume that
 
 then for $h_0 \in \H_1$ to hold we need $\lambda_1 \ge \sqrt{p}$.
 
-This corresponds to excess risk $O\left(\sqrt{\frac{p \log p}{n}} \right)$ (wait, why? Doesn't the inequality direction mean this doesn't follow? Oh I suppose we can `bring lambda down' to the value of $\sqrt{p}$).
+Hence we can't make the excess risk smaller than $O\left(\sqrt{\frac{p \log p}{n}} \right)$. % (wait, why? Doesn't the inequality direction mean this doesn't follow? Oh I suppose we can `bring lambda down' to the value of $\sqrt{p}$).
 
 For $h_0 \in \H_2$ to hold we instead need $\lambda_2 \le 1$, in which case the risk bound is $O\left( \sqrt{\frac{p}{n}} \right)$.
 \end{example}
@@ -2595,5 +2614,10 @@ Rajen D. Shah (2021), \emph{Mathematics of Machine Learning}, \url{http://www.st
 \bibitem{MIT Notes}
 Philippe Rigollet, \emph{18.657: Mathematics of Machine Learning}, \url{https://ocw.mit.edu/courses/mathematics/18-657-mathematics-of-machine-learning-fall-2015/lecture-notes/MIT18_657F15_LecNote.pdf}.
 
+\bibitem{HoeffdingExercise}
+Ecole Normale Superieure.
+\emph{FIFMA - Statistique 2020-2021.}
+Available at \url{arthurconmy.github.io/assets/MML/HoeffdingExercise.pdf}.
 \end{thebibliography}
+
 \end{document}

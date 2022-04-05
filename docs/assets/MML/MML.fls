@@ -1061,6 +1061,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/thmtools/thm-patch.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
@@ -1516,7 +1518,6 @@ INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/decisionbound
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/decisionboundary.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/decisionboundary.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/bin strings.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/bin strings.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/bin strings.png
@@ -1613,7 +1614,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
