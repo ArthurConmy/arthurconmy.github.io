@@ -1,0 +1,71 @@
+% The current problem is sudo apt-get install texlive-fonts-extra
+
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+% \usepackage{multirow}
+\usepackage{array}
+% \usepackage{program}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{bbm}
+\begin{document}
+
+\title{Applied Probability}
+\author{Arthur Conmy\footnote{Please send any corrections and/or feedback to \url{asc70@cam.ac.uk}}}
+\date{Part II, Lent Term 2022}
+
+\maketitle
+\begin{abstract}
+These notes are my best attempt at making a course with `applied' in the title i) exciting and ii) intuitive.
+Credit  due to Evan Chen for the style file for these notes\footnote{Available here: \url{https://github.com/vEnhance/dotfiles/blob/master/texmf/tex/latex/evan/evan.sty}.}.
+\end{abstract}
+
+\begin{theorem}
+\label{CTMC TFAE}
+The following are equivalent:
+
+\begin{itemize}
+\item $(X_t)$ is a CTMC with generator $Q$.
+\item $(X_t)$ satisfies the limiting transition property that 
+\begin{itemize}
+    \item When $y \neq x$, $\mathbb{ P}(X_{t+h} = y | X_t = x) = h q_{xy} + O(h^2)$.
+    \item $\mathbb{ P}( X_{t+h} = x | X_t = x ) = 1 - h\sum_{y \neq x} q_{xy} + O(h^2)$.
+\end{itemize}
+\end{itemize}
+
+\end{theorem}
+
+\section{Reversibility}
+
+What happens when we run CTMCs in reverse? We will restrict to the case $(Q, \pi)$ where we have an invariant distribution, much like we did in IB Markov Chains.
+
+\begin{theorem}[Reversibility]
+Let the irreducible, non-explosive CTMC $(X_t)$ with generator $Q$ have invariant distribution $\pi $. Then fixing some constant end time $T>0$, the random process $(\hat{X}_t) = (X_{T-t})$ for $0 \le t \le T$ is a CTMC, with invariant distribution 
+
+\begin{equation}
+    \hat{q}_{xy} = \frac{\pi_y}{\pi_x} q_{yx}.
+\end{equation}
+\end{theorem}
+
+\begin{remark}
+This is intuitively the case, since the distribution of $X_T$ will also follow the invariant distribution, and $\pi_x \hat{q}_{xy} = \pi_y q_{yx}$ encodes the fact that the reversed process will have transitions from state $x$ to state $y$ identical to the transitions from state $y$ to state $x$ in the original process. 
+\end{remark}
+
+We can bash this claim out with a lot of algebra, although building from the remark, we can see the result as a case of Bayes' theorem.
+
+\begin{proof}
+Since $\pi$ is invariant, $\forall t \in [0, T]$, $\hat{X}_t$ has distribution $\pi$. Now fix such a $t$ - we go for the second characterisation of (\ref{CTMC TFAE}). 
+
+For $h$ small, and $y \neq x$, by Bayes' theorem,
+
+\begin{equation}
+    % h \hat{q}_{xy} :=
+    \mathbb{ P}( \hat{X}_{t+h} = y | \hat{X}_t = x) = \mathbb{ P}( X_{T-t-h} = y | X_{T-t} = x ) = \frac{\mathbb{ P}(X_{T-t}=x | X_{T-t-h}=y) \mathbb{ P}(X_{T-t-h}=y)}{\mathbb{ P}(X_{T-t}=x)}
+\end{equation}
+
+which equals $\frac{h \pi_y q_{yx}}{\pi_x}$. Therefore indeed $\hat{X}$ is a CTMC.
+
+\end{proof}
+
+
+\end{document}
