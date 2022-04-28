@@ -20,6 +20,32 @@ These notes are my best attempt at making a course with `applied' in the title i
 Credit  due to Evan Chen for the style file for these notes\footnote{Available here: \url{https://github.com/vEnhance/dotfiles/blob/master/texmf/tex/latex/evan/evan.sty}.}.
 \end{abstract}
 
+Proof that $\lambda > p\mu_2$ implies the number of customers is not positive recurrent: 
+
+Consider the following independent Poisson clocks:
+
+\begin{itemize}
+    \item $A$, a clock with rate $\lambda $.
+    \item $D_i$ (where $i \in \mathbb{ N}$), a clock with rate $i\mu_2 p(1-p)^{i-1}$.
+\end{itemize}
+
+These together form a CTMC $(X_t)$ on $\mathbb{ Z}$, where initially the state is $+1$, when an $A$ clock rings we transition $+1$, and when a $D_i$ clock rings we transition $-1$. We now want to perform two steps:
+
+\begin{enumerate}
+    \item Couple $(X_t)$ with $(M_t+N_t)$ (which will be `greater than' it).
+    \item Show $(X_t)$ is not positive recurrent.  
+\end{enumerate}
+
+For 1., consider $X_0 = 1$, and $M_0 = 0, N_0 = 1$. Then since with probability $p$ exactly  
+
+\begin{exercise}
+    Find a process $(X_t)_{t \ge 0}$ that has stationary but not independent increments, and a process that has independent but not stationary increments.
+    \begin{itemize}
+        \item Stationary but not independent: take some $\text{Poi}(1)$ random variable, and when it fires, jump some random $U[0,1]$ distance.
+        \item Independent but not stationary: deterministic thing which doesn't have fixed jumps e.g $0, 1, 0, 1, ...$ on intervals of length 1.
+    \end{itemize}
+\end{exercise}
+
 \begin{theorem}
 \label{CTMC TFAE}
 The following are equivalent:

@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1649356229 "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.tex" "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.pdf" "AP" 1649356232
+["pdflatex"] 1650668998 "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.tex" "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.pdf" "AP" 1650669000
   "/etc/texmf/web2c/texmf.cnf" 1636037607 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.aux" 1649356232 1732 07c27e39abf1ca70aa7413606b716765 ""
-  "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.tex" 1649356229 2831 12248e2c6fc6feead7c46ae191c1e180 ""
+  "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.aux" 1650669000 1898 d07e240bddc0b98cb7cdf3578239ecca ""
+  "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.tex" 1650668997 4085 ffe7e6ff328c27eea25939bcd70ede4e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1136768653 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -257,14 +257,14 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1636750994 5160710 ecf427ae8fa19139d8691f526e47bb9b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1636751015 2572827 4ee3b5e1265e9b86a0158caab78e1ec2 ""
-  "AP.aux" 1649356232 1732 07c27e39abf1ca70aa7413606b716765 "pdflatex"
-  "AP.out" 1649356231 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "AP.tex" 1649356229 2831 12248e2c6fc6feead7c46ae191c1e180 ""
+  "AP.aux" 1650669000 1898 d07e240bddc0b98cb7cdf3578239ecca "pdflatex"
+  "AP.out" 1650668999 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "AP.tex" 1650668997 4085 ffe7e6ff328c27eea25939bcd70ede4e ""
   "evan.sty" 1649354619 20593 f3be6dda71eefafe3baf0c1875b65cbc ""
   (generated)
-  "AP.aux"
   "AP.out"
-  "AP.pdf"
   "AP.log"
-  "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.pdf"
   "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.log"
+  "AP.pdf"
+  "/home/arthur/Documents/arthurconmy.github.io/docs/assets/AppliedProb/AP.pdf"
+  "AP.aux"
