@@ -102,7 +102,7 @@ Let $f : \mathbb{R}^d \rightarrow \mathbb{R}^m$ and $Z$ and $W$ be random variab
 Let $f$ be real-valued. Then
 
 \begin{equation}
-    \mathbb{E}[f(W)Z\mid W) = f(W)\mathbb{E}[Z\mid W]
+    \mathbb{E}[f(W)Z\mid W) = f(W)\mathbb{E}[Z\mid W].
 \end{equation}
 \label{L1: Taking out}
 \end{theorem}
@@ -116,7 +116,7 @@ As an example of how to use these tools,
 The following holds:
 
 \begin{equation}
-    \E{Z-f(W)}^2 = \E{Z - \E{Z \mid W}}^2 + \E{f(W)-\E{Z \mid W}}^2
+    \E{Z-f(W)}^2 = \E{Z - \E{Z \mid W}}^2 + \E{f(W)-\E{Z \mid W}}^2.
 \end{equation}
 
 We will write out the extended details of how to apply our conditional expectation theory to get this result.
@@ -162,7 +162,43 @@ Given convex $f:\RR \rightarrow \RR$,
 \end{equation}
 \end{theorem}
 
-To remember which way round the inequality goes, do a sanity check of $W$ constant and $f(x)=x^2$ (variance is non-negative).
+\begin{remark}
+To remember which way round Jensen's inequality goes (keeping $W$ constant) choose $f(x)=x^2$, and use that variance is non-negative.
+\end{remark}
+
+The proof is in two parts. Both are not examinable, but while the full proof uses II Probability and Measure and is outside the scope of the course, the lemma is an idea from IA Probability that we will see used on several occasions in this course.
+
+\begin{lemma}
+Suppose that $f : \RR \to \RR$ is convex. Then $\forall x \in \mathbb{ R}$, if 
+
+\begin{equation}
+\partial f(x) := \{ g : f(z) \ge (z-x)g + f(x) \}
+\end{equation}
+
+then 
+\begin{enumerate}
+\item $\partial f(x) = [a, b]$ where $a \le b \in \mathbb{ R}$.
+\item \begin{equation}
+    a = \lim_{\varepsilon \downarrow 0} \frac{f(x+\varepsilon ) - f(x)}{\varepsilon }
+\end{equation}
+and 
+\begin{equation}
+    b = \lim_{\varepsilon \downarrow 0} \frac{f(x) - f(x-\varepsilon )}{\varepsilon }.   
+\end{equation}
+\end{enumerate}
+
+\begin{proof}(Sketch)
+We will later interpret $\partial f(x)$ as the set of \textit{subgradients} at $x$, see (\ref{subgradient_section}).
+
+For 1), after drawing a picture of a convex function this should be clear. One sketch proof is to consider $[a_0, b_0]$, where $a_0 = f(x) - f(x-1)$ and $b_0 = f(x+1) - f(x)$. Then either these already work, or WLOG $b_0$ fails because there's some $y \in (x, x+1)$ below the line through $(x,f(x))$ with gradient $b_0$. But by convexity this line will have no points $(z, f(z))$ below it where $z<x$. Similarly the equivalent $a_0$ line won't have points below it where $z>x$. So increasing $a_0$ and decreasing $b_0$ must lead to an interval $[a,b]$, because at some point we must `cross over' from points lying below on the left to points lying below on the right, and moreover by continuity we must get $[a,b]$ non-empty since there can't be failures on both sides.
+
+For 2), suppose not, then argue by convexity that actually there must be points closer to $x$ with gradient closer to $a$ and $b$.
+\end{proof}
+\end{lemma}
+
+\begin{proof}(Conditional Jensen)
+See [4], Theorem 23.9. The entire PDF is recommended for a very good formalisation of conditional probability.
+\end{proof}
 
 \subsection{Terminology}
 
@@ -1845,6 +1881,7 @@ and divide through to deduce the result.
 \end{theorem}
 
 \subsection{Subgradients}
+\label{subgradient_section}
 
 What if the functions we want to apply gradient descent to functions that aren't differentiable? For example, hinge loss is not differentiable at $x=1$ (\ref{surrogates pic}).
 
@@ -1927,15 +1964,15 @@ But taking $z = g - \nabla f(x)$ we get that $\normt{\nabla f(x) - g}^2 \le 0$ a
 [Subgradient calculus]
 \label{subgrad calc}
 Let $f,f_1,f_2 : \RR^d \rightarrow \RR$ be convex. Then
-\begin{itemize}
+\begin{enumerate}
     \item $\partial(\alpha f)(x) = \{ \alpha g : g \in \partial f(x) \}$ for $\alpha>0$.
-    \item $\partial(f_1 + f_2)(x) = \{ g_1 + g_2 : g_1 \in \partial f_1(x), g_2 \in \partial f_2(x) \}$
     \item Suppose that $h:\RR^m \rightarrow \RR$ is a composition $h = f \circ g$ where $g$ is an affine function possibly from one dimension to another). Then $\partial h(x) = A^T \partial f(Ax+b) $
-\end{itemize}
+    \item $\partial(f_1 + f_2)(x) = \{ g_1 + g_2 : g_1 \in \partial f_1(x), g_2 \in \partial f_2(x) \}$
+\end{enumerate}
 \begin{proof}
-The first and third properties are immediate from writing out definitions.
+1) and 2) are immediate from writing out definitions.
 
-Why does the second property hold? It holds since 
+For 3), we first prove the 1D case. This relies on the following characterisation
 \end{proof}
 \end{theorem}
 
@@ -2618,6 +2655,10 @@ Philippe Rigollet, \emph{18.657: Mathematics of Machine Learning}, \url{https://
 Ecole Normale Superieure.
 \emph{FIFMA - Statistique 2020-2021.}
 Available at \url{arthurconmy.github.io/assets/MML/HoeffdingExercise.pdf}.
-\end{thebibliography}
 
+\bibitem{FrenchDudeConditional}
+Unknown source (linked on a French mathematician's blog).
+\emph{Conditional Expectation}
+Available at \url{arthurconmy.github.io/assets/MML/ConditionalExpectation.pdf}
+\end{thebibliography}
 \end{document}
