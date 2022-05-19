@@ -1518,6 +1518,8 @@ INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/decisionbound
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/decisionboundary.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/decisionboundary.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm7.tfm
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/bin strings.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/bin strings.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/bin strings.png
@@ -1556,8 +1558,6 @@ INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/hinge subdiff
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/hinge subdiff.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/hinge subdiff.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/hinge subdiff.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bbm/bbm7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/men wamen.png
 INPUT /home/arthur/Documents/arthurconmy.github.io/docs/assets/MML/men wamen.png

@@ -21,7 +21,17 @@ Credit is also due to Evan Chen for the style file for these notes\footnote{Avai
 \end{abstract}
 
 \tableofcontents
+% Some bookwork.
 
+% $X \cup \{ \neg \psi \}$ is inconsistent since if it was consistent, then the given set would be inconsistent since we have $\phi, \phi \implies \psi$ and modus ponens so $\psi$, contradicting $\neg \psi$. Hence by compactness there's a finite subset of the set that's inconsistent. This must include $\phi$. Therefore there are $q_1, ... , q_n, q'_1 , ... , q'_m$ so that $\phi \implies S$, where
+
+% $$ S = \neg ( q_1 \wedge ... \wedge q_n \wedge (\neg q_1') \wedge ... \wedge ( \neg q'_m ) ) $$
+
+% but then by definition we should have $S \in X$ and hence $q$ can't have been a valid valuation, contradiction.  
+
+% For the final part, again use compactness. Since $X \cup \{ \neg \psi \}$ is inconsistent there's some finite subset of it that's inconsistent. Either $X$ is inconsistent, in which case $\phi$ is and therefore $\chi = \neg$ works. Alternatively, the finite subset that's inconsistent contains $\neg \psi$ and therefore we have some $x_1, ... , x_p$ so that $\phi \implies x_1 \wedge ... \wedge x_p$ and $x_1 \wedge ... \wedge x_p \implies \psi$.
+% 
+% Thanks to Professor Loewe for the hints.
 \section{Introduction}
 
 The course will be divided into three parts:
@@ -629,7 +639,16 @@ It's worth noting that while this result makes no distributional assumptions on 
 
 \subsection{Finite Hypotheses Classes}
 
-We have developed enough theory to prove an important bound on the risk of the ERM.
+We have developed enough theory to prove an important bound on the risk of the ERM. Firstly an obvious remark that's easy to get the wrong way round, so is worth internalising.
+
+\begin{remark}[The `If $A$ then $B$ or $C$' inequality.]
+\label{ifAthenBC}
+    Let $A$ be an event in a probability space. Suppose that $ A \subseteq B \cup C $, having the interpretation that `if $A$, then one of $B$ or $C$ must hold'. Then we have the inequality 
+
+    \begin{equation}
+        \mathbb{ P}[ A ] \le \mathbb{ P}[B] + \mathbb{ P}[C].
+    \end{equation}
+\end{remark}
 
 \begin{theorem}
 [Finite hypothesis class excess risk bound]
@@ -656,7 +675,7 @@ Let $t>0$. Then
     \le \P{R(\hat{h}) - \hat{R}(h^*) > t/2, \hat{h} \neq h^*} + \P{\hat{R}(h^*) - R(h^*) > t/2}
 \end{align}
 
-since the two last events imply the former event. The latter term is actually pretty much in the form of Hoeffding's inequality, specifically
+using the trick (\ref{ifAthenBC}). The latter term is actually pretty much in the form of Hoeffding's inequality, specifically
 
 \begin{align}
     \P{\hat{R}(h^*) - R(h^*) > t/2} = \P{ \frac1n \sum \ell(h^*(X_i), Y_i) - \E{\ell(h^*(X_i), Y_i)} > t/2} \\
@@ -902,13 +921,21 @@ Now force $A_i \le D_i \le B_i$ in the most blatant way possible:
     A_i = \inf_{w_i} F_i(W_{0:i-1},w_i) - F_{i-1}(W_{0:i-1})
 \end{equation}
 
-and let $B_i$ be the corresponding supremum (recall these are supposed to be functions of $W_{0:i-1}$!). We now have to do a careful check that $B_i - A_i \le L_i$ by a lot of symbol pushing: to begin note that 
+and let $B_i$ be the corresponding supremum (recall these are supposed to be functions of $W_{0:i-1}$). 
+
+Then $B_i - A_i \le L_i$ because the $F_{i-1}$ terms cancel, so after expanding, 
 
 \begin{equation}
-    B_i - A_i = \sup_{w_i, w_i'} F_i(W_{0:i-1}, w_i) - F_i(W_{0:i-1}, w_i')
-\end{equation}
+    B_i - A_i \le \sup_{w_i, w_i'} \left\{ \mathbb{ E}[ f(W_{0:i-1} , w_i , W_{i+1:n} ) - f(W_{0:i-1} , w_i' , W_{i+1:n} ) | W_{0:i-1} ] \right\} \le L_i. %%
+\end{equation} 
 
-and writing the $F$ expressions out and bringing the expectations together (using independence of all the $W_{0:i}$ as well as the Martingale independence of the future $W_{i+1:n}$ from the past), we get a quantity that's always at most $L_i$.
+% and the the term inside the expectation is indeed $\le L_i$, and hence we get the result.
+
+% \begin{equation}
+    % B_i - A_i = \sup_{w_i, w_i'} F_i(W_{0:i-1}, w_i) - F_i(W_{0:i-1}, w_i')
+% \end{equation}
+
+% and writing the $F$ expressions out and bringing the expectations together (using independence of all the $W_{0:i}$ as well as the Martingale independence of the future $W_{i+1:n}$ from the past), we get a quantity that's always at most $L_i$.
 
 % I am unsure how this result uses independence of the $W_i$ ... can't we just smoosh expectations together by linearity of expectation?? 
 
@@ -958,8 +985,14 @@ For each $f$ we get a mean zero random variable, and we're taking a supremum ove
 
 \begin{definition}
 [More Rademacher terminology]
-    Let $\F$ be a class of functions $f : \Z \rightarrow \RR$ and let $z_1, ... , z_n \in \Z$.
-    
+    The \vocab{Rademacher complexity} of a set $S \subseteq \mathbb{ R}^n$ is defined as 
+
+    \begin{equation}
+        \mathcal{R}(S) = \mathbb{ E} \left[ \sup_{s \in S} \sum_{i=1}^n \varepsilon_i s_i \right]
+        \label{Rademacher set definition}
+    \end{equation}
+
+    We now extend this definition to be (loosely) a measure of the expressivity power of a class of hypotheses. Let $\F$ be a class of functions $f : \Z \rightarrow \RR$ and let $z_1, ... , z_n \in \Z$.    
     Then
     
     \begin{equation}
@@ -983,7 +1016,7 @@ For each $f$ we get a mean zero random variable, and we're taking a supremum ove
     \label{Empirical rademacher conditioning}
     \end{equation}
 
-    Finally, define the \vocab{Rademacher complexity} of $\F$ as $\R_n(\F) = \E{\hat{R}(\F(Z_{1:n}))}$.
+    Finally, define the \vocab{Rademacher complexity} of $\F$ as $\R_n(\F) = \E{\hat{\R}(\F(Z_{1:n}))}$.
 \end{definition}
 
 % This setup will let us show
@@ -1071,7 +1104,7 @@ we can now state and prove the bound for the excess risk that this part of the c
             \delta = 2 \exp{- \frac{nt^2}{2M^2}}
         \end{equation}
         
-        and then the result falls out.
+        and then the result falls out (recall the trick (\ref{ifAthenBC})).
         
     \end{proof}
 \end{theorem}
@@ -1592,7 +1625,7 @@ In fact if $h^*$ minimises $\phi$ risk over $\H$ then
 and further that $R(\sgn \circ h^*)$ is in fact the Bayes risk.
 
 \begin{proof} % STILL TODO
-Generalise from example sheet 2, question 11. %% @todo; hint is example sheet 2, question 11 for main result, and for the part involving Bayes risk somehow  is due to $\phi$ being classification calibrated.
+Generalise from example sheet 2, question 11. I don't know how to get this result. %% @todo; hint is example sheet 2, question 11 for main result, and for the part involving Bayes risk somehow is due to $\phi$ being classification calibrated.
 \end{proof}
 \end{theorem}
 
@@ -1669,14 +1702,15 @@ and the $\ell_\infty$ norm is
 \end{equation}
 \end{definition}
 
-Suppose that $\X = \{ x \in \RR^p : \norm{x}_\infty \le C \}$ and let $\H = \{ x \mapsto x^T \beta : ||\beta||_1 \le \lambda \}$. Then $x^T \beta \le C \lambda$. % why is there another inequality in lecture?!
+Suppose that $\X = \{ x \in \RR^p : \norm{x}_\infty \le C \}$ and let $\H = \{ x \mapsto x^T \beta : ||\beta||_1 \le \lambda \}$. Then $|x^T \beta | \le C \lambda$. % why is there another inequality in lecture?!
 
 \begin{lemma}
 \label{es2 lemma}
 For any set $A \subset \RR^n$, $\hat{\R}(A) = \hat{\R}(\conv A)$,
 
 \begin{proof}
-See example sheet 2. The notation here is a generalisation of the previous (\ref{empirical raddy}) definition; in that case we take the Rademacher complexity of $\F(z_{1:n})$ which is a set, so the definition naturally generalises.
+Example sheet 2. Recall the definition (\ref{Rademacher set definition}) for the Rademacher complexity of a set. 
+% See example sheet 2. The notation here is a generalisation of the previous (\ref{empirical raddy}) definition; in that case we take the Rademacher complexity of $\F(z_{1:n})$ which is a set, so the definition naturally generalises.
 \end{proof}
 \end{lemma}
 
@@ -2020,7 +2054,7 @@ Let $\beta_1 \in C$ be an initial guess and $k \in \NN$ be the number of steps, 
     \State $\beta_{s+1} \gets \pi_C(z_{s+1})$
 \EndFor
 
-\Return $\bar{\beta} = \frac{1}{k} \sum_{s=1}^k \beta_s$ \Comment{An average over all steps, NOT $\beta_s$}
+\Return $\bar{\beta} = \frac{1}{k} \sum_{s=1}^k \beta_s$ \Comment{An average over all steps, NOT $\beta_k$}
 \label{gradient descent algo}
 \end{algorithmic}
 
@@ -2031,7 +2065,7 @@ Let $\beta_1 \in C$ be an initial guess and $k \in \NN$ be the number of steps, 
 
 \begin{theorem}
 \label{maths with gradient descent algo}
-Suppose $\hat{\beta}$ is a minimiser of a convex function $f:\RR^p \rightarrow \RR$ over a closed convex set $C \subset \RR^p$, playing a very similar role to the ERMs we've worked so much with. 
+Suppose $\hat{\beta}$ is a minimiser of a convex function $f:\RR^p \rightarrow \RR$ over a closed convex set $C \subset \RR^p$ %  , playing a very similar role to the ERMs we've worked so much with. 
 
 Suppose we have two boundedness assumptions $\sup_{\beta \in C} \norm{\beta} \le R < \infty$ and $\sup_{\beta \in C} \sup_{g \in \partial f(\beta)} \normt{g} \le L < \infty$. Then if $\eta_s \equiv \eta = 2R / L\sqrt{k}$ the output $\bar{\beta}$ of the gradient descent algorithm above satisfies
 
@@ -2167,10 +2201,10 @@ This is pretty much the same as (\ref{gradient descent algo}) except we now have
 \begin{theorem}
 Suppose $\hat{\beta}$ is a minimiser of $f$ as above over a closed convex set $C \subset \RR^p$. 
 
-Suppose that we have the same bound $\sup_{\beta \in C} \normt{\beta} \le R < \infty$ and same $\eta_s \equiv \eta = 2R / L\sqrt{k}$ condition as we had before for the not-stochastic case (\ref{maths with gradient descent algo}) and that we have a slightly different subgradient bound:
+Suppose that we have the same bound $\sup_{\beta \in C} \normt{\beta} \le R < \infty$ and same $\eta_s \equiv \eta = 2R / L\sqrt{k}$ condition as we had before for the not-stochastic case (\ref{maths with gradient descent algo}) and that we have a slightly different subgradient bound: $\forall \beta \in C$,
 
 \begin{equation}
-    \sup_{\beta \in C} \E{\sup_{\tilde{g} \in \partial \tilde{f} (\beta_i; U)} \normt{\tilde{g}}^2} \le L^2 < \infty.
+    \E{\sup_{\tilde{g} \in \partial \tilde{f} (\beta; U)} \normt{\tilde{g}}^2} \le L^2 < \infty.
 \end{equation}
 
 that involves squaring, since this is actually how we used the bound last time, and we can't avoid this since $\E{X^2} \neq \E{X}^2$.
@@ -2190,19 +2224,20 @@ This is not the same as (\ref{maths with gradient descent algo}) since we won't 
     g_s = \E{\tilde{g}_s \mid \beta_s}.
 \end{equation}
 
-$U_s$ is independent of $\beta_s$ (because $\beta_s$ is computed from $U_{s-1}$) so the following manipulation works
+we now claim that $g \in \partial f(\beta_s)$. Write out
 
 \begin{equation}
-    \E{ \tilde{f}(\beta;U_s) \mid \beta_s } = \E{\tilde{f}(\beta;U_s)} = f(\beta) \ge f(\beta_s) + g_s^T (\beta - \beta_s)
+    \tilde{f}(\beta; U_s) \ge \tilde{f}(\beta_s; U_s) + \tilde{g}_s^T (\beta - \beta_s)
+    % \E{ \tilde{f}(\beta;U_s) \mid \beta_s } = \E{\tilde{f}(\beta;U_s)} = f(\beta) \ge f(\beta_s) + g_s^T (\beta - \beta_s)
 \end{equation}
 
-for all $\beta$, so $g \in \partial f(\beta_s)$. So we can insert $\tilde{g}$ as follows
+for any $\beta$. Then realise that $U_s$ is independent of $\beta_s$, and hence taking expectations conditional on $\beta_s$, we get the claim.
 
-\begin{equation}
-    f(\beta_s) - f(\hat{\beta}) \le g_s^T (\beta_s - \hat{\beta}) = \E{\tilde{g}_s^T (\beta - \hat{\beta}) \mid \beta_s}
-\end{equation}
+% \begin{equation}
+    % f(\beta_s) - f(\hat{\beta}) \le g_s^T (\beta_s - \hat{\beta}) = \E{\tilde{g}_s^T (\beta - \hat{\beta}) \mid \beta_s}
+% \end{equation}
 
-and now we can use the same (polarisation-like) manipulations from (\ref{maths with gradient descent algo}), where everything will be surrounded with $\E{... \mid \beta_s}$. We get that the above is
+Now, use the same (polarisation-like) manipulations from (\ref{maths with gradient descent algo}), where everything will be surrounded with $\E{... \mid \beta_s}$. We get that the above is
 
 \begin{align}
     \le \frac{1}{2\eta} \E{ \eta^2 \normt{\tilde{g}_s}^2 + \normt{\hat{\beta} - \beta_s}^2 - \normt{\hat{\beta} - \beta_{s+1}}^2 \mid \beta_s}
@@ -2226,9 +2261,15 @@ and once plugging in our $\eta$ choice and using Jensen's finishes this.
 
 \section{Popular Machine Learning Methods}
 
-In this section
+In this section, we will develop tools to answer questions such as
 
-How do we choose the $\lambda$ constraining our e.g. $\ell_2$-constrained hypothesis class? This is a case where we want to consider multiple different machine learning methods, i.e. each $\lambda$ gives rise to a different method.
+\begin{itemize}
+\item How do we choose the $\lambda$ constraining our e.g. $\ell_2$-constrained hypothesis class? 
+\item How do we choose the class of hypotheses $\mathcal{H}$ over which we search?
+\item Besides gradient descent, how else can we improve our selection of our model $\mathcal{H}$?
+\end{itemize}
+
+This is a case where we want to consider multiple different \vocab{machine learning method}s, i.e. each $\lambda$ gives rise to a different method.
 
 This leads to \vocab{cross-validation}, which is the biggest take-away from the course.
 
@@ -2296,7 +2337,7 @@ consider the class
     \H = \left\{ \sum_{m=1}^M \beta_m h_m : \beta_m \in \RR, h_m \in \B, 1 \le m \le M  \right\}
 \end{equation}
 
-$M$ is called the \vocab{tuning parameter} which corresponds to .
+$M$ is called the \vocab{tuning parameter} which corresponds to the number of steps we take with AdaBoost.
 
 \vocab{Adaboost} can be
 motivated as a greedy ERM over $\H$ using exponential loss.
@@ -2416,8 +2457,7 @@ Now recall from (\ref{best least squares}) that (\ref{x function}) (thought of a
 over all functions $f : \X \rightarrow \RR$. This is the motivation for \vocab{gradient boosting} where we empirically minimise (\ref{gradient boosting least squares}) using a regression approach.
 
 \begin{definition}
-Let $H$ be a base regression method that takes as its argument training data $D$ and outputs a hypothesis $H_D : \X \rightarrow \RR$. $\
-ell$ the loss may be any type of loss (including a convex surrogate).
+Let $H$ be a base regression method that takes as its argument training data $D$ and outputs a hypothesis $H_D : \X \rightarrow \RR$. $\ell$ the loss may be any type of loss (including a convex surrogate).
 
 Then \vocab{gradient boosting} takes as input the data $X_{1:n}$ and $Y_{1:n}$ as well as $\eta > 0$, $H$ and $M$ and
 
