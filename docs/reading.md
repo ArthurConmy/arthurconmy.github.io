@@ -4,7 +4,7 @@ title: Reading
 permalink: /reading/
 ---
 
-All books are rated out of 5 stars (\* \* \* \* \*). 
+<!-- All books are rated out of 5 stars (\* \* \* \* \*). 
 
 ## Rationality: From AI to Zombies (work in progress) 
 <i>22nd March 2022</i>
@@ -59,4 +59,4 @@ Too many to count. System one and system two. Planning fallacy. Narrative fallac
 
 # Why you shouldn't read this book
 
-Expect to see yourself and others in many ways more negatively after reading.
+Expect to see yourself and others in many ways more negatively after reading. -->
