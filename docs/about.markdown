@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Hello! I'm Arthur Conmy, a third year undergraduate at Trinity College, Cambridge studying mathematics. I am hoping to do as much good as possible, specifically by making machine learning not make the future terrible. This summer, I am interning at [Redwood Research](https://www.redwoodresearch.org/) in Berkeley, California.
+Hello! I'm Arthur Conmy. I finished my undergraduate maths degree at Trinity College, Cambridge in June 2022. I am hoping to do as much good as possible - I am working on the alignment problem. I am interning at [Redwood Research](https://www.redwoodresearch.org/) in Berkeley, California.
 
 <!-- Here you can find some  on maths, some <a href="/cia_slides/">slides</a> on some research I have done, and a brief <a href="/mesa_opt/">note</a> on *mesa-optimization*, a concept in AGI (Artificial General Intelligence).  -->
 
