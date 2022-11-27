@@ -10,11 +10,10 @@ permalink: "/automatic_circuit_discovery/"
 
 <p>I recently finished working on the <a href="https://arxiv.org/abs/2211.00593">IOI paper</a>, which was the most exciting project I have ever been part of. Our work finds a circuit that performs a task in a language model. This blog shares how this approach can be generalized, and some code at https://github.com/redwoodresearch/Easy-Transformer/tree/arthur/haoxing_on_rr for anyone interested in doing this. This post assumes some familiarity with <a href="https://transformer-circuits.pub/2021/framework/index.html">language model interpretability</a>.</p>
 
-<img src="https://i.imgur.com/DhfRCAw.png">
+<img src="https://i.imgur.com/3ONKQBB.png">
 
 
-<b style="color:green;">K</b>, <b style="color:red;">Q</b> and <b style="color:blue;">V</b> composition, for threshold 0.1 in the IOI case.
-
+<b style="color:green;">K</b>, <b style="color:red;">Q</b> and <b style="color:blue;">V</b> composition, for threshold 0.07 in the IOI case. The automatic circuit discovery discovers Name Movers (all heads that write to "resid out"), S Inhibition heads (8.6) and the induction mechanism (4.11 -> 5.5).
 
 <h2>Tasks</h2>
 Why are we studying tasks that language can perform? The most impressive models are trained on diverse datasets, with 50,000 or more distinct tokens. This means that understanding in general what the function of components of these models do is intractable, if not impossible. Instead, <b>consider a "task" defined by a dataset of prompts (such as a dataset of ASCII patterns, including the string " {text} {goes} {in} {brackets") and completions to these prompts (the token "}").</b> We can i) verify that a language model predicts the correct token completion to all the prompts and then ii) begin work interpreting which language model components are responsible for this.
@@ -27,7 +26,7 @@ In <a href="https://arxiv.org/abs/2211.00593">the IOI paper</a> we define circui
 2) a "baseline" dataset of prompts that have the same labels, but different behavior
 3) a metric for the model behavior
 
-For example, we might pick a dataset of examples like " {text} {goes} {in} {brackets" where we change the word we write inside the braces. Then the important labels would be tokens 0, 2, 3, 5, 6, 8, 9 (the braces) and a baseline dataset could consist of sentences of the same form, but using  brackets (like " (" and ")") not braces. A metric could be the difference in the logits the model places on "}" compared to "{", as this will roughly measure how well the model knows how to complete the pattern.
+For example, suppose dataset of sentences with completions contains sentences like "Last month it was February so this month it is" that have completions like " March". Then 1) the important labels could be the token positions where "Last month", "February", "this month" and the end token " is" are present. 2) the baseline dataset (there is a lot of freedom here) could be sentences like "This time it is here and last time it was", that would presumably produce similar activations to the main dataset, but don't introduce any context about months, or that the next word should be about a date in future. 3) a metric could be the difference in the logits the model places on " March" compared to " February", as this will roughly measure how well the model knows how to complete the sentence correctly.
 
 It turns out that some baseline dataset is essential for verifying the <a href="https://en.wikipedia.org/wiki/The_Book_of_Why#Chapter_1:_The_Ladder_of_Causation">causal</a> role of model components.
 <h2>Implementation</h2>
