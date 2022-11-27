@@ -32,7 +32,7 @@ It turns out that some baseline dataset is essential for verifying the <a href="
 <h2>Implementation</h2>
 See the notebook here: https://github.com/redwoodresearch/Easy-Transformer/blob/arthur/haoxing_on_rr/circuit_discovery.py for an exploration of the path patching applied to the IOI case.
 
-The method is as follows: we iteratively build the circuit by starting with a single node that's the END position. We then look at all the direct connections from previous attention heads and MLPs. We patch each of these connections from the new dataset, and see if this results in a significant change in the logit difference. If this is above some threshold, we include the edge in the graph.
+The method is as follows: we iteratively build the circuit by starting with a single node that's the END position. We then look at all the direct connections from previous attention heads and MLPs. For each connection, we replace it with its value on the new dataset, and see if this results in a significant change in the logit difference. If this is above some threshold, we include the edge in the graph.
 
 When we look at nodes other than the end node, we consider inputs from previous positions too (if the node is an attention head) and we also only propagate changes through the edges that we've found.
 <h2>Limitations</h2>
