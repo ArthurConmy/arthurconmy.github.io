@@ -13,7 +13,7 @@ permalink: "/automatic_circuit_discovery/"
 <img src="https://i.imgur.com/3ONKQBB.png">
 
 
-<b style="color:green;">K</b>, <b style="color:red;">Q</b> and <b style="color:blue;">V</b> composition, for threshold 0.07 in the IOI case. The automatic circuit discovery discovers Name Movers (all heads that write to "resid out"), S Inhibition heads (8.6) and the induction mechanism (4.11 -> 5.5).
+Code output on IOI! <b style="color:green;">K</b>, <b style="color:red;">Q</b> and <b style="color:blue;">V</b> composition are labelled. The threshold is a 7% change in logit difference. The automatic circuit discovery discovers Name Movers (all heads that write to "resid out"), S Inhibition heads (8.6) and the induction mechanism (4.11 -> 5.5).
 
 <h2>Tasks</h2>
 Why are we studying tasks that language can perform? The most impressive models are trained on diverse datasets, with 50,000 or more distinct tokens. This means that understanding in general what the function of components of these models do is intractable, if not impossible. Instead, <b>consider a "task" defined by a dataset of prompts (such as a dataset of ASCII patterns, including the string " {text} {goes} {in} {brackets") and completions to these prompts (the token "}").</b> We can i) verify that a language model predicts the correct token completion to all the prompts and then ii) begin work interpreting which language model components are responsible for this.
