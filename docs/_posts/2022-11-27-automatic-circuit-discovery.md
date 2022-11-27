@@ -12,7 +12,8 @@ permalink: "/automatic_circuit_discovery/"
 
 <img src="https://i.imgur.com/DhfRCAw.png">
 
-<.<b style="color:green;">K</b>, <b style="color:red;">Q</b> and <b style="color:blue;">V</b> composition, for threshold 0.1 in the IOI case.
+
+<b style="color:green;">K</b>, <b style="color:red;">Q</b> and <b style="color:blue;">V</b> composition, for threshold 0.1 in the IOI case.
 
 
 <h2>Tasks</h2>
