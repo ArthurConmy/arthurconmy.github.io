@@ -22,9 +22,11 @@ By studying many such tasks, we hope to eventually be able to understand the mos
 <h2>Circuits</h2>
 In <a href="https://arxiv.org/abs/2211.00593">the IOI paper</a> we define circuits "top down" rather than <a href="https://distill.pub/2020/circuits/zoom-in/">bottom up</a> (see section 2.1 of the paper). This lends itself easily to automation. All we need, in addition to the dataset-with-completions introduced above are 
 
-1) labels for particular important tokens that occur in all inputs
-2) a "baseline" dataset of prompts that have the same labels, but different behavior
-3) a metric for the model behavior
+<ol>
+    <li>labels for particular important tokens that occur in all inputs</li>
+    <li>a "baseline" dataset of prompts that have the same labels, but different behavior</li>
+    <li>a metric for the model behavior</li>
+</ol>
 
 For example, suppose dataset of sentences with completions contains sentences like "Last month it was February so this month it is" that have completions like " March". Then 1) the important labels could be the token positions where "Last month", "February", "this month" and the end token " is" are present. 2) the baseline dataset[^fn1] could be sentences like "This time it is here and last time it was", that would presumably produce similar activations to the main dataset, but don't introduce any context about months, or that the next word should be about a date in future. 3) a metric could be the difference in the logits the model places on " March" compared to " February", as this will roughly measure how well the model knows how to complete the sentence correctly.
 
@@ -35,17 +37,18 @@ The method is as follows: we iteratively build the circuit by starting with a si
 
 When we look at nodes other than the end node, we consider inputs from previous positions too (if the node is an attention head) and we also only propagate changes through the edges that we've found.
 <h2>Limitations</h2>
-There are at least three limitations to this work. The first is that the code is imperfect and the examples aren't comprehensive. Besides this, 
-2) There are cases where the way we add nodes to the graph is problematic
-3) We don't have a way of converting the subgraphs into something that is automatically human-understandable
+There are at least two limitations to this work:
 
-2): consider a model where all attention heads in a layer contribute +1 to the end performance metric, like so:
+1. There are cases where the way we add nodes to the graph is problematic
+2. We don't have a way of converting the subgraphs into something that is automatically human-understandable
+
+1.: consider a model where all attention heads in a layer contribute +1 to the end performance metric, like so:
 
 <img src="https://i.imgur.com/LxQ0NCC.png">
 
 
 Then suppose we set a threshold of +2 to try and capture large enough effects on the end +5 performance metric. Then none of the edges in the above diagram have a +2 effect. In general, these failures occur when behavior is sparse, not distributed.
 
-3): this automated approach assumes that the "units" of interpretability are the attention heads and MLPs. However, both induction heads and the head classes in the IOI paper are strong examples of cases where individual heads are not the correct unit to study model behavior with, as several heads are identical (and should be grouped together). Not aggregating components is a problem when we want to produce explanation that have clean human causal graphs, for example for verification by <a href="https://static1.squarespace.com/static/6114773bd7f9917b7ae4ef8d/t/6364a036f9da3316ac793f56/1667539011553/causal-scrubbing">causal scrubbing</a>.
+2.: this automated approach assumes that the "units" of interpretability are the attention heads and MLPs. However, both induction heads and the head classes in the IOI paper are strong examples of cases where individual heads are not the correct unit to study model behavior with, as several heads are identical (and should be grouped together). Not aggregating components is a problem when we want to produce explanation that have clean human causal graphs, for example for verification by <a href="https://static1.squarespace.com/static/6114773bd7f9917b7ae4ef8d/t/6364a036f9da3316ac793f56/1667539011553/causal-scrubbing">causal scrubbing</a>.
 
 [^fn1]: There is a lot of freedom in choosing the baseline dataset. The reason we need a different dataset at all is that this is essential for verifying the <a href="https://en.wikipedia.org/wiki/The_Book_of_Why#Chapter_1:_The_Ladder_of_Causation">causal</a> role of model components.
