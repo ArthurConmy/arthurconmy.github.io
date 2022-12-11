@@ -6,7 +6,7 @@ permalink: "/automatic_circuit_discovery/"
 ---
 
 <h1>Automatic patching for discovering circuits</h1>
-<i>work done at Redwood Research, with Haoxing Du</i>.
+<i>work done at Redwood Research, with Haoxing Du. This is a draft post, please send feedback to arthur@rdwrs.com</i>
 
 <p>I recently finished working on the <a href="https://arxiv.org/abs/2211.00593">IOI paper</a>, which was the most exciting project I have ever been part of. Our work finds a circuit that performs a task in a language model. This blog shares how this approach can be generalized, and some code at https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb for anyone interested in doing this. This post assumes some familiarity with <a href="https://transformer-circuits.pub/2021/framework/index.html">language model interpretability</a>.</p>
 
