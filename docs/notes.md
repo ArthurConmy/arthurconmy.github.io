@@ -22,7 +22,7 @@ I found this course hard, and found a number of sections of the course covered a
 
 All sections of the course are covered in some detail, except the final section on hyperbolic geometry.
 
-# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, very rough
+# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, very rough.
 
 <!-- Currently only covers a useful trick to verify the general derivative form of Cauch -->
 
