@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Automatic circuit discovery
-date:   2021-09-19
+date:   2022-12-18
 permalink: "/automatic_circuit_discovery/"
 ---
 
 <h1>Automatic patching for discovering circuits</h1>
-<i>work done at Redwood Research, with Haoxing Du. This is a draft post, please send feedback to arthur@rdwrs.com</i>
+<i>work done at Redwood Research, with Haoxing Du. Please send feedback to arthur@rdwrs.com</i>
 
-<p>I recently finished working on the <a href="https://arxiv.org/abs/2211.00593">IOI paper</a>, which was the most exciting project I have ever been part of. Our work finds a circuit that performs a task in a language model. This blog shares how this approach can be generalized, and some code <a href="https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb">here</a> for anyone interested in doing this. This post assumes some familiarity with <a href="https://transformer-circuits.pub/2021/framework/index.html">language model interpretability</a>.</p>
+<p>I recently finished working on the <a href="https://arxiv.org/abs/2211.00593">IOI paper</a>, which was the most exciting project I have ever been part of. Our work finds a circuit that performs a task in a language model. This blog shares how this approach can be generalized, and some code <a href="https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb">here</a>[^fn1] for anyone interested in doing this. This post assumes some familiarity with <a href="https://transformer-circuits.pub/2021/framework/index.html">language model interpretability</a>.</p>
 
 <img src="https://i.imgur.com/3ONKQBB.png">
 
@@ -28,7 +28,7 @@ In <a href="https://arxiv.org/abs/2211.00593">the IOI paper</a> we define circui
     <li>a metric for the model behavior</li>
 </ol>
 
-For example, suppose dataset of sentences with completions contains sentences like "Last month it was February so this month it is" that have completions like " March". Then 1) the important labels could be the token positions where "Last month", "February", "this month" and the end token " is" are present. 2) the baseline dataset[^fn1] could be sentences like "This time it is here and last time it was", that would presumably produce similar activations to the main dataset, but don't introduce any context about months, or that the next word should be about a date in future. 3) a metric could be the difference in the logits the model places on " March" compared to " February", as this will roughly measure how well the model knows how to complete the sentence correctly.
+For example, suppose dataset of sentences with completions contains sentences like "Last month it was February so this month it is" that have completions like " March". Then 1) the important labels could be the token positions where "Last month", "February", "this month" and the end token " is" are present. 2) the baseline dataset[^fn2] could be sentences like "This time it is here and last time it was", that would presumably produce similar activations to the main dataset, but don't introduce any context about months, or that the next word should be about a date in future. 3) a metric could be the difference in the logits the model places on " March" compared to " February", as this will roughly measure how well the model knows how to complete the sentence correctly.
 
 <h2>Implementation</h2>
 See the notebook <a href="https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb">here</a> for an exploration of the path patching applied to the IOI case.
@@ -51,4 +51,8 @@ Then suppose we set a threshold of +2 to try and capture large enough effects on
 
 2.: this automated approach assumes that the "units" of interpretability are the attention heads and MLPs. However, both induction heads and the head classes in the IOI paper are strong examples of cases where individual heads are not the correct unit to study model behavior with, as several heads are identical (and should be grouped together). Not aggregating components is a problem when we want to produce explanation that have clean human causal graphs, for example for verification by <a href="https://static1.squarespace.com/static/6114773bd7f9917b7ae4ef8d/t/6364a036f9da3316ac793f56/1667539011553/causal-scrubbing">causal scrubbing</a>.
 
-[^fn1]: There is a lot of freedom in choosing the baseline dataset. The reason we need a different dataset at all is that this is essential for verifying the <a href="https://en.wikipedia.org/wiki/The_Book_of_Why#Chapter_1:_The_Ladder_of_Causation">causal</a> role of model components.
+<h2> Footnotes </h2>
+
+[^fn1]: the code has struggled in Google Colab for me, if you have access to a better machine you may see performance improvements. If you are interested in collaborating on improving the state of this code, please reach out.
+
+[^fn2]: there is a lot of freedom in choosing the baseline dataset. The reason we need a different dataset at all is that this is essential for verifying the <a href="https://en.wikipedia.org/wiki/The_Book_of_Why#Chapter_1:_The_Ladder_of_Causation">causal</a> role of model components.
