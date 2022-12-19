@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Automatic circuit discovery
 date:   2021-09-19
 permalink: "/automatic_circuit_discovery/"
