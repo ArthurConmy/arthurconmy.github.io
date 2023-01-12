@@ -6,7 +6,7 @@ permalink: "/automatic_circuit_discovery/"
 ---
 
 <h1>Automatic patching for discovering circuits</h1>
-<i>Work done at Redwood Research, with Haoxing Du. The ideas are due to discussions with Alexandre Variengien. Please send feedback to arthurconmy@gmail.com</i>
+<i>Work done at Redwood Research, with Haoxing Du. The ideas are due to discussions with Alexandre Variengien and Jacob Steinhardt. Please send feedback to arthurconmy@gmail.com</i>
 
 <p>I recently finished working on the <a href="https://arxiv.org/abs/2211.00593">IOI paper</a>, which was the most exciting project I have ever been part of. Our work finds a circuit that performs a task in a language model. This blog shares how this approach can be generalized, and some code <a href="https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb">here</a> [^fn1] for anyone interested in doing this. This post assumes some familiarity with <a href="https://transformer-circuits.pub/2021/framework/index.html">language model interpretability</a>.</p>
 
@@ -31,6 +31,9 @@ In <a href="https://arxiv.org/abs/2211.00593">the IOI paper</a> we define circui
 For example, suppose dataset of sentences with completions contains sentences like "Last month it was February so this month it is" that have completions like " March". Then 1) the important labels could be the token positions where "Last month", "February", "this month" and the end token " is" are present. 2) the baseline dataset[^fn2] could be sentences like "This time it is here and last time it was", that would presumably produce similar activations to the main dataset, but don't introduce any context about months, or that the next word should be about a date in future. 3) a metric could be the difference in the logits the model places on " March" compared to " February", as this will roughly measure how well the model knows how to complete the sentence correctly.
 
 <h2>Implementation</h2>
+
+<i>Warning: we are developing automatic circuit discovery with Redwood's in-house tools, which are hopefully soon going to be open-sourced. The prototype implemented here is not mantained and I would advise waiting for Redwood's software release.</i>
+
 See the notebook <a href="https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb">here</a> for an exploration of the path patching applied to the IOI case.
 
 The method is as follows: we iteratively build the circuit by starting with a single node that's the END position. We then look at all the direct connections from previous attention heads and MLPs. For each connection, we replace it with its value on the new dataset, and see if this results in a significant change in the logit difference. If this is above some threshold, we include the edge in the graph.
