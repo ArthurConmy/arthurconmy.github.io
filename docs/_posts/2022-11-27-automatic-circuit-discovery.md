@@ -9,6 +9,8 @@ permalink: "/automatic_circuit_discovery/"
 
 <i>Work done at Redwood Research, with Haoxing Du. The ideas are due to discussions with Alexandre Variengien and Jacob Steinhardt. Please send feedback to arthurconmy@gmail.com</i>
 
+<i>Check out Chris Mathwin's interpretability hackathon project that uses this tool: https://itch.io/jam/mechint/rate/1889871.  </i>
+
 <p>I recently finished working on the <a href="https://arxiv.org/abs/2211.00593">IOI paper</a>, which was the most exciting project I have ever been part of. Our work finds a circuit that performs a task in a language model. This blog shares how this approach can be generalized, and some code <a href="https://colab.research.google.com/github/ArthurConmy/Easy-Transformer/blob/main/AutomaticCircuitDiscovery.ipynb">here</a> (see footonote 1) for anyone interested in doing this. This post assumes some familiarity with <a href="https://transformer-circuits.pub/2021/framework/index.html">language model interpretability</a>.</p>
 
 <img src="https://i.imgur.com/3ONKQBB.png">
@@ -46,14 +48,13 @@ There are at least two limitations to this work:
 1. There are cases where the way we add nodes to the graph is problematic
 2. We don't have a way of converting the subgraphs into something that is automatically human-understandable
 
-1.: consider a model where all attention heads in a layer contribute +1 to the end performance metric, like so:
+1.: consider a model where all attention heads `h1` to `h5` add 1 to the (one-dimensional) output, like so:
 
-<img src="https://i.imgur.com/LxQ0NCC.png">
+<img src="https://i.imgur.com/Uv5vG9n.png">
 
+Then suppose we set a threshold of 2 to try and capture large enough effect the 5 end model result. Here, none of the edges in the above diagram have a 2 effect. In general, these failures occur when behavior is sparse, not distributed.
 
-Then suppose we set a threshold of +2 to try and capture large enough effects on the end +5 performance metric. Then none of the edges in the above diagram have a +2 effect. In general, these failures occur when behavior is sparse, not distributed.
-
-2.: this automated approach assumes that the "units" of interpretability are the attention heads and MLPs. However, both induction heads and the head classes in the IOI paper are strong examples of cases where individual heads are not the correct unit to study model behavior with, as several heads are identical (and should be grouped together). Not aggregating components is a problem when we want to produce explanation that have clean human causal graphs, for example for verification by <a href="https://static1.squarespace.com/static/6114773bd7f9917b7ae4ef8d/t/6364a036f9da3316ac793f56/1667539011553/causal-scrubbing">causal scrubbing</a>.
+2.: this automated approach assumes that the "units" of interpretability are the attention heads and MLPs. However, both induction heads and the head classes in the IOI paper are strong examples of cases where individual heads are not the correct unit to study model behavior with, as several heads are identical (and should be grouped together). Not aggregating components is a problem when we want to produce explanation that have clean human causal graphs, for example for verification by <a href="https://www.alignmentforum.org/posts/JvZhhzycHu2Yd57RN/causal-scrubbing-a-method-for-rigorously-testing">causal scrubbing</a>.
 
 <h2> Footnotes </h2>
 
