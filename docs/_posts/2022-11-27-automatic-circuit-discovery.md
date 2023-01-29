@@ -52,7 +52,7 @@ There are at least two limitations to this work:
 
 <img src="https://i.imgur.com/Uv5vG9n.png">
 
-Then suppose we set a threshold of 2. Here, none of the edges in the above diagram have a 2 effect, and so ACDC would find NO edges relevant to the task of producing a large output. In general, these failures occur when behavior is distributed, not sparse.
+Then suppose we set a threshold of 2. Here, none of the edges in the above diagram have an effect size at least 2, and so ACDC would find NO edges relevant to the task of producing a large output. In general, these failures occur when behavior is distributed, not sparse.
 
 2.: this automated approach assumes that the "units" of interpretability are the attention heads and MLPs. However, both induction heads and the head classes in the IOI paper are strong examples of cases where individual heads are not the correct unit to study model behavior with, as several heads are identical (and should be grouped together). Not aggregating components is a problem when we want to produce explanation that have clean human causal graphs, for example for verification by <a href="https://www.alignmentforum.org/posts/JvZhhzycHu2Yd57RN/causal-scrubbing-a-method-for-rigorously-testing">causal scrubbing</a>.
 
