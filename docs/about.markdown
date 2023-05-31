@@ -4,30 +4,33 @@ title: About
 permalink: /about/
 ---
 
-Hello! I'm Arthur Conmy. I finished my undergraduate maths degree at Trinity College, Cambridge in June 2022. I am hoping to do as much good as possible - I am working on the alignment problem. I am interning at [Redwood Research](https://www.redwoodresearch.org/) in Berkeley, California.
+Hello! I'm Arthur Conmy. I want to understand how neural networks are so powerful.
 
-<!-- Here you can find some  on maths, some <a href="/cia_slides/">slides</a> on some research I have done, and a brief <a href="/mesa_opt/">note</a> on *mesa-optimization*, a concept in AGI (Artificial General Intelligence).  -->
+<!-- Hello! I'm Arthur Conmy. I finished my undergraduate maths degree at Trinity College, Cambridge in June 2022. I am hoping to do as much good as possible - I am working on the alignment problem. I am interning at [Redwood Research](https://www.redwoodresearch.org/) in Berkeley, California. -->
 
-I try and [read things]() too.
+I try and [read things]() sometimes too.
 
-## Cambridge
 
-# Societies
+## Research 
 
-Committees I've been involved in (and recommend):
+For an up-to-date summary, see my <a href="https://scholar.google.com/citations?user=DS2Cx2sAAAAJ">Google Scholar</a>.
 
-* Founded, was president of, and put [talks](https://web.archive.org/web/20211022220732/https://uccps.soc.srcf.net/talksarchive/) together with the UCCPS. 
-* Into [Effective Altruism](https://web.archive.org/web/20210925210707/https://www.eacambridge.org/about).
-* Organised [workshops](http://web.archive.org/web/20220121045119/https://cuai.org.uk/workshop-gpt-3-and-codex/) with the [CUAI](http://web.archive.org/web/20220121182105/https://cuai.org.uk/committee/).
-* A lot of [running](https://web.archive.org/web/20210925205921/https://cuhh.soc.srcf.net/about/committee/juniormembers/ez-run-organisers/), too.
+### [Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 small](https://arxiv.org/abs/2211.00593) 
+K Wang, A Variengien, **Arthur Conmy,** B Shlegeris, J Steinhardt  
+Proceedings of ICLR 2023 **arXiv:2211.00593**
 
-# Courses
+### [Towards Automated Circuit Discovery for Mechanistic Interpretability](https://arxiv.org/abs/2304.14997) 
+**Arthur Conmy,** AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso 
+arXiv preprint **arXiv:2304.14997** (2023)
 
-See some  <a href="/notes/">notes</a>.
+### [StyleGAN-induced data-driven regularization for inverse problems](https://arxiv.org/abs/2111.14215)
+**Arthur Conmy,** S Mukherjee, CB Schönlieb  
+Proceedings of ICASSP 2022 **arXiv:2111.14215**
 
-## Other things
+## Experience
 
-Everything else is a <a href = "/">post</a>.
+<!-- ## Other things
+Everything else is a <a href = "/">post</a>. -->
 
 <img src="../assets/tower.jpeg">
 

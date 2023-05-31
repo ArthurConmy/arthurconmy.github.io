@@ -34,7 +34,15 @@ Currently covers some more background on the differentiation section of Analysis
 
 A workshop (with exercises!) on the 'off switch' problem in AI. Explores 'safe interruptibility': one way of thinking about this problem in the context on current Reinforcement Learning systems.
 
-<!-- In future, I'd like to expand this when I know more analysis. -->
+## Cambridge Societies
 
+I spent some time at Cambridge in different societies:
+
+* Founded, was president of, and put [talks](https://web.archive.org/web/20211022220732/https://uccps.soc.srcf.net/talksarchive/) together with the UCCPS. 
+* Into [Effective Altruism](https://web.archive.org/web/20210925210707/https://www.eacambridge.org/about).
+* Organised [workshops](http://web.archive.org/web/20220121045119/https://cuai.org.uk/workshop-gpt-3-and-codex/) with the [CUAI](http://web.archive.org/web/20220121182105/https://cuai.org.uk/committee/).
+* A lot of [running](https://web.archive.org/web/20210925205921/https://cuhh.soc.srcf.net/about/committee/juniormembers/ez-run-organisers/), too.
+
+<!-- In future, I'd like to expand this when I know more analysis. -->
 <!-- # Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021. -->
 <!-- I have just started writing up notes for the Principles of Statistics course. -->

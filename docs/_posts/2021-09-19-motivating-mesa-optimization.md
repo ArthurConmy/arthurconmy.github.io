@@ -5,10 +5,12 @@ date:   2021-09-19
 permalink: "/mesa_opt/"
 ---
 
-This post is written as part of the [AGI Safety Fundamentals Course](https://www.eacambridge.org/agi-safety-fundamentals), organised by [Effective Altruism Cambridge](https://www.eacambridge.org). EDIT: since writing the article and presenting to my cohort, I was introduced to an alignment forum post on a better definition for optimization[^fn8]. This covers more than I cover in the 'defining optimization' section - thanks for pointing this my way [Rory](https://twitter.com/rorygreig1?lang=en)!
+<b>Warning:</b> after writing the article and presenting to my cohort, I was introduced to an alignment forum post on a better definition for optimization[^fn8]. This covers more than I cover in the 'defining optimization' section - thanks for pointing this my way [Rory](https://twitter.com/rorygreig1?lang=en). <b>I think the writing is fairly low quality but want to leave this up to track how my views and writing quality change</b>. 
 
-One of the first technical concepts the AGI Safety Fundamentals course covers is *mesa-optimization*. At first, I struggled to find motivation for the concept: not only could I not see why it was likely to occur in an optimization process (I call this the 'likelihood uncertainty'), but also I could not see why it would be more problematic than an optimization procedure not itself producing an optimizer (I call this the 'importance uncertainty').
+This post is written as part of the [AGI Safety Fundamentals Course](https://www.eacambridge.org/agi-safety-fundamentals), organised by [Effective Altruism Cambridge](https://www.eacambridge.org).
 
+`One of the first technical concepts the AGI Safety Fundamentals course covers is *mesa-optimization*. At first, I struggled to find motivation for the concept: not only could I not see why it was likely to occur in an optimization process (I call this the 'likelihood uncertainty'), but also I could not see why it would be more problematic than an optimization procedure not itself producing an optimizer (I call this the 'importance uncertainty').
+`
 In this post, I do not explain mesa-optimization. Instead, I write a background that I wish I had had before being introduced to the concept. The intended reader has *attempted* to understand mesa-optimization, though had a uncertainty or confusion similar to at likelihood and importance uncertainty I describe above.
 
 In the alignment newsletter that covers the original mesa-optimization paper[^fn1] a good definition of optimization, along with a lack of existing example of mesa-optimization are two big sources of confusion regarding optimization. These will therefore be the two topics covered.
