@@ -5,6 +5,8 @@ date:   2022-12-18
 permalink: "/automatic_circuit_discovery/"
 ---
 
+<b> Warning: </b> This blog post describes scattered early research progress on automating circuit discovery. With several collaborators, we expanded this work greatly and published our work: <a href="https://arxiv.org/abs/2304.14997">https://arxiv.org/abs/2304.14997</a> . The code is under development (as of May 31st 2023) at <a href="https://github.com/ArthurConmy/Automatic-Circuit-Discovery">https://github.com/ArthurConmy/Automatic-Circuit-Discovery</a>
+
 <h1>Automatic patching for discovering circuits</h1>
 
 <i>Work done at Redwood Research, with Haoxing Du. The ideas are due to discussions with Alexandre Variengien and Jacob Steinhardt. Please send feedback to arthurconmy@gmail.com</i>
