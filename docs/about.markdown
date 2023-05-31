@@ -20,7 +20,7 @@ For an up-to-date summary, see my <a href="https://scholar.google.com/citations?
 **Arthur Conmy,** AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso:
 arXiv preprint **arXiv:2304.14997** (2023)
 
-![](../assets/papers/acdc.pdf)
+<img src="../assets/papers/acdc.pdf">
 
 [<i>Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 small</i>](https://arxiv.org/abs/2211.00593) 
 
@@ -34,8 +34,10 @@ Proceedings of ICASSP 2022 **arXiv:2111.14215**
 
 ## Experience
 
-
-201
+<b>2023-2023</b> Conjecture.
+<b>2022-2023</b> Redwood Research. 
+<b>2021-2021</b> Meta. Software Engineering Intern.
+<b>2019-2022</b> Trinity College Cambridge Undergraduate Mathematics. Upper first class honours.
 
 <!-- ## Other things
 Everything else is a <a href = "/">post</a>. -->
