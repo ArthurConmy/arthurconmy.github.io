@@ -40,7 +40,7 @@ I try and [read things]() sometimes too.
 
 <!-- <h3>Present: incoming Mechanistic Interpretability PhD student</h3> -->
 
-(Currently researching under Neel Nanda. I'm an incoming PhD student)
+(Currently doing Mechanistic Interpretability research under Neel Nanda. I'm an incoming PhD student)
 
 <b>2023 - 2023</b> <a href="https://conjecture.dev/">Conjecture</a>
 
