@@ -51,8 +51,49 @@ This post assumes familiarity with the `einsum` function. A great introduction c
 
 <h3>The setup</h3>
 
-I was recently preparing for machine learning interviews, and was told to have familiarity with Python 3.7 and numpy. It's not surprising to need to code in Python for ML interviews, but using numpy? It seemed a good idea to write some forwards and backwards passes for common functions in neural networks. <b>It turns out that when you use einsum this is a lot less of a headache than you might have expected!</b>.
+I was recently preparing for machine learning interviews, and was told to have familiarity with Python 3.7 and numpy. It's not surprising to need to code in Python for ML interviews, but using numpy? It seemed a good idea to write some forwards and backwards passes for common functions in neural networks. <b>It turns out that when you use einsum this is a lot less of a headache than you might have expected!</b>
 
+Let's suppose we have some linear module in a neural network with a weight `W` computing some example (intentionally complicated) operation 
+
+`Y_{bij} = \sum_{k, l} X_{bik} W_{jkl}
+
+This may seem scary, but of course we'll just compute this as 
+
+```
+Y = torch.einsum(
+    "bik,jkl->bij",
+    X,
+    W,
+)
+```
+
+Now, how about writing the backwards method for this linear layer?
+
+Previously, I would have gotten out pencil and paper to work out this mess. Now, we'll use a result (proven later in this post) to make this process much faster. Recall that the backwards pass takes some upstream gradient `dL_dY` as input and needs to calculate `dL_dW` to do backprop on this weight matrix and `dL_dX` the upstream gradient for further backprop (here, `L` is the loss we're optimizing).
+
+Indeed, we can immediately calculate
+
+```
+dL_dW = torch.einsum(
+    "bik,bij->jkl",
+    X,
+    dL_dY,
+)
+```
+
+and 
+
+```
+dL_dX = torch.einsum(
+    "jkl,bij->bik",
+    W,
+    dL_dY,
+)
+```
+
+by simply permuting the three terms in the einsum string, and inserting the similarly shaped tensors (note that we only compute gradients from dL_dY, rather than Y).
+
+Why is this true? Let's start with the `dL_dW` expression.
 
 <!-- In future, I'd like to expand this when I know more analysis. -->
 <!-- # Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021. -->
