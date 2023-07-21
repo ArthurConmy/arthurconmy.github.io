@@ -43,6 +43,17 @@ I spent some time at Cambridge in different societies:
 * Organised [workshops](http://web.archive.org/web/20220121045119/https://cuai.org.uk/workshop-gpt-3-and-codex/) with the [CUAI](http://web.archive.org/web/20220121182105/https://cuai.org.uk/committee/).
 * A lot of [running](https://web.archive.org/web/20210925205921/https://cuhh.soc.srcf.net/about/committee/juniormembers/ez-run-organisers/), too.
 
+<h1>Drafts</h1>
+
+<h2>Backpropagation and einsum</h2>
+
+This post assumes familiarity with the `einsum` function. A great introduction can be found <a href="https://rockt.github.io/2018/04/30/einsum">here</a> which describes more than what we'll need in this blog post.
+
+<h3>The setup</h3>
+
+I was recently preparing for machine learning interviews, and was told to have familiarity with Python 3.7 and numpy. It's not surprising to need to code in Python for ML interviews, but using numpy? It seemed a good idea to write some forwards and backwards passes for common functions in neural networks. <b>It turns out that when you use einsum this is a lot less of a headache than you might have expected!</b>.
+
+
 <!-- In future, I'd like to expand this when I know more analysis. -->
 <!-- # Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021. -->
 <!-- I have just started writing up notes for the Principles of Statistics course. -->
