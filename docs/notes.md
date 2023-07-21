@@ -43,19 +43,21 @@ I spent some time at Cambridge in different societies:
 * Organised [workshops](http://web.archive.org/web/20220121045119/https://cuai.org.uk/workshop-gpt-3-and-codex/) with the [CUAI](http://web.archive.org/web/20220121182105/https://cuai.org.uk/committee/).
 * A lot of [running](https://web.archive.org/web/20210925205921/https://cuhh.soc.srcf.net/about/committee/juniormembers/ez-run-organisers/), too.
 
-<h1>Drafts</h1>
+# Drafts
 
-<h2>Backpropagation and einsum</h2>
+## Backpropagation and einsum
 
 This post assumes familiarity with the `einsum` function. A great introduction can be found <a href="https://rockt.github.io/2018/04/30/einsum">here</a> which describes more than what we'll need in this blog post.
 
-<h3>The setup</h3>
+### The setup
 
 I was recently preparing for machine learning interviews, and was told to have familiarity with Python 3.7 and numpy. It's not surprising to need to code in Python for ML interviews, but using numpy? It seemed a good idea to write some forwards and backwards passes for common functions in neural networks. <b>It turns out that when you use einsum this is a lot less of a headache than you might have expected!</b>
 
 Let's suppose we have some linear module in a neural network with a weight `W` computing some example (intentionally complicated) operation 
 
-`Y_{bij} = \sum_{k, l} X_{bik} W_{jkl}
+```
+Y_{bij} = \sum_{k, l} X_{bik} W_{jkl}
+```
 
 This may seem scary, but of course we'll just compute this as 
 
@@ -91,9 +93,15 @@ dL_dX = torch.einsum(
 )
 ```
 
-by simply permuting the three terms in the einsum string, and inserting the similarly shaped tensors (note that we only compute gradients from dL_dY, rather than Y).
+by simply permuting the three terms in the einsum string, and inserting the similarly shaped tensors (note that we only compute gradients from `dL_dY`, rather than `Y`).
 
-Why is this true? Let's start with the `dL_dW` expression.
+Why is this true? Let's start with the `dL_dW` expression. The key idea is to use the chain rule, so that 
+
+```
+dL_dW = \sum dL_dY * dY_dW
+```
+
+where the * represents the product, and we sum this over all possible `Y` indices. I think the easiest way to see the result is then to imagine fixing one particular `Y` index and calculating the gradient of that `Y` value with respect to the weight tensor `W`. Indeed, it's now clear that we can compute `dL_dY` by looking at the relevant indices in the `W` tensor, and since we're summing over everything, we get the einsum expression at the end of the day. Similarly for `dL_dX`, here we can use `dL_dX = \sum dL_dY * dY_dX` and this explains the `W` that appears in the einsum expression for the calculation here.
 
 <!-- In future, I'd like to expand this when I know more analysis. -->
 <!-- # Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021. -->
