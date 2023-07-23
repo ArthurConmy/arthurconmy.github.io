@@ -10,7 +10,6 @@ Hello! I'm Arthur Conmy. I want to understand how neural networks are so powerfu
 
 I try and [read things]() sometimes too.
 
-
 ## Research 
 
 <!-- For an up-to-date summary, see my <a href="https://scholar.google.com/citations?user=DS2Cx2sAAAAJ">Google Scholar</a>. -->
@@ -58,6 +57,8 @@ Everything else is a <a href = "/">post</a>. -->
 
 <img src="../assets/tower.jpeg">
 Outside the Tower of London, July 2021.
+
+For the future: 0ee063d506d9319ca159f53a7dd3879e65465e28926a02a35f9c6348ec00f1bf
 
 <!-- [^fn1]: We put together a workshop on AI Safety too, loo. -->
 <!-- <details><summary>Click to expand!</summary> Here is some more text</details> -->
