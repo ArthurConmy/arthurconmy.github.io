@@ -103,6 +103,65 @@ dL_dW = \sum dL_dY * dY_dW
 
 where the * represents the product, and we sum this over all possible `Y` indices. I think the easiest way to see the result is then to imagine fixing one particular `Y` index and calculating the gradient of that `Y` value with respect to the weight tensor `W`. Indeed, it's now clear that we can compute `dL_dY` by looking at the relevant indices in the `W` tensor, and since we're summing over everything, we get the einsum expression at the end of the day. Similarly for `dL_dX`, here we can use `dL_dX = \sum dL_dY * dY_dX` and this explains the `W` that appears in the einsum expression for the calculation here.
 
+Additionally, even for functions such as convolutions, by representing these as matrix multiplications, we can calculate gradients in a far easier way. Consider the following implementation of a minimal conv2D function from ARENA (this was implemented intentionally using numpy only, hence the ugly conversions!):
+
+```
+def conv1d_minimal(x: Float[Tensor, "b ic w"], weights: Float[Tensor, "oc ic kw"]) -> Float[Tensor, "b oc ow"]:
+    '''
+    Like torch's conv1d using bias=False and all other keyword arguments left at their default values.
+    x: shape (batch, in_channels, width)
+    weights: shape (out_channels, in_channels, kernel_width)
+    Returns: shape (batch, out_channels, output_width)
+    '''
+
+    x = x.numpy()
+    weights = weights.numpy()
+
+    output_width = x.shape[2] - weights.shape[2] + 1
+
+    xstrided = np.lib.stride_tricks.as_strided(
+        x,
+        shape=(x.shape[0], x.shape[1], output_width, weights.shape[-1]), # batch, in_channels, output_width, kernel_width
+        strides=(x.strides[0], x.strides[1], x.strides[2], x.strides[2]),
+    )
+
+    return torch.tensor(
+        einops.einsum(
+            xstrided,
+            weights,
+            "batch in_channels output_width kernel_width, \
+            out_channels in_channels kernel_width \
+            -> batch out_channels output_width",
+        )
+    )
+```
+
+Then we can create a backwards pass by reconstructing the large `xstrided` function and then aggregating the contributions of `X` from this:
+
+```
+def conv2d_minimal_backwards(dL_dY: Float[Tensor, "b oc ow"])
+    dL_dW = torch.einsum(
+        strided_X,
+        dL_dY,
+        "batch in_channels output_width kernel_width, \
+        batch out_channels output_width \
+        -> out_channels in_channels kernel_width",
+    )
+
+    dL_dXstrided = torch.einsum(
+        W,
+        dL_dY,
+        "out_channels in_channels kernel_width, \
+        batch in_channels output_width \
+        -> batch in_channels output_width kernel_width",
+    )
+
+    # calculate all the gradients with as_strided for the "middle" elements that contribute exactly kernel_width times to downstream convolutions
+    # calculate all the gradient manually for the "edge" elements which contribute less than kernel_width elements (there are few of these so this doesn't affect time complexity)
+    # tada!
+
+```
+
 <!-- In future, I'd like to expand this when I know more analysis. -->
 <!-- # Principles of Statistics <a href="../assets/PoS/pos.pdf" target="_blank">[link]</a>. created 22nd October 2021. -->
 <!-- I have just started writing up notes for the Principles of Statistics course. -->
