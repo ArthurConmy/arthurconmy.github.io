@@ -47,9 +47,9 @@ For an up-to-date summary, see my <a href="https://scholar.google.com/citations?
 
 <!-- <h3>Present: incoming Mechanistic Interpretability PhD student</h3> -->
 
-(Currently doing Mechanistic Interpretability research under Neel Nanda. I'm an incoming PhD student)
+<!-- (Currently doing Mechanistic Interpretability research under Neel Nanda. I'm an incoming PhD student) -->
 
-<b>2023 - 2023</b> <a href="https://conjecture.dev/">Conjecture</a>
+<b>2023 - 2023</b> SERI MATS, 'Independent' research, <a href="https://conjecture.dev/">Conjecture</a> internship
 
 
 <b>2022 - 2023</b> <a href="https://www.redwoodresearch.org/">Redwood Research</a>
