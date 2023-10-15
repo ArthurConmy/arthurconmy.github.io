@@ -25,7 +25,7 @@ For an up-to-date summary, see my <a href="https://scholar.google.com/citations?
 2. [<i>Towards Automated Circuit Discovery for Mechanistic Interpretability</i>](https://arxiv.org/abs/2304.14997) 
 
    **Arthur Conmy,** AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso:
-   arXiv preprint **arXiv:2304.14997** (2023)
+   NeurIPS 2023 Spotlight **arXiv:2304.14997** (2023)
 
    <img src="../assets/papers/acdc_finds_subgraph.png" width="450">
 
