@@ -18,7 +18,7 @@ For an up-to-date summary, see my <a href="https://scholar.google.com/citations?
 
 1. [<i> Copy Suppression: Comprehensively Understanding an Attention Head </i>](https://arxiv.org/abs/2310.04625)
 
-   Callum McDougall,* <b>Arthur Conmy</b>,* Cody Rushing,* Thomas McGrath, Neel Nanda. (* denotes equal contribution): arXiv preprint **arXiv:2310.04625** (2023)
+   Callum McDougall,* <b>Arthur Conmy</b>,* Cody Rushing,* Thomas McGrath, Neel Nanda (* denotes equal contribution): arXiv preprint **arXiv:2310.04625** (2023)
 
    <img src="../assets/papers/copy_suppress.png" width="450">
 
