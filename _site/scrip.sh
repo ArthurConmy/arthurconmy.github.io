@@ -1,4 +1,4 @@
-gsutil -m cp -r \
+gsutil -m cp -r -p \
  "gs://gemma-2-saes/release-preview/gemmascope-9b-pt-att/layer_0/width_131k/average_l0_11" \
   "gs://gemma-2-saes/release-preview/gemmascope-9b-pt-att/layer_0/width_16k/average_l0_12" \
   "gs://gemma-2-saes/release-preview/gemmascope-9b-pt-att/layer_1/width_131k/average_l0_116" \
