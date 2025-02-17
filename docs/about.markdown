@@ -4,17 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Hello! I'm Arthur Conmy. I'm a Research Engineer at Google DeepMind, on the Language Model Interpretability team. My research interests are in AI interpretability, safety and alignment in that order. 
+Hello! I'm Arthur Conmy. I'm a Research Engineer at Google DeepMind, on the Language Model Interpretability team. I like to work on making interpretability useful, and am also thinking about thinking models and unfaithful Chain-of-Thought at the moment too.
 
-<!-- I want to understand how neural networks are so powerful. -->
-
-<!-- Hello! I'm Arthur Conmy. I finished my undergraduate maths degree at Trinity College, Cambridge in June 2022. I am hoping to do as much good as possible - I am working on the alignment problem. I am interning at [Redwood Research](https://www.redwoodresearch.org/) in Berkeley, California. -->
-
-I try and [read things]() sometimes too.
+I try and [read things]() sometimes too (sadly not updated in some time).
 
 ## Research 
 
-For an up-to-date summary, see my <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ">Google Scholar</a>.
+**The below summary is highly outdated, and I have much more recent work from GDM and external in my <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ">Google Scholar</a>**.
 
 1. [<i> Copy Suppression: Comprehensively Understanding an Attention Head </i>](https://arxiv.org/abs/2310.04625)
 
@@ -36,10 +32,10 @@ For an up-to-date summary, see my <a href="https://scholar.google.com/citations?
 
    <img src="../assets/papers/ioi_circuit.png" width="450">
 
-4. [<i>StyleGAN-induced data-driven regularization for inverse problems</i>](https://arxiv.org/abs/2111.14215)
+4. [<i>StyleGAN-induced data-driven regularization for inverse problems</i>](https://arxiv.org/abs/2110.03814)
 
    **Arthur Conmy,** S Mukherjee, CB Schönlieb  
-   Proceedings of ICASSP 2022 **arXiv:2111.14215**
+   Proceedings of ICASSP 2022 **arXiv:2110.03814**
 
    <img src="../assets/papers/lbrgm.jpeg" width="450">
 
@@ -49,10 +45,13 @@ For an up-to-date summary, see my <a href="https://scholar.google.com/citations?
 
 <!-- (Currently doing Mechanistic Interpretability research under Neel Nanda. I'm an incoming PhD student) -->
 
-<b>2023 - 2023</b> SERI MATS, 'Independent' research, <a href="https://conjecture.dev/">Conjecture</a> internship
+<b>2023 - 2025 (present)</b> Research Engineer at Google DeepMind, on the Language Model Interpretability team.
 
 
-<b>2022 - 2023</b> <a href="https://www.redwoodresearch.org/">Redwood Research</a>
+<b>2023 - 2023</b> SERI MATS and Independent Research.
+
+
+<b>2022 - 2023</b> <a href="https://www.redwoodresearch.org/">Redwood Research</a>.
 
 
 <b>2021 - 2021</b> Meta. Software Engineering Intern.
