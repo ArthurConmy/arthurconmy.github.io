@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Conmy | AI Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --surface-alt: #f5f5f5;
+            --text: #1a1a1a;
+            --text-secondary: #666666;
+            --text-tertiary: #999999;
+            --border: #e5e5e5;
+            --accent: #ff6b35;
+            --accent-light: #ff8c61;
+            --teal: #00b8a9;
+            --navy: #001f3d;
+        }
+
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 140px 48px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 80px;
+        }
+
+        .hero-content {
+            padding-right: 40px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 24px;
+            color: var(--navy);
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: rgba(255, 107, 53, 0.3);
+            z-index: -1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 36px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-outline {
+            background: white;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-container {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent), var(--teal));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.05em;
+        }
+
+        .hero-image-container {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent), var(--teal));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.05em;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--surface-alt);
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .papers-grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .paper-card {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 40px;
+            padding: 40px;
+            background: var(--surface);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            align-items: center;
+        }
+
+        .paper-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .paper-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+
+        .paper-card .authors {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .paper-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 6px 14px;
+            background: var(--surface-alt);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        .tag.highlight {
+            background: var(--accent);
+            color: white;
+        }
+
+        .tag.teal {
+            background: var(--teal);
+            color: white;
+        }
+
+        .paper-preview {
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--surface-alt);
+        }
+
+        .paper-preview img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .experience-section {
+            background: var(--navy);
+            margin: 0 -48px;
+            padding: 120px 48px;
+            color: white;
+        }
+
+        .experience-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .experience-section .section-tag {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .experience-section .section-header h2 {
+            color: white;
+        }
+
+        .experience-section .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 40px;
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item:first-child {
+            padding-top: 0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-item .period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .timeline-item .role {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .company {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .note-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--teal));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .note-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .note-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .note-card .icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.8rem;
+        }
+
+        .note-card .icon.teal {
+            background: linear-gradient(135deg, var(--teal), #00d4c2);
+        }
+
+        .note-card .icon.navy {
+            background: linear-gradient(135deg, var(--navy), #003366);
+        }
+
+        .note-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .note-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .note-card .level {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--surface-alt);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 80px 48px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 80px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 28px;
+            max-width: 500px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-contact h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 2;
+            margin-bottom: 8px;
+        }
+
+        .footer-contact strong {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 120px 24px 60px;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-image-container {
+                padding: 24px;
+            }
+
+            .hero-image-placeholder {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-image-container {
+                padding: 24px;
+            }
+
+            .hero-image-placeholder {
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .paper-card {
+                grid-template-columns: 1fr;
+            }
+
+            .notes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Arthur<span>Conmy</span></a>
+        <ul class="nav-links">
+            <li><a href="#research">Research</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#notes">Notes</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-tag">Research Engineer @ Google DeepMind</span>
+            <h1>Arthur Conmy</h1>
+            <p>I work on post-training to better align Gemini. Previously, I did early influential work on mechanistic interpretability.</p>
+            <div class="hero-cta">
+                <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" class="btn btn-primary">
+                    View Research
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="mailto:arthurconmy@gmail.com" class="btn btn-outline">Contact</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-container">
+                <div class="hero-image-placeholder">AC</div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="research">
+            <div class="section-header">
+                <span class="section-tag">Publications</span>
+                <h2>Selected Research</h2>
+                <p>Work on circuit discovery, attention mechanisms, and neural network interpretability</p>
+            </div>
+            <div class="papers-grid">
+                <a href="https://arxiv.org/abs/2310.04625" class="paper-card">
+                    <div>
+                        <h3>Copy Suppression: Comprehensively Understanding an Attention Head</h3>
+                        <p class="authors">Callum McDougall, Arthur Conmy, Cody Rushing, Thomas McGrath, Neel Nanda</p>
+                        <div class="paper-tags">
+                            <span class="tag highlight">arXiv 2023</span>
+                            <span class="tag">Attention</span>
+                            <span class="tag teal">Complete Circuit</span>
+                        </div>
+                    </div>
+                    <div class="paper-preview">
+                        <img src="docs/assets/papers/copy_suppress.png" alt="Copy Suppression">
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2304.14997" class="paper-card">
+                    <div>
+                        <h3>Towards Automated Circuit Discovery for Mechanistic Interpretability</h3>
+                        <p class="authors">Arthur Conmy, AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso</p>
+                        <div class="paper-tags">
+                            <span class="tag highlight">NeurIPS Spotlight</span>
+                            <span class="tag">ACDC</span>
+                            <span class="tag teal">Automation</span>
+                        </div>
+                    </div>
+                    <div class="paper-preview">
+                        <img src="docs/assets/papers/acdc_finds_subgraph.png" alt="ACDC">
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2211.00593" class="paper-card">
+                    <div>
+                        <h3>Interpretability in the Wild: IOI Circuit in GPT-2 small</h3>
+                        <p class="authors">K Wang, A Variengien, Arthur Conmy, B Shlegeris, J Steinhardt</p>
+                        <div class="paper-tags">
+                            <span class="tag highlight">ICLR 2023</span>
+                            <span class="tag">GPT-2</span>
+                            <span class="tag teal">IOI</span>
+                        </div>
+                    </div>
+                    <div class="paper-preview">
+                        <img src="docs/assets/papers/ioi_circuit.png" alt="IOI Circuit">
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2110.03814" class="paper-card">
+                    <div>
+                        <h3>StyleGAN-induced data-driven regularization for inverse problems</h3>
+                        <p class="authors">Arthur Conmy, S Mukherjee, CB Schönlieb</p>
+                        <div class="paper-tags">
+                            <span class="tag highlight">ICASSP 2022</span>
+                            <span class="tag">StyleGAN</span>
+                            <span class="tag teal">Inverse Problems</span>
+                        </div>
+                    </div>
+                    <div class="paper-preview">
+                        <img src="docs/assets/papers/lbrgm.jpeg" alt="StyleGAN">
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <div class="experience-section" id="experience">
+        <div class="experience-container">
+            <div class="section-header">
+                <span class="section-tag">Career</span>
+                <h2>Professional Experience</h2>
+                <p>My journey through AI research and engineering roles</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="period">2023 — Present</div>
+                    <div>
+                        <div class="role">Research Engineer</div>
+                        <div class="company">Google DeepMind, Language Model Interpretability team</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="period">2023</div>
+                    <div>
+                        <div class="role">Researcher</div>
+                        <div class="company">SERI MATS & Independent Research</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="period">2022 — 2023</div>
+                    <div>
+                        <div class="role">Researcher</div>
+                        <div class="company">Redwood Research</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="period">2021</div>
+                    <div>
+                        <div class="role">Software Engineering Intern</div>
+                        <div class="company">Meta</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="period">2019 — 2022</div>
+                    <div>
+                        <div class="role">Mathematics (Upper First Class)</div>
+                        <div class="company">Trinity College Cambridge</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section id="notes">
+            <div class="section-header">
+                <span class="section-tag">Resources</span>
+                <h2>Mathematics Notes</h2>
+                <p>Educational materials and lecture notes from Cambridge</p>
+            </div>
+            <div class="notes-grid">
+                <a href="docs/assets/MML/MML.pdf" class="note-card">
+                    <div class="icon">📊</div>
+                    <h3>Mathematics of Machine Learning</h3>
+                    <p>Complete notes with enhanced proofs, better references, and elementary proof of Hoeffding's Lemma</p>
+                    <span class="level">Part II</span>
+                </a>
+                <a href="docs/assets/Geometry/Geom.pdf" class="note-card">
+                    <div class="icon teal">📐</div>
+                    <h3>Geometry</h3>
+                    <p>Comprehensive notes filling in details and providing geometric intuition</p>
+                    <span class="level">Part IB</span>
+                </a>
+                <a href="docs/assets/Anal.pdf" class="note-card">
+                    <div class="icon navy">∫</div>
+                    <h3>Analysis</h3>
+                    <p>Technical details on differentiation and Cauchy's Integral Formula</p>
+                    <span class="level">Part IB</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Arthur Conmy</h3>
+                    <p>Research Engineer at Google DeepMind working on post-training alignment for Gemini. Previously contributed to foundational work in mechanistic interpretability.</p>
+                <div class="social-links">
+                    <a href="https://github.com/ArthurConmy" class="social-link" title="GitHub">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-6.225 0-1.38.48-2.535 1.26-3.435-.12-.315-.54-1.62.12-3.375 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.755.24 3.06.12 3.375.78.9 1.26 2.055 1.26 3.435 0 4.905-2.805 5.925-5.475 6.225.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" class="social-link" title="Google Scholar">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg>
+                    </a>
+                    <a href="https://arxiv.org/search/?query=Arthur+Conmy&searchtype=author" class="social-link" title="arXiv">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </a>
+                    <a href="mailto:arthurconmy@gmail.com" class="social-link" title="Email">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h4>Get in Touch</h4>
+                <p><strong>Email:</strong><br>arthurconmy@gmail.com</p>
+                <p><strong>Location:</strong><br>London, UK</p>
+                <p><strong>Affiliation:</strong><br>Google DeepMind</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Working on AI alignment at Google DeepMind.</p>
+        </div>
+    </footer>
+</body>
+</html>
