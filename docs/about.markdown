@@ -10,7 +10,7 @@ I try and [read things]() sometimes too (sadly not updated in some time).
 
 ## Research
 
-The list below is pulled from my <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ">Google Scholar</a>, ordered from most recent to oldest.
+The list below is ordered from most recent to oldest, based on my <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ">Google Scholar</a> with manual arXiv additions. Last updated 2nd June 2026.
 
 <style>
 .about-paper { margin-bottom: 2.2rem; }
@@ -19,6 +19,12 @@ The list below is pulled from my <a href="https://scholar.google.com/citations?u
 </style>
 
 <ol class="about-papers">
+  <li class="about-paper">
+    <a href="https://arxiv.org/abs/2606.00995" target="_blank" rel="noreferrer"><i>Subliminal Learning Is Steering Vector Distillation</i></a>
+    <p>C Blank, A Bhatia, S Rajamanoharan, <b>A Conmy</b>, N Nanda</p>
+    <p>arXiv preprint arXiv:2606.00995 (2026)</p>
+    <a href="https://arxiv.org/abs/2606.00995" target="_blank" rel="noreferrer"><img src="../assets/papers/generated/subliminal-learning-is-steering-vector-distillation.svg" alt="Subliminal Learning Is Steering Vector Distillation thumbnail"></a>
+  </li>
   <li class="about-paper">
     <a href="https://arxiv.org/abs/2603.17839" target="_blank" rel="noreferrer"><i>How do LLMs compute verbal confidence</i></a>
     <p>D Kumaran, <b>A Conmy</b>, F Barbero, S Osindero, V Patraucean, P Velickovic</p>

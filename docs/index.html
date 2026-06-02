@@ -325,29 +325,13 @@
             font-size: 0.95rem;
         }
 
-        .paper-tags {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            padding: 6px 14px;
-            background: var(--surface-alt);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
+        .paper-meta {
             color: var(--text-secondary);
-        }
-
-        .tag.highlight {
-            background: var(--accent);
-            color: white;
-        }
-
-        .tag.teal {
-            background: var(--teal);
-            color: white;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 650;
+            line-height: 1.45;
+            margin: 0;
         }
 
         .paper-preview {
@@ -696,9 +680,19 @@
             <div class="section-header">
                 <span class="section-tag">Publications</span>
                 <h2>Research</h2>
-                <p>All papers and research posts from <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a>, newest to oldest.</p>
+                <p>Papers and research posts, newest to oldest. Based on <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a> with manual arXiv additions. Last updated 2nd June 2026.</p>
             </div>
             <div class="papers-grid">
+                <a href="https://arxiv.org/abs/2606.00995" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="assets/papers/generated/subliminal-learning-is-steering-vector-distillation.svg" alt="Subliminal Learning Is Steering Vector Distillation thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Subliminal Learning Is Steering Vector Distillation</h3>
+                        <p class="authors">C Blank, A Bhatia, S Rajamanoharan, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2606.00995 (2026)</p>
+                    </div>
+                </a>
                 <a href="https://arxiv.org/abs/2603.17839" class="paper-card" target="_blank" rel="noreferrer">
                     <div class="paper-preview">
                         <img src="assets/papers/generated/how-do-llms-compute-verbal-confidence.svg" alt="How do LLMs compute verbal confidence thumbnail">
@@ -706,11 +700,7 @@
                     <div class="paper-content">
                         <h3>How do LLMs compute verbal confidence</h3>
                         <p class="authors">D Kumaran, <strong>A Conmy</strong>, F Barbero, S Osindero, V Patraucean, P Velickovic</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2026</span>
-                            <span class="tag teal">ICML</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">ICML 2026</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2602.15222" class="paper-card" target="_blank" rel="noreferrer">
@@ -720,11 +710,7 @@
                     <div class="paper-content">
                         <h3>Automatically Finding Reward Model Biases</h3>
                         <p class="authors">A Wang, I Arcuschin, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2026</span>
-                            <span class="tag teal">ICML</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">ICML 2026</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2602.10371" class="paper-card" target="_blank" rel="noreferrer">
@@ -734,11 +720,7 @@
                     <div class="paper-content">
                         <h3>Simple LLM Baselines are Competitive for Model Diffing</h3>
                         <p class="authors">E Kempf, S Schrodi, T Brox, N Nanda, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2026</span>
-                            <span class="tag teal">arXiv 2026</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2602.10371 (2026)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2602.04843" class="paper-card" target="_blank" rel="noreferrer">
@@ -748,11 +730,7 @@
                     <div class="paper-content">
                         <h3>Fluid Representations in Reasoning Models</h3>
                         <p class="authors">D Kharlapenko, A Stolfo, <strong>A Conmy</strong>, M Sachan, Z Jin</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2026</span>
-                            <span class="tag teal">arXiv 2026</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2602.04843 (2026)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2601.11516" class="paper-card" target="_blank" rel="noreferrer">
@@ -762,11 +740,7 @@
                     <div class="paper-content">
                         <h3>Building Production-Ready Probes For Gemini</h3>
                         <p class="authors">J Kramár, J Engels, Z Wang, B Chughtai, R Shah, N Nanda, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2026</span>
-                            <span class="tag teal">arXiv 2026</span>
-                            <span class="tag">Models</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2601.11516 (2026)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:5Ul4iDaHHb8C" class="paper-card" target="_blank" rel="noreferrer">
@@ -776,11 +750,7 @@
                     <div class="paper-content">
                         <h3>Where Do Olmo's Values Come From?</h3>
                         <p class="authors">X Sun, <strong>A Conmy</strong>, J Engels</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2026</span>
-                            <span class="tag teal">ICLR 2026 Workshop DATA-FM</span>
-                            <span class="tag">Models</span>
-                        </div>
+                        <p class="paper-meta">ICLR 2026 Workshop DATA-FM</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=10992226996062871559&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -790,11 +760,7 @@
                     <div class="paper-content">
                         <h3>Gemma Scope 2: Technical Paper</h3>
                         <p class="authors">C McDougall, <strong>A Conmy</strong>, J Kramár, T Lieberum, S Rajamanoharan, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">Google DeepMind Blog</span>
-                            <span class="tag">Models</span>
-                        </div>
+                        <p class="paper-meta">Google DeepMind Blog (2025)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=1792987416473523435&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -804,11 +770,7 @@
                     <div class="paper-content">
                         <h3>A pragmatic vision for interpretability</h3>
                         <p class="authors">N Nanda, J Engels, <strong>A Conmy</strong>, S Rajamanoharan, B Chughtai, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">AI Alignment Forum</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">AI Alignment Forum (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2510.01070" class="paper-card" target="_blank" rel="noreferrer">
@@ -818,11 +780,7 @@
                     <div class="paper-content">
                         <h3>Eliciting secret knowledge from language models</h3>
                         <p class="authors">B Cywiński, E Ryd, R Wang, S Rajamanoharan, N Nanda, <strong>A Conmy</strong>, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">arXiv 2025</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2510.01070 (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2506.19143" class="paper-card" target="_blank" rel="noreferrer">
@@ -832,11 +790,7 @@
                     <div class="paper-content">
                         <h3>Thought Anchors: Which LLM Reasoning Steps Matter?</h3>
                         <p class="authors">PC Bogdan, U Macar, N Nanda, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">arXiv 2025</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2506.19143 (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2507.06261" class="paper-card" target="_blank" rel="noreferrer">
@@ -846,11 +800,7 @@
                     <div class="paper-content">
                         <h3>Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities</h3>
                         <p class="authors">GDM</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">arXiv 2025</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2507.06261 (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2506.04706" class="paper-card" target="_blank" rel="noreferrer">
@@ -860,11 +810,7 @@
                     <div class="paper-content">
                         <h3>Line of sight: On linear representations in vllms</h3>
                         <p class="authors">A Rajaram, S Schwettmann, J Andreas, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">arXiv 2025</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2506.04706 (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2505.24360" class="paper-card" target="_blank" rel="noreferrer">
@@ -874,11 +820,7 @@
                     <div class="paper-content">
                         <h3>Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning</h3>
                         <p class="authors">S Shabalin, A Panda, D Kharlapenko, AR Ali, Y Hao, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">arXiv 2025</span>
-                            <span class="tag">Vision</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2505.24360 (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2504.01849" class="paper-card" target="_blank" rel="noreferrer">
@@ -888,11 +830,7 @@
                     <div class="paper-content">
                         <h3>An Approach to Technical AGI Safety and Security</h3>
                         <p class="authors">R Shah, A Irpan, AM Turner, A Wang, <strong>A Conmy</strong>, D Lindner, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">arXiv 2025</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2504.01849 (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2503.09532" class="paper-card" target="_blank" rel="noreferrer">
@@ -902,11 +840,7 @@
                     <div class="paper-content">
                         <h3>SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability</h3>
                         <p class="authors">A Karvonen, C Rager, J Lin, C Tigges, J Bloom, D Chanin, YT Lau, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">ICML</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">ICML 2025</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2503.08679" class="paper-card" target="_blank" rel="noreferrer">
@@ -916,11 +850,7 @@
                     <div class="paper-content">
                         <h3>Chain-of-Thought Reasoning In The Wild Is Not Always Faithful</h3>
                         <p class="authors">I Arcuschin, J Janiak, R Krzyzanowski, S Rajamanoharan, N Nanda, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">ICML</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">ICML 2026</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2501.16496" class="paper-card" target="_blank" rel="noreferrer">
@@ -930,11 +860,7 @@
                     <div class="paper-content">
                         <h3>Open problems in mechanistic interpretability</h3>
                         <p class="authors">L Sharkey, B Chughtai, J Batson, J Lindsey, J Wu, L Bushnaq, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">TMLR</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">TMLR (2025)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=8357752978068519696&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -944,11 +870,7 @@
                     <div class="paper-content">
                         <h3>SAEBench: A Comprehensive Benchmark for Sparse Autoencoders</h3>
                         <p class="authors">A Karvonen, C Rager, J Lin, C Tigges, J Bloom, D Chanin, YT Lau, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">GitHub repository</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">GitHub repository. Accessed (2025)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:p2g8aNsByqUC" class="paper-card" target="_blank" rel="noreferrer">
@@ -958,11 +880,7 @@
                     <div class="paper-content">
                         <h3>How Interpretability Researchers Can Help AGI Go Well</h3>
                         <p class="authors">N Nanda, J Engels, S Rajamanoharan, <strong>A Conmy</strong>, B Chughtai, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">Alignment Forum</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">Alignment Forum (2025)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2510.07364" class="paper-card" target="_blank" rel="noreferrer">
@@ -972,11 +890,7 @@
                     <div class="paper-content">
                         <h3>Base Models Know How to Reason, Thinking Models Learn When</h3>
                         <p class="authors">C Venhoff, I Arcuschin, P Torr, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">ICML 2026 Spotlight</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">ICML 2026 Spotlight</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:blknAaTinKkC" class="paper-card" target="_blank" rel="noreferrer">
@@ -986,11 +900,7 @@
                     <div class="paper-content">
                         <h3>Progress Update #2 from the GDM Mech Interp Team (Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research)</h3>
                         <p class="authors">L Smith, S Rajamanoharan, <strong>A Conmy</strong>, C McDougall, J Kramár, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">alignmentforum</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">alignmentforum.org/posts/4uXCAJNuPKtKBsi28 (2025)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:TQgYirikUcIC" class="paper-card" target="_blank" rel="noreferrer">
@@ -1000,11 +910,7 @@
                     <div class="paper-content">
                         <h3>LLM Neurosurgeon: Targeted Knowledge Removal in LLMs using Sparse Autoencoders</h3>
                         <p class="authors">D Zhou, K Patil, Y Sun, S Rajamanoharan, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">ICLR 2025 Workshop on Building Trust</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">ICLR 2025 Workshop on Building Trust</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2506.18167" class="paper-card" target="_blank" rel="noreferrer">
@@ -1014,11 +920,7 @@
                     <div class="paper-content">
                         <h3>Understanding Reasoning in Thinking Language Models via Steering Vectors</h3>
                         <p class="authors">C Venhoff, I Arcuschin, P Torr, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">ICLR 2025 Workshop on Reasoning and Planning for LLMs</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
+                        <p class="paper-meta">ICLR 2025 Workshop on Reasoning and Planning for LLMs</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:ZeXyd9-uunAC" class="paper-card" target="_blank" rel="noreferrer">
@@ -1028,11 +930,7 @@
                     <div class="paper-content">
                         <h3>Scaling Sparse Feature Circuits For Studying In-Context Learning</h3>
                         <p class="authors">D Kharlapenko, S Shabalin, F Barez, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2025</span>
-                            <span class="tag teal">ICML</span>
-                            <span class="tag">Circuits</span>
-                        </div>
+                        <p class="paper-meta">ICML 2025</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2411.02193" class="paper-card" target="_blank" rel="noreferrer">
@@ -1042,11 +940,7 @@
                     <div class="paper-content">
                         <h3>Improving Steering Vectors by Targeting Sparse Autoencoder Features</h3>
                         <p class="authors">S Chalnev, M Siu, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">arXiv 2024</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2411.02193 (2024)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=2282772081308206428&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1056,11 +950,7 @@
                     <div class="paper-content">
                         <h3>SAEs are Highly Dataset Dependent: a case study on the Refusal Direction</h3>
                         <p class="authors">C Kissane, R Krzyzanowski, N Nanda, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">Alignment Forum</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">Alignment Forum (2024)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=8452086610357157125&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1070,11 +960,7 @@
                     <div class="paper-content">
                         <h3>Open source replication of Anthropic's crosscoder paper for model diffing</h3>
                         <p class="authors">C Kissane, R Krzyzanowski, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">LessWrong</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">LessWrong (2024)</p>
                     </div>
                 </a>
                 <a href="https://aclanthology.org/2024.blackboxnlp-1.19/" class="paper-card" target="_blank" rel="noreferrer">
@@ -1084,11 +970,7 @@
                     <div class="paper-content">
                         <h3>Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2</h3>
                         <p class="authors">T Lieberum, S Rajamanoharan, <strong>A Conmy</strong>, L Smith, N Sonnerat, V Varma, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">BlackboxNLP 2024 Oral</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">BlackboxNLP 2024 Oral</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2407.14435" class="paper-card" target="_blank" rel="noreferrer">
@@ -1098,11 +980,7 @@
                     <div class="paper-content">
                         <h3>Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders</h3>
                         <p class="authors">S Rajamanoharan, T Lieberum, N Sonnerat, <strong>A Conmy</strong>, V Varma, J Kramár, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">arXiv 2024</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">arXiv preprint arXiv:2407.14435 (2024)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=15673898608073003149&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1112,11 +990,7 @@
                     <div class="paper-content">
                         <h3>SAEs (Usually) Transfer Between Base and Chat Models</h3>
                         <p class="authors">C Kissane, R Krzyzanowski, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">alignmentforum</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">alignmentforum.org/posts/fmwk6qxrpW8d4jvbd (2024)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2406.17759" class="paper-card" target="_blank" rel="noreferrer">
@@ -1126,11 +1000,7 @@
                     <div class="paper-content">
                         <h3>Interpreting Attention Layer Outputs with Sparse Autoencoders</h3>
                         <p class="authors">C Kissane, R Krzyzanowski, JI Bloom, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">ICML 2024 Mechanistic Interpretability Workshop Spotlight</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">ICML 2024 Mechanistic Interpretability Workshop Spotlight</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2404.16014" class="paper-card" target="_blank" rel="noreferrer">
@@ -1140,11 +1010,7 @@
                     <div class="paper-content">
                         <h3>Improving Dictionary Learning with Gated Sparse Autoencoders</h3>
                         <p class="authors">S Rajamanoharan*, <strong>A Conmy</strong>*, L Smith, T Lieberum, V Varma, J Kramár, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">NeurIPS</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">NeurIPS 2024</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=11279626818486318476&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1154,11 +1020,7 @@
                     <div class="paper-content">
                         <h3>Activation Steering with SAEs</h3>
                         <p class="authors"><strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">alignmentforum</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">alignmentforum.org/posts/C5KAZQib3bzzpeyrg#Activation_Steering_with_SAEs (2024)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=14862420202816912684&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1168,11 +1030,7 @@
                     <div class="paper-content">
                         <h3>Base LLMs Refuse Too</h3>
                         <p class="authors">C Kissane, R Krzyzanowski, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">Alignment Forum</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">Alignment Forum, 2024b. URL https://www. alignmentforum. org/posts/YWo2cKJgL7Lg8xWjj/base-llms-refuse-too (2024)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=3352748214517611451&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1182,11 +1040,7 @@
                     <div class="paper-content">
                         <h3>SAE Features for Refusal and Sycophancy Steering Vectors</h3>
                         <p class="authors">S Shabalin, D Kharlapenko, <strong>A Conmy</strong>, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">Alignment Forum</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">Alignment Forum (2024)</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:M3ejUd6NZC8C" class="paper-card" target="_blank" rel="noreferrer">
@@ -1196,11 +1050,7 @@
                     <div class="paper-content">
                         <h3>Self-Explaining SAE Features</h3>
                         <p class="authors">D Kharlapenko, S Shabalin, N Nanda, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">alignmentforum</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">alignmentforum.org/posts/self-explaining-sae-features (2024)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2410.19278" class="paper-card" target="_blank" rel="noreferrer">
@@ -1210,11 +1060,7 @@
                     <div class="paper-content">
                         <h3>Applying Sparse Autoencoders to Unlearn Knowledge in Language Models</h3>
                         <p class="authors">E Farrell, YT Lau, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">Safe Generative AI Workshop at NeurIPS</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">Safe Generative AI Workshop at NeurIPS 2024</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:8k81kl-MbHgC" class="paper-card" target="_blank" rel="noreferrer">
@@ -1224,11 +1070,7 @@
                     <div class="paper-content">
                         <h3>Progress Update #1 from the GDM Mech Interp Team</h3>
                         <p class="authors">N Nanda, <strong>A Conmy</strong>, L Smith, S Rajamanoharan, T Lieberum, J Kramár, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">alignmentforum</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">alignmentforum.org/posts/C5KAZQib3bzzpeyrg (2024)</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2403.06634" class="paper-card" target="_blank" rel="noreferrer">
@@ -1238,11 +1080,7 @@
                     <div class="paper-content">
                         <h3>Stealing Part of a Production Language Model</h3>
                         <p class="authors">N Carlini, D Paleka, KD Dvijotham, T Steinke, J Hayase, AF Cooper, ...</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2024</span>
-                            <span class="tag teal">ICML 2024 Best Paper</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">ICML 2024 Best Paper</p>
                     </div>
                 </a>
                 <a href="https://aclanthology.org/2024.blackboxnlp-1.25/" class="paper-card" target="_blank" rel="noreferrer">
@@ -1252,11 +1090,7 @@
                     <div class="paper-content">
                         <h3>Attribution Patching Outperforms Automated Circuit Discovery</h3>
                         <p class="authors">A Syed, C Rager, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2023</span>
-                            <span class="tag teal">BlackboxNLP</span>
-                            <span class="tag">Circuits</span>
-                        </div>
+                        <p class="paper-meta">BlackboxNLP 2024</p>
                     </div>
                 </a>
                 <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/34e1dbe95d34d7ebaf99b9bcaeb5b2be-Abstract-Conference.html" class="paper-card" target="_blank" rel="noreferrer">
@@ -1266,11 +1100,7 @@
                     <div class="paper-content">
                         <h3>Towards Automated Circuit Discovery for Mechanistic Interpretability</h3>
                         <p class="authors"><strong>A Conmy</strong>, AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2023</span>
-                            <span class="tag teal">NeurIPS 2023 Spotlight</span>
-                            <span class="tag">Circuits</span>
-                        </div>
+                        <p class="paper-meta">NeurIPS 2023 Spotlight</p>
                     </div>
                 </a>
                 <a href="https://scholar.google.com/scholar?cluster=15749670661948531617&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
@@ -1280,11 +1110,7 @@
                     <div class="paper-content">
                         <h3>My best guess at the important tricks for training 1L SAEs</h3>
                         <p class="authors"><strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2023</span>
-                            <span class="tag teal">LessWrong</span>
-                            <span class="tag">SAEs</span>
-                        </div>
+                        <p class="paper-meta">LessWrong (2023)</p>
                     </div>
                 </a>
                 <a href="https://aclanthology.org/2024.blackboxnlp-1.22/" class="paper-card" target="_blank" rel="noreferrer">
@@ -1294,11 +1120,7 @@
                     <div class="paper-content">
                         <h3>Copy Suppression: Comprehensively Understanding a Motif in Language Model Attention Heads</h3>
                         <p class="authors">CS McDougall*, <strong>A Conmy</strong>*, C Rushing*, T McGrath, N Nanda</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2023</span>
-                            <span class="tag teal">BlackboxNLP</span>
-                            <span class="tag">Circuits</span>
-                        </div>
+                        <p class="paper-meta">BlackboxNLP 2024</p>
                     </div>
                 </a>
                 <a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/2722a0ccf6acfe3d144fdbb0dedd80b5-Abstract-Conference.html" class="paper-card" target="_blank" rel="noreferrer">
@@ -1308,11 +1130,7 @@
                     <div class="paper-content">
                         <h3>Successor Heads: Recurring, Interpretable Attention Heads In The Wild</h3>
                         <p class="authors">R Gould, E Ong, G Ogden, <strong>A Conmy</strong></p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2023</span>
-                            <span class="tag teal">ICLR</span>
-                            <span class="tag">Circuits</span>
-                        </div>
+                        <p class="paper-meta">ICLR 2024</p>
                     </div>
                 </a>
                 <a href="https://arxiv.org/abs/2211.00593" class="paper-card" target="_blank" rel="noreferrer">
@@ -1322,11 +1140,7 @@
                     <div class="paper-content">
                         <h3>Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 Small</h3>
                         <p class="authors">KR Wang, A Variengien, <strong>A Conmy</strong>, B Shlegeris, J Steinhardt</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2022</span>
-                            <span class="tag teal">ICLR</span>
-                            <span class="tag">Circuits</span>
-                        </div>
+                        <p class="paper-meta">ICLR 2023</p>
                     </div>
                 </a>
                 <a href="https://ieeexplore.ieee.org/abstract/document/9747632/" class="paper-card" target="_blank" rel="noreferrer">
@@ -1336,11 +1150,7 @@
                     <div class="paper-content">
                         <h3>StyleGAN-induced Data-Driven Regularization for Inverse Problems</h3>
                         <p class="authors"><strong>A Conmy</strong>, S Mukherjee, CB Schönlieb</p>
-                        <div class="paper-tags">
-                            <span class="tag highlight">2022</span>
-                            <span class="tag teal">IEEE ICASSP</span>
-                            <span class="tag">Interpretability</span>
-                        </div>
+                        <p class="paper-meta">IEEE ICASSP 2022</p>
                     </div>
                 </a>
             </div>

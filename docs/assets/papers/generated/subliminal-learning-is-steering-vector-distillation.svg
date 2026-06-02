@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Subliminal Learning Is Steering Vector Distillation</title>
+  <desc id="desc">Generated thumbnail for Subliminal Learning Is Steering Vector Distillation</desc>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <path d="M0 112H900M0 224H900M0 336H900M0 448H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#0f172a" stroke-width="1" opacity="0.055"/>
+  <circle cx="720" cy="108" r="160" fill="#0f766e" opacity="0.12"/>
+  <circle cx="192" cy="430" r="190" fill="#f97316" opacity="0.13"/>
+  <rect x="54" y="54" width="164" height="44" rx="22" fill="#ffffff" opacity="0.94"/>
+  <text x="78" y="83" fill="#0f766e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2026</text>
+  <g transform="translate(90 178)">
+    <rect x="0" y="0" width="176" height="132" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="88" y="50" text-anchor="middle" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="26" font-weight="800">teacher</text>
+    <path d="M38 90H138" stroke="#0f766e" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="38" cy="90" r="9" fill="#0f766e"/><circle cx="138" cy="90" r="9" fill="#f97316"/>
+  </g>
+  <g transform="translate(633 252)">
+    <rect x="0" y="0" width="176" height="132" rx="18" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="88" y="50" text-anchor="middle" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="26" font-weight="800">student</text>
+    <path d="M38 90H138" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="38" cy="90" r="9" fill="#0f766e"/><circle cx="138" cy="90" r="9" fill="#f97316"/>
+  </g>
+  <path d="M278 244 C382 128, 512 136, 620 279" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round" opacity="0.72"/>
+  <path d="M591 277 L622 282 L609 253" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+  <path d="M299 292 C396 394, 498 410, 610 340" fill="none" stroke="#f97316" stroke-width="4" stroke-dasharray="10 14" stroke-linecap="round" opacity="0.74"/>
+  <g fill="#111827" opacity="0.72">
+    <circle cx="392" cy="216" r="8"/><circle cx="450" cy="188" r="8"/><circle cx="509" cy="211" r="8"/>
+    <circle cx="386" cy="341" r="7"/><circle cx="464" cy="372" r="7"/><circle cx="544" cy="360" r="7"/>
+  </g>
+  <text x="54" y="430" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="44" font-weight="800">
+    <tspan x="54" dy="0">Subliminal learning is</tspan><tspan x="54" dy="52">steering vector distillation</tspan>
+  </text>
+  <text x="58" y="526" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">arXiv:2606.00995</text>
+</svg>

@@ -1,6 +1,19 @@
 [
   {
     "order": 1,
+    "title": "Subliminal Learning Is Steering Vector Distillation",
+    "authors": "C Blank, A Bhatia, S Rajamanoharan, A Conmy, N Nanda",
+    "venue": "arXiv preprint arXiv:2606.00995, 2026",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2606.00995",
+    "slug": "subliminal-learning-is-steering-vector-distillation",
+    "pdf_url": "https://arxiv.org/pdf/2606.00995",
+    "date": "2026/5/31",
+    "venue_detail": "arXiv preprint arXiv:2606.00995",
+    "image": "assets/papers/generated/subliminal-learning-is-steering-vector-distillation.svg"
+  },
+  {
+    "order": 2,
     "title": "How do LLMs compute verbal confidence",
     "authors": "D Kumaran, A Conmy, F Barbero, S Osindero, V Patraucean, P Velickovic",
     "venue": "ICML 2026, 2026",
@@ -14,7 +27,7 @@
     "image": "assets/papers/generated/how-do-llms-compute-verbal-confidence.svg"
   },
   {
-    "order": 2,
+    "order": 3,
     "title": "Automatically Finding Reward Model Biases",
     "authors": "A Wang, I Arcuschin, A Conmy",
     "venue": "ICML 2026, 2026",
@@ -28,7 +41,7 @@
     "image": "assets/papers/generated/automatically-finding-reward-model-biases.svg"
   },
   {
-    "order": 3,
+    "order": 4,
     "title": "Simple LLM Baselines are Competitive for Model Diffing",
     "authors": "E Kempf, S Schrodi, T Brox, N Nanda, A Conmy",
     "venue": "arXiv preprint arXiv:2602.10371, 2026",
@@ -41,7 +54,7 @@
     "image": "assets/papers/generated/simple-llm-baselines-are-competitive-for-model-diffing.svg"
   },
   {
-    "order": 4,
+    "order": 5,
     "title": "Fluid Representations in Reasoning Models",
     "authors": "D Kharlapenko, A Stolfo, A Conmy, M Sachan, Z Jin",
     "venue": "arXiv preprint arXiv:2602.04843, 2026",
@@ -54,7 +67,7 @@
     "image": "assets/papers/generated/fluid-representations-in-reasoning-models.svg"
   },
   {
-    "order": 5,
+    "order": 6,
     "title": "Building Production-Ready Probes For Gemini",
     "authors": "J Kramár, J Engels, Z Wang, B Chughtai, R Shah, N Nanda, A Conmy",
     "venue": "arXiv preprint arXiv:2601.11516, 2026",
@@ -67,7 +80,7 @@
     "image": "assets/papers/generated/building-production-ready-probes-for-gemini.svg"
   },
   {
-    "order": 6,
+    "order": 7,
     "title": "Where Do Olmo's Values Come From?",
     "authors": "X Sun, A Conmy, J Engels",
     "venue": "ICLR 2026 Workshop DATA-FM, 2026",
@@ -80,7 +93,7 @@
     "image": "assets/papers/generated/where-do-olmo-s-values-come-from.svg"
   },
   {
-    "order": 7,
+    "order": 8,
     "title": "Gemma Scope 2: Technical Paper",
     "authors": "C McDougall, A Conmy, J Kramár, T Lieberum, S Rajamanoharan, ...",
     "venue": "Google DeepMind Blog, 2025",
@@ -93,7 +106,7 @@
     "image": "assets/papers/generated/gemma-scope-2-technical-paper.svg"
   },
   {
-    "order": 8,
+    "order": 9,
     "title": "A pragmatic vision for interpretability",
     "authors": "N Nanda, J Engels, A Conmy, S Rajamanoharan, B Chughtai, ...",
     "venue": "AI Alignment Forum, 2025",
@@ -106,7 +119,7 @@
     "image": "assets/papers/generated/a-pragmatic-vision-for-interpretability.svg"
   },
   {
-    "order": 9,
+    "order": 10,
     "title": "Eliciting secret knowledge from language models",
     "authors": "B Cywiński, E Ryd, R Wang, S Rajamanoharan, N Nanda, A Conmy, ...",
     "venue": "arXiv preprint arXiv:2510.01070, 2025",
@@ -119,7 +132,7 @@
     "image": "assets/papers/generated/eliciting-secret-knowledge-from-language-models.svg"
   },
   {
-    "order": 10,
+    "order": 11,
     "title": "Thought Anchors: Which LLM Reasoning Steps Matter?",
     "authors": "PC Bogdan, U Macar, N Nanda, A Conmy",
     "venue": "arXiv preprint arXiv:2506.19143, 2025",
@@ -132,7 +145,7 @@
     "image": "assets/papers/generated/thought-anchors-which-llm-reasoning-steps-matter.svg"
   },
   {
-    "order": 11,
+    "order": 12,
     "title": "Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities",
     "authors": "GDM",
     "venue": "arXiv preprint arXiv:2507.06261, 2025",
@@ -145,7 +158,7 @@
     "image": "assets/papers/generated/gemini-2-5-pushing-the-frontier-with-advanced-reasoning-multimodality-lo.svg"
   },
   {
-    "order": 12,
+    "order": 13,
     "title": "Line of sight: On linear representations in vllms",
     "authors": "A Rajaram, S Schwettmann, J Andreas, A Conmy",
     "venue": "arXiv preprint arXiv:2506.04706, 2025",
@@ -158,7 +171,7 @@
     "image": "assets/papers/generated/line-of-sight-on-linear-representations-in-vllms.svg"
   },
   {
-    "order": 13,
+    "order": 14,
     "title": "Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning",
     "authors": "S Shabalin, A Panda, D Kharlapenko, AR Ali, Y Hao, A Conmy",
     "venue": "arXiv preprint arXiv:2505.24360, 2025",
@@ -171,7 +184,7 @@
     "image": "assets/papers/generated/interpreting-large-text-to-image-diffusion-models-with-dictionary-learni.svg"
   },
   {
-    "order": 14,
+    "order": 15,
     "title": "An Approach to Technical AGI Safety and Security",
     "authors": "R Shah, A Irpan, AM Turner, A Wang, A Conmy, D Lindner, ...",
     "venue": "arXiv preprint arXiv:2504.01849, 2025",
@@ -184,7 +197,7 @@
     "image": "assets/papers/generated/an-approach-to-technical-agi-safety-and-security.svg"
   },
   {
-    "order": 15,
+    "order": 16,
     "title": "SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability",
     "authors": "A Karvonen, C Rager, J Lin, C Tigges, J Bloom, D Chanin, YT Lau, ...",
     "venue": "ICML 2025, 2025",
@@ -198,7 +211,7 @@
     "image": "assets/papers/generated/saebench-a-comprehensive-benchmark-for-sparse-autoencoders-in-language-m.svg"
   },
   {
-    "order": 16,
+    "order": 17,
     "title": "Chain-of-Thought Reasoning In The Wild Is Not Always Faithful",
     "authors": "I Arcuschin, J Janiak, R Krzyzanowski, S Rajamanoharan, N Nanda, ...",
     "venue": "ICML 2026, 2025",
@@ -212,7 +225,7 @@
     "image": "assets/papers/generated/chain-of-thought-reasoning-in-the-wild-is-not-always-faithful.svg"
   },
   {
-    "order": 17,
+    "order": 18,
     "title": "Open problems in mechanistic interpretability",
     "authors": "L Sharkey, B Chughtai, J Batson, J Lindsey, J Wu, L Bushnaq, ...",
     "venue": "TMLR, 2025",
@@ -226,7 +239,7 @@
     "image": "assets/papers/generated/open-problems-in-mechanistic-interpretability.svg"
   },
   {
-    "order": 18,
+    "order": 19,
     "title": "SAEBench: A Comprehensive Benchmark for Sparse Autoencoders",
     "authors": "A Karvonen, C Rager, J Lin, C Tigges, J Bloom, D Chanin, YT Lau, ...",
     "venue": "GitHub repository. Accessed, 10-21, 2025",
@@ -239,7 +252,7 @@
     "image": "assets/papers/generated/saebench-a-comprehensive-benchmark-for-sparse-autoencoders.svg"
   },
   {
-    "order": 19,
+    "order": 20,
     "title": "How Interpretability Researchers Can Help AGI Go Well",
     "authors": "N Nanda, J Engels, S Rajamanoharan, A Conmy, B Chughtai, ...",
     "venue": "Alignment Forum, 2025",
@@ -252,7 +265,7 @@
     "image": "assets/papers/generated/how-interpretability-researchers-can-help-agi-go-well.svg"
   },
   {
-    "order": 20,
+    "order": 21,
     "title": "Base Models Know How to Reason, Thinking Models Learn When",
     "authors": "C Venhoff, I Arcuschin, P Torr, A Conmy, N Nanda",
     "venue": "ICML 2026 Spotlight, 2025",
@@ -266,7 +279,7 @@
     "image": "assets/papers/generated/base-models-know-how-to-reason-thinking-models-learn-when.svg"
   },
   {
-    "order": 21,
+    "order": 22,
     "title": "Progress Update #2 from the GDM Mech Interp Team (Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research)",
     "authors": "L Smith, S Rajamanoharan, A Conmy, C McDougall, J Kramár, ...",
     "venue": "alignmentforum.org/posts/4uXCAJNuPKtKBsi28, 2025",
@@ -279,7 +292,7 @@
     "image": "assets/papers/generated/progress-update-2-from-the-gdm-mech-interp-team-negative-results-for-sae.svg"
   },
   {
-    "order": 22,
+    "order": 23,
     "title": "LLM Neurosurgeon: Targeted Knowledge Removal in LLMs using Sparse Autoencoders",
     "authors": "D Zhou, K Patil, Y Sun, S Rajamanoharan, A Conmy",
     "venue": "ICLR 2025 Workshop on Building Trust, 2025",
@@ -292,7 +305,7 @@
     "image": "assets/papers/generated/llm-neurosurgeon-targeted-knowledge-removal-in-llms-using-sparse-autoenc.svg"
   },
   {
-    "order": 23,
+    "order": 24,
     "title": "Understanding Reasoning in Thinking Language Models via Steering Vectors",
     "authors": "C Venhoff, I Arcuschin, P Torr, A Conmy, N Nanda",
     "venue": "ICLR 2025 Workshop on Reasoning and Planning for LLMs, 2025",
@@ -306,7 +319,7 @@
     "image": "assets/papers/generated/understanding-reasoning-in-thinking-language-models-via-steering-vectors.svg"
   },
   {
-    "order": 24,
+    "order": 25,
     "title": "Scaling Sparse Feature Circuits For Studying In-Context Learning",
     "authors": "D Kharlapenko, S Shabalin, F Barez, A Conmy, N Nanda",
     "venue": "ICML 2025, 2025",
@@ -319,7 +332,7 @@
     "image": "assets/papers/generated/scaling-sparse-feature-circuits-for-studying-in-context-learning.svg"
   },
   {
-    "order": 25,
+    "order": 26,
     "title": "Improving Steering Vectors by Targeting Sparse Autoencoder Features",
     "authors": "S Chalnev, M Siu, A Conmy",
     "venue": "arXiv preprint arXiv:2411.02193, 2024",
@@ -332,7 +345,7 @@
     "image": "assets/papers/generated/improving-steering-vectors-by-targeting-sparse-autoencoder-features.svg"
   },
   {
-    "order": 26,
+    "order": 27,
     "title": "SAEs are Highly Dataset Dependent: a case study on the Refusal Direction",
     "authors": "C Kissane, R Krzyzanowski, N Nanda, A Conmy",
     "venue": "Alignment Forum, 2024",
@@ -345,7 +358,7 @@
     "image": "assets/papers/generated/saes-are-highly-dataset-dependent-a-case-study-on-the-refusal-direction.svg"
   },
   {
-    "order": 27,
+    "order": 28,
     "title": "Open source replication of Anthropic's crosscoder paper for model diffing",
     "authors": "C Kissane, R Krzyzanowski, A Conmy, N Nanda",
     "venue": "LessWrong, 2024",
@@ -357,7 +370,7 @@
     "image": "assets/papers/generated/open-source-replication-of-anthropic-s-crosscoder-paper-for-model-diffin.svg"
   },
   {
-    "order": 28,
+    "order": 29,
     "title": "Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2",
     "authors": "T Lieberum, S Rajamanoharan, A Conmy, L Smith, N Sonnerat, V Varma, ...",
     "venue": "BlackboxNLP 2024 Oral, 2024",
@@ -371,7 +384,7 @@
     "image": "assets/papers/generated/gemma-scope-open-sparse-autoencoders-everywhere-all-at-once-on-gemma-2.svg"
   },
   {
-    "order": 29,
+    "order": 30,
     "title": "Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders",
     "authors": "S Rajamanoharan, T Lieberum, N Sonnerat, A Conmy, V Varma, J Kramár, ...",
     "venue": "arXiv preprint arXiv:2407.14435, 2024",
@@ -384,7 +397,7 @@
     "image": "assets/papers/generated/jumping-ahead-improving-reconstruction-fidelity-with-jumprelu-sparse-aut.svg"
   },
   {
-    "order": 30,
+    "order": 31,
     "title": "SAEs (Usually) Transfer Between Base and Chat Models",
     "authors": "C Kissane, R Krzyzanowski, A Conmy, N Nanda",
     "venue": "alignmentforum.org/posts/fmwk6qxrpW8d4jvbd, 2024",
@@ -397,7 +410,7 @@
     "image": "assets/papers/generated/saes-usually-transfer-between-base-and-chat-models.svg"
   },
   {
-    "order": 31,
+    "order": 32,
     "title": "Interpreting Attention Layer Outputs with Sparse Autoencoders",
     "authors": "C Kissane, R Krzyzanowski, JI Bloom, A Conmy, N Nanda",
     "venue": "ICML 2024 Mechanistic Interpretability Workshop Spotlight, 2024",
@@ -411,7 +424,7 @@
     "image": "assets/papers/generated/interpreting-attention-layer-outputs-with-sparse-autoencoders.svg"
   },
   {
-    "order": 32,
+    "order": 33,
     "title": "Improving Dictionary Learning with Gated Sparse Autoencoders",
     "authors": "S Rajamanoharan*, A Conmy*, L Smith, T Lieberum, V Varma, J Kramár, ...",
     "venue": "NeurIPS 2024, 2024",
@@ -425,7 +438,7 @@
     "image": "assets/papers/generated/improving-dictionary-learning-with-gated-sparse-autoencoders.svg"
   },
   {
-    "order": 33,
+    "order": 34,
     "title": "Activation Steering with SAEs",
     "authors": "A Conmy, N Nanda",
     "venue": "alignmentforum.org/posts/C5KAZQib3bzzpeyrg#Activation_Steering_with_SAEs, 2024",
@@ -437,7 +450,7 @@
     "image": "assets/papers/generated/activation-steering-with-saes.svg"
   },
   {
-    "order": 34,
+    "order": 35,
     "title": "Base LLMs Refuse Too",
     "authors": "C Kissane, R Krzyzanowski, A Conmy, N Nanda",
     "venue": "Alignment Forum, 2024b. URL https://www. alignmentforum. org/posts …, 2024",
@@ -450,7 +463,7 @@
     "image": "assets/papers/generated/base-llms-refuse-too.svg"
   },
   {
-    "order": 35,
+    "order": 36,
     "title": "SAE Features for Refusal and Sycophancy Steering Vectors",
     "authors": "S Shabalin, D Kharlapenko, A Conmy, N Nanda",
     "venue": "Alignment Forum, 2024",
@@ -463,7 +476,7 @@
     "image": "assets/papers/generated/sae-features-for-refusal-and-sycophancy-steering-vectors.svg"
   },
   {
-    "order": 36,
+    "order": 37,
     "title": "Self-Explaining SAE Features",
     "authors": "D Kharlapenko, S Shabalin, N Nanda, A Conmy",
     "venue": "alignmentforum.org/posts/self-explaining-sae-features, 2024",
@@ -476,7 +489,7 @@
     "image": "assets/papers/generated/self-explaining-sae-features.svg"
   },
   {
-    "order": 37,
+    "order": 38,
     "title": "Applying Sparse Autoencoders to Unlearn Knowledge in Language Models",
     "authors": "E Farrell, YT Lau, A Conmy",
     "venue": "Safe Generative AI Workshop at NeurIPS 2024, 2024",
@@ -490,7 +503,7 @@
     "image": "assets/papers/generated/applying-sparse-autoencoders-to-unlearn-knowledge-in-language-models.svg"
   },
   {
-    "order": 38,
+    "order": 39,
     "title": "Progress Update #1 from the GDM Mech Interp Team",
     "authors": "N Nanda, A Conmy, L Smith, S Rajamanoharan, T Lieberum, J Kramár, ...",
     "venue": "alignmentforum.org/posts/C5KAZQib3bzzpeyrg, 2024",
@@ -503,7 +516,7 @@
     "image": "assets/papers/generated/progress-update-1-from-the-gdm-mech-interp-team.svg"
   },
   {
-    "order": 39,
+    "order": 40,
     "title": "Stealing Part of a Production Language Model",
     "authors": "N Carlini, D Paleka, KD Dvijotham, T Steinke, J Hayase, AF Cooper, ...",
     "venue": "ICML 2024 Best Paper, 2024",
@@ -517,7 +530,7 @@
     "image": "assets/papers/generated/stealing-part-of-a-production-language-model.svg"
   },
   {
-    "order": 40,
+    "order": 41,
     "title": "Attribution Patching Outperforms Automated Circuit Discovery",
     "authors": "A Syed, C Rager, A Conmy",
     "venue": "BlackboxNLP 2024, 2023",
@@ -531,7 +544,7 @@
     "image": "assets/papers/generated/attribution-patching-outperforms-automated-circuit-discovery.svg"
   },
   {
-    "order": 41,
+    "order": 42,
     "title": "Towards Automated Circuit Discovery for Mechanistic Interpretability",
     "authors": "A Conmy, AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso",
     "venue": "NeurIPS 2023 Spotlight, 2023",
@@ -545,7 +558,7 @@
     "image": "assets/papers/acdc_finds_subgraph.png"
   },
   {
-    "order": 42,
+    "order": 43,
     "title": "My best guess at the important tricks for training 1L SAEs",
     "authors": "A Conmy",
     "venue": "LessWrong, 2023",
@@ -557,7 +570,7 @@
     "image": "assets/papers/generated/my-best-guess-at-the-important-tricks-for-training-1l-saes.svg"
   },
   {
-    "order": 43,
+    "order": 44,
     "title": "Copy Suppression: Comprehensively Understanding a Motif in Language Model Attention Heads",
     "authors": "CS McDougall*, A Conmy*, C Rushing*, T McGrath, N Nanda",
     "venue": "BlackboxNLP 2024, 2023",
@@ -571,7 +584,7 @@
     "image": "assets/papers/copy_suppress.png"
   },
   {
-    "order": 44,
+    "order": 45,
     "title": "Successor Heads: Recurring, Interpretable Attention Heads In The Wild",
     "authors": "R Gould, E Ong, G Ogden, A Conmy",
     "venue": "ICLR 2024, 2023",
@@ -585,7 +598,7 @@
     "image": "assets/papers/generated/successor-heads-recurring-interpretable-attention-heads-in-the-wild.svg"
   },
   {
-    "order": 45,
+    "order": 46,
     "title": "Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 Small",
     "authors": "KR Wang, A Variengien, A Conmy, B Shlegeris, J Steinhardt",
     "venue": "ICLR 2023, 2022",
@@ -599,7 +612,7 @@
     "image": "assets/papers/ioi_circuit.png"
   },
   {
-    "order": 46,
+    "order": 47,
     "title": "StyleGAN-induced Data-Driven Regularization for Inverse Problems",
     "authors": "A Conmy, S Mukherjee, CB Schönlieb",
     "venue": "IEEE ICASSP 2022, 2022",
