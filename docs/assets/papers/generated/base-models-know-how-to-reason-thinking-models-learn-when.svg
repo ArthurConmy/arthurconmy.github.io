@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Base Models Know How to Reason, Thinking Models Learn When</title>
+  <desc id="desc">Generated thumbnail for Base Models Know How to Reason, Thinking Models Learn When</desc>
+  <rect width="900" height="560" fill="#ecfeff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#0f766e" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#f97316" opacity="0.11"/>
+  <path d="M714 250 C698 180, 698 352, 682 282" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M682 282 C666 212, 666 384, 650 314" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M650 314 C634 244, 634 416, 618 346" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M618 346 C602 276, 602 448, 586 378" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M586 378 C570 308, 570 480, 554 410" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M554 410 C538 340, 538 512, 522 442" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M522 442 C506 372, 506 184, 490 114" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M490 114 C474 44, 474 216, 458 146" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/>
+  <circle cx="714" cy="250" r="13" fill="#f97316" opacity="0.62"/><circle cx="682" cy="282" r="9" fill="#0f766e" opacity="0.62"/><circle cx="650" cy="314" r="9" fill="#f97316" opacity="0.62"/><circle cx="618" cy="346" r="13" fill="#0f766e" opacity="0.62"/><circle cx="586" cy="378" r="9" fill="#f97316" opacity="0.62"/><circle cx="554" cy="410" r="9" fill="#0f766e" opacity="0.62"/><circle cx="522" cy="442" r="13" fill="#f97316" opacity="0.62"/><circle cx="490" cy="114" r="9" fill="#0f766e" opacity="0.62"/><circle cx="458" cy="146" r="9" fill="#f97316" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#0f766e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Base Models Know How to</tspan><tspan x="48" dy="56">Reason, Thinking Models</tspan><tspan x="48" dy="56">Learn When</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">ICML 2026 Spotlight</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#0f766e"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#f97316"/>
+</svg>

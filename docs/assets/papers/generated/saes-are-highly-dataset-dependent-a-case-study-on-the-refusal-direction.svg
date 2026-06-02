@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">SAEs are Highly Dataset Dependent: a case study on the Refusal Direction</title>
+  <desc id="desc">Generated thumbnail for SAEs are Highly Dataset Dependent: a case study on the Refusal Direction</desc>
+  <rect width="900" height="560" fill="#eff6ff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#2563eb" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#10b981" opacity="0.11"/>
+  <path d="M798 110 C796 40, 796 184, 794 114" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M794 114 C792 44, 792 188, 790 118" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M790 118 C788 48, 788 192, 786 122" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M786 122 C784 52, 784 196, 782 126" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M782 126 C780 56, 780 200, 778 130" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M778 130 C776 60, 776 204, 774 134" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M774 134 C772 64, 772 208, 770 138" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M770 138 C768 68, 768 212, 766 142" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/>
+  <circle cx="798" cy="110" r="13" fill="#10b981" opacity="0.62"/><circle cx="794" cy="114" r="9" fill="#2563eb" opacity="0.62"/><circle cx="790" cy="118" r="9" fill="#10b981" opacity="0.62"/><circle cx="786" cy="122" r="13" fill="#2563eb" opacity="0.62"/><circle cx="782" cy="126" r="9" fill="#10b981" opacity="0.62"/><circle cx="778" cy="130" r="9" fill="#2563eb" opacity="0.62"/><circle cx="774" cy="134" r="13" fill="#10b981" opacity="0.62"/><circle cx="770" cy="138" r="9" fill="#2563eb" opacity="0.62"/><circle cx="766" cy="142" r="9" fill="#10b981" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#2563eb" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2024</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">SAEs are Highly Dataset</tspan><tspan x="48" dy="56">Dependent: a case study on</tspan><tspan x="48" dy="56">the Refusal Direction</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">Alignment Forum</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#2563eb"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#10b981"/>
+</svg>

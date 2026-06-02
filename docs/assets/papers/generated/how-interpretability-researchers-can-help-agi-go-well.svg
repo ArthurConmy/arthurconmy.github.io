@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">How Interpretability Researchers Can Help AGI Go Well</title>
+  <desc id="desc">Generated thumbnail for How Interpretability Researchers Can Help AGI Go Well</desc>
+  <rect width="900" height="560" fill="#fff7ed"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#dc2626" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#2563eb" opacity="0.11"/>
+  <path d="M249 395 C515.5 325, 515.5 382, 782 312" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M782 312 C688.5 242, 688.5 299, 595 229" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/><path d="M595 229 C501.5 159, 501.5 216, 408 146" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M408 146 C314.5 76, 314.5 493, 221 423" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/><path d="M221 423 C487.5 353, 487.5 410, 754 340" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M754 340 C660.5 270, 660.5 327, 567 257" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/><path d="M567 257 C473.5 187, 473.5 244, 380 174" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M380 174 C286.5 104, 286.5 161, 193 91" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/>
+  <circle cx="249" cy="395" r="13" fill="#2563eb" opacity="0.62"/><circle cx="782" cy="312" r="9" fill="#dc2626" opacity="0.62"/><circle cx="595" cy="229" r="9" fill="#2563eb" opacity="0.62"/><circle cx="408" cy="146" r="13" fill="#dc2626" opacity="0.62"/><circle cx="221" cy="423" r="9" fill="#2563eb" opacity="0.62"/><circle cx="754" cy="340" r="9" fill="#dc2626" opacity="0.62"/><circle cx="567" cy="257" r="13" fill="#2563eb" opacity="0.62"/><circle cx="380" cy="174" r="9" fill="#dc2626" opacity="0.62"/><circle cx="193" cy="91" r="9" fill="#2563eb" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#dc2626" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">How Interpretability</tspan><tspan x="48" dy="56">Researchers Can Help AGI Go</tspan><tspan x="48" dy="56">Well</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">Alignment Forum</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#dc2626"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#2563eb"/>
+</svg>

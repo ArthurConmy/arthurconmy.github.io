@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Building Production-Ready Probes For Gemini</title>
+  <desc id="desc">Generated thumbnail for Building Production-Ready Probes For Gemini</desc>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#111827" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#f59e0b" opacity="0.11"/>
+  <path d="M420 320 C595 250, 595 220, 770 150" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M770 150 C585 80, 585 410, 400 340" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/><path d="M400 340 C575 270, 575 240, 750 170" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M750 170 C565 100, 565 430, 380 360" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/><path d="M380 360 C555 290, 555 260, 730 190" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M730 190 C545 120, 545 450, 360 380" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/><path d="M360 380 C535 310, 535 280, 710 210" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M710 210 C525 140, 525 470, 340 400" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/>
+  <circle cx="420" cy="320" r="13" fill="#f59e0b" opacity="0.62"/><circle cx="770" cy="150" r="9" fill="#111827" opacity="0.62"/><circle cx="400" cy="340" r="9" fill="#f59e0b" opacity="0.62"/><circle cx="750" cy="170" r="13" fill="#111827" opacity="0.62"/><circle cx="380" cy="360" r="9" fill="#f59e0b" opacity="0.62"/><circle cx="730" cy="190" r="9" fill="#111827" opacity="0.62"/><circle cx="360" cy="380" r="13" fill="#f59e0b" opacity="0.62"/><circle cx="710" cy="210" r="9" fill="#111827" opacity="0.62"/><circle cx="340" cy="400" r="9" fill="#f59e0b" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#111827" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2026</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Building Production-Ready</tspan><tspan x="48" dy="56">Probes For Gemini</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">arXiv preprint arXiv:2601.11516</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#111827"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#f59e0b"/>
+</svg>

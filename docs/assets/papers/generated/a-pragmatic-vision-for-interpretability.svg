@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">A pragmatic vision for interpretability</title>
+  <desc id="desc">Generated thumbnail for A pragmatic vision for interpretability</desc>
+  <rect width="900" height="560" fill="#fff7ed"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#dc2626" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#2563eb" opacity="0.11"/>
+  <path d="M339 185 C500.5 115, 500.5 202, 662 132" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M662 132 C463.5 62, 463.5 509, 265 439" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/><path d="M265 439 C426.5 369, 426.5 456, 588 386" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M588 386 C389.5 316, 389.5 403, 191 333" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/><path d="M191 333 C352.5 263, 352.5 350, 514 280" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M514 280 C315.5 210, 315.5 297, 117 227" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/><path d="M117 227 C278.5 157, 278.5 244, 440 174" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M440 174 C601.5 104, 601.5 191, 763 121" fill="none" stroke="#dc2626" stroke-width="3" opacity="0.24"/>
+  <circle cx="339" cy="185" r="13" fill="#2563eb" opacity="0.62"/><circle cx="662" cy="132" r="9" fill="#dc2626" opacity="0.62"/><circle cx="265" cy="439" r="9" fill="#2563eb" opacity="0.62"/><circle cx="588" cy="386" r="13" fill="#dc2626" opacity="0.62"/><circle cx="191" cy="333" r="9" fill="#2563eb" opacity="0.62"/><circle cx="514" cy="280" r="9" fill="#dc2626" opacity="0.62"/><circle cx="117" cy="227" r="13" fill="#2563eb" opacity="0.62"/><circle cx="440" cy="174" r="9" fill="#dc2626" opacity="0.62"/><circle cx="763" cy="121" r="9" fill="#2563eb" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#dc2626" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">A pragmatic vision for</tspan><tspan x="48" dy="56">interpretability</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">AI Alignment Forum</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#dc2626"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#2563eb"/>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Chain-of-Thought Reasoning In The Wild Is Not Always Faithful</title>
+  <desc id="desc">Generated thumbnail for Chain-of-Thought Reasoning In The Wild Is Not Always Faithful</desc>
+  <rect width="900" height="560" fill="#ecfeff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#0f766e" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#f97316" opacity="0.11"/>
+  <path d="M798 230 C676 160, 676 184, 554 114" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M554 114 C432 44, 432 428, 310 358" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M310 358 C548 288, 548 312, 786 242" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M786 242 C664 172, 664 196, 542 126" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M542 126 C420 56, 420 440, 298 370" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M298 370 C536 300, 536 324, 774 254" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M774 254 C652 184, 652 208, 530 138" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M530 138 C408 68, 408 452, 286 382" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/>
+  <circle cx="798" cy="230" r="13" fill="#f97316" opacity="0.62"/><circle cx="554" cy="114" r="9" fill="#0f766e" opacity="0.62"/><circle cx="310" cy="358" r="9" fill="#f97316" opacity="0.62"/><circle cx="786" cy="242" r="13" fill="#0f766e" opacity="0.62"/><circle cx="542" cy="126" r="9" fill="#f97316" opacity="0.62"/><circle cx="298" cy="370" r="9" fill="#0f766e" opacity="0.62"/><circle cx="774" cy="254" r="13" fill="#f97316" opacity="0.62"/><circle cx="530" cy="138" r="9" fill="#0f766e" opacity="0.62"/><circle cx="286" cy="382" r="9" fill="#f97316" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#0f766e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Chain-of-Thought Reasoning</tspan><tspan x="48" dy="56">In The Wild Is Not Always</tspan><tspan x="48" dy="56">Faithful</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">ICML</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#0f766e"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#f97316"/>
+</svg>

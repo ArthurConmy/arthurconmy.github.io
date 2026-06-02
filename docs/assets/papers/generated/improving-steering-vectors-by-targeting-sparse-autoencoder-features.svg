@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Improving Steering Vectors by Targeting Sparse Autoencoder Features</title>
+  <desc id="desc">Generated thumbnail for Improving Steering Vectors by Targeting Sparse Autoencoder Features</desc>
+  <rect width="900" height="560" fill="#eff6ff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#2563eb" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#10b981" opacity="0.11"/>
+  <path d="M279 285 C430.5 215, 430.5 322, 582 252" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M582 252 C373.5 182, 373.5 289, 165 219" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M165 219 C316.5 149, 316.5 256, 468 186" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M468 186 C619.5 116, 619.5 223, 771 153" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M771 153 C562.5 83, 562.5 190, 354 120" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M354 120 C505.5 50, 505.5 517, 657 447" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M657 447 C448.5 377, 448.5 484, 240 414" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M240 414 C391.5 344, 391.5 451, 543 381" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/>
+  <circle cx="279" cy="285" r="13" fill="#10b981" opacity="0.62"/><circle cx="582" cy="252" r="9" fill="#2563eb" opacity="0.62"/><circle cx="165" cy="219" r="9" fill="#10b981" opacity="0.62"/><circle cx="468" cy="186" r="13" fill="#2563eb" opacity="0.62"/><circle cx="771" cy="153" r="9" fill="#10b981" opacity="0.62"/><circle cx="354" cy="120" r="9" fill="#2563eb" opacity="0.62"/><circle cx="657" cy="447" r="13" fill="#10b981" opacity="0.62"/><circle cx="240" cy="414" r="9" fill="#2563eb" opacity="0.62"/><circle cx="543" cy="381" r="9" fill="#10b981" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#2563eb" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2024</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Improving Steering Vectors</tspan><tspan x="48" dy="56">by Targeting Sparse</tspan><tspan x="48" dy="56">Autoencoder Features</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">arXiv preprint arXiv:2411.02193</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#2563eb"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#10b981"/>
+</svg>

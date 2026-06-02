@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2</title>
+  <desc id="desc">Generated thumbnail for Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2</desc>
+  <rect width="900" height="560" fill="#eff6ff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#2563eb" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#10b981" opacity="0.11"/>
+  <path d="M543 205 C378.5 135, 378.5 514, 214 444" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M214 444 C409.5 374, 409.5 393, 605 323" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M605 323 C440.5 253, 440.5 272, 276 202" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M276 202 C471.5 132, 471.5 511, 667 441" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M667 441 C502.5 371, 502.5 390, 338 320" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M338 320 C533.5 250, 533.5 269, 729 199" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M729 199 C564.5 129, 564.5 508, 400 438" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M400 438 C595.5 368, 595.5 387, 791 317" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/>
+  <circle cx="543" cy="205" r="13" fill="#10b981" opacity="0.62"/><circle cx="214" cy="444" r="9" fill="#2563eb" opacity="0.62"/><circle cx="605" cy="323" r="9" fill="#10b981" opacity="0.62"/><circle cx="276" cy="202" r="13" fill="#2563eb" opacity="0.62"/><circle cx="667" cy="441" r="9" fill="#10b981" opacity="0.62"/><circle cx="338" cy="320" r="9" fill="#2563eb" opacity="0.62"/><circle cx="729" cy="199" r="13" fill="#10b981" opacity="0.62"/><circle cx="400" cy="438" r="9" fill="#2563eb" opacity="0.62"/><circle cx="791" cy="317" r="9" fill="#10b981" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#2563eb" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2024</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Gemma Scope: Open Sparse</tspan><tspan x="48" dy="56">Autoencoders Everywhere All</tspan><tspan x="48" dy="56">At Once on Gemma 2</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">BlackboxNLP 2024 Oral</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#2563eb"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#10b981"/>
+</svg>

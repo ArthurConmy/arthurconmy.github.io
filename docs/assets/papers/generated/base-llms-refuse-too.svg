@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Base LLMs Refuse Too</title>
+  <desc id="desc">Generated thumbnail for Base LLMs Refuse Too</desc>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#172554" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#ef4444" opacity="0.11"/>
+  <path d="M324 120 C483 50, 483 412, 642 342" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M642 342 C441 272, 441 274, 240 204" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M240 204 C399 134, 399 496, 558 426" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M558 426 C357 356, 357 358, 156 288" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M156 288 C315 218, 315 220, 474 150" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M474 150 C633 80, 633 442, 792 372" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M792 372 C591 302, 591 304, 390 234" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M390 234 C549 164, 549 166, 708 96" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/>
+  <circle cx="324" cy="120" r="13" fill="#ef4444" opacity="0.62"/><circle cx="642" cy="342" r="9" fill="#172554" opacity="0.62"/><circle cx="240" cy="204" r="9" fill="#ef4444" opacity="0.62"/><circle cx="558" cy="426" r="13" fill="#172554" opacity="0.62"/><circle cx="156" cy="288" r="9" fill="#ef4444" opacity="0.62"/><circle cx="474" cy="150" r="9" fill="#172554" opacity="0.62"/><circle cx="792" cy="372" r="13" fill="#ef4444" opacity="0.62"/><circle cx="390" cy="234" r="9" fill="#172554" opacity="0.62"/><circle cx="708" cy="96" r="9" fill="#ef4444" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#172554" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2024</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Base LLMs Refuse Too</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">Alignment Forum, 2024b. URL</tspan><tspan x="52" dy="30">https://www. alignmentforum...</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#172554"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#ef4444"/>
+</svg>

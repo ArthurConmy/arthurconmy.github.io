@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability</title>
+  <desc id="desc">Generated thumbnail for SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability</desc>
+  <rect width="900" height="560" fill="#eff6ff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#2563eb" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#10b981" opacity="0.11"/>
+  <path d="M399 325 C330.5 255, 330.5 442, 262 372" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M262 372 C193.5 302, 193.5 489, 125 419" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M125 419 C416.5 349, 416.5 176, 708 106" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M708 106 C639.5 36, 639.5 223, 571 153" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M571 153 C502.5 83, 502.5 270, 434 200" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M434 200 C365.5 130, 365.5 317, 297 247" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M297 247 C228.5 177, 228.5 364, 160 294" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M160 294 C451.5 224, 451.5 411, 743 341" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/>
+  <circle cx="399" cy="325" r="13" fill="#10b981" opacity="0.62"/><circle cx="262" cy="372" r="9" fill="#2563eb" opacity="0.62"/><circle cx="125" cy="419" r="9" fill="#10b981" opacity="0.62"/><circle cx="708" cy="106" r="13" fill="#2563eb" opacity="0.62"/><circle cx="571" cy="153" r="9" fill="#10b981" opacity="0.62"/><circle cx="434" cy="200" r="9" fill="#2563eb" opacity="0.62"/><circle cx="297" cy="247" r="13" fill="#10b981" opacity="0.62"/><circle cx="160" cy="294" r="9" fill="#2563eb" opacity="0.62"/><circle cx="743" cy="341" r="9" fill="#10b981" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#2563eb" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">SAEBench: A Comprehensive</tspan><tspan x="48" dy="56">Benchmark for Sparse</tspan><tspan x="48" dy="56">Autoencoders in Language</tspan><tspan x="48" dy="56">Model Interpretability</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">ICML</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#2563eb"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#10b981"/>
+</svg>

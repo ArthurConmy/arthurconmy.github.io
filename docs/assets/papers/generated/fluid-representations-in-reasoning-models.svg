@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Fluid Representations in Reasoning Models</title>
+  <desc id="desc">Generated thumbnail for Fluid Representations in Reasoning Models</desc>
+  <rect width="900" height="560" fill="#ecfeff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#0f766e" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#f97316" opacity="0.11"/>
+  <path d="M555 185 C392.5 115, 392.5 490, 230 420" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M230 420 C427.5 350, 427.5 365, 625 295" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M625 295 C462.5 225, 462.5 240, 300 170" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M300 170 C497.5 100, 497.5 475, 695 405" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M695 405 C532.5 335, 532.5 350, 370 280" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M370 280 C567.5 210, 567.5 225, 765 155" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M765 155 C602.5 85, 602.5 460, 440 390" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M440 390 C277.5 320, 277.5 335, 115 265" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/>
+  <circle cx="555" cy="185" r="13" fill="#f97316" opacity="0.62"/><circle cx="230" cy="420" r="9" fill="#0f766e" opacity="0.62"/><circle cx="625" cy="295" r="9" fill="#f97316" opacity="0.62"/><circle cx="300" cy="170" r="13" fill="#0f766e" opacity="0.62"/><circle cx="695" cy="405" r="9" fill="#f97316" opacity="0.62"/><circle cx="370" cy="280" r="9" fill="#0f766e" opacity="0.62"/><circle cx="765" cy="155" r="13" fill="#f97316" opacity="0.62"/><circle cx="440" cy="390" r="9" fill="#0f766e" opacity="0.62"/><circle cx="115" cy="265" r="9" fill="#f97316" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#0f766e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2026</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Fluid Representations in</tspan><tspan x="48" dy="56">Reasoning Models</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">arXiv preprint arXiv:2602.04843</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#0f766e"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#f97316"/>
+</svg>

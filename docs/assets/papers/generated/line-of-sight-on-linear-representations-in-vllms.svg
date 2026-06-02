@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Line of sight: On linear representations in vllms</title>
+  <desc id="desc">Generated thumbnail for Line of sight: On linear representations in vllms</desc>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#172554" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#ef4444" opacity="0.11"/>
+  <path d="M192 220 C449 150, 449 316, 706 246" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M706 246 C603 176, 603 342, 500 272" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M500 272 C397 202, 397 368, 294 298" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M294 298 C551 228, 551 394, 808 324" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M808 324 C705 254, 705 420, 602 350" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M602 350 C499 280, 499 446, 396 376" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M396 376 C293 306, 293 472, 190 402" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M190 402 C447 332, 447 498, 704 428" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/>
+  <circle cx="192" cy="220" r="13" fill="#ef4444" opacity="0.62"/><circle cx="706" cy="246" r="9" fill="#172554" opacity="0.62"/><circle cx="500" cy="272" r="9" fill="#ef4444" opacity="0.62"/><circle cx="294" cy="298" r="13" fill="#172554" opacity="0.62"/><circle cx="808" cy="324" r="9" fill="#ef4444" opacity="0.62"/><circle cx="602" cy="350" r="9" fill="#172554" opacity="0.62"/><circle cx="396" cy="376" r="13" fill="#ef4444" opacity="0.62"/><circle cx="190" cy="402" r="9" fill="#172554" opacity="0.62"/><circle cx="704" cy="428" r="9" fill="#ef4444" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#172554" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Line of sight: On linear</tspan><tspan x="48" dy="56">representations in vllms</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">arXiv preprint arXiv:2506.04706</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#172554"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#ef4444"/>
+</svg>

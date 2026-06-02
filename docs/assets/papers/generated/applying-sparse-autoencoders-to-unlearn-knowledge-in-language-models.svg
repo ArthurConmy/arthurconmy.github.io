@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Applying Sparse Autoencoders to Unlearn Knowledge in Language Models</title>
+  <desc id="desc">Generated thumbnail for Applying Sparse Autoencoders to Unlearn Knowledge in Language Models</desc>
+  <rect width="900" height="560" fill="#eff6ff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#2563eb" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#10b981" opacity="0.11"/>
+  <path d="M333 135 C373.5 65, 373.5 214, 414 144" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M414 144 C454.5 74, 454.5 223, 495 153" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M495 153 C535.5 83, 535.5 232, 576 162" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M576 162 C616.5 92, 616.5 241, 657 171" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M657 171 C697.5 101, 697.5 250, 738 180" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M738 180 C418.5 110, 418.5 259, 99 189" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/><path d="M99 189 C139.5 119, 139.5 268, 180 198" fill="none" stroke="#10b981" stroke-width="3" opacity="0.24"/><path d="M180 198 C220.5 128, 220.5 277, 261 207" fill="none" stroke="#2563eb" stroke-width="3" opacity="0.24"/>
+  <circle cx="333" cy="135" r="13" fill="#10b981" opacity="0.62"/><circle cx="414" cy="144" r="9" fill="#2563eb" opacity="0.62"/><circle cx="495" cy="153" r="9" fill="#10b981" opacity="0.62"/><circle cx="576" cy="162" r="13" fill="#2563eb" opacity="0.62"/><circle cx="657" cy="171" r="9" fill="#10b981" opacity="0.62"/><circle cx="738" cy="180" r="9" fill="#2563eb" opacity="0.62"/><circle cx="99" cy="189" r="13" fill="#10b981" opacity="0.62"/><circle cx="180" cy="198" r="9" fill="#2563eb" opacity="0.62"/><circle cx="261" cy="207" r="9" fill="#10b981" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#2563eb" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2024</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Applying Sparse Autoencoders</tspan><tspan x="48" dy="56">to Unlearn Knowledge in</tspan><tspan x="48" dy="56">Language Models</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">Safe Generative AI Workshop at</tspan><tspan x="52" dy="30">NeurIPS</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#2563eb"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#10b981"/>
+</svg>

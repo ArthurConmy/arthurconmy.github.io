@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">How do LLMs compute verbal confidence</title>
+  <desc id="desc">Generated thumbnail for How do LLMs compute verbal confidence</desc>
+  <rect width="900" height="560" fill="#ecfeff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#0f766e" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#f97316" opacity="0.11"/>
+  <path d="M489 115 C315.5 45, 315.5 262, 142 192" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M142 192 C328.5 122, 328.5 339, 515 269" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M515 269 C341.5 199, 341.5 416, 168 346" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M168 346 C354.5 276, 354.5 493, 541 423" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M541 423 C367.5 353, 367.5 210, 194 140" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M194 140 C380.5 70, 380.5 287, 567 217" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/><path d="M567 217 C393.5 147, 393.5 364, 220 294" fill="none" stroke="#f97316" stroke-width="3" opacity="0.24"/><path d="M220 294 C406.5 224, 406.5 441, 593 371" fill="none" stroke="#0f766e" stroke-width="3" opacity="0.24"/>
+  <circle cx="489" cy="115" r="13" fill="#f97316" opacity="0.62"/><circle cx="142" cy="192" r="9" fill="#0f766e" opacity="0.62"/><circle cx="515" cy="269" r="9" fill="#f97316" opacity="0.62"/><circle cx="168" cy="346" r="13" fill="#0f766e" opacity="0.62"/><circle cx="541" cy="423" r="9" fill="#f97316" opacity="0.62"/><circle cx="194" cy="140" r="9" fill="#0f766e" opacity="0.62"/><circle cx="567" cy="217" r="13" fill="#f97316" opacity="0.62"/><circle cx="220" cy="294" r="9" fill="#0f766e" opacity="0.62"/><circle cx="593" cy="371" r="9" fill="#f97316" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#0f766e" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2026</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">How do LLMs compute verbal</tspan><tspan x="48" dy="56">confidence</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">ICML</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#0f766e"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#f97316"/>
+</svg>

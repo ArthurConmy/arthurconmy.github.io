@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Where Do Olmo's Values Come From?</title>
+  <desc id="desc">Generated thumbnail for Where Do Olmo's Values Come From?</desc>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#111827" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#f59e0b" opacity="0.11"/>
+  <path d="M636 320 C487 250, 487 508, 338 438" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M338 438 C549 368, 549 266, 760 196" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/><path d="M760 196 C611 126, 611 384, 462 314" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M462 314 C313 244, 313 502, 164 432" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/><path d="M164 432 C375 362, 375 260, 586 190" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M586 190 C437 120, 437 378, 288 308" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/><path d="M288 308 C499 238, 499 496, 710 426" fill="none" stroke="#f59e0b" stroke-width="3" opacity="0.24"/><path d="M710 426 C561 356, 561 254, 412 184" fill="none" stroke="#111827" stroke-width="3" opacity="0.24"/>
+  <circle cx="636" cy="320" r="13" fill="#f59e0b" opacity="0.62"/><circle cx="338" cy="438" r="9" fill="#111827" opacity="0.62"/><circle cx="760" cy="196" r="9" fill="#f59e0b" opacity="0.62"/><circle cx="462" cy="314" r="13" fill="#111827" opacity="0.62"/><circle cx="164" cy="432" r="9" fill="#f59e0b" opacity="0.62"/><circle cx="586" cy="190" r="9" fill="#111827" opacity="0.62"/><circle cx="288" cy="308" r="13" fill="#f59e0b" opacity="0.62"/><circle cx="710" cy="426" r="9" fill="#111827" opacity="0.62"/><circle cx="412" cy="184" r="9" fill="#f59e0b" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#111827" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2026</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Where Do Olmo's Values Come</tspan><tspan x="48" dy="56">From?</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">ICLR 2026 Workshop DATA-FM</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#111827"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#f59e0b"/>
+</svg>

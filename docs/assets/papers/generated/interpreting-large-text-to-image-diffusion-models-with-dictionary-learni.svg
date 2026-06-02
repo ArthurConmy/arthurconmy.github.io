@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning</title>
+  <desc id="desc">Generated thumbnail for Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning</desc>
+  <rect width="900" height="560" fill="#f5f3ff"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#7c3aed" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#06b6d4" opacity="0.11"/>
+  <path d="M588 280 C551 210, 551 244, 514 174" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.24"/><path d="M514 174 C477 104, 477 498, 440 428" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.24"/><path d="M440 428 C403 358, 403 392, 366 322" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.24"/><path d="M366 322 C329 252, 329 286, 292 216" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.24"/><path d="M292 216 C255 146, 255 180, 218 110" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.24"/><path d="M218 110 C181 40, 181 434, 144 364" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.24"/><path d="M144 364 C467 294, 467 328, 790 258" fill="none" stroke="#06b6d4" stroke-width="3" opacity="0.24"/><path d="M790 258 C753 188, 753 222, 716 152" fill="none" stroke="#7c3aed" stroke-width="3" opacity="0.24"/>
+  <circle cx="588" cy="280" r="13" fill="#06b6d4" opacity="0.62"/><circle cx="514" cy="174" r="9" fill="#7c3aed" opacity="0.62"/><circle cx="440" cy="428" r="9" fill="#06b6d4" opacity="0.62"/><circle cx="366" cy="322" r="13" fill="#7c3aed" opacity="0.62"/><circle cx="292" cy="216" r="9" fill="#06b6d4" opacity="0.62"/><circle cx="218" cy="110" r="9" fill="#7c3aed" opacity="0.62"/><circle cx="144" cy="364" r="13" fill="#06b6d4" opacity="0.62"/><circle cx="790" cy="258" r="9" fill="#7c3aed" opacity="0.62"/><circle cx="716" cy="152" r="9" fill="#06b6d4" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#7c3aed" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2025</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Interpreting Large</tspan><tspan x="48" dy="56">Text-to-Image Diffusion</tspan><tspan x="48" dy="56">Models with Dictionary</tspan><tspan x="48" dy="56">Learning</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">arXiv preprint arXiv:2505.24360</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#7c3aed"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#06b6d4"/>
+</svg>

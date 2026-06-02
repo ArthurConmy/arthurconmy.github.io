@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-labelledby="title desc">
+  <title id="title">Open source replication of Anthropic's crosscoder paper for model diffing</title>
+  <desc id="desc">Generated thumbnail for Open source replication of Anthropic's crosscoder paper for model diffing</desc>
+  <rect width="900" height="560" fill="#f8fafc"/>
+  <path d="M0 96H900M0 192H900M0 288H900M0 384H900M0 480H900M112 0V560M224 0V560M336 0V560M448 0V560M560 0V560M672 0V560M784 0V560" stroke="#111827" stroke-width="1" opacity="0.07"/>
+  <circle cx="760" cy="118" r="170" fill="#172554" opacity="0.11"/>
+  <circle cx="192" cy="420" r="210" fill="#ef4444" opacity="0.11"/>
+  <path d="M180 360 C315 290, 315 340, 450 270" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M450 270 C585 200, 585 250, 720 180" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M720 180 C495 110, 495 160, 270 90" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M270 90 C405 20, 405 430, 540 360" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M540 360 C315 290, 315 340, 90 270" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M90 270 C225 200, 225 250, 360 180" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/><path d="M360 180 C495 110, 495 160, 630 90" fill="none" stroke="#ef4444" stroke-width="3" opacity="0.24"/><path d="M630 90 C405 20, 405 430, 180 360" fill="none" stroke="#172554" stroke-width="3" opacity="0.24"/>
+  <circle cx="180" cy="360" r="13" fill="#ef4444" opacity="0.62"/><circle cx="450" cy="270" r="9" fill="#172554" opacity="0.62"/><circle cx="720" cy="180" r="9" fill="#ef4444" opacity="0.62"/><circle cx="270" cy="90" r="13" fill="#172554" opacity="0.62"/><circle cx="540" cy="360" r="9" fill="#ef4444" opacity="0.62"/><circle cx="90" cy="270" r="9" fill="#172554" opacity="0.62"/><circle cx="360" cy="180" r="13" fill="#ef4444" opacity="0.62"/><circle cx="630" cy="90" r="9" fill="#172554" opacity="0.62"/><circle cx="180" cy="360" r="9" fill="#ef4444" opacity="0.62"/>
+  <rect x="48" y="48" width="164" height="44" rx="22" fill="white" opacity="0.9"/>
+  <text x="72" y="77" fill="#172554" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="800">2024</text>
+  <text x="48" y="160" fill="#111827" font-family="Inter, Manrope, Arial, sans-serif" font-size="48" font-weight="800">
+    <tspan x="48" dy="0">Open source replication of</tspan><tspan x="48" dy="56">Anthropic's crosscoder paper</tspan><tspan x="48" dy="56">for model diffing</tspan>
+  </text>
+  <text x="52" y="458" fill="#374151" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700">
+    <tspan x="52" dy="0">LessWrong</tspan>
+  </text>
+  <rect x="48" y="504" width="248" height="4" rx="2" fill="#172554"/>
+  <rect x="306" y="504" width="142" height="4" rx="2" fill="#ef4444"/>
+</svg>
