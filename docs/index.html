@@ -281,10 +281,49 @@
             margin: 0 auto;
         }
 
+        .papers-shell {
+            width: 100%;
+        }
+
         .papers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
+        }
+
+        .papers-grid.is-collapsed .paper-card:nth-of-type(n+10) {
+            display: none;
+        }
+
+        .papers-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .papers-toggle {
+            appearance: none;
+            border: 1px solid var(--navy);
+            background: var(--navy);
+            color: white;
+            border-radius: 999px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 14px 24px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .papers-toggle:hover {
+            background: #002a52;
+            box-shadow: 0 10px 30px rgba(0, 49, 97, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .papers-toggle:focus-visible {
+            outline: 3px solid rgba(0, 195, 177, 0.4);
+            outline-offset: 3px;
         }
 
         .paper-card {
@@ -644,9 +683,10 @@
 </head>
 <body>
     <nav>
-        <a href="#" class="logo">Arthur<span>Conmy</span></a>
+        <a href="/" class="logo">Arthur<span>Conmy</span></a>
         <ul class="nav-links">
             <li><a href="#research">Research</a></li>
+            <li><a href="/about/">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#notes">Notes</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -682,7 +722,8 @@
                 <h2>Research</h2>
                 <p>Papers and research posts, newest to oldest. Based on <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a> with manual arXiv additions. Last updated 2nd June 2026.</p>
             </div>
-            <div class="papers-grid">
+            <div class="papers-shell" data-collapsible-papers data-collapsed-count="9">
+                <div class="papers-grid is-collapsed" id="home-papers-grid" data-papers-grid>
                 <a href="https://arxiv.org/abs/2606.00995" class="paper-card" target="_blank" rel="noreferrer">
                     <div class="paper-preview">
                         <img src="assets/papers/generated/subliminal-learning-is-steering-vector-distillation.svg" alt="Subliminal Learning Is Steering Vector Distillation thumbnail">
@@ -1153,6 +1194,10 @@
                         <p class="paper-meta">IEEE ICASSP 2022</p>
                     </div>
                 </a>
+                </div>
+                <div class="papers-actions">
+                    <button class="papers-toggle" type="button" data-papers-toggle aria-expanded="false" aria-controls="home-papers-grid">Show all 47 papers</button>
+                </div>
             </div>
         </section>
     </main>
@@ -1265,5 +1310,37 @@
             <p>Working on AI alignment at Google DeepMind.</p>
         </div>
     </footer>
+    <script>
+        (function () {
+            function initCollapsiblePapers(section) {
+                const grid = section.querySelector('[data-papers-grid]');
+                const toggle = section.querySelector('[data-papers-toggle]');
+                if (!grid || !toggle) return;
+
+                const cards = grid.querySelectorAll('.paper-card');
+                const collapsedCount = Number(section.dataset.collapsedCount || 9);
+                if (cards.length <= collapsedCount) {
+                    grid.classList.remove('is-collapsed');
+                    toggle.hidden = true;
+                    return;
+                }
+
+                function setExpanded(expanded) {
+                    grid.classList.toggle('is-collapsed', !expanded);
+                    toggle.setAttribute('aria-expanded', String(expanded));
+                    toggle.textContent = expanded ? 'Show fewer papers' : 'Show all ' + cards.length + ' papers';
+                }
+
+                setExpanded(false);
+                toggle.addEventListener('click', function () {
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    setExpanded(!expanded);
+                    if (expanded) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            document.querySelectorAll('[data-collapsible-papers]').forEach(initCollapsiblePapers);
+        })();
+    </script>
 </body>
 </html>

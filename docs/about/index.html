@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Arthur Conmy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+        :root {
+            --navy: #003161;
+            --accent: #ff6b35;
+            --accent-light: #ff8c61;
+            --teal: #00a99d;
+            --surface: #ffffff;
+            --surface-alt: #f4f7fb;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: #fafbfc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.35rem; font-weight: 800; color: var(--navy); text-decoration: none; letter-spacing: -0.03em; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-primary); text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a[aria-current='page'] { color: var(--accent); }
+
+        .page-hero {
+            padding: 96px 48px 72px;
+            background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-inner, .section-inner, .footer-content {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--surface-alt);
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 0.78rem;
+            border-radius: 999px;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            color: var(--navy);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 800;
+            line-height: 0.95;
+            margin-bottom: 24px;
+        }
+
+        .lead {
+            color: var(--text-secondary);
+            font-size: 1.18rem;
+            max-width: 760px;
+        }
+
+        main section { padding: 88px 48px; }
+        .section-header { margin-bottom: 44px; }
+        .section-header h2 { color: var(--navy); font-size: 2.35rem; line-height: 1.1; font-weight: 800; margin-bottom: 16px; }
+        .section-header p, .bio-copy p { color: var(--text-secondary); font-size: 1.05rem; max-width: 780px; }
+        .section-header a, .bio-copy a, .experience-list a { color: var(--navy); font-weight: 800; }
+
+        .bio-copy { display: grid; gap: 16px; max-width: 860px; }
+        .papers-shell { width: 100%; }
+        .papers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .papers-grid.is-collapsed .paper-card:nth-of-type(n+10) { display: none; }
+        .paper-card {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            background: var(--surface);
+            border-radius: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            color: inherit;
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .paper-card:hover { transform: translateY(-5px); box-shadow: 0 12px 50px rgba(0, 0, 0, 0.1); }
+        .paper-preview { overflow: hidden; background: var(--surface-alt); border-bottom: 1px solid var(--border); }
+        .paper-preview img { display: block; width: 100%; height: 190px; object-fit: cover; }
+        .paper-content { display: flex; flex-direction: column; gap: 14px; padding: 24px; }
+        .paper-card h3 { color: var(--navy); font-size: 1.12rem; line-height: 1.3; font-weight: 800; }
+        .authors { color: var(--text-secondary); font-size: 0.95rem; }
+        .paper-meta { color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; font-weight: 650; line-height: 1.45; }
+        .papers-actions { display: flex; justify-content: center; margin-top: 32px; }
+        .papers-toggle {
+            appearance: none;
+            border: 1px solid var(--navy);
+            background: var(--navy);
+            color: white;
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+            font-size: 0.95rem;
+            font-weight: 800;
+            padding: 14px 24px;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+        .papers-toggle:hover { background: #002a52; box-shadow: 0 10px 30px rgba(0, 49, 97, 0.2); transform: translateY(-2px); }
+        .papers-toggle:focus-visible { outline: 3px solid rgba(0, 195, 177, 0.4); outline-offset: 3px; }
+
+        .experience-section { background: var(--navy); color: white; }
+        .experience-section .section-tag { background: rgba(255,255,255,0.1); color: white; }
+        .experience-section h2 { color: white; }
+        .experience-list { display: grid; gap: 0; max-width: 900px; }
+        .experience-item { display: grid; grid-template-columns: 190px 1fr; gap: 32px; padding: 26px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
+        .experience-item:last-child { border-bottom: 0; }
+        .experience-years { color: var(--accent-light); font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 0.9rem; }
+        .experience-text { color: rgba(255,255,255,0.82); }
+        .experience-text strong { color: white; }
+        .experience-list a { color: white; }
+
+        .photo-section { background: var(--surface-alt); }
+        .photo-figure { margin: 0; max-width: 760px; }
+        .photo-figure img { display: block; width: 100%; border-radius: 20px; box-shadow: 0 16px 60px rgba(15, 23, 42, 0.12); }
+        .photo-figure figcaption { color: var(--text-secondary); margin-top: 16px; }
+        .future-note { color: var(--text-secondary); font-size: 0.85rem; margin-top: 20px; word-break: break-all; }
+
+        footer { background: var(--navy); color: white; padding: 64px 48px; }
+        .footer-content { display: flex; justify-content: space-between; gap: 32px; align-items: center; }
+        .footer-content a { color: white; font-weight: 800; }
+        .footer-copy { color: rgba(255,255,255,0.68); }
+
+        @media (max-width: 760px) {
+            nav { position: static; align-items: flex-start; flex-direction: column; gap: 16px; padding: 20px 24px; }
+            .nav-links { width: 100%; flex-wrap: wrap; gap: 16px 22px; }
+            .page-hero, main section, footer { padding-left: 24px; padding-right: 24px; }
+            .papers-grid { grid-template-columns: minmax(0, 1fr); }
+            .experience-item { grid-template-columns: 1fr; gap: 6px; }
+            .footer-content { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">Arthur<span>Conmy</span></a>
+        <ul class="nav-links">
+            <li><a href="/#research">Research</a></li>
+            <li><a href="/about/" aria-current="page">About</a></li>
+            <li><a href="/#experience">Experience</a></li>
+            <li><a href="/#notes">Notes</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="hero-inner">
+            <span class="section-tag">About</span>
+            <h1>Arthur Conmy</h1>
+            <p class="lead">Research Engineer at Google DeepMind, working on making interpretability useful and thinking about thinking models and unfaithful Chain-of-Thought.</p>
+        </div>
+    </section>
+
+    <main>
+        <section id="about">
+            <div class="section-inner bio-copy">
+                <p>Hello! I'm Arthur Conmy. I'm a Research Engineer at Google DeepMind, on the Language Model Interpretability team. I like to work on making interpretability useful, and am also thinking about thinking models and unfaithful Chain-of-Thought at the moment too.</p>
+                <p>I try and <a href="/reading/">read things</a> sometimes too, though that page is sadly not updated in some time.</p>
+            </div>
+        </section>
+
+        <section id="research">
+            <div class="section-inner">
+                <div class="section-header">
+                    <span class="section-tag">Publications</span>
+                    <h2>Research</h2>
+                    <p>Papers and research posts, newest to oldest. Based on <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Google Scholar</a> with manual arXiv additions. Last updated 2nd June 2026.</p>
+                </div>
+            <div class="papers-shell" data-collapsible-papers data-collapsed-count="9">
+                <div class="papers-grid is-collapsed" id="about-papers-grid" data-papers-grid>
+                <a href="https://arxiv.org/abs/2606.00995" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/subliminal-learning-is-steering-vector-distillation.svg" alt="Subliminal Learning Is Steering Vector Distillation thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Subliminal Learning Is Steering Vector Distillation</h3>
+                        <p class="authors">C Blank, A Bhatia, S Rajamanoharan, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2606.00995 (2026)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2603.17839" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/how-do-llms-compute-verbal-confidence.svg" alt="How do LLMs compute verbal confidence thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>How do LLMs compute verbal confidence</h3>
+                        <p class="authors">D Kumaran, <strong>A Conmy</strong>, F Barbero, S Osindero, V Patraucean, P Velickovic</p>
+                        <p class="paper-meta">ICML 2026</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2602.15222" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/automatically-finding-reward-model-biases.svg" alt="Automatically Finding Reward Model Biases thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Automatically Finding Reward Model Biases</h3>
+                        <p class="authors">A Wang, I Arcuschin, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">ICML 2026</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2602.10371" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/simple-llm-baselines-are-competitive-for-model-diffing.svg" alt="Simple LLM Baselines are Competitive for Model Diffing thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Simple LLM Baselines are Competitive for Model Diffing</h3>
+                        <p class="authors">E Kempf, S Schrodi, T Brox, N Nanda, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">arXiv preprint arXiv:2602.10371 (2026)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2602.04843" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/fluid-representations-in-reasoning-models.svg" alt="Fluid Representations in Reasoning Models thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Fluid Representations in Reasoning Models</h3>
+                        <p class="authors">D Kharlapenko, A Stolfo, <strong>A Conmy</strong>, M Sachan, Z Jin</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2602.04843 (2026)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2601.11516" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/building-production-ready-probes-for-gemini.svg" alt="Building Production-Ready Probes For Gemini thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Building Production-Ready Probes For Gemini</h3>
+                        <p class="authors">J Kramár, J Engels, Z Wang, B Chughtai, R Shah, N Nanda, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">arXiv preprint arXiv:2601.11516 (2026)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:5Ul4iDaHHb8C" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/where-do-olmo-s-values-come-from.svg" alt="Where Do Olmo's Values Come From? thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Where Do Olmo's Values Come From?</h3>
+                        <p class="authors">X Sun, <strong>A Conmy</strong>, J Engels</p>
+                        <p class="paper-meta">ICLR 2026 Workshop DATA-FM</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=10992226996062871559&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/gemma-scope-2-technical-paper.svg" alt="Gemma Scope 2: Technical Paper thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Gemma Scope 2: Technical Paper</h3>
+                        <p class="authors">C McDougall, <strong>A Conmy</strong>, J Kramár, T Lieberum, S Rajamanoharan, ...</p>
+                        <p class="paper-meta">Google DeepMind Blog (2025)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=1792987416473523435&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/a-pragmatic-vision-for-interpretability.svg" alt="A pragmatic vision for interpretability thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>A pragmatic vision for interpretability</h3>
+                        <p class="authors">N Nanda, J Engels, <strong>A Conmy</strong>, S Rajamanoharan, B Chughtai, ...</p>
+                        <p class="paper-meta">AI Alignment Forum (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2510.01070" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/eliciting-secret-knowledge-from-language-models.svg" alt="Eliciting secret knowledge from language models thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Eliciting secret knowledge from language models</h3>
+                        <p class="authors">B Cywiński, E Ryd, R Wang, S Rajamanoharan, N Nanda, <strong>A Conmy</strong>, ...</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2510.01070 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2506.19143" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/thought-anchors-which-llm-reasoning-steps-matter.svg" alt="Thought Anchors: Which LLM Reasoning Steps Matter? thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Thought Anchors: Which LLM Reasoning Steps Matter?</h3>
+                        <p class="authors">PC Bogdan, U Macar, N Nanda, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">arXiv preprint arXiv:2506.19143 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2507.06261" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/gemini-2-5-pushing-the-frontier-with-advanced-reasoning-multimodality-lo.svg" alt="Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities</h3>
+                        <p class="authors">GDM</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2507.06261 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2506.04706" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/line-of-sight-on-linear-representations-in-vllms.svg" alt="Line of sight: On linear representations in vllms thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Line of sight: On linear representations in vllms</h3>
+                        <p class="authors">A Rajaram, S Schwettmann, J Andreas, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">arXiv preprint arXiv:2506.04706 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2505.24360" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/interpreting-large-text-to-image-diffusion-models-with-dictionary-learni.svg" alt="Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Interpreting Large Text-to-Image Diffusion Models with Dictionary Learning</h3>
+                        <p class="authors">S Shabalin, A Panda, D Kharlapenko, AR Ali, Y Hao, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">arXiv preprint arXiv:2505.24360 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2504.01849" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/an-approach-to-technical-agi-safety-and-security.svg" alt="An Approach to Technical AGI Safety and Security thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>An Approach to Technical AGI Safety and Security</h3>
+                        <p class="authors">R Shah, A Irpan, AM Turner, A Wang, <strong>A Conmy</strong>, D Lindner, ...</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2504.01849 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2503.09532" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/saebench-a-comprehensive-benchmark-for-sparse-autoencoders-in-language-m.svg" alt="SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>SAEBench: A Comprehensive Benchmark for Sparse Autoencoders in Language Model Interpretability</h3>
+                        <p class="authors">A Karvonen, C Rager, J Lin, C Tigges, J Bloom, D Chanin, YT Lau, ...</p>
+                        <p class="paper-meta">ICML 2025</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2503.08679" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/chain-of-thought-reasoning-in-the-wild-is-not-always-faithful.svg" alt="Chain-of-Thought Reasoning In The Wild Is Not Always Faithful thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Chain-of-Thought Reasoning In The Wild Is Not Always Faithful</h3>
+                        <p class="authors">I Arcuschin, J Janiak, R Krzyzanowski, S Rajamanoharan, N Nanda, ...</p>
+                        <p class="paper-meta">ICML 2026</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2501.16496" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/open-problems-in-mechanistic-interpretability.svg" alt="Open problems in mechanistic interpretability thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Open problems in mechanistic interpretability</h3>
+                        <p class="authors">L Sharkey, B Chughtai, J Batson, J Lindsey, J Wu, L Bushnaq, ...</p>
+                        <p class="paper-meta">TMLR (2025)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=8357752978068519696&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/saebench-a-comprehensive-benchmark-for-sparse-autoencoders.svg" alt="SAEBench: A Comprehensive Benchmark for Sparse Autoencoders thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>SAEBench: A Comprehensive Benchmark for Sparse Autoencoders</h3>
+                        <p class="authors">A Karvonen, C Rager, J Lin, C Tigges, J Bloom, D Chanin, YT Lau, ...</p>
+                        <p class="paper-meta">GitHub repository. Accessed (2025)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:p2g8aNsByqUC" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/how-interpretability-researchers-can-help-agi-go-well.svg" alt="How Interpretability Researchers Can Help AGI Go Well thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>How Interpretability Researchers Can Help AGI Go Well</h3>
+                        <p class="authors">N Nanda, J Engels, S Rajamanoharan, <strong>A Conmy</strong>, B Chughtai, ...</p>
+                        <p class="paper-meta">Alignment Forum (2025)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2510.07364" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/base-models-know-how-to-reason-thinking-models-learn-when.svg" alt="Base Models Know How to Reason, Thinking Models Learn When thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Base Models Know How to Reason, Thinking Models Learn When</h3>
+                        <p class="authors">C Venhoff, I Arcuschin, P Torr, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">ICML 2026 Spotlight</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:blknAaTinKkC" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/progress-update-2-from-the-gdm-mech-interp-team-negative-results-for-sae.svg" alt="Progress Update #2 from the GDM Mech Interp Team (Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research) thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Progress Update #2 from the GDM Mech Interp Team (Negative Results for SAEs On Downstream Tasks and Deprioritising SAE Research)</h3>
+                        <p class="authors">L Smith, S Rajamanoharan, <strong>A Conmy</strong>, C McDougall, J Kramár, ...</p>
+                        <p class="paper-meta">alignmentforum.org/posts/4uXCAJNuPKtKBsi28 (2025)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:TQgYirikUcIC" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/llm-neurosurgeon-targeted-knowledge-removal-in-llms-using-sparse-autoenc.svg" alt="LLM Neurosurgeon: Targeted Knowledge Removal in LLMs using Sparse Autoencoders thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>LLM Neurosurgeon: Targeted Knowledge Removal in LLMs using Sparse Autoencoders</h3>
+                        <p class="authors">D Zhou, K Patil, Y Sun, S Rajamanoharan, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">ICLR 2025 Workshop on Building Trust</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2506.18167" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/understanding-reasoning-in-thinking-language-models-via-steering-vectors.svg" alt="Understanding Reasoning in Thinking Language Models via Steering Vectors thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Understanding Reasoning in Thinking Language Models via Steering Vectors</h3>
+                        <p class="authors">C Venhoff, I Arcuschin, P Torr, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">ICLR 2025 Workshop on Reasoning and Planning for LLMs</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:ZeXyd9-uunAC" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/scaling-sparse-feature-circuits-for-studying-in-context-learning.svg" alt="Scaling Sparse Feature Circuits For Studying In-Context Learning thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Scaling Sparse Feature Circuits For Studying In-Context Learning</h3>
+                        <p class="authors">D Kharlapenko, S Shabalin, F Barez, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">ICML 2025</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2411.02193" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/improving-steering-vectors-by-targeting-sparse-autoencoder-features.svg" alt="Improving Steering Vectors by Targeting Sparse Autoencoder Features thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Improving Steering Vectors by Targeting Sparse Autoencoder Features</h3>
+                        <p class="authors">S Chalnev, M Siu, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">arXiv preprint arXiv:2411.02193 (2024)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=2282772081308206428&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/saes-are-highly-dataset-dependent-a-case-study-on-the-refusal-direction.svg" alt="SAEs are Highly Dataset Dependent: a case study on the Refusal Direction thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>SAEs are Highly Dataset Dependent: a case study on the Refusal Direction</h3>
+                        <p class="authors">C Kissane, R Krzyzanowski, N Nanda, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">Alignment Forum (2024)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=8452086610357157125&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/open-source-replication-of-anthropic-s-crosscoder-paper-for-model-diffin.svg" alt="Open source replication of Anthropic's crosscoder paper for model diffing thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Open source replication of Anthropic's crosscoder paper for model diffing</h3>
+                        <p class="authors">C Kissane, R Krzyzanowski, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">LessWrong (2024)</p>
+                    </div>
+                </a>
+                <a href="https://aclanthology.org/2024.blackboxnlp-1.19/" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/gemma-scope-open-sparse-autoencoders-everywhere-all-at-once-on-gemma-2.svg" alt="Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2 thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Gemma Scope: Open Sparse Autoencoders Everywhere All At Once on Gemma 2</h3>
+                        <p class="authors">T Lieberum, S Rajamanoharan, <strong>A Conmy</strong>, L Smith, N Sonnerat, V Varma, ...</p>
+                        <p class="paper-meta">BlackboxNLP 2024 Oral</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2407.14435" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/jumping-ahead-improving-reconstruction-fidelity-with-jumprelu-sparse-aut.svg" alt="Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Jumping Ahead: Improving Reconstruction Fidelity with JumpReLU Sparse Autoencoders</h3>
+                        <p class="authors">S Rajamanoharan, T Lieberum, N Sonnerat, <strong>A Conmy</strong>, V Varma, J Kramár, ...</p>
+                        <p class="paper-meta">arXiv preprint arXiv:2407.14435 (2024)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=15673898608073003149&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/saes-usually-transfer-between-base-and-chat-models.svg" alt="SAEs (Usually) Transfer Between Base and Chat Models thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>SAEs (Usually) Transfer Between Base and Chat Models</h3>
+                        <p class="authors">C Kissane, R Krzyzanowski, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">alignmentforum.org/posts/fmwk6qxrpW8d4jvbd (2024)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2406.17759" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/interpreting-attention-layer-outputs-with-sparse-autoencoders.svg" alt="Interpreting Attention Layer Outputs with Sparse Autoencoders thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Interpreting Attention Layer Outputs with Sparse Autoencoders</h3>
+                        <p class="authors">C Kissane, R Krzyzanowski, JI Bloom, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">ICML 2024 Mechanistic Interpretability Workshop Spotlight</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2404.16014" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/improving-dictionary-learning-with-gated-sparse-autoencoders.svg" alt="Improving Dictionary Learning with Gated Sparse Autoencoders thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Improving Dictionary Learning with Gated Sparse Autoencoders</h3>
+                        <p class="authors">S Rajamanoharan*, <strong>A Conmy</strong>*, L Smith, T Lieberum, V Varma, J Kramár, ...</p>
+                        <p class="paper-meta">NeurIPS 2024</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=11279626818486318476&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/activation-steering-with-saes.svg" alt="Activation Steering with SAEs thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Activation Steering with SAEs</h3>
+                        <p class="authors"><strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">alignmentforum.org/posts/C5KAZQib3bzzpeyrg#Activation_Steering_with_SAEs (2024)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=14862420202816912684&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/base-llms-refuse-too.svg" alt="Base LLMs Refuse Too thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Base LLMs Refuse Too</h3>
+                        <p class="authors">C Kissane, R Krzyzanowski, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">Alignment Forum, 2024b. URL https://www. alignmentforum. org/posts/YWo2cKJgL7Lg8xWjj/base-llms-refuse-too (2024)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=3352748214517611451&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/sae-features-for-refusal-and-sycophancy-steering-vectors.svg" alt="SAE Features for Refusal and Sycophancy Steering Vectors thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>SAE Features for Refusal and Sycophancy Steering Vectors</h3>
+                        <p class="authors">S Shabalin, D Kharlapenko, <strong>A Conmy</strong>, N Nanda</p>
+                        <p class="paper-meta">Alignment Forum (2024)</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:M3ejUd6NZC8C" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/self-explaining-sae-features.svg" alt="Self-Explaining SAE Features thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Self-Explaining SAE Features</h3>
+                        <p class="authors">D Kharlapenko, S Shabalin, N Nanda, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">alignmentforum.org/posts/self-explaining-sae-features (2024)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2410.19278" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/applying-sparse-autoencoders-to-unlearn-knowledge-in-language-models.svg" alt="Applying Sparse Autoencoders to Unlearn Knowledge in Language Models thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Applying Sparse Autoencoders to Unlearn Knowledge in Language Models</h3>
+                        <p class="authors">E Farrell, YT Lau, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">Safe Generative AI Workshop at NeurIPS 2024</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=n4HIyXQAAAAJ&amp;pagesize=100&amp;sortby=pubdate&amp;citation_for_view=n4HIyXQAAAAJ:8k81kl-MbHgC" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/progress-update-1-from-the-gdm-mech-interp-team.svg" alt="Progress Update #1 from the GDM Mech Interp Team thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Progress Update #1 from the GDM Mech Interp Team</h3>
+                        <p class="authors">N Nanda, <strong>A Conmy</strong>, L Smith, S Rajamanoharan, T Lieberum, J Kramár, ...</p>
+                        <p class="paper-meta">alignmentforum.org/posts/C5KAZQib3bzzpeyrg (2024)</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2403.06634" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/stealing-part-of-a-production-language-model.svg" alt="Stealing Part of a Production Language Model thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Stealing Part of a Production Language Model</h3>
+                        <p class="authors">N Carlini, D Paleka, KD Dvijotham, T Steinke, J Hayase, AF Cooper, ...</p>
+                        <p class="paper-meta">ICML 2024 Best Paper</p>
+                    </div>
+                </a>
+                <a href="https://aclanthology.org/2024.blackboxnlp-1.25/" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/attribution-patching-outperforms-automated-circuit-discovery.svg" alt="Attribution Patching Outperforms Automated Circuit Discovery thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Attribution Patching Outperforms Automated Circuit Discovery</h3>
+                        <p class="authors">A Syed, C Rager, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">BlackboxNLP 2024</p>
+                    </div>
+                </a>
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/34e1dbe95d34d7ebaf99b9bcaeb5b2be-Abstract-Conference.html" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/acdc_finds_subgraph.png" alt="Towards Automated Circuit Discovery for Mechanistic Interpretability thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Towards Automated Circuit Discovery for Mechanistic Interpretability</h3>
+                        <p class="authors"><strong>A Conmy</strong>, AN Mavor-Parker, A Lynch, S Heimersheim, A Garriga-Alonso</p>
+                        <p class="paper-meta">NeurIPS 2023 Spotlight</p>
+                    </div>
+                </a>
+                <a href="https://scholar.google.com/scholar?cluster=15749670661948531617&amp;hl=en&amp;oi=scholarr" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/my-best-guess-at-the-important-tricks-for-training-1l-saes.svg" alt="My best guess at the important tricks for training 1L SAEs thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>My best guess at the important tricks for training 1L SAEs</h3>
+                        <p class="authors"><strong>A Conmy</strong></p>
+                        <p class="paper-meta">LessWrong (2023)</p>
+                    </div>
+                </a>
+                <a href="https://aclanthology.org/2024.blackboxnlp-1.22/" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/copy_suppress.png" alt="Copy Suppression: Comprehensively Understanding a Motif in Language Model Attention Heads thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Copy Suppression: Comprehensively Understanding a Motif in Language Model Attention Heads</h3>
+                        <p class="authors">CS McDougall*, <strong>A Conmy</strong>*, C Rushing*, T McGrath, N Nanda</p>
+                        <p class="paper-meta">BlackboxNLP 2024</p>
+                    </div>
+                </a>
+                <a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/2722a0ccf6acfe3d144fdbb0dedd80b5-Abstract-Conference.html" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/generated/successor-heads-recurring-interpretable-attention-heads-in-the-wild.svg" alt="Successor Heads: Recurring, Interpretable Attention Heads In The Wild thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Successor Heads: Recurring, Interpretable Attention Heads In The Wild</h3>
+                        <p class="authors">R Gould, E Ong, G Ogden, <strong>A Conmy</strong></p>
+                        <p class="paper-meta">ICLR 2024</p>
+                    </div>
+                </a>
+                <a href="https://arxiv.org/abs/2211.00593" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/ioi_circuit.png" alt="Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 Small thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>Interpretability in the Wild: a Circuit for Indirect Object Identification in GPT-2 Small</h3>
+                        <p class="authors">KR Wang, A Variengien, <strong>A Conmy</strong>, B Shlegeris, J Steinhardt</p>
+                        <p class="paper-meta">ICLR 2023</p>
+                    </div>
+                </a>
+                <a href="https://ieeexplore.ieee.org/abstract/document/9747632/" class="paper-card" target="_blank" rel="noreferrer">
+                    <div class="paper-preview">
+                        <img src="/assets/papers/lbrgm.jpeg" alt="StyleGAN-induced Data-Driven Regularization for Inverse Problems thumbnail">
+                    </div>
+                    <div class="paper-content">
+                        <h3>StyleGAN-induced Data-Driven Regularization for Inverse Problems</h3>
+                        <p class="authors"><strong>A Conmy</strong>, S Mukherjee, CB Schönlieb</p>
+                        <p class="paper-meta">IEEE ICASSP 2022</p>
+                    </div>
+                </a>
+                </div>
+                <div class="papers-actions">
+                    <button class="papers-toggle" type="button" data-papers-toggle aria-expanded="false" aria-controls="about-papers-grid">Show all 47 papers</button>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="section-inner">
+                <div class="section-header">
+                    <span class="section-tag">Experience</span>
+                    <h2>Experience</h2>
+                </div>
+                <div class="experience-list">
+                    <div class="experience-item"><div class="experience-years">2023 - present</div><div class="experience-text"><strong>Research Engineer</strong> at Google DeepMind, on the Language Model Interpretability team.</div></div>
+                    <div class="experience-item"><div class="experience-years">2023</div><div class="experience-text">SERI MATS and Independent Research.</div></div>
+                    <div class="experience-item"><div class="experience-years">2022 - 2023</div><div class="experience-text"><a href="https://www.redwoodresearch.org/">Redwood Research</a>.</div></div>
+                    <div class="experience-item"><div class="experience-years">2021</div><div class="experience-text">Meta. Software Engineering Intern.</div></div>
+                    <div class="experience-item"><div class="experience-years">2019 - 2022</div><div class="experience-text">Trinity College Cambridge Undergraduate Mathematics. Upper first class honours.</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="photo-section">
+            <div class="section-inner">
+                <figure class="photo-figure">
+                    <img src="/assets/tower.jpeg" alt="Arthur outside the Tower of London">
+                    <figcaption>Outside the Tower of London, July 2021.</figcaption>
+                </figure>
+                <p class="future-note">For the future: 0ee063d506d9319ca159f53a7dd3879e65465e28926a02a35f9c6348ec00f1bf</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div>
+                <a href="/" class="logo">Arthur<span>Conmy</span></a>
+                <p class="footer-copy">AI research, interpretability, and alignment.</p>
+            </div>
+            <a href="mailto:arthurconmy@gmail.com">arthurconmy@gmail.com</a>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            function initCollapsiblePapers(section) {
+                const grid = section.querySelector('[data-papers-grid]');
+                const toggle = section.querySelector('[data-papers-toggle]');
+                if (!grid || !toggle) return;
+
+                const cards = grid.querySelectorAll('.paper-card');
+                const collapsedCount = Number(section.dataset.collapsedCount || 9);
+                if (cards.length <= collapsedCount) {
+                    grid.classList.remove('is-collapsed');
+                    toggle.hidden = true;
+                    return;
+                }
+
+                function setExpanded(expanded) {
+                    grid.classList.toggle('is-collapsed', !expanded);
+                    toggle.setAttribute('aria-expanded', String(expanded));
+                    toggle.textContent = expanded ? 'Show fewer papers' : 'Show all ' + cards.length + ' papers';
+                }
+
+                setExpanded(false);
+                toggle.addEventListener('click', function () {
+                    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                    setExpanded(!expanded);
+                    if (expanded) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
+
+            document.querySelectorAll('[data-collapsible-papers]').forEach(initCollapsiblePapers);
+        })();
+    </script>
+</body>
+</html>
