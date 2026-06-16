@@ -1,2 +1,4 @@
 .vscode
 go.sh
+_site/
+.jekyll-cache/
