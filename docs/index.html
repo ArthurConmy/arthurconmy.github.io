@@ -189,7 +189,7 @@
         .hero-image-container {
             background: var(--surface);
             border-radius: 20px;
-            padding: 40px;
+            padding: 18px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
             border: 1px solid var(--border);
             height: 100%;
@@ -198,44 +198,13 @@
             justify-content: center;
         }
 
-        .hero-image-placeholder {
+        .hero-image {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--accent), var(--teal));
+            height: 360px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -0.05em;
-        }
-
-        .hero-image-container {
-            background: var(--surface);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid var(--border);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-image-placeholder {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--accent), var(--teal));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -0.05em;
+            display: block;
         }
 
         main {
@@ -635,12 +604,7 @@
             }
 
             .hero-image-container {
-                padding: 24px;
-            }
-
-            .hero-image-placeholder {
-                height: 200px;
-                font-size: 3rem;
+                padding: 14px;
             }
 
             .hero-content {
@@ -649,12 +613,11 @@
             }
 
             .hero-image-container {
-                padding: 24px;
+                padding: 14px;
             }
 
-            .hero-image-placeholder {
-                height: 200px;
-                font-size: 3rem;
+            .hero-image {
+                height: 240px;
             }
 
             .paper-card {
@@ -710,7 +673,7 @@
         </div>
         <div class="hero-visual">
             <div class="hero-image-container">
-                <div class="hero-image-placeholder">AC</div>
+                <img class="hero-image" src="/assets/HKpGPRYXUAAoRbB.jpg" alt="Arthur Conmy">
             </div>
         </div>
     </section>
