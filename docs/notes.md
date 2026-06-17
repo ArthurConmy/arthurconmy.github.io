@@ -12,7 +12,7 @@ This page will hopefully store my notes on various maths courses, and will hopef
 
 # Mathematics of Machine Learning <a href="../assets/MML/MML.pdf" target="_blank">[link]</a>
 
-These notes are not very relevant to modern ML, except for the connection to Ilya Sutskever's claim that supervised learning being effective is unsurprising, discussed <a href="https://www.youtube.com/watch?v=AKMuA_TVz3A" target="_blank" rel="noreferrer">here</a>. They do include enhanced proofs, better references, and an elementary proof of the full form of Hoeffding's Lemma.
+These notes are not very relevant to modern ML, except for the connection to <a href="https://www.youtube.com/watch?v=AKMuA_TVz3A" target="_blank" rel="noreferrer">Ilya Sutskever's point about supervised learning being effective</a>. They do include enhanced proofs, better references, and an elementary proof of the full form of Hoeffding's Lemma.
 
 ## Part IB
 

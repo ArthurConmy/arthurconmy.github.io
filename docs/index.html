@@ -493,6 +493,28 @@
             line-height: 1.6;
         }
 
+        .note-card p a {
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .note-actions a {
+            color: var(--accent);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .note-actions a:hover {
+            text-decoration: underline;
+        }
+
         .note-card .level {
             display: inline-block;
             padding: 6px 14px;
@@ -1222,12 +1244,16 @@
                 <p>Educational materials and lecture notes from Cambridge</p>
             </div>
             <div class="notes-grid">
-                <a href="assets/MML/MML.pdf" class="note-card">
+                <div class="note-card">
                     <div class="icon">📊</div>
                     <h3>Mathematics of Machine Learning</h3>
-                    <p>Mostly not very relevant to modern ML, except for links to Ilya's claims about supervised learning being unsurprising</p>
+                    <p>Mostly not very relevant to modern ML, except for the connection to <a href="https://www.youtube.com/watch?v=AKMuA_TVz3A" target="_blank" rel="noreferrer">Ilya Sutskever's point about supervised learning</a>.</p>
+                    <div class="note-actions">
+                        <a href="assets/MML/MML.pdf">PDF</a>
+                        <a href="https://www.youtube.com/watch?v=AKMuA_TVz3A" target="_blank" rel="noreferrer">Video</a>
+                    </div>
                     <span class="level">Part II</span>
-                </a>
+                </div>
                 <a href="assets/Geometry/Geom.pdf" class="note-card">
                     <div class="icon teal">📐</div>
                     <h3>Geometry</h3>
