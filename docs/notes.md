@@ -10,23 +10,21 @@ This page will hopefully store my notes on various maths courses, and will hopef
 
 ## Part II
 
-# Mathematics of Machine Learning <a href="../assets/MML/MML.pdf" target="_blank">[link]</a>, complete.
+# Mathematics of Machine Learning <a href="../assets/MML/MML.pdf" target="_blank">[link]</a>
 
-This is a new course, and I am not aware of any complete sets of notes available other than these at present. Highlights are the much nicer references to previous equations than in existing notes, and also the elementary proof of the full form of Hoeffding's Lemma.
+These notes are not very relevant to modern ML, except for the connection to Ilya Sutskever's claim that supervised learning being effective is unsurprising, discussed <a href="https://www.youtube.com/watch?v=AKMuA_TVz3A" target="_blank" rel="noreferrer">here</a>. They do include enhanced proofs, better references, and an elementary proof of the full form of Hoeffding's Lemma.
 
 ## Part IB
 
-# Geometry <a href="../assets/Geometry/Geom.pdf" target="_blank">[link]</a>, near complete.
+# Geometry <a href="../assets/Geometry/Geom.pdf" target="_blank">[link]</a>
 
-I found this course hard, and found a number of sections of the course covered at a rapid speed. My goal in these notes is to distill the important intuitions, but also fill in details in the sections I was less clear about.
+Some scrappy intuitions for a subset of the course. I found this course hard, and several sections were covered at a rapid speed; these notes are mainly a place where I tried to make the confusing parts feel less mysterious.
 
-All sections of the course are covered in some detail, except the final section on hyperbolic geometry.
-
-# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>, very rough.
+# Analysis <a href="../assets/Anal.pdf" target="_blank">[link]</a>
 
 <!-- Currently only covers a useful trick to verify the general derivative form of Cauch -->
 
-Currently covers some more background on the differentiation section of Analysis and Topology, as well as a technical detail that allows the general Cauchy's Integral Formula for derivatives to be deduced.
+Some scrappy intuitions for a subset of the course. Currently covers background on the differentiation section of Analysis and Topology, plus a technical detail that lets the general Cauchy's Integral Formula for derivatives be deduced.
 
 ### Machine Learning
 
