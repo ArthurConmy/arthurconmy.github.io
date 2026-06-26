@@ -161,6 +161,10 @@
             font-size: clamp(1.1rem, 2.2vw, 1.45rem);
         }
 
+        .hero-copy p + p {
+            margin-top: 16px;
+        }
+
         .hero-actions {
             display: flex;
             gap: 24px;
@@ -526,6 +530,7 @@
     <header class="hero">
         <div class="hero-copy">
             <h1>Arthur Conmy</h1>
+            <p>I'm a <span data-current-age>25</span> year old AI researcher based in <span data-current-location>London</span>. My main motivation is making the future of AI go well. In the past, I did foundational early work in mechanistic interpretability, but since then I have worked more on post-training.</p>
             <p>I am joining Anthropic to work on aligning upcoming models as they are trained.</p>
             <div class="hero-actions">
                 <div class="action-group" aria-label="Announcement links">
@@ -664,5 +669,29 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function () {
+            var now = new Date();
+            var birthDate = new Date(2001, 0, 10);
+            var age = now.getFullYear() - birthDate.getFullYear();
+            var hasHadBirthday = now.getMonth() > birthDate.getMonth() ||
+                (now.getMonth() === birthDate.getMonth() && now.getDate() >= birthDate.getDate());
+
+            if (!hasHadBirthday) {
+                age -= 1;
+            }
+
+            document.querySelectorAll("[data-current-age]").forEach(function (node) {
+                node.textContent = String(age);
+            });
+
+            var sfStart = new Date(2026, 7, 1);
+            var location = now >= sfStart ? "SF" : "London";
+
+            document.querySelectorAll("[data-current-location]").forEach(function (node) {
+                node.textContent = location;
+            });
+        }());
+    </script>
 </body>
 </html>
