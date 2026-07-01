@@ -70,6 +70,7 @@
 <p class="controls">
   <span class="runner"><b>RUNNER</b></span> — your side's move keys only: jump with up, drop through floors with down<br>
   <span class="warden"><b>WARDEN</b></span> — your side's move keys steer the searchlight &middot; <b>E</b> (left side) / <b>/</b> (right side) to dash the beam<br>
+  <b style="color:var(--alert)">THE DOG</b> — nobody controls it. It owns the floor: its bite spikes the alert. Jump over it or stay high<br>
   P1 is <b>WASD</b>, P2 is <b>Arrows</b>, roles swap every round &middot; <b>Enter</b> start &middot; <b>M</b> mute
 </p>
 
@@ -180,6 +181,8 @@ var sfx = {
   powerDown: function(){ tone(400, 0.5, "sawtooth", 0.10, 60); },
   powerUp: function(){ tone(80, 0.35, "sawtooth", 0.10, 380); },
   timeout: function(){ tone(300, 0.4, "square", 0.15, 90); },
+  bark: function(){ tone(340, 0.08, "square", 0.16, 240); setTimeout(function(){ tone(300, 0.07, "square", 0.14, 200); }, 90); },
+  bite: function(){ noiseHit(0.18, 0.4, 800); tone(140, 0.22, "sawtooth", 0.3, 60); },
 };
 
 // ---------- helpers ----------
@@ -244,6 +247,7 @@ var METER_FILL = 1.05, METER_DECAY = 0.26;
 var state = "title"; // title | intro | play | roundEnd | matchEnd | pause
 var roundNum, scores, lastResult, level, levelIdx;
 var runner, beam, meter, timer, loot, gotLoot, tGlobal, shake, introT, endT, genT;
+var dog, lastBiteT = 0;
 var pausedFrom = "play";
 
 function wardenOf(round){ return round % 2 === 1 ? "p1" : "p2"; }
@@ -264,6 +268,8 @@ function nextRound(){
     vx: 0, vy: 0, grounded: false, coyote: 0, jbuf: 0, drop: 0, face: 1, wasAir: false
   };
   beam = { x: W/2, y: H/2, vx: 0, vy: 0, dashCd: 0 };
+  dog = { x: level.spawn.x < W/2 ? 780 : 180, vx: 0, dir: -1, chasing: false, lost: 0, biteCd: 0, barkT: 0 };
+  lastBiteT = 0;
   meter = 0; timer = ROUND_TIME; genT = 0;
   loot = [];
   for (var i = 0; i < level.loot.length; i++) loot.push({ x: level.loot[i].x, y: level.loot[i].y, got: false });
@@ -310,6 +316,7 @@ var lastKlaxon = 0;
 function updatePlay(dt){
   tGlobal += dt;
   genT += dt;
+  lastBiteT = Math.max(0, lastBiteT - dt);
   var wardenP = wardenOf(roundNum);
   var runnerP = runnerOf(roundNum);
 
@@ -425,10 +432,53 @@ function updatePlay(dt){
   }
   if (meter > 0.8) shake = Math.max(shake, 3);
 
+  // ---- guard dog (automated: works for the warden, free of charge) ----
+  var DOGF = 548;
+  dog.biteCd = Math.max(0, dog.biteCd - dt);
+  dog.barkT = Math.max(0, dog.barkT - dt);
+  var runnerFeet = runner.y + runner.h;
+  var dxr = rcx - dog.x;
+  var onGroundBand = runnerFeet > DOGF - 70;
+  if (onGroundBand && Math.abs(dxr) < 300){
+    if (!dog.chasing && dog.barkT <= 0){ sfx.bark(); dog.barkT = 1.2; }
+    dog.chasing = true; dog.lost = 1.6;
+  } else {
+    dog.lost -= dt;
+    if (dog.lost <= 0) dog.chasing = false;
+  }
+  if (dog.chasing){
+    dog.dir = dxr > 0 ? 1 : -1;
+    if (dog.barkT <= 0){ sfx.bark(); dog.barkT = 1.3; }
+  }
+  var dogSpeed = dog.chasing ? 295 : 95;
+  dog.vx += (dog.dir * dogSpeed - dog.vx) * Math.min(1, 8 * dt);
+  dog.x += dog.vx * dt;
+  if (dog.x < 40){ dog.x = 40; if (!dog.chasing) dog.dir = 1; }
+  if (dog.x > W - 40){ dog.x = W - 40; if (!dog.chasing) dog.dir = -1; }
+  for (i = 0; i < level.solids.length; i++){
+    s = level.solids[i];
+    if (s.y >= DOGF) continue;              // the floor itself
+    if (s.y + s.h < DOGF - 4) continue;     // not standing on the floor
+    if (dog.x + 16 > s.x && dog.x - 16 < s.x + s.w){
+      if (dog.vx > 0) dog.x = s.x - 16; else dog.x = s.x + s.w + 16;
+      dog.vx = 0;
+      if (!dog.chasing) dog.dir *= -1;
+    }
+  }
+  if (dog.biteCd <= 0 && Math.abs(rcx - dog.x) < 26 && runnerFeet > DOGF - 34){
+    dog.biteCd = 1.5;
+    meter = Math.min(1, meter + 0.34);
+    lastBiteT = 0.6;
+    runner.vy = -540;
+    runner.vx = (dxr >= 0 ? 1 : -1) * 340;
+    sfx.bite();
+    shake = Math.max(shake, 10);
+  }
+
   if (meter >= 1){
     sfx.caught();
     shake = 16;
-    endRound({ winner: wardenP, how: "CAUGHT IN THE BEAM", pts: 4 });
+    endRound({ winner: wardenP, how: lastBiteT > 0 ? "MAULED BY THE GUARD DOG" : "CAUGHT IN THE BEAM", pts: 4 });
     return;
   }
 
@@ -709,6 +759,44 @@ function drawLoot(){
   }
 }
 
+function drawDog(){
+  if (!dog) return;
+  var groundY = 548;
+  cx.save();
+  cx.translate(dog.x, groundY);
+  var dir = Math.abs(dog.vx) > 5 ? (dog.vx > 0 ? 1 : -1) : dog.dir;
+  cx.scale(dir, 1);
+  cx.fillStyle = "rgba(0,0,0,0.4)";
+  cx.beginPath(); cx.ellipse(0, 0, 16, 4, 0, 0, Math.PI * 2); cx.fill();
+  var trot = Math.abs(dog.vx) > 20 ? Math.sin(tGlobal * (dog.chasing ? 26 : 12)) * 4 : 0;
+  cx.strokeStyle = "#14161b";
+  cx.lineWidth = 3;
+  cx.beginPath(); cx.moveTo(-10, -12); cx.lineTo(-10 + trot, 0); cx.stroke();
+  cx.beginPath(); cx.moveTo(-4, -12); cx.lineTo(-4 - trot, 0); cx.stroke();
+  cx.beginPath(); cx.moveTo(4, -12); cx.lineTo(4 + trot, 0); cx.stroke();
+  cx.beginPath(); cx.moveTo(10, -12); cx.lineTo(10 - trot, 0); cx.stroke();
+  cx.fillStyle = "#1c2027";
+  cx.beginPath(); cx.ellipse(0, -16, 15, 7, 0, 0, Math.PI * 2); cx.fill();
+  cx.strokeStyle = "#1c2027";
+  cx.beginPath(); cx.moveTo(-14, -18); cx.quadraticCurveTo(-20, -26, -18, -30 + trot * 0.5); cx.stroke();
+  cx.fillStyle = "#1c2027";
+  cx.beginPath(); cx.arc(14, -22, 7, 0, Math.PI * 2); cx.fill();
+  cx.fillRect(17, -25, 8, 5);
+  cx.beginPath(); cx.moveTo(11, -27); cx.lineTo(14, -34); cx.lineTo(17, -27); cx.closePath(); cx.fill();
+  cx.fillStyle = "#e8503a";
+  cx.fillRect(8, -20, 3.5, 7);
+  cx.fillStyle = dog.chasing ? "#ff2d16" : "#ffd98a";
+  cx.beginPath(); cx.arc(15.5, -24, 1.7, 0, Math.PI * 2); cx.fill();
+  cx.restore();
+  if (dog.chasing){
+    grotesk(15, 700);
+    cx.textAlign = "center";
+    cx.fillStyle = "#e8503a";
+    cx.fillText("!", dog.x, groundY - 46);
+    cx.textAlign = "left";
+  }
+}
+
 function drawHUD(){
   var wardenP = wardenOf(roundNum);
   // P1 panel
@@ -784,6 +872,9 @@ function drawTitle(){
   cx.fillStyle = "#c9cfda";
   cx.fillText("Steer with your keys, dash with your action key. Mind the generator blackouts.", W/2, 385);
 
+  cx.fillStyle = "#e8503a";
+  cx.fillText("THE DOG — works for no one, bites for the warden. It owns the floor.", W/2, 412);
+
   grotesk(14, 700);
   cx.fillStyle = "#9aa3b2";
   cx.fillText("Catch = 4 pts · Time-out = 2 pts · Escape = 3 pts + contraband", W/2, 430);
@@ -854,6 +945,7 @@ function render(){
   if (!bgCache[levelIdx]) bgCache[levelIdx] = buildBg(levelIdx);
   cx.drawImage(bgCache[levelIdx], 0, 0);
   drawLoot();
+  drawDog();
   drawRunner();
   drawBeam();
   drawHUD();
@@ -883,6 +975,7 @@ roundNum = 1; scores = { p1: 0, p2: 0 };
 levelIdx = 0; level = LEVELS[0];
 runner = { x: level.spawn.x, y: level.spawn.y, w: 20, h: 30, vx: 0, vy: 0, grounded: true, coyote: 0, jbuf: 0, drop: 0, face: 1, wasAir: false };
 beam = { x: W/2, y: 300, vx: 0, vy: 0, dashCd: 0 };
+dog = { x: 700, vx: 0, dir: -1, chasing: false, lost: 0, biteCd: 0, barkT: 0 };
 meter = 0; timer = ROUND_TIME; genT = 0; loot = []; gotLoot = 0; shake = 0;
 
 function frame(now){
