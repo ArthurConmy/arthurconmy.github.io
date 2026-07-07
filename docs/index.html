@@ -97,7 +97,7 @@
         }
 
         .hero {
-            min-height: 94vh;
+            min-height: max(760px, 100svh);
             position: relative;
             display: grid;
             align-items: end;
@@ -121,7 +121,7 @@
             position: relative;
             z-index: 1;
             max-width: 780px;
-            padding: 0 48px 72px;
+            padding: 0 48px clamp(32px, 6vh, 72px);
             color: white;
         }
 
@@ -462,7 +462,7 @@
             }
 
             .hero {
-                min-height: 88vh;
+                min-height: max(760px, 100svh);
             }
 
             .hero::before {
@@ -473,7 +473,7 @@
             }
 
             .hero-copy {
-                padding: 0 24px 46px;
+                padding: 0 24px clamp(28px, 5vh, 46px);
             }
 
                 .signal-inner,
