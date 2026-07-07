@@ -91,9 +91,28 @@
             font-weight: 700;
         }
 
-        .nav-links a {
+        .nav-links a,
+        .nav-links button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             text-decoration: none;
             color: rgba(255, 255, 255, 0.88);
+        }
+
+        .nav-links button {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .external-icon,
+        .copy-icon {
+            width: 0.9em;
+            height: 0.9em;
+            flex: 0 0 auto;
         }
 
         .hero {
@@ -120,6 +139,8 @@
         .hero-copy {
             position: relative;
             z-index: 1;
+            width: 100%;
+            min-width: 0;
             max-width: 780px;
             padding: 0 48px clamp(32px, 6vh, 72px);
             color: white;
@@ -194,6 +215,7 @@
         }
 
         .button {
+            appearance: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -204,9 +226,11 @@
             border: 1px solid rgba(255, 255, 255, 0.28);
             color: white;
             text-decoration: none;
+            font: inherit;
             font-weight: 800;
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
         .button svg,
@@ -224,6 +248,11 @@
             background: white;
             font-size: 0.72rem;
             font-weight: 800;
+        }
+
+        .button .external-icon {
+            width: 16px;
+            height: 16px;
         }
 
         .button.primary {
@@ -442,10 +471,26 @@
             flex-wrap: wrap;
         }
 
-        .footer-links a {
+        .footer-links a,
+        .footer-links button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             color: rgba(255, 255, 255, 0.78);
             text-decoration: none;
+            font: inherit;
             font-weight: 700;
+        }
+
+        .footer-links button {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .footer-links button[data-copied="true"] {
+            color: white;
         }
 
         @media (max-width: 900px) {
@@ -511,6 +556,9 @@
             }
 
             .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+                width: 100%;
                 gap: 18px;
             }
         }
@@ -522,8 +570,8 @@
         <ul class="nav-links">
             <li><a href="#focus">Role</a></li>
             <li><a href="#work">Work</a></li>
-            <li><a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Research</a></li>
-            <li><a href="mailto:arthurconmy@gmail.com">Contact</a></li>
+            <li><a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Research <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg></a></li>
+            <li><button type="button" data-copy-email aria-label="Copy email address"><span data-copy-label>Email</span> <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V7Zm2 0v10h8V7h-8ZM4 3h10v2H6v10H4V3Z"/></svg></button></li>
         </ul>
     </nav>
 
@@ -554,7 +602,15 @@
                             <path fill="currentColor" d="M12 3 1.8 8.7 12 14.4l8-4.5v5.3h2V8.7L12 3Zm-5.7 9.4v3.3c0 1.9 2.5 3.4 5.7 3.4s5.7-1.5 5.7-3.4v-3.3L12 15.6l-5.7-3.2Z"/>
                         </svg>
                         Scholar
+                        <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
                     </a>
+                </div>
+                <div class="action-group" aria-label="Email">
+                    <span class="action-label">Email</span>
+                    <button class="button" type="button" data-copy-email aria-label="Copy email address">
+                        <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V7Zm2 0v10h8V7h-8ZM4 3h10v2H6v10H4V3Z"/></svg>
+                        <span data-copy-label>Email</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -663,9 +719,9 @@
         <div class="footer-inner">
             <strong>Arthur Conmy</strong>
             <div class="footer-links">
-                <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Research</a>
+                <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Research <svg class="external-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 3h7v7h-2V6.4l-9.3 9.3-1.4-1.4L17.6 5H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg></a>
                 <a href="https://x.com/ArthurConmy" target="_blank" rel="noreferrer">Twitter</a>
-                <a href="mailto:arthurconmy@gmail.com">Email</a>
+                <button type="button" data-copy-email aria-label="Copy email address"><span data-copy-label>Email</span> <svg class="copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V7Zm2 0v10h8V7h-8ZM4 3h10v2H6v10H4V3Z"/></svg></button>
             </div>
         </div>
     </footer>
@@ -690,6 +746,61 @@
 
             document.querySelectorAll("[data-current-location]").forEach(function (node) {
                 node.textContent = location;
+            });
+
+            var emailAddress = "arthurconmy@gmail.com";
+
+            function fallbackCopyEmail() {
+                var textarea = document.createElement("textarea");
+                textarea.value = emailAddress;
+                textarea.setAttribute("readonly", "");
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                var copied = false;
+                try {
+                    copied = document.execCommand("copy");
+                } catch (error) {
+                    copied = false;
+                }
+
+                document.body.removeChild(textarea);
+                return copied;
+            }
+
+            function markEmailCopied(button, copied) {
+                var label = button.querySelector("[data-copy-label]");
+
+                if (!label) {
+                    return;
+                }
+
+                var defaultLabel = button.getAttribute("data-default-label") || label.textContent;
+                button.setAttribute("data-default-label", defaultLabel);
+                button.setAttribute("data-copied", "true");
+                label.textContent = copied ? "Copied" : emailAddress;
+
+                window.setTimeout(function () {
+                    label.textContent = defaultLabel;
+                    button.removeAttribute("data-copied");
+                }, 1800);
+            }
+
+            document.querySelectorAll("[data-copy-email]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(emailAddress).then(function () {
+                            markEmailCopied(button, true);
+                        }).catch(function () {
+                            markEmailCopied(button, fallbackCopyEmail());
+                        });
+                        return;
+                    }
+
+                    markEmailCopied(button, fallbackCopyEmail());
+                });
             });
         }());
     </script>
