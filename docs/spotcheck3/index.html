@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SPOTCHECK 2 — one runs, one hunts harder</title>
-<meta name="description" content="SPOTCHECK 2: the two-player searchlight duel, rebalanced. The warden got a bigger lamp. One runs, one hunts. Roles swap every round.">
+<title>SPOTCHECK 3 — one runs, one hunts, three dogs</title>
+<meta name="description" content="SPOTCHECK 3: the two-player searchlight duel goes to the dogs. Three of them now — two own the floor, one owns a walkway. One runs, one hunts. Roles swap every round.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -61,20 +61,20 @@
 </head>
 <body>
 <header>
-  <h1>SPOTCHECK 2 <span class="dot">&#9678;</span></h1>
-  <div class="tag">one runs &middot; one hunts harder</div>
+  <h1>SPOTCHECK 3 <span class="dot">&#9678;</span></h1>
+  <div class="tag">one runs &middot; one hunts &middot; three dogs</div>
 </header>
 
 <div id="frame"><canvas id="game" width="960" height="600"></canvas></div>
 
 <p class="controls">
-  <span class="runner"><b>RUNNER</b></span> — your side's move keys only: jump with up, drop through floors with down<br>
-  <span class="warden"><b>WARDEN</b></span> — your side's move keys steer the searchlight &middot; <b>E</b> (left side) / <b>/</b> (right side) to dash the beam<br>
-  <b style="color:var(--alert)">THE DOG</b> — nobody controls it. It owns the floor: its bite spikes the alert. Jump over it or stay high<br>
-  P1 is <b>WASD</b>, P2 is <b>Arrows</b>, roles swap every round &middot; <b>Enter</b> start &middot; <b>M</b> mute
+  <span class="runner"><b>ROBBER</b></span> — your side's move keys only: jump with up, drop through floors with down<br>
+  <span class="warden"><b>THE LIGHT</b></span> — your side's move keys steer the searchlight &middot; <b>E</b> (left side) / <b>/</b> (right side) to dash the beam<br>
+  <b style="color:var(--alert)">THE DOGS</b> — nobody controls them. Two own the floor, one owns a walkway. Jump them or stay clear<br>
+  P1 is <b>WASD</b> (robber first), P2 is <b>Arrows</b> (light first), roles swap every round &middot; <b>Enter</b> start &middot; <b>M</b> mute
 </p>
 
-<footer><a href="/">arthurconmy.github.io</a> &mdash; prefer the runner's odds? <a href="/spotcheck/">SPOTCHECK 1</a> &middot; the dogs got backup: <a href="/spotcheck3/">SPOTCHECK 3</a> &middot; also: <a href="/swingshank/">SWINGSHANK</a></footer>
+<footer><a href="/">arthurconmy.github.io</a> &mdash; fewer dogs? <a href="/spotcheck2/">SPOTCHECK 2</a> &middot; no dogs at all: <a href="/spotcheck/">SPOTCHECK 1</a> &middot; also: <a href="/swingshank/">SWINGSHANK</a></footer>
 
 <script>
 (function(){
@@ -182,6 +182,7 @@ var sfx = {
   powerUp: function(){ tone(80, 0.35, "sawtooth", 0.10, 380); },
   timeout: function(){ tone(300, 0.4, "square", 0.15, 90); },
   bark: function(){ tone(340, 0.08, "square", 0.16, 240); setTimeout(function(){ tone(300, 0.07, "square", 0.14, 200); }, 90); },
+  barkHi: function(){ tone(420, 0.07, "square", 0.14, 300); setTimeout(function(){ tone(380, 0.06, "square", 0.12, 260); }, 80); },
   bite: function(){ noiseHit(0.18, 0.4, 800); tone(140, 0.22, "sawtooth", 0.3, 60); },
 };
 
@@ -197,6 +198,7 @@ function overlap(px, py, pw, ph, r){
 // ---------- levels ----------
 // oneways: {x,y,w} thin walkways you can jump up through and drop through
 // solids: full blocks. covers: shadow zones the beam cannot reach (roof drawn on top)
+// dogPlatform: the walkway one of the dogs patrols
 var LEVELS = [
   { name: "CELL BLOCK C",
     spawn: {x: 60, y: 500},
@@ -209,7 +211,8 @@ var LEVELS = [
       {x:80,y:180,w:140},{x:340,y:185,w:150},{x:600,y:190,w:150},{x:840,y:200,w:110}
     ],
     covers: [ {x:390,y:410,w:120,h:60},{x:45,y:300,w:120,h:60},{x:605,y:130,w:120,h:60},{x:200,y:488,w:110,h:60} ],
-    loot: [ {x:130,y:430},{x:640,y:350},{x:400,y:152} ]
+    loot: [ {x:130,y:430},{x:640,y:350},{x:400,y:152} ],
+    dogPlatform: {x:450,y:280,w:160}
   },
   { name: "THE LAUNDRY",
     spawn: {x: 890, y: 500},
@@ -221,7 +224,8 @@ var LEVELS = [
       {x:380,y:220,w:200},{x:150,y:180,w:130},{x:680,y:180,w:130}
     ],
     covers: [ {x:265,y:370,w:120,h:58},{x:565,y:370,w:120,h:58},{x:390,y:160,w:180,h:58},{x:770,y:390,w:140,h:58} ],
-    loot: [ {x:475,y:350},{x:95,y:410},{x:855,y:290} ]
+    loot: [ {x:475,y:350},{x:95,y:410},{x:855,y:290} ],
+    dogPlatform: {x:380,y:220,w:200}
   },
   { name: "D WING",
     spawn: {x: 60, y: 500},
@@ -234,24 +238,47 @@ var LEVELS = [
       {x:450,y:160,w:180}
     ],
     covers: [ {x:185,y:300,w:120,h:58},{x:665,y:300,w:120,h:58},{x:85,y:190,w:130,h:58},{x:300,y:395,w:110,h:58} ],
-    loot: [ {x:145,y:220},{x:850,y:430},{x:600,y:220} ]
+    loot: [ {x:145,y:220},{x:850,y:430},{x:600,y:220} ],
+    dogPlatform: {x:420,y:350,w:140}
   }
 ];
 
 // ---------- match state ----------
-var ROUND_TIME = 40;
+// SC3 tuning: the light won a little too often in SC2. Beam fills slower, decays
+// faster, pool is a touch smaller, dash recharges slower, the round runs longer.
+// The dogs multiplied but bite softer each so the pack helps, not decides.
+var ROUND_TIME = 42;
 var TOTAL_ROUNDS = 6;
-var BEAM_R = 90;
-var METER_FILL = 1.05, METER_DECAY = 0.26;
+var BEAM_R = 85;
+var METER_FILL = 0.95, METER_DECAY = 0.30;
+var DASH_CD = 2.0;
+var BITE_METER = 0.22, BITE_CD = 1.8;
+var FLOOR_Y = 548;
 
 var state = "title"; // title | intro | play | roundEnd | matchEnd | pause
 var roundNum, scores, lastResult, level, levelIdx;
 var runner, beam, meter, timer, loot, gotLoot, tGlobal, shake, introT, endT, genT;
-var dog, lastBiteT = 0;
+var dogs = [], lastBiteT = 0;
 var pausedFrom = "play";
 
-function wardenOf(round){ return round % 2 === 1 ? "p1" : "p2"; }
-function runnerOf(round){ return round % 2 === 1 ? "p2" : "p1"; }
+// P1 (WASD, left side) is the ROBBER first; P2 (arrows) is the LIGHT first.
+function wardenOf(round){ return round % 2 === 1 ? "p2" : "p1"; }
+function runnerOf(round){ return round % 2 === 1 ? "p1" : "p2"; }
+
+function makeDog(x, floorY, kind, minX, maxX, dir){
+  return { x: x, floorY: floorY, kind: kind, minX: minX, maxX: maxX,
+           vx: 0, dir: dir, chasing: false, lost: 0, biteCd: 0, barkT: 0 };
+}
+function spawnDogs(lv){
+  var far = lv.spawn.x < W/2 ? 780 : 180;
+  var mid = 480;
+  var dp = lv.dogPlatform;
+  return [
+    makeDog(far, FLOOR_Y, "floor", 40, W - 40, lv.spawn.x < W/2 ? -1 : 1),
+    makeDog(mid, FLOOR_Y, "floor", 40, W - 40, lv.spawn.x < W/2 ? 1 : -1),
+    makeDog(dp.x + dp.w/2, dp.y, "platform", dp.x + 12, dp.x + dp.w - 12, 1)
+  ];
+}
 
 function newMatch(){
   roundNum = 0;
@@ -268,7 +295,7 @@ function nextRound(){
     vx: 0, vy: 0, grounded: false, coyote: 0, jbuf: 0, drop: 0, face: 1, wasAir: false
   };
   beam = { x: W/2, y: H/2, vx: 0, vy: 0, dashCd: 0 };
-  dog = { x: level.spawn.x < W/2 ? 780 : 180, vx: 0, dir: -1, chasing: false, lost: 0, biteCd: 0, barkT: 0 };
+  dogs = spawnDogs(level);
   lastBiteT = 0;
   meter = 0; timer = ROUND_TIME; genT = 0;
   loot = [];
@@ -393,13 +420,13 @@ function updatePlay(dt){
   var wd = dirOf(wardenP);
   var wl = Math.sqrt(wd.x*wd.x + wd.y*wd.y) || 1;
   var steer = Math.min(1, 6 * dt);
-  beam.vx += ((wd.x / wl) * 430 - beam.vx) * steer;
-  beam.vy += ((wd.y / wl) * 430 - beam.vy) * steer;
+  beam.vx += ((wd.x / wl) * 415 - beam.vx) * steer;
+  beam.vy += ((wd.y / wl) * 415 - beam.vy) * steer;
   beam.dashCd = Math.max(0, beam.dashCd - dt);
   if (tapped(wardenP + "act") && beam.dashCd <= 0 && (wd.x !== 0 || wd.y !== 0)){
     beam.vx += (wd.x / wl) * 560;
     beam.vy += (wd.y / wl) * 560;
-    beam.dashCd = 1.7;
+    beam.dashCd = DASH_CD;
     sfx.dash();
   }
   beam.x += beam.vx * dt;
@@ -432,53 +459,79 @@ function updatePlay(dt){
   }
   if (meter > 0.8) shake = Math.max(shake, 3);
 
-  // ---- guard dog (automated: works for the warden, free of charge) ----
-  var DOGF = 548;
-  dog.biteCd = Math.max(0, dog.biteCd - dt);
-  dog.barkT = Math.max(0, dog.barkT - dt);
+  // ---- the pack (automated: works for the warden, free of charge) ----
   var runnerFeet = runner.y + runner.h;
-  var dxr = rcx - dog.x;
-  var onGroundBand = runnerFeet > DOGF - 70;
-  if (onGroundBand && Math.abs(dxr) < 300){
-    if (!dog.chasing && dog.barkT <= 0){ sfx.bark(); dog.barkT = 1.2; }
-    dog.chasing = true; dog.lost = 1.6;
-  } else {
-    dog.lost -= dt;
-    if (dog.lost <= 0) dog.chasing = false;
-  }
-  if (dog.chasing){
-    dog.dir = dxr > 0 ? 1 : -1;
-    if (dog.barkT <= 0){ sfx.bark(); dog.barkT = 1.3; }
-  }
-  var dogSpeed = dog.chasing ? 295 : 95;
-  dog.vx += (dog.dir * dogSpeed - dog.vx) * Math.min(1, 8 * dt);
-  dog.x += dog.vx * dt;
-  if (dog.x < 40){ dog.x = 40; if (!dog.chasing) dog.dir = 1; }
-  if (dog.x > W - 40){ dog.x = W - 40; if (!dog.chasing) dog.dir = -1; }
-  for (i = 0; i < level.solids.length; i++){
-    s = level.solids[i];
-    if (s.y >= DOGF) continue;              // the floor itself
-    if (s.y + s.h < DOGF - 4) continue;     // not standing on the floor
-    if (dog.x + 16 > s.x && dog.x - 16 < s.x + s.w){
-      if (dog.vx > 0) dog.x = s.x - 16; else dog.x = s.x + s.w + 16;
-      dog.vx = 0;
-      if (!dog.chasing) dog.dir *= -1;
+  for (i = 0; i < dogs.length; i++){
+    var dg = dogs[i];
+    dg.biteCd = Math.max(0, dg.biteCd - dt);
+    dg.barkT = Math.max(0, dg.barkT - dt);
+    var dxr = rcx - dg.x;
+    var band, inRange;
+    if (dg.kind === "floor"){
+      band = runnerFeet > FLOOR_Y - 70;
+      inRange = Math.abs(dxr) < 300;
+    } else {
+      band = runnerFeet > dg.floorY - 70 && runnerFeet < dg.floorY + 10;
+      inRange = Math.abs(dxr) < 240 && rcx > dg.minX - 60 && rcx < dg.maxX + 60;
+    }
+    if (band && inRange){
+      if (!dg.chasing && dg.barkT <= 0){ (dg.kind === "platform" ? sfx.barkHi : sfx.bark)(); dg.barkT = 1.2; }
+      dg.chasing = true; dg.lost = 1.6;
+    } else {
+      dg.lost -= dt;
+      if (dg.lost <= 0) dg.chasing = false;
+    }
+    if (dg.chasing){
+      dg.dir = dxr > 0 ? 1 : -1;
+      if (dg.barkT <= 0){ (dg.kind === "platform" ? sfx.barkHi : sfx.bark)(); dg.barkT = 1.3; }
+    }
+    var dogSpeed = dg.chasing ? (dg.kind === "floor" ? 275 : 240) : (dg.kind === "floor" ? 95 : 80);
+    dg.vx += (dg.dir * dogSpeed - dg.vx) * Math.min(1, 8 * dt);
+    dg.x += dg.vx * dt;
+    if (dg.x < dg.minX){ dg.x = dg.minX; if (!dg.chasing) dg.dir = 1; else dg.vx = 0; }
+    if (dg.x > dg.maxX){ dg.x = dg.maxX; if (!dg.chasing) dg.dir = -1; else dg.vx = 0; }
+    if (dg.kind === "floor"){
+      for (var si = 0; si < level.solids.length; si++){
+        s = level.solids[si];
+        if (s.y >= FLOOR_Y) continue;              // the floor itself
+        if (s.y + s.h < FLOOR_Y - 4) continue;     // not standing on the floor
+        if (dg.x + 16 > s.x && dg.x - 16 < s.x + s.w){
+          if (dg.vx > 0) dg.x = s.x - 16; else dg.x = s.x + s.w + 16;
+          dg.vx = 0;
+          if (!dg.chasing) dg.dir *= -1;
+        }
+      }
+    }
+    if (dg.biteCd <= 0 && Math.abs(rcx - dg.x) < 26 &&
+        runnerFeet > dg.floorY - 34 && runnerFeet < dg.floorY + 8){
+      dg.biteCd = BITE_CD;
+      meter = Math.min(1, meter + BITE_METER);
+      lastBiteT = 0.6;
+      runner.vy = -540;
+      runner.vx = (dxr >= 0 ? 1 : -1) * 340;
+      sfx.bite();
+      shake = Math.max(shake, 10);
     }
   }
-  if (dog.biteCd <= 0 && Math.abs(rcx - dog.x) < 26 && runnerFeet > DOGF - 34){
-    dog.biteCd = 1.5;
-    meter = Math.min(1, meter + 0.34);
-    lastBiteT = 0.6;
-    runner.vy = -540;
-    runner.vx = (dxr >= 0 ? 1 : -1) * 340;
-    sfx.bite();
-    shake = Math.max(shake, 10);
+  // floor dogs keep personal space
+  for (i = 0; i < dogs.length; i++){
+    for (var j = i + 1; j < dogs.length; j++){
+      var a = dogs[i], b = dogs[j];
+      if (a.floorY !== b.floorY) continue;
+      var gap = b.x - a.x;
+      if (Math.abs(gap) < 36){
+        var push = (36 - Math.abs(gap)) / 2 * (gap >= 0 ? 1 : -1);
+        a.x = clamp(a.x - push, a.minX, a.maxX);
+        b.x = clamp(b.x + push, b.minX, b.maxX);
+        if (!a.chasing && !b.chasing){ a.dir = gap >= 0 ? -1 : 1; b.dir = -a.dir; }
+      }
+    }
   }
 
   if (meter >= 1){
     sfx.caught();
     shake = 16;
-    endRound({ winner: wardenP, how: lastBiteT > 0 ? "MAULED BY THE GUARD DOG" : "CAUGHT IN THE BEAM", pts: 4 });
+    endRound({ winner: wardenP, how: lastBiteT > 0 ? "MAULED BY THE PACK" : "CAUGHT IN THE BEAM", pts: 4 });
     return;
   }
 
@@ -590,6 +643,17 @@ function buildBg(idx){
       g.beginPath(); g.moveTo(j, ow.y + 3); g.lineTo(j, ow.y + 10); g.stroke();
     }
   }
+  // the dog walkway gets warning chevrons
+  if (lv.dogPlatform){
+    var dp = lv.dogPlatform;
+    g.fillStyle = "rgba(232,80,58,0.5)";
+    for (j = dp.x + 4; j < dp.x + dp.w - 10; j += 22){
+      g.beginPath();
+      g.moveTo(j, dp.y + 10); g.lineTo(j + 8, dp.y + 10); g.lineTo(j + 12, dp.y + 14);
+      g.lineTo(j + 4, dp.y + 14);
+      g.closePath(); g.fill();
+    }
+  }
   // covers (awnings/roofs → shadow beneath)
   for (i = 0; i < lv.covers.length; i++){
     var cvr = lv.covers[i];
@@ -622,16 +686,14 @@ function buildBg(idx){
 function stencil(size){ cx.font = size + 'px "Saira Stencil One", "Space Grotesk", sans-serif'; }
 function grotesk(size, weight){ cx.font = (weight || 400) + " " + size + 'px "Space Grotesk", sans-serif'; }
 
-function drawRunner(){
-  var px = runner.x + runner.w/2, py = runner.y + runner.h;
+function drawRobberAt(px, py, face, scale, moving){
+  // px,py = feet center
   cx.save();
   cx.translate(px, py);
-  // shadow
+  cx.scale(scale, scale);
   cx.fillStyle = "rgba(0,0,0,0.4)";
   cx.beginPath(); cx.ellipse(0, 0, 11, 3.5, 0, 0, Math.PI * 2); cx.fill();
-  // legs run cycle
-  var run = Math.abs(runner.vx) > 40 && runner.grounded;
-  var lp = Math.sin(tGlobal * 16) * (run ? 5 : 0);
+  var lp = moving ? Math.sin(tGlobal * 16) * 5 : 0;
   cx.strokeStyle = "#24262b";
   cx.lineWidth = 3.5;
   cx.beginPath(); cx.moveTo(-3, -12); cx.lineTo(-3 + lp, 0); cx.stroke();
@@ -651,9 +713,14 @@ function drawRunner(){
   cx.fillRect(-9.5, -36, 19, 2.6);
   // eyes
   cx.fillStyle = "#1a1d23";
-  cx.beginPath(); cx.arc(runner.face * 3.5, -32, 1.6, 0, Math.PI * 2); cx.fill();
-  cx.beginPath(); cx.arc(runner.face * 7, -32, 1.6, 0, Math.PI * 2); cx.fill();
+  cx.beginPath(); cx.arc(face * 3.5, -32, 1.6, 0, Math.PI * 2); cx.fill();
+  cx.beginPath(); cx.arc(face * 7, -32, 1.6, 0, Math.PI * 2); cx.fill();
   cx.restore();
+}
+
+function drawRunner(){
+  var px = runner.x + runner.w/2, py = runner.y + runner.h;
+  drawRobberAt(px, py, runner.face, 1, Math.abs(runner.vx) > 40 && runner.grounded);
   // contraband count above head
   if (gotLoot > 0){
     grotesk(11, 700);
@@ -676,7 +743,6 @@ function drawRunner(){
 
 function drawBeam(){
   var phase = blackoutPhase();
-  var wardenP = wardenOf(roundNum);
   // guard on catwalk
   cx.save();
   cx.translate(beam.x, 13);
@@ -731,7 +797,7 @@ function drawBeam(){
     cx.strokeStyle = "rgba(255,217,138,0.4)";
     cx.lineWidth = 3;
     cx.beginPath();
-    cx.arc(beam.x, beam.y, 14, -Math.PI/2, -Math.PI/2 + (1 - beam.dashCd / 1.7) * Math.PI * 2);
+    cx.arc(beam.x, beam.y, 14, -Math.PI/2, -Math.PI/2 + (1 - beam.dashCd / DASH_CD) * Math.PI * 2);
     cx.stroke();
   }
 }
@@ -759,16 +825,15 @@ function drawLoot(){
   }
 }
 
-function drawDog(){
-  if (!dog) return;
-  var groundY = 548;
+function drawDogAt(dg, scale){
+  var s = scale || 1;
   cx.save();
-  cx.translate(dog.x, groundY);
-  var dir = Math.abs(dog.vx) > 5 ? (dog.vx > 0 ? 1 : -1) : dog.dir;
-  cx.scale(dir, 1);
+  cx.translate(dg.x, dg.floorY);
+  var dir = Math.abs(dg.vx) > 5 ? (dg.vx > 0 ? 1 : -1) : dg.dir;
+  cx.scale(dir * s, s);
   cx.fillStyle = "rgba(0,0,0,0.4)";
   cx.beginPath(); cx.ellipse(0, 0, 16, 4, 0, 0, Math.PI * 2); cx.fill();
-  var trot = Math.abs(dog.vx) > 20 ? Math.sin(tGlobal * (dog.chasing ? 26 : 12)) * 4 : 0;
+  var trot = Math.abs(dg.vx) > 20 ? Math.sin(tGlobal * (dg.chasing ? 26 : 12)) * 4 : 0;
   cx.strokeStyle = "#14161b";
   cx.lineWidth = 3;
   cx.beginPath(); cx.moveTo(-10, -12); cx.lineTo(-10 + trot, 0); cx.stroke();
@@ -783,18 +848,23 @@ function drawDog(){
   cx.beginPath(); cx.arc(14, -22, 7, 0, Math.PI * 2); cx.fill();
   cx.fillRect(17, -25, 8, 5);
   cx.beginPath(); cx.moveTo(11, -27); cx.lineTo(14, -34); cx.lineTo(17, -27); cx.closePath(); cx.fill();
-  cx.fillStyle = "#e8503a";
+  // collar: the platform dog wears yellow so you can tell it apart
+  cx.fillStyle = dg.kind === "platform" ? "#ffd23f" : "#e8503a";
   cx.fillRect(8, -20, 3.5, 7);
-  cx.fillStyle = dog.chasing ? "#ff2d16" : "#ffd98a";
+  cx.fillStyle = dg.chasing ? "#ff2d16" : "#ffd98a";
   cx.beginPath(); cx.arc(15.5, -24, 1.7, 0, Math.PI * 2); cx.fill();
   cx.restore();
-  if (dog.chasing){
+  if (dg.chasing){
     grotesk(15, 700);
     cx.textAlign = "center";
     cx.fillStyle = "#e8503a";
-    cx.fillText("!", dog.x, groundY - 46);
+    cx.fillText("!", dg.x, dg.floorY - 46);
     cx.textAlign = "left";
   }
+}
+
+function drawDogs(){
+  for (var i = 0; i < dogs.length; i++) drawDogAt(dogs[i], 1);
 }
 
 function drawHUD(){
@@ -806,7 +876,7 @@ function drawHUD(){
   cx.fillText("P1  " + scores.p1, 34, 58);
   grotesk(11, 500);
   cx.fillStyle = wardenP === "p1" ? "#ffd98a" : "#7dde8b";
-  cx.fillText(wardenP === "p1" ? "WARDEN · WASD + E" : "RUNNER · WASD", 34, 74);
+  cx.fillText(wardenP === "p1" ? "THE LIGHT · WASD + E" : "ROBBER · WASD", 34, 74);
   // P2 panel
   cx.textAlign = "right";
   stencil(22);
@@ -814,7 +884,7 @@ function drawHUD(){
   cx.fillText(scores.p2 + "  P2", W - 34, 58);
   grotesk(11, 500);
   cx.fillStyle = wardenP === "p2" ? "#ffd98a" : "#7dde8b";
-  cx.fillText(wardenP === "p2" ? "ARROWS + /  · WARDEN" : "ARROWS · RUNNER", W - 34, 74);
+  cx.fillText(wardenP === "p2" ? "ARROWS + /  · THE LIGHT" : "ARROWS · ROBBER", W - 34, 74);
   // timer
   cx.textAlign = "center";
   stencil(30);
@@ -851,38 +921,103 @@ function dim(a){
 }
 
 function drawTitle(){
-  dim(0.75);
+  dim(0.84);
   cx.textAlign = "center";
-  stencil(62);
+  stencil(54);
   cx.fillStyle = "#f2f2ee";
-  cx.fillText("SPOTCHECK 2", W/2, 165);
-  grotesk(16, 500);
+  cx.fillText("SPOTCHECK 3", W/2, 92);
+  grotesk(15, 500);
   cx.fillStyle = "#ffd98a";
-  cx.fillText("Two players. One keyboard. The warden got a bigger lamp.", W/2, 205);
+  cx.fillText("Two players. One keyboard. Now there are three dogs.", W/2, 122);
 
-  grotesk(15);
-  cx.fillStyle = "#7dde8b";
-  cx.fillText("THE RUNNER — reach the EXIT hatch before time runs out.", W/2, 265);
-  cx.fillStyle = "#c9cfda";
-  cx.fillText("Move & jump with your keys. Hold down to drop through walkways.", W/2, 290);
-  cx.fillText("Shadow shelters hide you. Contraband ★ is bonus points if you make it.", W/2, 314);
-
-  cx.fillStyle = "#ffd98a";
-  cx.fillText("THE WARDEN — you are the beam. Keep it on the runner to fill the alert.", W/2, 360);
-  cx.fillStyle = "#c9cfda";
-  cx.fillText("Steer with your keys, dash with your action key. Mind the generator blackouts.", W/2, 385);
-
-  cx.fillStyle = "#e8503a";
-  cx.fillText("THE DOG — works for no one, bites for the warden. It owns the floor.", W/2, 412);
-
-  grotesk(14, 700);
+  // center divider + VS
+  cx.strokeStyle = "rgba(154,163,178,0.25)";
+  cx.lineWidth = 1;
+  cx.beginPath(); cx.moveTo(W/2, 150); cx.lineTo(W/2, 300); cx.stroke();
+  cx.beginPath(); cx.moveTo(W/2, 350); cx.lineTo(W/2, 428); cx.stroke();
+  stencil(26);
   cx.fillStyle = "#9aa3b2";
-  cx.fillText("Catch = 4 pts · Time-out = 2 pts · Escape = 3 pts + contraband", W/2, 430);
-  cx.fillText("Roles swap every round · best of " + TOTAL_ROUNDS, W/2, 452);
+  cx.fillText("VS", W/2, 334);
+
+  // ---- LEFT: the robber (P1, WASD) ----
+  var LX = 245;
+  grotesk(19, 700);
+  cx.fillStyle = "#7dde8b";
+  cx.fillText("P1 · WASD · LEFT SIDE", LX, 178);
+  stencil(30);
+  cx.fillText("THE ROBBER", LX, 212);
+  drawRobberAt(LX, 320, 1, 2.3, true);
+  grotesk(13, 500);
+  cx.fillStyle = "#c9cfda";
+  cx.fillText("You run first. Reach the EXIT hatch.", LX, 356);
+  cx.fillText("W jump · S drop through walkways", LX, 378);
+  cx.fillText("Shadow shelters hide you · ★ = bonus", LX, 400);
+
+  // ---- RIGHT: the light (P2, arrows) ----
+  var RX = 715;
+  grotesk(19, 700);
+  cx.fillStyle = "#ffd98a";
+  cx.fillText("P2 · ARROWS · RIGHT SIDE", RX, 178);
+  stencil(30);
+  cx.fillText("THE LIGHT", RX, 212);
+  // mini searchlight: guard + cone + pool
+  (function(){
+    var gx = RX, gy = 236, bx = RX, by = 306, r = 44;
+    cx.save();
+    cx.fillStyle = "#22344f";
+    cx.fillRect(gx - 8, gy - 6, 16, 15);
+    cx.fillStyle = "#e8b98a";
+    cx.beginPath(); cx.arc(gx, gy - 10, 6, 0, Math.PI * 2); cx.fill();
+    cx.fillStyle = "#22344f";
+    cx.beginPath(); cx.arc(gx, gy - 11, 6, Math.PI, 0); cx.fill();
+    cx.globalCompositeOperation = "lighter";
+    var grad = cx.createLinearGradient(gx, gy, bx, by);
+    grad.addColorStop(0, "rgba(255,217,138,0.14)");
+    grad.addColorStop(1, "rgba(255,217,138,0.22)");
+    cx.fillStyle = grad;
+    cx.beginPath();
+    cx.moveTo(gx - 8, gy + 8); cx.lineTo(gx + 8, gy + 8);
+    cx.lineTo(bx + r, by); cx.lineTo(bx - r, by);
+    cx.closePath(); cx.fill();
+    var pool = cx.createRadialGradient(bx, by, 6, bx, by, r);
+    pool.addColorStop(0, "rgba(255,240,200,0.5)");
+    pool.addColorStop(0.8, "rgba(255,217,138,0.24)");
+    pool.addColorStop(1, "rgba(255,217,138,0)");
+    cx.fillStyle = pool;
+    cx.beginPath(); cx.arc(bx, by, r, 0, Math.PI * 2); cx.fill();
+    cx.restore();
+    cx.strokeStyle = "rgba(255,217,138,0.6)";
+    cx.lineWidth = 2;
+    cx.beginPath(); cx.arc(bx, by, r, 0, Math.PI * 2); cx.stroke();
+  })();
+  grotesk(13, 500);
+  cx.fillStyle = "#c9cfda";
+  cx.fillText("You hunt first. You ARE the searchlight.", RX, 356);
+  cx.fillText("Arrows steer the beam · / = beam dash", RX, 378);
+  cx.fillText("Hold him in the light to fill the alert", RX, 400);
+
+  // ---- the pack ----
+  var dy = 452;
+  // little walkway under the middle dog
+  cx.fillStyle = "#343b47";
+  cx.fillRect(W/2 - 42, dy, 84, 8);
+  cx.fillStyle = "#454e5e";
+  cx.fillRect(W/2 - 42, dy, 84, 3);
+  drawDogAt({ x: W/2 - 130, floorY: dy + 8, kind: "floor", vx: -30, dir: -1, chasing: false }, 0.9);
+  drawDogAt({ x: W/2, floorY: dy, kind: "platform", vx: 25, dir: 1, chasing: false }, 0.9);
+  drawDogAt({ x: W/2 + 130, floorY: dy + 8, kind: "floor", vx: 30, dir: 1, chasing: false }, 0.9);
+  grotesk(13, 700);
+  cx.fillStyle = "#e8503a";
+  cx.fillText("THE DOGS ×3 — work for no one. Two hold the floor, the yellow-collar one owns a walkway.", W/2, dy + 32);
+
+  grotesk(12.5, 500);
+  cx.fillStyle = "#9aa3b2";
+  cx.fillText("Catch = 4 pts · Time-out = 2 pts · Escape = 3 pts + contraband ★", W/2, 516);
+  cx.fillText("Roles swap every round · best of " + TOTAL_ROUNDS, W/2, 536);
 
   stencil(24);
   cx.fillStyle = Math.sin(tGlobal * 4) > 0 ? "#ffd23f" : "#9aa3b2";
-  cx.fillText("PRESS ENTER", W/2, 512);
+  cx.fillText("PRESS ENTER", W/2, 578);
   cx.textAlign = "left";
 }
 
@@ -895,9 +1030,9 @@ function drawIntro(){
   cx.fillText("ROUND " + roundNum, W/2, 220);
   grotesk(19, 500);
   cx.fillStyle = "#ffd98a";
-  cx.fillText((wardenP === "p1" ? "P1 (WASD)" : "P2 (ARROWS)") + " HUNTS", W/2, 270);
+  cx.fillText((wardenP === "p1" ? "P1 (WASD)" : "P2 (ARROWS)") + " IS THE LIGHT", W/2, 270);
   cx.fillStyle = "#7dde8b";
-  cx.fillText((wardenP === "p1" ? "P2 (ARROWS)" : "P1 (WASD)") + " RUNS", W/2, 300);
+  cx.fillText((wardenP === "p1" ? "P2 (ARROWS)" : "P1 (WASD)") + " IS THE ROBBER", W/2, 300);
   stencil(34);
   cx.fillStyle = "#ffd23f";
   var n = Math.ceil(introT);
@@ -932,7 +1067,7 @@ function drawMatchEnd(){
   cx.fillText("P1 " + scores.p1 + "  —  " + scores.p2 + " P2", W/2, 290);
   grotesk(14);
   cx.fillStyle = "#9aa3b2";
-  cx.fillText("the other one is on dish duty forever", W/2, 324);
+  cx.fillText("the other one is on kennel duty forever", W/2, 324);
   stencil(22);
   cx.fillStyle = Math.sin(tGlobal * 4) > 0 ? "#ffd23f" : "#9aa3b2";
   cx.fillText("PRESS ENTER FOR A REMATCH", W/2, 410);
@@ -945,7 +1080,7 @@ function render(){
   if (!bgCache[levelIdx]) bgCache[levelIdx] = buildBg(levelIdx);
   cx.drawImage(bgCache[levelIdx], 0, 0);
   drawLoot();
-  drawDog();
+  drawDogs();
   drawRunner();
   drawBeam();
   drawHUD();
@@ -975,7 +1110,7 @@ roundNum = 1; scores = { p1: 0, p2: 0 };
 levelIdx = 0; level = LEVELS[0];
 runner = { x: level.spawn.x, y: level.spawn.y, w: 20, h: 30, vx: 0, vy: 0, grounded: true, coyote: 0, jbuf: 0, drop: 0, face: 1, wasAir: false };
 beam = { x: W/2, y: 300, vx: 0, vy: 0, dashCd: 0 };
-dog = { x: 700, vx: 0, dir: -1, chasing: false, lost: 0, biteCd: 0, barkT: 0 };
+dogs = spawnDogs(level);
 meter = 0; timer = ROUND_TIME; genT = 0; loot = []; gotLoot = 0; shake = 0;
 
 function frame(now){
