@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BONUS GAMES — arthurconmy.github.io</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Original browser games by Arthur Conmy: SWINGSHANK, SPOTCHECK 1-3, NO ESCAPE and MOUNTAIN BIKE CLIMB.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#111318; --panel:#14161b; --concrete:#20242c;
+    --sodium:#ffb84d; --alert:#e8503a; --stripe:#f2f2ee; --paint:#9aa3b2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--stripe);
+    font-family:"Space Grotesk",system-ui,sans-serif;
+    min-height:100vh; display:flex; flex-direction:column; align-items:center;
+    padding:40px 18px 28px;
+    background-image:repeating-linear-gradient(90deg, transparent 0 118px, rgba(255,255,255,0.017) 118px 122px);
+  }
+  header{text-align:center; margin-bottom:34px}
+  h1{
+    font-family:"Saira Stencil One",cursive; font-weight:400;
+    font-size:clamp(2.3rem,7vw,3.6rem); letter-spacing:0.06em; color:var(--stripe);
+  }
+  h1 .dot{color:var(--sodium)}
+  .tag{color:var(--paint); letter-spacing:0.24em; text-transform:uppercase; font-size:0.78rem; margin-top:8px}
+  .tag::before,.tag::after{content:"— "; color:var(--sodium)}
+  .tag::after{content:" —"}
+  main{width:100%; max-width:960px; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px}
+  .card{
+    position:relative; display:block; text-decoration:none; color:inherit;
+    background:var(--panel); border:1px solid var(--concrete); border-radius:10px;
+    padding:22px 22px 18px; overflow:hidden;
+    transition:transform .12s ease, border-color .12s ease;
+  }
+  .card::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:4px;
+    background:repeating-linear-gradient(45deg, var(--sodium) 0 14px, #14161b 14px 28px);
+    opacity:.85;
+  }
+  .card:hover{transform:translateY(-3px); border-color:var(--sodium)}
+  .card h2{
+    font-family:"Saira Stencil One",cursive; font-weight:400;
+    font-size:1.42rem; letter-spacing:0.05em; color:var(--stripe); margin-top:6px;
+  }
+  .card .sub{color:var(--sodium); font-size:0.86rem; letter-spacing:0.12em; text-transform:uppercase; margin-top:2px}
+  .card p{color:var(--paint); font-size:0.95rem; line-height:1.45; margin-top:10px; min-height:2.9em}
+  .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; align-items:center}
+  .chip{
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--paint); border:1px solid var(--concrete); border-radius:999px; padding:3px 10px;
+  }
+  .chip.two{color:var(--sodium); border-color:rgba(255,184,77,.45)}
+  .chip.mob{color:#7fd6a4; border-color:rgba(127,214,164,.4)}
+  .play{
+    margin-left:auto; font-family:"Saira Stencil One",cursive; font-size:0.95rem;
+    letter-spacing:0.12em; color:var(--alert);
+  }
+  .card:hover .play{color:var(--sodium)}
+  footer{margin-top:38px; color:var(--paint); font-size:0.9rem; text-align:center; line-height:1.7}
+  footer a{color:var(--sodium)}
+</style>
+</head>
+<body>
+<header>
+  <h1>BONUS GAMES <span class="dot">&#9635;</span></h1>
+  <div class="tag">original &middot; built from scratch &middot; free</div>
+</header>
+
+<main>
+  <a class="card" href="/games/swingshank/">
+    <h2>SWINGSHANK</h2>
+    <div class="sub">swing your sentence</div>
+    <p>Wave survival with a lethal ball and chain. The iron that slows you down is the only weapon you've got.</p>
+    <div class="meta"><span class="chip">1 player</span><span class="chip">keyboard</span><span class="play">PLAY &#9654;</span></div>
+  </a>
+
+  <a class="card" href="/games/spotcheck/">
+    <h2>SPOTCHECK</h2>
+    <div class="sub">one runs, one hunts</div>
+    <p>Asymmetric two-player duel on one keyboard: a robber sprints for the loot while the warden steers the searchlight.</p>
+    <div class="meta"><span class="chip two">2 players</span><span class="chip">one keyboard</span><span class="play">PLAY &#9654;</span></div>
+  </a>
+
+  <a class="card" href="/games/spotcheck2/">
+    <h2>SPOTCHECK 2</h2>
+    <div class="sub">one runs, one hunts harder</div>
+    <p>The beam is wider, the blackouts are shorter, and there's a guard dog patrolling the yard now.</p>
+    <div class="meta"><span class="chip two">2 players</span><span class="chip">one keyboard</span><span class="play">PLAY &#9654;</span></div>
+  </a>
+
+  <a class="card" href="/games/spotcheck3/">
+    <h2>SPOTCHECK 3</h2>
+    <div class="sub">one runs, one hunts, three dogs</div>
+    <p>The full kennel is out. Three dogs, one beam, and a robber who really should have stayed in the cell block.</p>
+    <div class="meta"><span class="chip two">2 players</span><span class="chip">one keyboard</span><span class="play">PLAY &#9654;</span></div>
+  </a>
+
+  <a class="card" href="/games/noescape/">
+    <h2>NO ESCAPE</h2>
+    <div class="sub">a 40-yard tower defense</div>
+    <p>Now you're the warden. Forty escalating prison yards of tower defense — climb from level 1 or free-jump to the deep end.</p>
+    <div class="meta"><span class="chip">1 player</span><span class="chip mob">works on phones</span><span class="play">PLAY &#9654;</span></div>
+  </a>
+
+  <a class="card" href="/games/mountain-bike-climb/">
+    <h2>MOUNTAIN BIKE CLIMB</h2>
+    <div class="sub">pedal past the tree line</div>
+    <p>Grind up an endless mountain, jump the ravines, land your flips wheels-down and chase best altitude.</p>
+    <div class="meta"><span class="chip">1 player</span><span class="chip">keyboard</span><span class="play">PLAY &#9654;</span></div>
+  </a>
+</main>
+
+<footer>
+  Everything here was written from scratch as a single HTML file — view source if you're curious.<br>
+  <a href="/">&larr; arthurconmy.github.io</a>
+</footer>
+</body>
+</html>
