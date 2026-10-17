@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Conmy</title>
+    <meta name="description" content="Arthur Conmy is an AI researcher joining Anthropic to work on aligning upcoming models as they are trained.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #f5f2ea;
+            --ink: #1c1b18;
+            --muted: #625d53;
+            --faint: #958f83;
+            --rule: #e0d9cb;
+            --accent: #b4441a;
+            --serif: "Newsreader", Georgia, "Times New Roman", serif;
+            --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color-scheme: light dark;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #161512;
+                --ink: #ece7dc;
+                --muted: #aaa497;
+                --faint: #7a756c;
+                --rule: #2e2b26;
+                --accent: #ef8a5c;
+            }
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 19px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            background: none;
+            border: 0;
+            cursor: pointer;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        .prose a {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+            text-underline-offset: 0.18em;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .prose a:hover {
+            color: var(--accent);
+            text-decoration-color: var(--accent);
+        }
+
+        /* Layout */
+
+        .page {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 48px;
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 104px;
+        }
+
+        .side {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            height: 100svh;
+            padding: 80px 0 48px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name {
+            font-size: 2.55rem;
+            line-height: 1;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.45;
+            font-style: italic;
+        }
+
+        .toc {
+            margin-top: 64px;
+            list-style: none;
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .toc a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 8px 0;
+            color: var(--faint);
+            transition: color 0.2s;
+        }
+
+        .toc a::before {
+            content: "";
+            width: 24px;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .toc a:hover,
+        .toc a[aria-current="true"] {
+            color: var(--ink);
+        }
+
+        .toc a:hover::before,
+        .toc a[aria-current="true"]::before {
+            width: 52px;
+        }
+
+        .side-foot {
+            margin-top: auto;
+            font-family: var(--sans);
+            font-size: 0.86rem;
+        }
+
+        .links {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 22px;
+        }
+
+        .links a,
+        .links button {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        .links a:hover,
+        .links button:hover {
+            color: var(--accent);
+        }
+
+        .arrow {
+            width: 0.72em;
+            height: 0.72em;
+            flex: 0 0 auto;
+        }
+
+        .here {
+            margin-top: 22px;
+            color: var(--faint);
+            font-size: 0.78rem;
+            font-variant-numeric: tabular-nums;
+        }
+
+        main {
+            padding: 80px 0 64px;
+            min-width: 0;
+        }
+
+        /* Intro */
+
+        .intro p {
+            font-size: clamp(1.32rem, 2.3vw, 1.62rem);
+            line-height: 1.45;
+            letter-spacing: -0.008em;
+        }
+
+        .intro p + p {
+            margin-top: 0.9em;
+        }
+
+        .intro .announce {
+            margin-top: 28px;
+            font-family: var(--sans);
+            font-size: 0.84rem;
+            color: var(--faint);
+            letter-spacing: 0;
+            line-height: 1.6;
+        }
+
+        .announce a {
+            color: var(--muted);
+        }
+
+        /* Sections */
+
+        section {
+            padding-top: 96px;
+            scroll-margin-top: 24px;
+        }
+
+        .label {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 36px;
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+
+        .label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px 40px;
+        }
+
+        .facts dt {
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+
+        .facts dd {
+            margin-top: 6px;
+            font-size: 1.18rem;
+            line-height: 1.35;
+        }
+
+        .pull {
+            margin-top: 48px;
+            padding-left: 24px;
+            border-left: 2px solid var(--accent);
+            color: var(--muted);
+            font-size: 1.1rem;
+        }
+
+        .pull p + p {
+            margin-top: 10px;
+        }
+
+        .pull strong {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        /* Work */
+
+        .entry {
+            display: grid;
+            grid-template-columns: 128px minmax(0, 1fr);
+            gap: 24px;
+            padding: 30px 0;
+            border-top: 1px solid var(--rule);
+        }
+
+        .entry:last-child {
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .when {
+            padding-top: 4px;
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
+            color: var(--faint);
+        }
+
+        .entry h3 {
+            font-size: 1.32rem;
+            font-weight: 500;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .entry h3 span {
+            color: var(--muted);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .entry p {
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .refs {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            margin-top: 16px;
+            font-family: var(--sans);
+            font-size: 0.82rem;
+        }
+
+        .refs a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--ink);
+            border-bottom: 1px solid var(--rule);
+            padding-bottom: 1px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .refs a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .refs a.apply {
+            color: var(--accent);
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        /* Contact */
+
+        .contact p {
+            font-size: 1.3rem;
+            line-height: 1.5;
+        }
+
+        .contact p + p {
+            margin-top: 14px;
+            font-size: 1.05rem;
+            color: var(--muted);
+        }
+
+        .copy {
+            display: inline;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+            text-underline-offset: 0.18em;
+            transition: color 0.2s;
+        }
+
+        .copy:hover,
+        .copy[data-copied="true"] {
+            color: var(--accent);
+        }
+
+        footer {
+            margin-top: 120px;
+            padding-top: 24px;
+            border-top: 1px solid var(--rule);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px 24px;
+            font-family: var(--sans);
+            font-size: 0.78rem;
+            color: var(--faint);
+        }
+
+        footer a {
+            color: var(--muted);
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Motion */
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .side > *,
+        .intro > * {
+            animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        .side > :nth-child(2),
+        .intro > :nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .side > :nth-child(3),
+        .intro > :nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .side > :nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .side > *,
+            .intro > * {
+                animation: none;
+            }
+        }
+
+        /* Small screens */
+
+        @media (max-width: 920px) {
+            .page {
+                grid-template-columns: 1fr;
+                gap: 0;
+                padding: 0 24px;
+            }
+
+            .side {
+                position: static;
+                height: auto;
+                padding: 56px 0 0;
+            }
+
+            .toc {
+                display: none;
+            }
+
+            .side-foot {
+                margin-top: 28px;
+            }
+
+            main {
+                padding-top: 48px;
+            }
+
+            section {
+                padding-top: 72px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body {
+                font-size: 18px;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+
+            .facts {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .entry {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <aside class="side">
+            <a class="name" href="/new1/">Arthur Conmy</a>
+            <p class="tagline">AI researcher. Joining Anthropic to work on alignment.</p>
+            <nav aria-label="Sections">
+                <ul class="toc">
+                    <li><a href="#now">Now</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#mentoring">Mentoring</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="side-foot">
+                <ul class="links">
+                    <li><a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Scholar <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></li>
+                    <li><a href="https://x.com/ArthurConmy" target="_blank" rel="noreferrer">Twitter <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></li>
+                    <li><button type="button" data-copy-email aria-label="Copy email address"><span data-copy-label>Email</span></button></li>
+                    <li><a href="https://www.admonymous.co/arthur-conmy" target="_blank" rel="noreferrer">Feedback <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></li>
+                </ul>
+                <p class="here"><span data-current-location>London</span> · <span data-local-time></span></p>
+            </div>
+        </aside>
+
+        <main>
+            <div class="intro prose">
+                <p>I'm a <span data-current-age>25</span> year old AI researcher based in <span data-current-location>London</span>. My main motivation is making the future of AI go well. In the past, I did foundational early work in mechanistic interpretability, but since then I have worked more on post-training.</p>
+                <p>I am joining Anthropic to work on aligning upcoming models as they are trained.</p>
+                <p class="announce">Read the announcement on <a href="https://x.com/ArthurConmy/status/2069820098890674334" target="_blank" rel="noreferrer">X</a> or <a href="https://xcancel.com/ArthurConmy/status/2069820098890674334#m" target="_blank" rel="noreferrer">XCancel</a>.</p>
+            </div>
+
+            <section id="now" aria-labelledby="now-label">
+                <h2 class="label" id="now-label">Now</h2>
+                <dl class="facts">
+                    <div>
+                        <dt>Next role</dt>
+                        <dd>Member of Technical Staff, Anthropic</dd>
+                    </div>
+                    <div>
+                        <dt>Focus</dt>
+                        <dd>Alignment during training</dd>
+                    </div>
+                    <div>
+                        <dt>Previous</dt>
+                        <dd>Google DeepMind, 2023–2026</dd>
+                    </div>
+                    <div>
+                        <dt>Mentorship</dt>
+                        <dd>MATS mentor since MATS 6.0</dd>
+                    </div>
+                </dl>
+                <div class="pull prose">
+                    <p><strong>What I mean:</strong> triaging signs of misalignment in training, then looking for root-cause fixes rather than whack-a-mole patches.</p>
+                    <p>For a public example of the direction, see Anthropic's <a href="https://alignment.anthropic.com/2026/teaching-claude-why" target="_blank" rel="noreferrer">Teaching Claude Why</a>.</p>
+                </div>
+            </section>
+
+            <section id="work" aria-labelledby="work-label">
+                <h2 class="label" id="work-label">Past work</h2>
+                <article class="entry">
+                    <div class="when">2023–2026</div>
+                    <div>
+                        <h3>Senior Research Engineer, <span>Google DeepMind</span></h3>
+                        <p>Worked on post-training for Gemini and on interpretability tools that are closer to production model work: probes, reward-model bias discovery, reasoning behavior, Gemma Scope, sparse autoencoders, model diffing, and steering.</p>
+                        <ul class="refs">
+                            <li><a href="https://arxiv.org/abs/2601.11516" target="_blank" rel="noreferrer">Production Probes</a></li>
+                            <li><a href="https://aclanthology.org/2024.blackboxnlp-1.19/" target="_blank" rel="noreferrer">Gemma Scope 1</a></li>
+                            <li><a href="https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/gemma-scope-2-helping-the-ai-safety-community-deepen-understanding-of-complex-language-model-behavior/Gemma_Scope_2_Technical_Paper.pdf" target="_blank" rel="noreferrer">Gemma Scope 2</a></li>
+                            <li><a href="https://arxiv.org/abs/2404.16014" target="_blank" rel="noreferrer">Gated SAEs</a></li>
+                            <li><a href="https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability" target="_blank" rel="noreferrer">Pragmatic Vision</a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="when">2022–2023</div>
+                    <div>
+                        <h3>Early mechanistic interpretability</h3>
+                        <p>Worked on circuits and automated circuit discovery, including IOI in GPT-2 Small and ACDC, before the later wave of large-scale SAE work.</p>
+                        <ul class="refs">
+                            <li><a href="https://arxiv.org/abs/2211.00593" target="_blank" rel="noreferrer">IOI Circuit</a></li>
+                            <li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/34e1dbe95d34d7ebaf99b9bcaeb5b2be-Abstract-Conference.html" target="_blank" rel="noreferrer">ACDC</a></li>
+                            <li><a href="https://aclanthology.org/2024.blackboxnlp-1.22/" target="_blank" rel="noreferrer">Copy Suppression</a></li>
+                            <li><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/2722a0ccf6acfe3d144fdbb0dedd80b5-Abstract-Conference.html" target="_blank" rel="noreferrer">Successor Heads</a></li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="entry">
+                    <div class="when">Earlier</div>
+                    <div>
+                        <h3>Redwood, Meta, Cambridge</h3>
+                        <p>Redwood Research in 2022–2023; Meta software engineering internship in 2021; mathematics at Trinity College Cambridge, upper first class honours.</p>
+                    </div>
+                </article>
+            </section>
+
+            <section id="mentoring" aria-labelledby="mentoring-label">
+                <h2 class="label" id="mentoring-label">Mentoring</h2>
+                <article class="entry">
+                    <div class="when">Since MATS 6.0</div>
+                    <div>
+                        <h3>MATS papers and mentoring</h3>
+                        <p>I have been a MATS mentor since MATS 6.0. MATS is the main way I mentor people; if you want to work with me, apply through MATS. MATS usually runs winter and summer programs, so applications may not always be open.</p>
+                        <ul class="refs">
+                            <li><a class="apply" href="https://www.matsprogram.org/" target="_blank" rel="noreferrer">Apply through MATS <svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg></a></li>
+                            <li><a href="https://arxiv.org/abs/2606.00995" target="_blank" rel="noreferrer">Explaining Subliminal Learning</a></li>
+                            <li><a href="https://arxiv.org/abs/2602.15222" target="_blank" rel="noreferrer">Reward-Model Biases</a></li>
+                            <li><a href="https://arxiv.org/abs/2503.08679" target="_blank" rel="noreferrer">CoT Faithfulness</a></li>
+                            <li><a href="https://arxiv.org/abs/2510.07364" target="_blank" rel="noreferrer">Base Models Reason</a></li>
+                            <li><a href="https://arxiv.org/abs/2506.19143" target="_blank" rel="noreferrer">Thought Anchors</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section id="contact" class="contact prose" aria-labelledby="contact-label">
+                <h2 class="label" id="contact-label">Contact</h2>
+                <p>Email is the best way to reach me: <button class="copy" type="button" data-copy-email aria-label="Copy email address"><span data-copy-label>copy address</span></button>. I also post on <a href="https://x.com/ArthurConmy" target="_blank" rel="noreferrer">Twitter</a>.</p>
+                <p>If you have feedback for me, I'd love to hear it, anonymously if you prefer, on <a href="https://www.admonymous.co/arthur-conmy" target="_blank" rel="noreferrer">Admonymous</a>.</p>
+            </section>
+
+            <footer>
+                <span>© Arthur Conmy</span>
+                <span><a href="/games/">Bonus games</a> · Draft design 1 of 2 · <a href="/new2/">See 2</a> · <a href="/">Current site</a></span>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        (function () {
+            var now = new Date();
+            var birthDate = new Date(2001, 0, 10);
+            var age = now.getFullYear() - birthDate.getFullYear();
+            var hasHadBirthday = now.getMonth() > birthDate.getMonth() ||
+                (now.getMonth() === birthDate.getMonth() && now.getDate() >= birthDate.getDate());
+
+            if (!hasHadBirthday) {
+                age -= 1;
+            }
+
+            document.querySelectorAll("[data-current-age]").forEach(function (node) {
+                node.textContent = String(age);
+            });
+
+            var sfStart = new Date(2026, 10, 14);
+            var inSF = now >= sfStart;
+            var location = inSF ? "SF" : "London";
+            var timeZone = inSF ? "America/Los_Angeles" : "Europe/London";
+
+            document.querySelectorAll("[data-current-location]").forEach(function (node) {
+                node.textContent = location;
+            });
+
+            var clock = document.querySelector("[data-local-time]");
+
+            function tick() {
+                try {
+                    clock.textContent = new Intl.DateTimeFormat("en-GB", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        timeZone: timeZone
+                    }).format(new Date()) + " local time";
+                } catch (error) {
+                    clock.textContent = "";
+                }
+            }
+
+            tick();
+            window.setInterval(tick, 30000);
+
+            // Highlight the current section in the sidebar.
+            var tocLinks = document.querySelectorAll(".toc a");
+
+            if ("IntersectionObserver" in window) {
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        tocLinks.forEach(function (link) {
+                            link.setAttribute("aria-current", link.getAttribute("href") === "#" + entry.target.id ? "true" : "false");
+                        });
+                    });
+                }, { rootMargin: "-40% 0px -55% 0px" });
+
+                document.querySelectorAll("main section[id]").forEach(function (section) {
+                    observer.observe(section);
+                });
+            }
+
+            var emailAddress = "arthurconmy@gmail.com";
+
+            function fallbackCopyEmail() {
+                var textarea = document.createElement("textarea");
+                textarea.value = emailAddress;
+                textarea.setAttribute("readonly", "");
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                var copied = false;
+                try {
+                    copied = document.execCommand("copy");
+                } catch (error) {
+                    copied = false;
+                }
+
+                document.body.removeChild(textarea);
+                return copied;
+            }
+
+            function markEmailCopied(button, copied) {
+                var label = button.querySelector("[data-copy-label]");
+
+                if (!label) {
+                    return;
+                }
+
+                var defaultLabel = button.getAttribute("data-default-label") || label.textContent;
+                button.setAttribute("data-default-label", defaultLabel);
+                button.setAttribute("data-copied", "true");
+                label.textContent = copied ? "Copied" : emailAddress;
+
+                window.setTimeout(function () {
+                    label.textContent = defaultLabel;
+                    button.removeAttribute("data-copied");
+                }, 1800);
+            }
+
+            document.querySelectorAll("[data-copy-email]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(emailAddress).then(function () {
+                            markEmailCopied(button, true);
+                        }).catch(function () {
+                            markEmailCopied(button, fallbackCopyEmail());
+                        });
+                        return;
+                    }
+
+                    markEmailCopied(button, fallbackCopyEmail());
+                });
+            });
+        }());
+    </script>
+</body>
+</html>

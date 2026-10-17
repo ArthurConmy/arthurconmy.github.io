@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Conmy</title>
+    <meta name="description" content="Arthur Conmy is an AI researcher joining Anthropic to work on aligning upcoming models as they are trained.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="theme-color" content="#07080b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #07080b;
+            --card: #0d0f14;
+            --card-hi: #12151c;
+            --line: rgba(255, 255, 255, 0.07);
+            --line-hi: rgba(255, 255, 255, 0.15);
+            --text: #eceef3;
+            --muted: #959bab;
+            --faint: #5f6575;
+            --accent: #ff7a3d;
+            --accent-rgb: 255, 122, 61;
+            --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+            color-scheme: dark;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            position: relative;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: rgba(var(--accent-rgb), 0.35);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            color: inherit;
+            background: none;
+            border: 0;
+            cursor: pointer;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        /* Backdrop: a faint grid and a warm glow behind the hero. */
+
+        .backdrop {
+            position: absolute;
+            inset: 0 0 auto;
+            height: 1100px;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(48% 40% at 72% 18%, rgba(var(--accent-rgb), 0.16), transparent 70%),
+                radial-gradient(36% 30% at 18% 8%, rgba(110, 140, 255, 0.08), transparent 70%);
+        }
+
+        .backdrop::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 56px 56px;
+            background-position: center top;
+            -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000 30%, transparent 100%);
+            mask-image: radial-gradient(70% 60% at 50% 0%, #000 30%, transparent 100%);
+        }
+
+        .wrap {
+            position: relative;
+            z-index: 1;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Nav */
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            padding: 26px 0;
+        }
+
+        .mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--line-hi);
+            border-radius: 10px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .mark span {
+            color: var(--accent);
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 4px;
+            list-style: none;
+            font-size: 0.88rem;
+        }
+
+        .nav a,
+        .nav button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 12px;
+            border-radius: 8px;
+            color: var(--muted);
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .nav a:hover,
+        .nav button:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .ext {
+            width: 0.7em;
+            height: 0.7em;
+            flex: 0 0 auto;
+            opacity: 0.7;
+        }
+
+        /* Hero */
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            gap: 64px;
+            align-items: center;
+            padding: 72px 0 104px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 14px 6px 10px;
+            border: 1px solid var(--line-hi);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 0.82rem;
+            color: var(--muted);
+        }
+
+        .pill strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .dot {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .dot::after {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+            animation: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+            0% {
+                transform: scale(0.6);
+                opacity: 0.9;
+            }
+            80%,
+            100% {
+                transform: scale(1.8);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            margin-top: 28px;
+            font-size: clamp(3.1rem, 7.4vw, 6.2rem);
+            line-height: 0.95;
+            font-weight: 600;
+            letter-spacing: -0.045em;
+            background: linear-gradient(180deg, #ffffff 30%, #9aa1b2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .lede {
+            max-width: 560px;
+            margin-top: 28px;
+            font-size: 1.12rem;
+            line-height: 1.65;
+            color: var(--muted);
+        }
+
+        .lede strong {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            height: 44px;
+            padding: 0 18px;
+            border-radius: 10px;
+            border: 1px solid var(--line-hi);
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text);
+            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .btn.primary {
+            border-color: transparent;
+            background: var(--accent);
+            color: #160a03;
+            box-shadow: 0 8px 30px -10px rgba(var(--accent-rgb), 0.7);
+        }
+
+        .btn.primary:hover {
+            background: #ff8b55;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+            flex: 0 0 auto;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 22px;
+            margin-top: 32px;
+            font-family: var(--mono);
+            font-size: 0.76rem;
+            color: var(--faint);
+        }
+
+        .meta > span::before {
+            content: "// ";
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        /* Attention pattern visual */
+
+        .viz {
+            position: relative;
+            padding: 22px 22px 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01));
+            box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.9);
+        }
+
+        .viz-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--faint);
+        }
+
+        .viz-head b {
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .viz canvas {
+            display: block;
+            width: 100%;
+            cursor: crosshair;
+            touch-action: manipulation;
+        }
+
+        .heads {
+            display: flex;
+            gap: 4px;
+            margin-top: 14px;
+            padding: 4px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        .heads button {
+            flex: 1;
+            padding: 7px 6px;
+            border-radius: 7px;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--faint);
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .heads button:hover {
+            color: var(--text);
+        }
+
+        .heads button[aria-pressed="true"] {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .viz-caption {
+            min-height: 2.9em;
+            margin-top: 12px;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: var(--muted);
+        }
+
+        .viz-caption em {
+            font-style: normal;
+            color: var(--accent);
+            font-family: var(--mono);
+            font-size: 0.78rem;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 88px 0;
+            border-top: 1px solid var(--line);
+            scroll-margin-top: 12px;
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .kicker {
+            display: block;
+            margin-bottom: 12px;
+            font-family: var(--mono);
+            font-size: 0.74rem;
+            color: var(--accent);
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+            line-height: 1.05;
+            font-weight: 600;
+            letter-spacing: -0.035em;
+        }
+
+        .sec-head p {
+            max-width: 380px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Cards */
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--card);
+            transition: border-color 0.3s;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(var(--accent-rgb), 0.09), transparent 45%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .card:hover {
+            border-color: var(--line-hi);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card > * {
+            position: relative;
+        }
+
+        .card .tag {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--faint);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .card h3 {
+            margin-top: 14px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+        }
+
+        .card p {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .card p a,
+        .work p a {
+            color: var(--text);
+            border-bottom: 1px solid rgba(var(--accent-rgb), 0.5);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .card p a:hover,
+        .work p a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .card.feature {
+            grid-column: span 2;
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+            padding: 36px;
+            background:
+                radial-gradient(80% 90% at 100% 0%, rgba(var(--accent-rgb), 0.12), transparent 60%),
+                var(--card);
+        }
+
+        .card.feature h3 {
+            margin-top: 18px;
+            font-size: clamp(1.7rem, 3vw, 2.3rem);
+            line-height: 1.1;
+            letter-spacing: -0.035em;
+        }
+
+        .card.feature .body {
+            margin-top: auto;
+            padding-top: 40px;
+            max-width: 520px;
+        }
+
+        .card.feature .body p {
+            font-size: 1.02rem;
+        }
+
+        .card.feature .body p:first-child {
+            color: var(--text);
+        }
+
+        .card .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 18px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .card .cta:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Work timeline */
+
+        .timeline {
+            position: relative;
+            list-style: none;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            bottom: 8px;
+            left: 150px;
+            width: 1px;
+            background: linear-gradient(180deg, rgba(var(--accent-rgb), 0.6), var(--line) 40%, var(--line));
+        }
+
+        .work {
+            position: relative;
+            display: grid;
+            grid-template-columns: 150px minmax(0, 1fr);
+            padding-bottom: 52px;
+        }
+
+        .work:last-child {
+            padding-bottom: 0;
+        }
+
+        .work::before {
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: 146px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--line-hi);
+        }
+
+        .work:first-child::before {
+            border-color: var(--accent);
+            background: var(--accent);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.18);
+        }
+
+        .work .yr {
+            padding-right: 28px;
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--faint);
+            line-height: 1.9;
+        }
+
+        .work .body {
+            padding-left: 40px;
+        }
+
+        .work h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.35;
+        }
+
+        .work h3 span {
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .work p {
+            max-width: 680px;
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+            list-style: none;
+        }
+
+        .chips a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 11px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.025);
+            font-size: 0.8rem;
+            color: var(--text);
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+
+        .chips a:hover {
+            border-color: rgba(var(--accent-rgb), 0.6);
+            background: rgba(var(--accent-rgb), 0.08);
+        }
+
+        .chips a.apply {
+            border-color: transparent;
+            background: var(--accent);
+            color: #160a03;
+            font-weight: 500;
+        }
+
+        /* Contact + footer */
+
+        .contact {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 48px;
+            align-items: end;
+        }
+
+        .contact h2 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 1px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--line);
+        }
+
+        .contact-links a,
+        .contact-links button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--card);
+            font-size: 0.95rem;
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        .contact-links a:hover,
+        .contact-links button:hover {
+            background: var(--card-hi);
+        }
+
+        .contact-links small {
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            color: var(--faint);
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 12px 24px;
+            padding: 28px 0 40px;
+            border-top: 1px solid var(--line);
+            font-family: var(--mono);
+            font-size: 0.74rem;
+            color: var(--faint);
+        }
+
+        footer a {
+            color: var(--muted);
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Entrance */
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .hero-copy > *,
+        .viz {
+            animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+        }
+
+        .hero-copy > :nth-child(2) { animation-delay: 0.06s; }
+        .hero-copy > :nth-child(3) { animation-delay: 0.12s; }
+        .hero-copy > :nth-child(4) { animation-delay: 0.18s; }
+        .hero-copy > :nth-child(5) { animation-delay: 0.24s; }
+        .viz { animation-delay: 0.2s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .hero-copy > *,
+            .viz,
+            .dot::after {
+                animation: none;
+            }
+
+            .btn:hover {
+                transform: none;
+            }
+        }
+
+        /* Small screens */
+
+        @media (max-width: 960px) {
+            .wrap {
+                padding: 0 24px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 48px;
+                padding: 40px 0 72px;
+            }
+
+            .viz {
+                max-width: 560px;
+            }
+
+            .bento {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card.feature {
+                grid-row: auto;
+            }
+
+            .card.feature .body {
+                padding-top: 28px;
+            }
+
+            .sec-head {
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 72px 0;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav ul li.optional {
+                display: none;
+            }
+
+            .bento {
+                grid-template-columns: 1fr;
+            }
+
+            .card.feature {
+                grid-column: auto;
+                padding: 28px;
+            }
+
+            .timeline::before {
+                left: 4px;
+            }
+
+            .work {
+                grid-template-columns: 1fr;
+                padding-left: 28px;
+                padding-bottom: 44px;
+            }
+
+            .work::before {
+                left: 0;
+            }
+
+            .work .body {
+                padding-left: 0;
+            }
+
+            .work .yr {
+                padding-right: 0;
+                margin-bottom: 4px;
+            }
+
+            .viz {
+                padding: 16px 14px 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <div class="wrap">
+        <nav class="nav" aria-label="Primary">
+            <a class="mark" href="/new2/" aria-label="Arthur Conmy, home">A<span>C</span></a>
+            <ul>
+                <li class="optional"><a href="#now">Now</a></li>
+                <li class="optional"><a href="#work">Work</a></li>
+                <li><a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Scholar <svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a></li>
+                <li><button type="button" data-copy-email aria-label="Copy email address"><span data-copy-label>Email</span></button></li>
+            </ul>
+        </nav>
+
+        <header class="hero">
+            <div class="hero-copy">
+                <span class="pill"><span class="dot" aria-hidden="true"></span><span><strong>Joining Anthropic</strong> · alignment during training</span></span>
+                <h1>Arthur Conmy</h1>
+                <p class="lede">I'm a <span data-current-age>25</span> year old AI researcher based in <span data-current-location>London</span>. My main motivation is making the future of AI go well. In the past, I did foundational early work in mechanistic interpretability, but since then I have worked more on post-training. <strong>I am joining Anthropic to work on aligning upcoming models as they are trained.</strong></p>
+                <div class="actions">
+                    <a class="btn primary" href="https://x.com/ArthurConmy/status/2069820098890674334" target="_blank" rel="noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.7 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.4L2 3h6.5l4.4 5.8L17.7 3Zm-1.1 16.2h1.7L7.5 4.7H5.7l10.9 14.5Z"/></svg>
+                        Announcement
+                    </a>
+                    <a class="btn" href="https://xcancel.com/ArthurConmy/status/2069820098890674334#m" target="_blank" rel="noreferrer">XCancel</a>
+                    <a class="btn" href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3 1.8 8.7 12 14.4l8-4.5v5.3h2V8.7L12 3Zm-5.7 9.4v3.3c0 1.9 2.5 3.4 5.7 3.4s5.7-1.5 5.7-3.4v-3.3L12 15.6l-5.7-3.2Z"/></svg>
+                        Scholar
+                    </a>
+                    <button class="btn" type="button" data-copy-email aria-label="Copy email address">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V7Zm2 0v10h8V7h-8ZM4 3h10v2H6v10H4V3Z"/></svg>
+                        <span data-copy-label>Copy email</span>
+                    </button>
+                </div>
+                <div class="meta">
+                    <span><span data-current-location>London</span>, <span data-local-time>local time</span></span>
+                    <span>Prev. Google DeepMind</span>
+                    <span>MATS mentor</span>
+                </div>
+            </div>
+
+            <figure class="viz">
+                <div class="viz-head"><b>attention pattern</b><span>illustrative · hover a row</span></div>
+                <canvas id="attn" role="img" aria-label="Illustrative attention pattern over the sentence: When Mary and John went to the store, John gave a drink to"></canvas>
+                <div class="heads" role="group" aria-label="Choose an attention head type">
+                    <button type="button" data-head="0" aria-pressed="false">prev-token</button>
+                    <button type="button" data-head="1" aria-pressed="false">duplicate</button>
+                    <button type="button" data-head="2" aria-pressed="true">name mover</button>
+                </div>
+                <figcaption class="viz-caption" aria-live="polite"></figcaption>
+            </figure>
+        </header>
+
+        <section id="now" aria-labelledby="now-title">
+            <div class="sec-head">
+                <div>
+                    <span class="kicker">01 / now</span>
+                    <h2 id="now-title">What I'm working on</h2>
+                </div>
+            </div>
+            <div class="bento">
+                <article class="card feature">
+                    <span class="tag">Next role</span>
+                    <h3>Member of Technical Staff, Anthropic.</h3>
+                    <div class="body">
+                        <p>I will work on aligning upcoming models as they are trained.</p>
+                        <p>Triaging signs of misalignment in training, then looking for root-cause fixes rather than whack-a-mole patches. For a public example of the direction, see Anthropic's <a href="https://alignment.anthropic.com/2026/teaching-claude-why" target="_blank" rel="noreferrer">Teaching Claude Why</a>.</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="tag">Previous</span>
+                    <h3>Google DeepMind, 2023–2026</h3>
+                    <p>Senior Research Engineer on post-training for Gemini and interpretability tools.</p>
+                </article>
+                <article class="card">
+                    <span class="tag">Mentorship</span>
+                    <h3>MATS mentor since MATS 6.0</h3>
+                    <p>MATS is the main way I mentor people. Applications usually open for winter and summer programs.</p>
+                    <a class="cta" href="https://www.matsprogram.org/" target="_blank" rel="noreferrer">Apply through MATS <svg class="ext" viewBox="0 0 12 12" aria-hidden="true"><path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></a>
+                </article>
+            </div>
+        </section>
+
+        <section id="work" aria-labelledby="work-title">
+            <div class="sec-head">
+                <div>
+                    <span class="kicker">02 / work</span>
+                    <h2 id="work-title">Past work</h2>
+                </div>
+                <p>From early circuits work to production interpretability and post-training.</p>
+            </div>
+            <ol class="timeline">
+                <li class="work">
+                    <div class="yr">2023–2026</div>
+                    <div class="body">
+                        <h3>Senior Research Engineer <span>· Google DeepMind</span></h3>
+                        <p>Worked on post-training for Gemini and on interpretability tools that are closer to production model work: probes, reward-model bias discovery, reasoning behavior, Gemma Scope, sparse autoencoders, model diffing, and steering.</p>
+                        <ul class="chips">
+                            <li><a href="https://arxiv.org/abs/2601.11516" target="_blank" rel="noreferrer">Production Probes</a></li>
+                            <li><a href="https://aclanthology.org/2024.blackboxnlp-1.19/" target="_blank" rel="noreferrer">Gemma Scope 1</a></li>
+                            <li><a href="https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/gemma-scope-2-helping-the-ai-safety-community-deepen-understanding-of-complex-language-model-behavior/Gemma_Scope_2_Technical_Paper.pdf" target="_blank" rel="noreferrer">Gemma Scope 2</a></li>
+                            <li><a href="https://arxiv.org/abs/2404.16014" target="_blank" rel="noreferrer">Gated SAEs</a></li>
+                            <li><a href="https://www.alignmentforum.org/posts/StENzDcD3kpfGJssR/a-pragmatic-vision-for-interpretability" target="_blank" rel="noreferrer">Pragmatic Vision</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="work">
+                    <div class="yr">Since MATS 6.0</div>
+                    <div class="body">
+                        <h3>MATS papers and mentoring</h3>
+                        <p>I have been a MATS mentor since MATS 6.0. MATS is the main way I mentor people; if you want to work with me, apply through MATS. MATS usually runs winter and summer programs, so applications may not always be open.</p>
+                        <ul class="chips">
+                            <li><a class="apply" href="https://www.matsprogram.org/" target="_blank" rel="noreferrer">Apply through MATS</a></li>
+                            <li><a href="https://arxiv.org/abs/2606.00995" target="_blank" rel="noreferrer">Explaining Subliminal Learning</a></li>
+                            <li><a href="https://arxiv.org/abs/2602.15222" target="_blank" rel="noreferrer">Reward-Model Biases</a></li>
+                            <li><a href="https://arxiv.org/abs/2503.08679" target="_blank" rel="noreferrer">CoT Faithfulness</a></li>
+                            <li><a href="https://arxiv.org/abs/2510.07364" target="_blank" rel="noreferrer">Base Models Reason</a></li>
+                            <li><a href="https://arxiv.org/abs/2506.19143" target="_blank" rel="noreferrer">Thought Anchors</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="work">
+                    <div class="yr">2022–2023</div>
+                    <div class="body">
+                        <h3>Early mechanistic interpretability</h3>
+                        <p>Worked on circuits and automated circuit discovery, including IOI in GPT-2 Small and ACDC, before the later wave of large-scale SAE work.</p>
+                        <ul class="chips">
+                            <li><a href="https://arxiv.org/abs/2211.00593" target="_blank" rel="noreferrer">IOI Circuit</a></li>
+                            <li><a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/34e1dbe95d34d7ebaf99b9bcaeb5b2be-Abstract-Conference.html" target="_blank" rel="noreferrer">ACDC</a></li>
+                            <li><a href="https://aclanthology.org/2024.blackboxnlp-1.22/" target="_blank" rel="noreferrer">Copy Suppression</a></li>
+                            <li><a href="https://proceedings.iclr.cc/paper_files/paper/2024/hash/2722a0ccf6acfe3d144fdbb0dedd80b5-Abstract-Conference.html" target="_blank" rel="noreferrer">Successor Heads</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="work">
+                    <div class="yr">Earlier</div>
+                    <div class="body">
+                        <h3>Redwood, Meta, Cambridge</h3>
+                        <p>Redwood Research in 2022–2023; Meta software engineering internship in 2021; mathematics at Trinity College Cambridge, upper first class honours.</p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-title">
+            <div class="contact">
+                <div>
+                    <span class="kicker">03 / contact</span>
+                    <h2 id="contact-title">Get in touch.</h2>
+                </div>
+                <div class="contact-links">
+                    <button type="button" data-copy-email aria-label="Copy email address"><span data-copy-label>Email</span><small>click to copy</small></button>
+                    <a href="https://x.com/ArthurConmy" target="_blank" rel="noreferrer">Twitter<small>@ArthurConmy</small></a>
+                    <a href="https://scholar.google.com/citations?user=n4HIyXQAAAAJ" target="_blank" rel="noreferrer">Google Scholar<small>papers</small></a>
+                    <a href="https://www.admonymous.co/arthur-conmy" target="_blank" rel="noreferrer">Admonymous<small>anonymous feedback</small></a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>© Arthur Conmy</span>
+            <span><a href="/games/">bonus games</a> · draft design 2 of 2 · <a href="/new1/">see 1</a> · <a href="/">current site</a></span>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            var now = new Date();
+            var birthDate = new Date(2001, 0, 10);
+            var age = now.getFullYear() - birthDate.getFullYear();
+            var hasHadBirthday = now.getMonth() > birthDate.getMonth() ||
+                (now.getMonth() === birthDate.getMonth() && now.getDate() >= birthDate.getDate());
+
+            if (!hasHadBirthday) {
+                age -= 1;
+            }
+
+            document.querySelectorAll("[data-current-age]").forEach(function (node) {
+                node.textContent = String(age);
+            });
+
+            var sfStart = new Date(2026, 10, 14);
+            var inSF = now >= sfStart;
+            var location = inSF ? "SF" : "London";
+            var timeZone = inSF ? "America/Los_Angeles" : "Europe/London";
+
+            document.querySelectorAll("[data-current-location]").forEach(function (node) {
+                node.textContent = location;
+            });
+
+            var clock = document.querySelector("[data-local-time]");
+
+            function tick() {
+                try {
+                    clock.textContent = new Intl.DateTimeFormat("en-GB", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        timeZone: timeZone
+                    }).format(new Date());
+                } catch (error) {
+                    clock.textContent = "local time";
+                }
+            }
+
+            tick();
+            window.setInterval(tick, 30000);
+
+            // Cards: soft spotlight that follows the pointer.
+            document.querySelectorAll(".card").forEach(function (card) {
+                card.addEventListener("pointermove", function (event) {
+                    var rect = card.getBoundingClientRect();
+                    card.style.setProperty("--mx", (event.clientX - rect.left) + "px");
+                    card.style.setProperty("--my", (event.clientY - rect.top) + "px");
+                });
+            });
+
+            var emailAddress = "arthurconmy@gmail.com";
+
+            function fallbackCopyEmail() {
+                var textarea = document.createElement("textarea");
+                textarea.value = emailAddress;
+                textarea.setAttribute("readonly", "");
+                textarea.style.position = "fixed";
+                textarea.style.opacity = "0";
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                var copied = false;
+                try {
+                    copied = document.execCommand("copy");
+                } catch (error) {
+                    copied = false;
+                }
+
+                document.body.removeChild(textarea);
+                return copied;
+            }
+
+            function markEmailCopied(button, copied) {
+                var label = button.querySelector("[data-copy-label]");
+
+                if (!label) {
+                    return;
+                }
+
+                var defaultLabel = button.getAttribute("data-default-label") || label.textContent;
+                button.setAttribute("data-default-label", defaultLabel);
+                button.setAttribute("data-copied", "true");
+                label.textContent = copied ? "Copied" : emailAddress;
+
+                window.setTimeout(function () {
+                    label.textContent = defaultLabel;
+                    button.removeAttribute("data-copied");
+                }, 1800);
+            }
+
+            document.querySelectorAll("[data-copy-email]").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        navigator.clipboard.writeText(emailAddress).then(function () {
+                            markEmailCopied(button, true);
+                        }).catch(function () {
+                            markEmailCopied(button, fallbackCopyEmail());
+                        });
+                        return;
+                    }
+
+                    markEmailCopied(button, fallbackCopyEmail());
+                });
+            });
+        }());
+
+        // Illustrative attention patterns on the IOI prompt. Synthetic, not real model weights.
+        (function () {
+            var canvas = document.getElementById("attn");
+            var ctx = canvas.getContext("2d");
+            var caption = document.querySelector(".viz-caption");
+            var buttons = document.querySelectorAll(".heads button");
+            var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            var tokens = ["When", " Mary", " and", " John", " went", " to", " the", " store", ",", " John", " gave", " a", " drink", " to"];
+            var n = tokens.length;
+
+            function noise(i, j, k) {
+                var x = Math.sin(i * 12.9898 + j * 78.233 + k * 37.719) * 43758.5453;
+                return x - Math.floor(x);
+            }
+
+            var heads = [
+                {
+                    name: "Previous-token head",
+                    note: "Each token attends to the token just before it.",
+                    score: function (i, j) {
+                        return (j === i - 1 ? 4.2 : 0) + (j === i ? 0.8 : 0) + (j === 0 ? 0.6 : 0);
+                    }
+                },
+                {
+                    name: "Duplicate-token head",
+                    note: "The second “John” attends back to the first.",
+                    score: function (i, j) {
+                        return (i === 9 && j === 3 ? 4.6 : 0) + (i === 13 && j === 5 ? 3.8 : 0) + (j === i ? 2.4 : 0) + (j === 0 ? 0.8 : 0);
+                    }
+                },
+                {
+                    name: "Name-mover head",
+                    note: "The final “to” attends to “Mary”, the name the model predicts next.",
+                    score: function (i, j) {
+                        return (i === 13 && j === 1 ? 4.4 : 0) + (i === 13 && j === 3 ? 1.6 : 0) + (i >= 9 && (j === 1 || j === 3) ? 1.6 : 0) + (j === i ? 1.6 : 0) + (j === 0 ? 1 : 0);
+                    }
+                }
+            ];
+
+            var patterns = heads.map(function (head, k) {
+                var rows = [];
+                for (var i = 0; i < n; i++) {
+                    var row = [];
+                    var total = 0;
+                    for (var j = 0; j <= i; j++) {
+                        var value = Math.exp(head.score(i, j) + 0.9 * noise(i, j, k));
+                        row.push(value);
+                        total += value;
+                    }
+                    rows.push(row.map(function (value) { return value / total; }));
+                }
+                return rows;
+            });
+
+            var current = 2;
+            var from = 2;
+            var mix = 1;
+            var animStart = 0;
+            var hoverRow = -1;
+            var auto = !reduceMotion;
+            var autoTimer = null;
+            var layout = null;
+
+            function clean(token) {
+                return token.trim();
+            }
+
+            function weight(i, j) {
+                var a = patterns[from][i][j];
+                var b = patterns[current][i][j];
+                return a + (b - a) * mix;
+            }
+
+            function resize() {
+                var width = canvas.clientWidth;
+                var dpr = window.devicePixelRatio || 1;
+                var labelW = width < 400 ? 46 : 56;
+                var topH = width < 400 ? 42 : 52;
+                var cell = (width - labelW) / n;
+                var height = topH + cell * n;
+
+                canvas.width = Math.round(width * dpr);
+                canvas.height = Math.round(height * dpr);
+                canvas.style.height = height + "px";
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                layout = { width: width, labelW: labelW, topH: topH, cell: cell, font: width < 400 ? 9 : 10.5 };
+                draw();
+            }
+
+            function draw() {
+                if (!layout) {
+                    return;
+                }
+
+                var L = layout;
+                var gap = Math.max(1.5, L.cell * 0.1);
+                ctx.clearRect(0, 0, L.width, L.topH + L.cell * n);
+                ctx.font = "400 " + L.font + "px 'Geist Mono', ui-monospace, monospace";
+
+                // Key labels along the top, angled.
+                for (var j = 0; j < n; j++) {
+                    var kx = L.labelW + j * L.cell + L.cell / 2;
+                    var keyActive = hoverRow >= 0 && j <= hoverRow;
+                    ctx.save();
+                    ctx.translate(kx, L.topH - 6);
+                    ctx.rotate(-Math.PI / 4);
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = keyActive ? "rgba(236,238,243,0.85)" : "rgba(149,155,171,0.6)";
+                    ctx.fillText(clean(tokens[j]), 0, 0);
+                    ctx.restore();
+                }
+
+                for (var i = 0; i < n; i++) {
+                    var y = L.topH + i * L.cell;
+                    var rowActive = hoverRow === -1 || hoverRow === i;
+
+                    ctx.textAlign = "right";
+                    ctx.textBaseline = "middle";
+                    ctx.fillStyle = hoverRow === i ? "#eceef3" : "rgba(149,155,171,0.6)";
+                    ctx.fillText(clean(tokens[i]), L.labelW - 8, y + L.cell / 2);
+
+                    for (var c = 0; c < n; c++) {
+                        var x = L.labelW + c * L.cell;
+                        var size = L.cell - gap;
+                        var radius = Math.min(4, size * 0.2);
+
+                        if (c > i) {
+                            ctx.fillStyle = "rgba(255,255,255,0.018)";
+                            roundRect(x + gap / 2, y + gap / 2, size, size, radius);
+                            continue;
+                        }
+
+                        ctx.fillStyle = "rgba(255,255,255,0.045)";
+                        roundRect(x + gap / 2, y + gap / 2, size, size, radius);
+
+                        var w = Math.pow(weight(i, c), 0.75);
+                        var alpha = w * (rowActive ? 1 : 0.22);
+                        ctx.fillStyle = "rgba(255,122,61," + alpha.toFixed(3) + ")";
+                        roundRect(x + gap / 2, y + gap / 2, size, size, radius);
+                    }
+                }
+
+                if (hoverRow >= 0) {
+                    ctx.strokeStyle = "rgba(255,255,255,0.22)";
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.rect(L.labelW + 0.5, L.topH + hoverRow * L.cell + 0.5, (hoverRow + 1) * L.cell - 1, L.cell - 1);
+                    ctx.stroke();
+                }
+            }
+
+            function roundRect(x, y, w, h, r) {
+                ctx.beginPath();
+                ctx.moveTo(x + r, y);
+                ctx.arcTo(x + w, y, x + w, y + h, r);
+                ctx.arcTo(x + w, y + h, x, y + h, r);
+                ctx.arcTo(x, y + h, x, y, r);
+                ctx.arcTo(x, y, x + w, y, r);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            function updateCaption() {
+                var head = heads[current];
+
+                if (hoverRow >= 0) {
+                    var row = patterns[current][hoverRow];
+                    var best = 0;
+                    for (var j = 1; j < row.length; j++) {
+                        if (row[j] > row[best]) {
+                            best = j;
+                        }
+                    }
+                    caption.innerHTML = "";
+                    caption.appendChild(document.createTextNode(head.name + ": "));
+                    var em = document.createElement("em");
+                    em.textContent = "“" + clean(tokens[hoverRow]) + "” → “" + clean(tokens[best]) + "” " + row[best].toFixed(2);
+                    caption.appendChild(em);
+                    return;
+                }
+
+                caption.textContent = head.name + ". " + head.note;
+            }
+
+            function setHead(index, animate) {
+                if (index === current && mix === 1) {
+                    return;
+                }
+
+                from = current;
+                current = index;
+                buttons.forEach(function (button) {
+                    button.setAttribute("aria-pressed", button.getAttribute("data-head") === String(index) ? "true" : "false");
+                });
+                updateCaption();
+
+                if (!animate) {
+                    from = current;
+                    mix = 1;
+                    draw();
+                    return;
+                }
+
+                mix = 0;
+                animStart = performance.now();
+                requestAnimationFrame(step);
+            }
+
+            function step(time) {
+                var t = Math.min(1, (time - animStart) / 900);
+                mix = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                draw();
+                if (t < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+
+            function startAuto() {
+                if (!auto) {
+                    return;
+                }
+                autoTimer = window.setInterval(function () {
+                    if (hoverRow === -1 && !document.hidden) {
+                        setHead((current + 1) % heads.length, true);
+                    }
+                }, 4200);
+            }
+
+            function stopAuto() {
+                auto = false;
+                window.clearInterval(autoTimer);
+            }
+
+            function rowFromEvent(event) {
+                var rect = canvas.getBoundingClientRect();
+                var y = event.clientY - rect.top;
+                var row = Math.floor((y - layout.topH) / layout.cell);
+                return row >= 0 && row < n ? row : -1;
+            }
+
+            canvas.addEventListener("pointermove", function (event) {
+                var row = rowFromEvent(event);
+                if (row !== hoverRow) {
+                    hoverRow = row;
+                    updateCaption();
+                    draw();
+                }
+            });
+
+            canvas.addEventListener("pointerleave", function () {
+                hoverRow = -1;
+                updateCaption();
+                draw();
+            });
+
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    stopAuto();
+                    setHead(Number(button.getAttribute("data-head")), !reduceMotion);
+                });
+            });
+
+            if ("ResizeObserver" in window) {
+                new ResizeObserver(resize).observe(canvas);
+            } else {
+                window.addEventListener("resize", resize);
+            }
+
+            if (document.fonts && document.fonts.ready) {
+                document.fonts.ready.then(draw);
+            }
+
+            resize();
+            updateCaption();
+            startAuto();
+        }());
+    </script>
+</body>
+</html>
